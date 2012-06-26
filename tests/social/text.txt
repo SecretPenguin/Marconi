@@ -1,0 +1,1 @@
+This is the file that generates the stuff that the user can input into the box. We would need to figure out how the user will be able to type multiple things since the Hacker Typer thing only had one. 
