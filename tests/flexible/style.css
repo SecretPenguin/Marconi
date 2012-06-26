@@ -89,6 +89,7 @@ body {
 	width:540px;
 	border:1px solid #000;
 	padding-right:8px; /* Set based on width and position of handle on highest value */
+	position:relative;
 	}
 	
 #range {
@@ -118,4 +119,28 @@ body {
 	z-index:2;
 	background:red;
 	margin-left:-7px;
+	}
+	
+/* Credits */
+
+#credits {
+	position:absolute;
+	left:0;
+	top:0;
+	width:263px;
+	height:15px;
+	}
+	
+.credit {
+	float:left;
+	width:10%;
+	font-size:10px;
+	text-align:center;
+	line-height:15px;
+	}
+	
+/* Animations */
+
+#animate div {
+	display:none;
 	}

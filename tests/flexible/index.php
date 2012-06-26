@@ -26,13 +26,38 @@
 <li><a href="javascript:void(0);">Dec</a></li>
 </ul>
 
-<p>Start Month = <span id="startMonth"></span></p>
-<p>End Month = <span id="endMonth"></span></p>
+<p>Start Month = <span id="startMonth">January</span></p>
+<p>End Month = <span id="endMonth">July</span></p>
 <div id="flexible-container">
+	<div id="credits">
+		<div class="credit">&copy;</div>
+		<div class="credit">&copy;</div>
+		<div class="credit">&copy;</div>
+		<div class="credit">&copy;</div>
+		<div class="credit">&copy;</div>
+		<div class="credit">&copy;</div>
+		<div class="credit">&copy;</div>
+		<div class="credit">&copy;</div>
+		<div class="credit">&copy;</div>
+		<div class="credit">&copy;</div>
+	</div>
 	<div id="range"></div>
 </div>
 
-<p>Updated End Month = <span id="amount"></span></p>
+<div id="animate">
+	<div id="January">Janimation!</div>
+	<div id="February">Februamation!</div>
+	<div id="March">March Animation!</div>
+	<div id="April">April Animation!</div>
+	<div id="May">Maytion!</div>
+	<div id="June">June Animation!</div>
+	<div id="July">July Animation!</div>
+	<div id="August">August Animation!</div>
+	<div id="September">September Animation!</div>
+	<div id="October">October Animation!</div>
+	<div id="November">November Animation!</div>
+	<div id="December">December Animation!</div>
+</div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="../../js/jquery-ui-1.8.21.custom.min.js"></script>
@@ -46,26 +71,36 @@ var endMonth = 6;
 
 $('#months a').click(function(){
 	curMonth = $(this).parent().index();
-	$('#startMonth').html(curMonth);
-	$('#endMonth').html(curMonth + 6);
+	$('#startMonth').html(months[curMonth]);
 	endMonth = (curMonth + 6);
+	$('#endMonth').html(months[endMonth]);
 });
 
-$(function() {
-	$( "#range" ).slider({
-		range: "min",
-		value: 1,
-		min: 1,
-		max: 18,
-		slide: function( event, ui ) {
-			var slideVal = ui.value;
-			var newEndMonth = endMonth + slideVal;
-			$( "#amount" ).html(newEndMonth);
-		},
-		stop: function( event, ui ) {
-			/* Trigger Animate Function */
+$('#range').slider({
+	range: 'min',
+	value: 1,
+	min: 1,
+	max: 18,
+	slide: function( event, ui ) {
+		var dateOffset = ui.value - 1;
+		var newEndMonth = endMonth + dateOffset;
+		if (newEndMonth > 35) {
+			newEndMonth = newEndMonth - 36;
+		} else if (newEndMonth > 23) {
+			newEndMonth = newEndMonth - 24;
+		} else if (newEndMonth > 11) {
+			newEndMonth = newEndMonth - 12;
 		}
-	});
+		$('#endMonth').html(months[newEndMonth]);
+		var creditWidth = 263 + (16 * dateOffset);
+		$('#credits').css('width', creditWidth);
+	},
+	stop: function( event, ui ) {
+		/* Trigger Animate Function */
+		var monthID = $('#endMonth').text();
+		$('#animate div').hide();
+		$('#'+monthID).fadeIn();
+	}
 });
 </script>
 
