@@ -11,6 +11,14 @@
 </head>
 <body>
 
+Notes:<br/>
+Month Range - Display the next set of months starting at the current month<br/>
+Credits - Possibly run some simple math to give people an idea of credit hours per month<br/>
+<br/>
+Resources:<br/>
+<a href="http://jqueryui.com/demos/slider/">http://jqueryui.com/demos/slider/</a><br/>
+<br/>
+
 <ul id="months">
 <li><a href="javascript:void(0);">Jan</a></li>
 <li><a href="javascript:void(0);">Feb</a></li>
