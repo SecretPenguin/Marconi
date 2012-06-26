@@ -28,6 +28,7 @@
 
 <p>Start Month = <span id="startMonth">January</span></p>
 <p>End Month = <span id="endMonth">July</span></p>
+<p>Duration = <span id="durYears">1 Year</span> <span id="durMonths">6 Months</span></p>
 <div id="flexible-container">
 	<div id="credits">
 		<div class="credit">&copy;</div>
@@ -96,6 +97,24 @@ $('#range').slider({
 			newEndMonth = newEndMonth - 12;
 		}
 		$('#endMonth').html(months[newEndMonth]);
+		
+		/* Set Total Time to complete program */
+		/* Years */
+		var durYears = Math.floor((18 + dateOffset)/12);
+		if (durYears < 2) {
+			$('#durYears').html(durYears+' Year');
+		} else {
+			$('#durYears').html(durYears+' Years');
+		}
+		/* Months */
+		var durMonths = ((18 + dateOffset)%12);
+		if (durMonths > 1) {
+			$('#durMonths').html(durMonths+' Months');
+		} else if (durMonths == 1) {
+			$('#durMonths').html(durMonths+' Month');
+		} else if (durMonths == 0) {
+			$('#durMonths').html('');
+		}
 		
 		/* Set CSS width of Credits to expand with slider */
 		var creditWidth = 263 + (16 * dateOffset);
