@@ -65,23 +65,27 @@
 
 var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
-/* Set Current Month */
+/* Set Global Month Variables */
 var curMonth = 0;
 var endMonth = 6;
 
+/* Set Current Month and Minimum End Month */
 $('#months a').click(function(){
 	curMonth = $(this).parent().index();
 	$('#startMonth').html(months[curMonth]);
+	/* Minimum End Month is 18 Months after Start */
 	endMonth = (curMonth + 6);
 	$('#endMonth').html(months[endMonth]);
 });
 
+/* Range Slider set to 18 month range */
 $('#range').slider({
 	range: 'min',
 	value: 1,
 	min: 1,
 	max: 18,
 	slide: function( event, ui ) {
+		/* Set Month with Array - Keep Integer range 0 to 11 */
 		var dateOffset = ui.value - 1;
 		var newEndMonth = endMonth + dateOffset;
 		if (newEndMonth > 35) {
@@ -92,11 +96,13 @@ $('#range').slider({
 			newEndMonth = newEndMonth - 12;
 		}
 		$('#endMonth').html(months[newEndMonth]);
+		
+		/* Set CSS width of Credits to expand with slider */
 		var creditWidth = 263 + (16 * dateOffset);
 		$('#credits').css('width', creditWidth);
 	},
 	stop: function( event, ui ) {
-		/* Trigger Animate Function */
+		/* Trigger Animation */
 		var monthID = $('#endMonth').text();
 		$('#animate div').hide();
 		$('#'+monthID).fadeIn();
