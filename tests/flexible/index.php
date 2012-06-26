@@ -42,12 +42,13 @@ var months = ["January","February","March","April","May","June","July","August",
 
 /* Set Current Month */
 var curMonth = 0;
-var endMonth = 5;
+var endMonth = 6;
 
 $('#months a').click(function(){
 	curMonth = $(this).parent().index();
 	$('#startMonth').html(curMonth);
 	$('#endMonth').html(curMonth + 6);
+	endMonth = (curMonth + 6);
 });
 
 $(function() {
