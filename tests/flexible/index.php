@@ -84,6 +84,9 @@ $('#months a').click(function(){
 	$('#startMonth').html(months[curMonth]);
 	/* Minimum End Month is 18 Months after Start */
 	endMonth = (curMonth + 6);
+	if (curMonth > 5) {
+		endMonth = (curMonth -6);
+	}
 	$('#endMonth').html(months[endMonth]);
 });
 
