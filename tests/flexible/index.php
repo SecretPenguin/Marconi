@@ -83,9 +83,10 @@ $('#months a').click(function(){
 	curMonth = $(this).parent().index();
 	$('#startMonth').html(months[curMonth]);
 	/* Minimum End Month is 18 Months after Start */
-	endMonth = (curMonth + 6);
 	if (curMonth > 5) {
 		endMonth = (curMonth -6);
+	} else {
+		endMonth = (curMonth + 6);
 	}
 	$('#endMonth').html(months[endMonth]);
 });
@@ -97,16 +98,10 @@ $('#range').slider({
 	min: 1,
 	max: 18,
 	slide: function( event, ui ) {
-		/* Set Month with Array - Keep Integer range 0 to 11 */
+		/* Start Date Range at 0 */
 		var dateOffset = ui.value - 1;
-		var newEndMonth = endMonth + dateOffset;
-		if (newEndMonth > 35) {
-			newEndMonth = newEndMonth - 36;
-		} else if (newEndMonth > 23) {
-			newEndMonth = newEndMonth - 24;
-		} else if (newEndMonth > 11) {
-			newEndMonth = newEndMonth - 12;
-		}
+		/* Update End Month */
+		var newEndMonth = (endMonth + dateOffset)%12;
 		$('#endMonth').html(months[newEndMonth]);
 		
 		/* Set Total Time to complete program */
