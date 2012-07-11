@@ -90,13 +90,6 @@ display:block;
 	height:5000px;
 	position:relative;
 	}
-	
-#output {
-	position:fixed;
-	top:0;
-	z-index:1000;
-	background:#fff;
-	}
 		
 #screen {
 	position:relative;
@@ -111,10 +104,11 @@ display:block;
 	height:350px;
 	margin:-175px 0 0 -75px;
 	position:absolute;
-	left:50%;
+/* 	left:50%; */
+	left:75px;
 	top:50%;
-	background:red;
-	z-index:10;
+	background:url(bryan-sprite.jpg) no-repeat left 0;
+	z-index:20;
 	}
 	
 #wall {
@@ -122,12 +116,21 @@ display:block;
 	height:100%;
 	position:absolute;
 	left:0;
-	background:#000;
-	opacity:0.3;
+	background:#333;
+/* 	opacity:0.3; */
+	z-index:10;
 	}
 	
 #projectile {
-	
+	position:absolute;
+	z-index:1;
+	background:#000;
+	width:50px;
+	height:50px;
+	top:50%;
+	margin-top:-25px;
+	right:-50px;
+	border-radius:25px;
 	}
 
 .fixTop {
@@ -145,3 +148,10 @@ display:block;
 	bottom:0!important;
 	top:auto!important;
 	}
+
+#person.f0 { background-position: right -700px; }
+#person.f1 { background-position: right 0; }
+#person.f2 { background-position: left -350px; }
+#person.f3 { background-position: right -350px; }
+#person.f4 { background-position: left -700px; }
+#person.f5 { background-position: left 0; }
