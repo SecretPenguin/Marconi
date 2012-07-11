@@ -15,11 +15,13 @@
 <div id="walking">
 	<div id="screen">
 		<div id="person"></div>
+		<div id="person2"></div>
 		<div id="wall"></div>
 		<div id="projectile"></div>
+		<div id="play"><p><a class="scroll" href="#End">Play</a></p></div>
 	</div>
 </div>
-
+<div id="End"></div>
 <div class="space"></div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -85,6 +87,29 @@ $(window).on('scroll', function () {
 		$('#projectile').css('right', '-50px');
 	}
 	
+	
+	
+	
+	if ( (distance <= walkingHeight) && (distance >= -(screenHeight)) ) {
+		spriteSpeed = 100;
+		spriteNum = 6;
+		mySprite();
+		if ( spriteUpdate == 0 ) {
+			$('#person, #person2').removeClass().addClass('f0');
+		} else if ( spriteUpdate == 1 ) {
+			$('#person, #person2').removeClass().addClass('f1');
+		} else if ( spriteUpdate == 2 ) {
+			$('#person, #person2').removeClass().addClass('f2');
+		} else if ( spriteUpdate == 3 ) {
+			$('#person, #person2').removeClass().addClass('f3');
+		} else if ( spriteUpdate == 4 ) {
+			$('#person, #person2').removeClass().addClass('f4');
+		} else if ( spriteUpdate == 5 ) {
+			$('#person, #person2').removeClass().addClass('f5');
+		}
+	}
+	
+	/* Walking Across Test */
 	if ( distance >= 500 ) {
 		animOrigin = 75;
 		animTrigger = 500;
@@ -95,25 +120,16 @@ $(window).on('scroll', function () {
 		$('#person').css('left', '75px');
 	}
 	
-	if ( (distance <= walkingHeight) && (distance >= -(screenHeight)) ) {
-		spriteSpeed = 100;
-		spriteNum = 6;
-		mySprite();
-		if ( spriteUpdate == 0 ) {
-			$('#person').removeClass().addClass('f0');
-		} else if ( spriteUpdate == 1 ) {
-			$('#person').removeClass().addClass('f1');
-		} else if ( spriteUpdate == 2 ) {
-			$('#person').removeClass().addClass('f2');
-		} else if ( spriteUpdate == 3 ) {
-			$('#person').removeClass().addClass('f3');
-		} else if ( spriteUpdate == 4 ) {
-			$('#person').removeClass().addClass('f4');
-		} else if ( spriteUpdate == 5 ) {
-			$('#person').removeClass().addClass('f5');
-		}
-	}
-
+	/* Walking Back Test */
+	if ( distance >= 2500 ) {
+		animOrigin = -1075;
+		animTrigger = 500;
+		animSpeed = 2;
+		myCalc();
+		$('#person2').css('right', animUpdate);
+	} else {
+		$('#person2').css('right', '-75px');
+	}	
 	
 /*
 	if ( (distance <= walkingHeight) && (distance >= -(screenHeight)) ) {
@@ -136,8 +152,29 @@ $(window).on('scroll', function () {
 	}
 */
 
-console.log(spriteUpdate);
+console.log(distance);
 
+});
+
+
+/* Auto Play */
+jQuery(".scroll").click(function(event){
+	//prevent the default action for the click event
+	event.preventDefault();
+
+	//get the full url - like mysitecom/index.htm#home
+	var full_url = this.href;
+
+	//split the url by # and get the anchor target name - home in mysitecom/index.htm#home
+	var parts = full_url.split("#");
+	var trgt = parts[1];
+
+	//get the top offset of the target anchor
+	var target_offset = jQuery("#"+trgt).offset();
+	var target_top = target_offset.top;
+
+	//goto that anchor by setting the body scroll top to anchor top
+	jQuery('html, body').animate({scrollTop:target_top}, 10000);
 });
 
 </script>

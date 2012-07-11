@@ -99,7 +99,7 @@ display:block;
 	top:0;
 	}
 	
-#person {
+#person, #person2 {
 	width:150px;
 	height:350px;
 	margin:-175px 0 0 -75px;
@@ -109,6 +109,13 @@ display:block;
 	top:50%;
 	background:url(bryan-sprite.jpg) no-repeat left 0;
 	z-index:20;
+	}
+	
+#person2 {
+	margin:-175px -75px 0 0;
+	left:auto;
+	right:1075px;
+	background:url(bryan-sprite2.jpg) no-repeat left 0;
 	}
 	
 #wall {
@@ -131,6 +138,20 @@ display:block;
 	margin-top:-25px;
 	right:-50px;
 	border-radius:25px;
+	}
+	
+#play {
+	padding:5px;
+	background:#000;
+	position:absolute;
+	top:0;
+	right:0;
+	}
+	
+#play a {
+	color:#fff;
+	text-decoration:none;
+	font-weight:bold;
 	}
 
 .fixTop {
@@ -155,3 +176,10 @@ display:block;
 #person.f3 { background-position: right -350px; }
 #person.f4 { background-position: left -700px; }
 #person.f5 { background-position: left 0; }
+
+#person2.f0 { background-position: left -700px; }
+#person2.f1 { background-position: left 0; }
+#person2.f2 { background-position: right -350px; }
+#person2.f3 { background-position: left -350px; }
+#person2.f4 { background-position: right -700px; }
+#person2.f5 { background-position: right 0; }
