@@ -6,5 +6,5 @@
 <li><a href="flexible">Flexible</a></li>
 <li><a href="social">Social</a></li>
 <li><a href="triggers">Triggers</a></li>
-<li><a href="walking">Relevant</a></li>
+<li><a href="relevant">Relevant</a></li>
 </ul>

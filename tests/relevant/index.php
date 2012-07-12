@@ -14,6 +14,9 @@
 
 <div id="walking">
 	<div id="screen">
+		<p id="t1" class="tagline">A tagline begins and displays related animations...</p>
+		<p id="t2" class="tagline">... and is expanded upon with more relevant animations ...</p>
+		<p id="t3" class="tagline">... and concludes with victorious animations!</p>
 		<div id="person"></div>
 		<div id="person2"></div>
 		<div id="wall"></div>
@@ -76,10 +79,11 @@ $(window).on('scroll', function () {
 		spriteUpdate = Math.abs((Math.ceil(distance/spriteSpeed))%spriteNum); /* Example: at 250px scrolled 25 frames will have switched and 5 complete animation cycles will have occurred */
 	}
 	
-	if ( distance >= 500 ) {
+	/* Projectile Test */
+	if ( distance >= 1000 ) {
 		/* animation */
 		animOrigin = -50;
-		animTrigger = 500; /* Same as start position in if statement */
+		animTrigger = 1000; /* Same as start position in if statement */
 		animSpeed = 2;
 		myCalc();
 		$('#projectile').css('right', animUpdate);
@@ -87,9 +91,7 @@ $(window).on('scroll', function () {
 		$('#projectile').css('right', '-50px');
 	}
 	
-	
-	
-	
+	/* Walking Sprite Update */
 	if ( (distance <= walkingHeight) && (distance >= -(screenHeight)) ) {
 		spriteSpeed = 100;
 		spriteNum = 6;
@@ -109,10 +111,10 @@ $(window).on('scroll', function () {
 		}
 	}
 	
-	/* Walking Across Test */
-	if ( distance >= 500 ) {
+	/* Walking Right Test */
+	if ( distance >= 1000 ) {
 		animOrigin = 75;
-		animTrigger = 500;
+		animTrigger = 1000;
 		animSpeed = 2;
 		myCalc();
 		$('#person').css('left', animUpdate);
@@ -120,18 +122,33 @@ $(window).on('scroll', function () {
 		$('#person').css('left', '75px');
 	}
 	
-	/* Walking Back Test */
-	if ( distance >= 2500 ) {
+	/* Walking Left Test */
+	if ( distance >= 3000 ) {
 		animOrigin = -1075;
-		animTrigger = 500;
+		animTrigger = 1000;
 		animSpeed = 2;
 		myCalc();
 		$('#person2').css('right', animUpdate);
 	} else {
 		$('#person2').css('right', '-75px');
-	}	
+	}
 	
-/*
+	/* Taglines */
+	if ( distance >= 4000 ) {
+		$('#t3').fadeIn();
+		$('#t2, #t1').hide();
+	} else if ( (distance >= 3800) && (distance < 4000) ) {
+		$('#t2, #t3').fadeOut();
+		$('#t1').hide();
+	} else if ( (distance >= 2000) && (distance < 3800) ) {
+		$('#t2').fadeIn();
+	} else if ( (distance >= 1800) && (distance < 2000) ) {
+		$('#t1, #t2').fadeOut();
+	} else {
+		$('#t1').fadeIn();
+	}
+	
+/* Used in place of setting classes - requires backgroundPosition Plugin
 	if ( (distance <= walkingHeight) && (distance >= -(screenHeight)) ) {
 		spriteSpeed = 100;
 		mySprite();
@@ -158,6 +175,9 @@ console.log(distance);
 
 
 /* Auto Play */
+/* Note: need to cancel scroll if user clicks or tries to scroll
+	- set scroll speed based on various starting positions - how close are you to bottom of animation?
+ */
 jQuery(".scroll").click(function(event){
 	//prevent the default action for the click event
 	event.preventDefault();

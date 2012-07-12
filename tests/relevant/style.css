@@ -99,6 +99,23 @@ display:block;
 	top:0;
 	}
 	
+.tagline {
+	color:#fff;
+	font-family:arial;
+	font-size:16px;
+	text-transform:uppercase;
+	line-height:26px;
+	text-align:center;
+	width:960px;
+	position:absolute;
+	top:0;
+	z-index:100;
+	}
+	
+#t2, #t3 {
+	display:none;
+	}
+	
 #person, #person2 {
 	width:150px;
 	height:350px;
@@ -146,6 +163,7 @@ display:block;
 	position:absolute;
 	top:0;
 	right:0;
+	z-index:1000;
 	}
 	
 #play a {
