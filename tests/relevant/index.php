@@ -32,6 +32,8 @@
 <script>
 
 var sceneHeight = 5000;
+var scrollSpeed = 10000; /* Base speed */
+var setSpeed = 2; /* Scroll speed per pixel */
 
 $('#screen').height($(window).height());
 var screenHeight = $('#screen').height();
@@ -54,6 +56,9 @@ $(window).on('scroll', function () {
 	var scrollTop = $(window).scrollTop(),
 	walkingOffset = $('#walking').offset().top,
 	distance = -(walkingOffset - scrollTop);
+	
+	/* Update play speed based on distance from end */
+	scrollSpeed = (walkingHeight - distance)*setSpeed;
 	
 	/* Keep scene still during scroll */
 	if ( (distance < 0) ) {
@@ -142,6 +147,7 @@ $(window).on('scroll', function () {
 		$('#t1').hide();
 	} else if ( (distance >= 2000) && (distance < 3800) ) {
 		$('#t2').fadeIn();
+		$('#t1, #t3').fadeOut();
 	} else if ( (distance >= 1800) && (distance < 2000) ) {
 		$('#t1, #t2').fadeOut();
 	} else {
@@ -175,27 +181,28 @@ console.log(distance);
 
 
 /* Auto Play */
-/* Note: need to cancel scroll if user clicks or tries to scroll
-	- set scroll speed based on various starting positions - how close are you to bottom of animation?
- */
-jQuery(".scroll").click(function(event){
-	//prevent the default action for the click event
+$('.scroll').click(function(event){
 	event.preventDefault();
-
-	//get the full url - like mysitecom/index.htm#home
 	var full_url = this.href;
-
-	//split the url by # and get the anchor target name - home in mysitecom/index.htm#home
+	//split the url by # and get the anchor target name
 	var parts = full_url.split("#");
 	var trgt = parts[1];
-
 	//get the top offset of the target anchor
-	var target_offset = jQuery("#"+trgt).offset();
+	var target_offset = $("#"+trgt).offset();
 	var target_top = target_offset.top;
-
 	//goto that anchor by setting the body scroll top to anchor top
-	jQuery('html, body').animate({scrollTop:target_top}, 10000);
+	// Set scrollSpeed by setting setSpeed
+	$('html, body').stop().animate({scrollTop:target_top}, scrollSpeed);
+
+	// Stop animation on scroll
+	$('body, html').bind('scroll mousedown DOMMouseScroll mousewheel keyup', function(e){
+		if ( e.which > 0 || e.type == "mousedown" || e.type == "mousewheel"){
+			$("html,body").stop().unbind();
+		}
+	});
 });
+
+
 
 </script>
 
