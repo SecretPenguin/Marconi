@@ -81,7 +81,7 @@ display:block;
 
 body {
 	min-width:960px;
-	background:url(images/grid.gif) repeat center;
+/* 	background:url(images/grid.gif) repeat center; */
 	}
 
 .center {
@@ -95,7 +95,7 @@ body {
 	}
 
 #cogs {
-	height:12000px;
+	height:18000px;
 	position:relative;
 	}
 		
@@ -134,7 +134,7 @@ body {
 /* Cogs */
 
 #cogShift {
-	height:4000px;
+	height:6000px;
 	width:100%;
 	position:absolute;
 	left:0;
@@ -178,80 +178,141 @@ body {
 
 #cog1 {
 	margin-left:-195px;
-	top:0;
+	top:2000px;;
 	}
 	
 #cog2 {
 	margin-left:-71px;
-	top:69px;
+	top:2069px;
 	}
 	
 #cog3 {
 	margin-left:-433px;
-	top:265px;
+	top:2265px;
 	}
 	
 #cog4 {
 	margin-left:-132px;
-	top:585px;
+	top:2585px;
 	}
 	
 #cog5 {
 	margin-left:-159px;
-	top:1115px;
+	top:3115px;
 	}
 	
 #cog6 {
 	margin-left:-35px;
-	top:1184px;
+	top:3184px;
 	}
 	
 #cog7 {
 	margin-left:-397px;
-	top:1380px;
+	top:3380px;
 	}
 	
-#cog8 {
-	margin-left:-96px;
-	top:1700px;
+#cog8, #cog8mask {
+	width:740px;
+	height:740px;
+	background:url(images/text-cog.gif) no-repeat;
+	z-index:-10;
+	margin-left:-146px;
+	top:3650px;
+	}
+	
+#cog8mask {
+	background:url(images/test-mask.gif) no-repeat;
+	z-index:-5;
 	}
 		
 #cog9 {
 	margin-left:-159px;
-	top:2196px;
+	top:4196px;
 	}
 	
 #cog10 {
 	margin-left:-35px;
-	top:2265px;
+	top:4265px;
 	}
 	
 #cog11 {
 	margin-left:-397px;
-	top:2461px;
+	top:4461px;
 	}
 	
 #cog12 {
 	margin-left:-96px;
-	top:2781px;
+	top:4781px;
 	}
 	
 #cog13 {
 	margin-left:-159px;
-	top:3277px;
+	top:5277px;
 	}
 	
 #cog14 {
 	margin-left:-35px;
-	top:3346px;
+	top:5346px;
 	}
 	
 #cog15 {
 	margin-left:-397px;
-	top:3542px;
+	top:5542px;
 	}
 	
 #cog16 {
 	margin-left:-96px;
-	top:3862px;
+	top:5862px;
+	}
+
+/* Tagline */
+
+#cogTagline {
+	position:absolute;
+	top:50%;
+	width:100%;
+	}
+	
+#cogTagline h2 {
+	position:relative;
+	height:60px;
+	font-size:60px;
+	margin:-30px auto 0;
+	width:500px;
+	text-align:center;
+	}
+	
+#cogLeft, #cogRight {
+	position:absolute;
+	}
+	
+#cogLeft {
+	top:-95px;
+	left:50%;
+	margin-left:-440px;
+	}
+	
+#cogRight {
+	top:-170px;
+	right:50%;
+	margin-right:-590px;
+	}
+
+#hideLeft, #hideRight {
+	position:absolute;
+	top:50%;
+	margin-top:-50px;
+	height:100px;
+	background:#fff;
+	width:250px;
+	}
+	
+#hideLeft {
+	left:50%;
+	margin-left:-525px;
+	}
+	
+#hideRight {
+	right:50%;
+	margin-right:-525px;
 	}

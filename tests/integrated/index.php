@@ -17,6 +17,13 @@
 <div id="cogs">
 	<div id="screen">
 		<div id="play"><p><a class="scroll" href="#End">Play</a></p></div>
+		<div id="cogTagline">
+			<h2>Integrated Tagline</h2>
+			<div id="hideLeft"></div>
+			<div id="hideRight"></div>
+			<div id="cogLeft" class="cogS norm"></div>
+			<div id="cogRight" class="cogM rev"></div>
+		</div>
 		<div id="cogShift">
 			<div id="cog1" class="cogS norm"></div>
 			<div id="cog2" class="cogM rev"></div>
@@ -26,6 +33,7 @@
 			<div id="cog6" class="cogM rev"></div>
 			<div id="cog7" class="cogL norm"></div>
 			<div id="cog8" class="cogXL rev"></div>
+			<div id="cog8mask"></div>
 			<div id="cog9" class="cogS norm"></div>
 			<div id="cog10" class="cogM rev"></div>
 			<div id="cog11" class="cogL norm"></div>
@@ -46,9 +54,9 @@
 <script src="jQueryRotate.2.2.js"></script>
 <script>
 
-var sceneHeight = 12000;
-var scrollSpeed = 10000; /* Base speed */
-var setSpeed = 2; /* Scroll speed per pixel */
+var sceneHeight = 18000;
+var scrollSpeed = 10000; // Base speed
+var setSpeed = 2; // Scroll speed per pixel
 
 $('#screen').height($(window).height());
 var screenHeight = $('#screen').height();
@@ -59,14 +67,14 @@ $(window).resize(function() {
 });
 
 $(window).on('scroll', function () {
-	var scrollTop = $(window).scrollTop(),
-	cogsOffset = $('#cogs').offset().top,
+	var scrollTop = $(window).scrollTop();
+	cogsOffset = $('#cogs').offset().top;
 	distance = -(cogsOffset - scrollTop);
 	
-	/* Update play speed based on distance from end */
+	// Update play speed based on distance from end
 	scrollSpeed = (sceneHeight - distance)*setSpeed;
 	
-	/* Keep scene still during scroll */
+	// Keep scene still during scroll
 	if ( (distance < 0) ) {
 		$('#screen').removeClass().addClass('stickTop');
 	} else if ( distance >= sceneHeight ) {
@@ -75,15 +83,15 @@ $(window).on('scroll', function () {
 		$('#screen').removeClass().addClass('fixTop');
 	}
 	
-	var animOrigin = 0; /* Element offset */
-	var animTrigger = 1;
-	var animSpeed = 2; /* Default Speed updates number at 1/2 rate of pixels scroll - keep full pixel movement to trigger sprites */
-	var animUpdate;
-	function myCalc() {
+	var animUpdate; // Used only for console.log
+	function myCalc(animOrigin, animTrigger, animSpeed) {
+		// animOrigin = Element offset
+		// animTrigger = Position of variable "distance" when animation begins
+		// animSpeed = Pixels scrolled per pixels moved. 2 = 1px moved to 2px scrolled
 		animUpdate = (distance - animTrigger)/animSpeed + animOrigin;
 	}
 	
-	/* Rotation */
+	// Rotation
 	var rotateSpeedS = distance/2;
 	var rotateSpeedM = distance/4;
 	var rotateSpeedL = distance/6;
@@ -99,49 +107,46 @@ $(window).on('scroll', function () {
 		$('.cogXL.norm').rotate(rotateSpeedXL);
 	}
 	
-	/* Cog Scroll */
+	// Cog Scroll
 	var cogScroll = -distance/3;
 	if ( (distance >= 0) && (distance <= sceneHeight) ) {
 		$('#cogShift').css('top', cogScroll);
 	}
 	
-	/* Cogs Shift Test */
-	if ( (distance >= 1500) && (distance < 4000) ) {
-		animOrigin = 0;
-		animTrigger = 1500;
-		animSpeed = 30;
-		myCalc();
+	// Cogs Shift Test
+	if ( (distance >= 5500) && (distance < 8000) ) {
+		myCalc(0,5500,30);
 		$('#cogShift').css('left', animUpdate);
-	} else if ( (distance >= 5000) && (distance <= 9500) ) {
-		animOrigin = 84; /* Previous animations end position */
-		animTrigger = 5000;
-		animSpeed = 25;
-		myCalc();
-		var animUpdateTurn = -(animUpdate - 2*animOrigin); /* Very crappy way of switching movement of animation */
+	} else if ( (distance >= 9000) && (distance <= 13500) ) {
+		myCalc(84,9000,25);
+		var animUpdateTurn = -(animUpdate - 2*84); // Very crappy way of switching movement of animation
 		$('#cogShift').css('left', animUpdateTurn);
 	}
 	
-	/* Taglines */
-	if ( distance >= 4000 ) {
-		$('#t3').fadeIn();
-		$('#t2, #t1').hide();
-	} else if ( (distance >= 3800) && (distance < 4000) ) {
-		$('#t2, #t3').fadeOut();
-		$('#t1').hide();
-	} else if ( (distance >= 2000) && (distance < 3800) ) {
-		$('#t2').fadeIn();
-		$('#t1, #t3').fadeOut();
-	} else if ( (distance >= 1800) && (distance < 2000) ) {
-		$('#t1, #t2').fadeOut();
-	} else {
-		$('#t1').fadeIn();
+	// Taglines
+	if ( distance < 500 ) {
+		$('#cogLeft').css('margin-left', '-440px');
+		$('#cogRight').css('margin-right', '-590px');
+		$('#hideLeft').css('margin-left', '-525px');
+		$('#hideRight').css('margin-right', '-525px');
+	} else if ( (distance >= 500) && (distance <= 1540) ) {
+		myCalc(0,500,4);
+		$('#cogLeft').css('margin-left', (-440 + animUpdate));
+		$('#cogRight').css('margin-right', (-590 + animUpdate ));
+		$('#hideLeft').css('margin-left', (-525 + animUpdate));
+		$('#hideRight').css('margin-right', (-525 + animUpdate));
+	} else if ( (distance > 1540) && (distance <= sceneHeight) ) {
+		myCalc(0,1540,5);
+		$('#cogTagline').css('margin-top', -animUpdate);
+		$('#cogLeft').css('margin-left', '-180px');
+		$('#cogRight').css('margin-right', '-330px');
 	}
 	
 console.log(distance);
 
 });
 
-/* Auto Play */
+// Auto Play
 $('.scroll').click(function(event){
 	event.preventDefault();
 	var full_url = this.href;
@@ -153,7 +158,7 @@ $('.scroll').click(function(event){
 	var target_top = target_offset.top;
 	//goto that anchor by setting the body scroll top to anchor top
 	// Set scrollSpeed by setting setSpeed
-	$('html, body').stop().animate({scrollTop:target_top}, scrollSpeed);
+	$('html, body').stop().animate({scrollTop:target_top}, scrollSpeed, 'linear');
 
 	// Stop animation on scroll
 	$('body, html').bind('scroll mousedown DOMMouseScroll mousewheel keyup', function(e){

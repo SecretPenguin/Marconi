@@ -32,15 +32,15 @@
 <script>
 
 var sceneHeight = 5000;
-var scrollSpeed = 10000; /* Base speed */
-var setSpeed = 2; /* Scroll speed per pixel */
+var scrollSpeed = 10000; // Base speed
+var setSpeed = 2; // Scroll speed per pixel
 
 $('#screen').height($(window).height());
 var screenHeight = $('#screen').height();
 $('#walking').height(screenHeight + sceneHeight);
 var walkingHeight = $('#walking').height();
 var difHeight = (walkingHeight - screenHeight);
-/* var totalHeight = (walkingHeight + screenHeight); */
+// var totalHeight = (walkingHeight + screenHeight);
 
 
 $(window).resize(function() {
@@ -49,18 +49,18 @@ $(window).resize(function() {
 	$('#walking').height(screenHeight + sceneHeight);
 	var walkingHeight = $('#walking').height();
 	var difHeight = (walkingHeight - screenHeight);
-	/* var totalHeight = (walkingHeight + screenHeight); */
+	// var totalHeight = (walkingHeight + screenHeight);
 });
 
 $(window).on('scroll', function () {
-	var scrollTop = $(window).scrollTop(),
-	walkingOffset = $('#walking').offset().top,
+	var scrollTop = $(window).scrollTop();
+	walkingOffset = $('#walking').offset().top;
 	distance = -(walkingOffset - scrollTop);
 	
-	/* Update play speed based on distance from end */
+	// Update play speed based on distance from end
 	scrollSpeed = (walkingHeight - distance)*setSpeed;
 	
-	/* Keep scene still during scroll */
+	// Keep scene still during scroll
 	if ( (distance < 0) ) {
 		$('#screen').removeClass().addClass('stickTop');
 	} else if ( distance >= difHeight ) {
@@ -69,38 +69,32 @@ $(window).on('scroll', function () {
 		$('#screen').removeClass().addClass('fixTop');
 	}
 	
-	var animOrigin = 0; /* Element offset */
-	var animTrigger = 1;
-	var animSpeed = 2; /* Default Speed updates number at 1/2 rate of pixels scroll - keep full pixel movement to trigger sprites */
-	var animUpdate;
-	function myCalc() {
+	var animUpdate; // Used only for console.log
+	function myCalc(animOrigin, animTrigger, animSpeed) {
+		// animOrigin = Element offset
+		// animTrigger = Position of variable "distance" when animation begins
+		// animSpeed = Pixels scrolled per pixels moved. 2 = 1px moved to 2px scrolled
 		animUpdate = (distance - animTrigger)/animSpeed + animOrigin;
 	}
 	
-	var spriteSpeed = 10; /* Pixels scrolled between sprite triggers */
-	var spriteNum = 5; /* Number of sprites in animation */
 	var spriteUpdate = 0;
-	function mySprite() {
-		spriteUpdate = Math.abs((Math.ceil(distance/spriteSpeed))%spriteNum); /* Example: at 250px scrolled 25 frames will have switched and 5 complete animation cycles will have occurred */
+	function mySprite(spriteSpeed, spriteNum) {
+		// spriteSpeed = Pixels scrolled between sprite triggers
+		// spriteNum = Number of sprites in animation
+		spriteUpdate = Math.abs((Math.ceil(distance/spriteSpeed))%spriteNum);
 	}
 	
-	/* Projectile Test */
+	// Projectile Test
 	if ( distance >= 1000 ) {
-		/* animation */
-		animOrigin = -50;
-		animTrigger = 1000; /* Same as start position in if statement */
-		animSpeed = 2;
-		myCalc();
+		myCalc(-50,1000,2);
 		$('#projectile').css('right', animUpdate);
 	} else {
 		$('#projectile').css('right', '-50px');
 	}
 	
-	/* Walking Sprite Update */
+	// Walking Sprite Update
 	if ( (distance <= walkingHeight) && (distance >= -(screenHeight)) ) {
-		spriteSpeed = 100;
-		spriteNum = 6;
-		mySprite();
+		mySprite(100,6);
 		if ( spriteUpdate == 0 ) {
 			$('#person, #person2').removeClass().addClass('f0');
 		} else if ( spriteUpdate == 1 ) {
@@ -116,29 +110,23 @@ $(window).on('scroll', function () {
 		}
 	}
 	
-	/* Walking Right Test */
+	// Walking Right Test
 	if ( distance >= 1000 ) {
-		animOrigin = 75;
-		animTrigger = 1000;
-		animSpeed = 2;
-		myCalc();
+		myCalc(75,1000,2);
 		$('#person').css('left', animUpdate);
 	} else {
 		$('#person').css('left', '75px');
 	}
 	
-	/* Walking Left Test */
+	// Walking Left Test
 	if ( distance >= 3000 ) {
-		animOrigin = -1075;
-		animTrigger = 1000;
-		animSpeed = 2;
-		myCalc();
+		myCalc(-1075,1000,2);
 		$('#person2').css('right', animUpdate);
 	} else {
 		$('#person2').css('right', '-75px');
 	}
 	
-	/* Taglines */
+	// Taglines
 	if ( distance >= 4000 ) {
 		$('#t3').fadeIn();
 		$('#t2, #t1').hide();
@@ -180,7 +168,7 @@ console.log(distance);
 });
 
 
-/* Auto Play */
+// Auto Play
 $('.scroll').click(function(event){
 	event.preventDefault();
 	var full_url = this.href;
@@ -192,7 +180,7 @@ $('.scroll').click(function(event){
 	var target_top = target_offset.top;
 	//goto that anchor by setting the body scroll top to anchor top
 	// Set scrollSpeed by setting setSpeed
-	$('html, body').stop().animate({scrollTop:target_top}, scrollSpeed);
+	$('html, body').stop().animate({scrollTop:target_top}, scrollSpeed, 'linear');
 
 	// Stop animation on scroll
 	$('body, html').bind('scroll mousedown DOMMouseScroll mousewheel keyup', function(e){
