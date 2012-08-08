@@ -147,10 +147,22 @@ body {
 	background:url(images/cog-s.png) no-repeat;
 	}
 	
+.cogS.back {
+	background:url(images/cog-s-red.png) no-repeat;
+	z-index:-10;
+	margin-top:-16px;
+	}
+	
 .cogM {
 	width:340px;
 	height:340px;
 	background:url(images/cog-m.png) no-repeat;
+	}
+	
+.cogM.back {
+	background:url(images/cog-m-red.png) no-repeat;
+	z-index:-10;
+	margin-top:-16px;
 	}
 	
 .cogL {
@@ -159,13 +171,25 @@ body {
 	background:url(images/cog-l.png) no-repeat;
 	}
 	
+.cogL.back {
+	background:url(images/cog-l-red.png) no-repeat;
+	z-index:-10;
+	margin-top:-16px;
+	}
+	
 .cogXL {
 	width:640px;
 	height:640px;
 	background:url(images/cog-xl.png) no-repeat;
 	}
 	
-#cogShift div {
+.cogXL.back {
+	background:url(images/cog-xl-red.png) no-repeat;
+	z-index:-10;
+	margin-top:-16px;
+	}
+	
+#cogShift > div {
 	transition: none;
 	-webkit-transition: none;
 	-moz-transition: none;
@@ -176,24 +200,40 @@ body {
 
 /* Cog Locations */
 
-#cog1 {
+#cog1, #cog1d {
 	margin-left:-195px;
 	top:2000px;;
 	}
 	
-#cog2 {
+#cog1d {
+	top:2008px;
+	}
+	
+#cog2, #cog2d {
 	margin-left:-71px;
 	top:2069px;
 	}
 	
-#cog3 {
+#cog2d {
+	top:2077px;
+	}
+	
+#cog3, #cog3d {
 	margin-left:-433px;
 	top:2265px;
 	}
 	
-#cog4 {
+#cog3d {
+	top:2273px;
+	}
+	
+#cog4, #cog4d {
 	margin-left:-132px;
 	top:2585px;
+	}
+	
+#cog4d {
+	top:2593px;
 	}
 	
 #cog5 {

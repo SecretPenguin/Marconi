@@ -25,9 +25,13 @@
 			<div id="cogRight" class="cogM rev"></div>
 		</div>
 		<div id="cogShift">
+			<div id="cog1d" class="cogS norm back"></div>
 			<div id="cog1" class="cogS norm"></div>
+			<div id="cog2d" class="cogM rev back"></div>
 			<div id="cog2" class="cogM rev"></div>
+			<div id="cog3d" class="cogL norm back"></div>
 			<div id="cog3" class="cogL norm"></div>
+			<div id="cog4d" class="cogXL rev back"></div>
 			<div id="cog4" class="cogXL rev"></div>
 			<div id="cog5" class="cogS norm"></div>
 			<div id="cog6" class="cogM rev"></div>
@@ -123,6 +127,18 @@ $(window).on('scroll', function () {
 		$('#cogShift').css('left', animUpdateTurn);
 	}
 	
+	// Cog Depth
+	$('.back').each(function() {
+		$back = $(this);
+		backTop = parseInt($back.css('top'));
+		cogHeight = $back.height();
+		percentShift = (backTop + cogScroll + cogHeight/2)/screenHeight;
+		updateMargin = -16*percentShift;
+		if ((percentShift >= 0) && (percentShift <=1)) {
+			$back.css('margin-top', updateMargin);
+		}
+	});
+	
 	// Taglines
 	if ( distance < 500 ) {
 		$('#cogLeft').css('margin-left', '-440px');
@@ -142,7 +158,7 @@ $(window).on('scroll', function () {
 		$('#cogRight').css('margin-right', '-330px');
 	}
 	
-console.log(distance);
+console.log(percentShift);
 
 });
 
