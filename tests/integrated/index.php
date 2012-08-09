@@ -136,6 +136,8 @@ $(window).on('scroll', function () {
 		updateMargin = -16*percentShift;
 		if ((percentShift >= 0) && (percentShift <=1)) {
 			$back.css('margin-top', updateMargin);
+		} else if (percentShift < 0) {
+			$back.css('margin-top', 0);
 		}
 	});
 	
