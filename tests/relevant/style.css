@@ -85,18 +85,25 @@ display:block;
 	}
 
 #walking {
-	width:960px;
-	margin:0 auto;
-	height:5000px;
+	width:100%;
+	height:10000px;
 	position:relative;
 	}
 		
 #screen {
 	position:relative;
-	width:960px;
-	background:#333;
+	width:100%;
 	overflow:hidden;
+	background:#e5e5e5;
 	top:0;
+	}
+	
+#screen .center {
+	width:960px;
+	margin:0 auto;
+	height:100%;
+	position:relative;
+	background:#e5e5e5;
 	}
 	
 .tagline {
@@ -116,45 +123,58 @@ display:block;
 	display:none;
 	}
 	
-#person, #person2 {
+#person {
 	width:150px;
 	height:350px;
-	margin:-175px 0 0 -75px;
+	margin-top:-75px;
 	position:absolute;
 /* 	left:50%; */
-	left:75px;
+	left:-650px;
 	top:50%;
-	background:url(bryan-sprite.jpg) no-repeat left 0;
+	background:url(images/bryan-sprite.jpg) no-repeat left 0;
 	z-index:20;
 	}
-	
-#person2 {
-	margin:-175px -75px 0 0;
-	left:auto;
-	right:1075px;
-	background:url(bryan-sprite2.jpg) no-repeat left 0;
-	}
-	
+		
 #wall {
 	width:50%;
 	height:100%;
 	position:absolute;
 	left:0;
-	background:#333;
+	background:#e5e5e5;
 /* 	opacity:0.3; */
 	z-index:10;
 	}
 	
-#projectile {
+/*
+#leftMask, #rightMask {
+	position:absolute;
+	height:100%;
+	width:600px;
+	top:0;
+	z-index:100;
+	}
+	
+#leftMask {
+	background:url(images/leftMask.png) repeat-y;
+	left:-700px;
+	}
+	
+#rightMask {
+	background:url(images/rightMask.png) repeat-y;
+	right:-700px;
+	}
+*/
+	
+#projectile, #projectile2 {
 	position:absolute;
 	z-index:1;
-	background:#000;
-	width:50px;
-	height:50px;
+	background:url(images/fireball.gif) no-repeat;;
+	width:79px;
+	height:75px;
 	top:50%;
-	margin-top:-25px;
-	right:-50px;
-	border-radius:25px;
+	margin-top:45px;
+	right:-550px;
+/* 	border-radius:25px; */
 	}
 	
 #play {
@@ -195,9 +215,39 @@ display:block;
 #person.f4 { background-position: left -700px; }
 #person.f5 { background-position: left 0; }
 
-#person2.f0 { background-position: left -700px; }
-#person2.f1 { background-position: left 0; }
-#person2.f2 { background-position: right -350px; }
-#person2.f3 { background-position: left -350px; }
-#person2.f4 { background-position: right -700px; }
-#person2.f5 { background-position: right 0; }
+#skillBox {
+	width:127px;
+	height:71px;
+	position:absolute;
+	top:50%;
+	margin-top:-163px;
+	left:417px;
+	background:#e5e5e5;
+	z-index:100;
+	}
+	
+#explosion {
+	width:127px;
+	height:49px;
+	background:url(images/explosion.gif) no-repeat top;
+	position:absolute;
+	top:0;
+	}
+	
+#explosion.f0 { background-position: 0 0; }
+#explosion.f1 { background-position: 0 -49px; }
+#explosion.f2 { background-position: 0 -98px; }
+#explosion.f3 { background-position: 0 -147px; }
+#explosion.f4 { background-position: 0 -196px; }
+#explosion.hidden { background: 0 1000px no-repeat; }
+
+#skill1, #skill2 {
+	width:76px;
+	height:26px;
+	background:url(images/skill1.gif) no-repeat;
+	opacity:0;
+	position:absolute;
+	left:25px;
+	bottom:0;
+	z-index:10;
+	}

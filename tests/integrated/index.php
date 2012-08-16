@@ -58,16 +58,19 @@
 <script src="jQueryRotate.2.2.js"></script>
 <script>
 
-var sceneHeight = 18000;
+var sceneHeight = 18000; // CSS height of #cogs
 var scrollSpeed = 10000; // Base speed
 var setSpeed = 2; // Scroll speed per pixel
 
-$('#screen').height($(window).height());
-var screenHeight = $('#screen').height();
+// Set screen height
+var $screen = $('#screen');
+$screen.height($(window).height());
+var screenHeight = $screen.height();
 
+// Update scene on window resize
 $(window).resize(function() {
-	$('#screen').height($(window).height());
-	var screenHeight = $('#screen').height();
+	$screen.height($(window).height());
+	var screenHeight = $screen.height();
 });
 
 $(window).on('scroll', function () {
@@ -79,14 +82,15 @@ $(window).on('scroll', function () {
 	scrollSpeed = (sceneHeight - distance)*setSpeed;
 	
 	// Keep scene still during scroll
-	if ( (distance < 0) ) {
-		$('#screen').removeClass().addClass('stickTop');
+	if ( distance < 0 ) {
+		$screen.removeClass().addClass('stickTop');
 	} else if ( distance >= sceneHeight ) {
-		$('#screen').removeClass().addClass('stickBot');
-	} else if ( (distance >= 0) && (distance < sceneHeight) ) {
-		$('#screen').removeClass().addClass('fixTop');
+		$screen.removeClass().addClass('stickBot');
+	} else if ( distance >= 0 && distance < sceneHeight ) {
+		$screen.removeClass().addClass('fixTop');
 	}
 	
+	// Move elements on scroll
 	var animUpdate; // Used only for console.log
 	function myCalc(animOrigin, animTrigger, animSpeed) {
 		// animOrigin = Element offset
@@ -100,7 +104,7 @@ $(window).on('scroll', function () {
 	var rotateSpeedM = distance/4;
 	var rotateSpeedL = distance/6;
 	var rotateSpeedXL = distance/8;
-	if ( distance >= -(screenHeight) && (distance <= sceneHeight) ) {
+	if ( distance >= -screenHeight && distance <= sceneHeight ) {
 		$('.cogS.rev').rotate(- rotateSpeedS);
 		$('.cogS.norm').rotate(rotateSpeedS);
 		$('.cogM.rev').rotate(- rotateSpeedM);
@@ -113,15 +117,15 @@ $(window).on('scroll', function () {
 	
 	// Cog Scroll
 	var cogScroll = -distance/3;
-	if ( (distance >= 0) && (distance <= sceneHeight) ) {
+	if ( distance >= 0 && distance <= sceneHeight ) {
 		$('#cogShift').css('top', cogScroll);
 	}
 	
 	// Cogs Shift Test
-	if ( (distance >= 5500) && (distance < 8000) ) {
+	if ( distance >= 5500 && distance < 8000 ) {
 		myCalc(0,5500,30);
 		$('#cogShift').css('left', animUpdate);
-	} else if ( (distance >= 9000) && (distance <= 13500) ) {
+	} else if ( distance >= 9000 && distance <= 13500 ) {
 		myCalc(84,9000,25);
 		var animUpdateTurn = -(animUpdate - 2*84); // Very crappy way of switching movement of animation
 		$('#cogShift').css('left', animUpdateTurn);
@@ -134,9 +138,9 @@ $(window).on('scroll', function () {
 		cogHeight = $back.height();
 		percentShift = (backTop + cogScroll + cogHeight/2)/screenHeight;
 		updateMargin = -16*percentShift;
-		if ((percentShift >= 0) && (percentShift <=1)) {
+		if ( percentShift >= 0 && percentShift <=1 ) {
 			$back.css('margin-top', updateMargin);
-		} else if (percentShift < 0) {
+		} else if ( percentShift < 0 ) {
 			$back.css('margin-top', 0);
 		}
 	});
@@ -147,13 +151,13 @@ $(window).on('scroll', function () {
 		$('#cogRight').css('margin-right', '-590px');
 		$('#hideLeft').css('margin-left', '-525px');
 		$('#hideRight').css('margin-right', '-525px');
-	} else if ( (distance >= 500) && (distance <= 1540) ) {
+	} else if ( distance >= 500 && distance <= 1540 ) {
 		myCalc(0,500,4);
 		$('#cogLeft').css('margin-left', (-440 + animUpdate));
 		$('#cogRight').css('margin-right', (-590 + animUpdate ));
 		$('#hideLeft').css('margin-left', (-525 + animUpdate));
 		$('#hideRight').css('margin-right', (-525 + animUpdate));
-	} else if ( (distance > 1540) && (distance <= sceneHeight) ) {
+	} else if ( distance > 1540 && distance <= sceneHeight ) {
 		myCalc(0,1540,5);
 		$('#cogTagline').css('margin-top', -animUpdate);
 		$('#cogLeft').css('margin-left', '-180px');

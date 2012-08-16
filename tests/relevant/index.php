@@ -14,14 +14,26 @@
 
 <div id="walking">
 	<div id="screen">
-		<p id="t1" class="tagline">A tagline begins and displays related animations...</p>
-		<p id="t2" class="tagline">... and is expanded upon with more relevant animations ...</p>
-		<p id="t3" class="tagline">... and concludes with victorious animations!</p>
-		<div id="person"></div>
-		<div id="person2"></div>
-		<div id="wall"></div>
-		<div id="projectile"></div>
 		<div id="play"><p><a class="scroll" href="#End">Play</a></p></div>
+		<div class="center">
+			<div id="leftMask"></div>
+			<div id="rightMask"></div>
+			<p id="t1" class="tagline">A tagline begins and displays related animations...</p>
+<!--
+			<p id="t2" class="tagline">... and is expanded upon with more relevant animations ...</p>
+			<p id="t3" class="tagline">... and concludes with victorious animations!</p>
+-->
+			<div id="person"></div>
+<!-- 			<div id="person2"></div> -->
+			<div id="wall"></div>
+			<div id="projectile"></div>
+			<div id="projectile2"></div>
+			<div id="skillBox">
+				<div id="explosion"></div>
+				<div id="skill1"></div>
+				<div id="skill2"></div>
+			</div>
+		</div>
 	</div>
 </div>
 <div id="End"></div>
@@ -31,30 +43,36 @@
 <script src="jquery.backgroundpos.min.js"></script>
 <script>
 
-var sceneHeight = 5000;
-var scrollSpeed = 10000; // Base speed
+var sceneHeight = 10000; // CSS height of #walking
+var scrollSpeed = 20000; // Base speed
 var setSpeed = 2; // Scroll speed per pixel
 
-$('#screen').height($(window).height());
-var screenHeight = $('#screen').height();
-$('#walking').height(screenHeight + sceneHeight);
-var walkingHeight = $('#walking').height();
+var $screen = $('#screen');
+var $walking = $('#walking');
+
+// Set screen height
+$screen.height($(window).height());
+var screenHeight = $screen.height();
+
+// Set walking scene height
+$walking.height(screenHeight + sceneHeight);
+var walkingHeight = $walking.height();
 var difHeight = (walkingHeight - screenHeight);
 // var totalHeight = (walkingHeight + screenHeight);
 
-
+// Update scene on window resize
 $(window).resize(function() {
-	$('#screen').height($(window).height());
-	var screenHeight = $('#screen').height();
-	$('#walking').height(screenHeight + sceneHeight);
-	var walkingHeight = $('#walking').height();
+	$screen.height($(window).height());
+	var screenHeight = $screen.height();
+	$walking.height(screenHeight + sceneHeight);
+	var walkingHeight = $walking.height();
 	var difHeight = (walkingHeight - screenHeight);
 	// var totalHeight = (walkingHeight + screenHeight);
 });
 
 $(window).on('scroll', function () {
 	var scrollTop = $(window).scrollTop();
-	walkingOffset = $('#walking').offset().top;
+	walkingOffset = $walking.offset().top;
 	distance = -(walkingOffset - scrollTop);
 	
 	// Update play speed based on distance from end
@@ -62,13 +80,15 @@ $(window).on('scroll', function () {
 	
 	// Keep scene still during scroll
 	if ( (distance < 0) ) {
-		$('#screen').removeClass().addClass('stickTop');
+		$screen.removeClass().addClass('stickTop');
 	} else if ( distance >= difHeight ) {
-		$('#screen').removeClass().addClass('stickBot');
-	} else if ( (distance >= 0) && (distance < difHeight) ) {
-		$('#screen').removeClass().addClass('fixTop');
+		$screen.removeClass().addClass('stickBot');
+	} else if ( distance >= 0 && distance < difHeight ) {
+		$screen.removeClass().addClass('fixTop');
 	}
 	
+	
+	// Move elements on scroll
 	var animUpdate; // Used only for console.log
 	function myCalc(animOrigin, animTrigger, animSpeed) {
 		// animOrigin = Element offset
@@ -77,6 +97,7 @@ $(window).on('scroll', function () {
 		animUpdate = (distance - animTrigger)/animSpeed + animOrigin;
 	}
 	
+	// Update sprites on scroll
 	var spriteUpdate = 0;
 	function mySprite(spriteSpeed, spriteNum) {
 		// spriteSpeed = Pixels scrolled between sprite triggers
@@ -84,59 +105,148 @@ $(window).on('scroll', function () {
 		spriteUpdate = Math.abs((Math.ceil(distance/spriteSpeed))%spriteNum);
 	}
 	
-	// Projectile Test
-	if ( distance >= 1000 ) {
-		myCalc(-50,1000,2);
-		$('#projectile').css('right', animUpdate);
-	} else {
-		$('#projectile').css('right', '-50px');
+	// Explosion Function
+	function explosionTrigger(startExplosion) {
+		// startExplosion = Distance to trigger animation
+		if (distance >= startExplosion && distance <= startExplosion + 50) {
+			$('#explosion').attr('class', 'f0');
+		} else if (distance > startExplosion + 50 && distance <= startExplosion + 100) {
+			$('#explosion').attr('class', 'f1');
+		} else if (distance > startExplosion + 100 && distance <= startExplosion + 150) {
+			$('#explosion').attr('class', 'f2');
+		} else if (distance > startExplosion + 150 && distance <= startExplosion + 200) {
+			$('#explosion').attr('class', 'f3');
+		} else if (distance > startExplosion + 200 && distance <= startExplosion + 250) {
+			$('#explosion').attr('class', 'f4');
+		} else {
+			$('#explosion').attr('class', 'hidden');
+		}
 	}
 	
+	// Animations!
+	
+	// Projectile Test
+	if ( distance >= 3160 ) {
+		$('#projectile').css('right', '480px');
+	} else if ( distance >= 1000 && distance < 3160 ) {
+		myCalc(-550,1000,2);
+		$('#projectile').css('right', animUpdate);
+	} else {
+		$('#projectile').css('right', '-550px');
+	}
+	
+	// Projectile (2) Test
+	if ( distance >= 6160 ) {
+		$('#projectile2').css('right', '480px');
+	} else if ( distance >= 4000 && distance < 6160 ) {
+		myCalc(-550,4000,2);
+		$('#projectile2').css('right', animUpdate);
+	} else {
+		$('#projectile2').css('right', '-550px');
+	}
+	
+	// Skill Test
+	if ( distance < 3000 ) {
+		$('#skill1').css({'bottom': 0, 'opacity': 0});
+	} else if ( distance >= 3000 && distance < 3140 ) {
+		myCalc(0,3000,10);
+		$('#skill1').css({'bottom': animUpdate, 'opacity': (animUpdate/14)});
+	} else if ( distance >= 3140 && distance <= 3390 ) {
+		$('#skill1').css('opacity', 1);
+	} else if ( distance > 3390 && distance <= 3530 ) {
+		myCalc(0,3390,1);
+		$('#skill1').css('opacity', (1-(animUpdate/140)));
+	} else {
+		$('#skill1').css({'bottom': '14px', 'opacity': 0});
+	}
+	
+	// Explosion Animation
+/*
+	if ( (distance >= 3140 && distance <= 3190) || (distance >= 6140 && distance <= 6190) ) {
+		$('#explosion').removeClass().addClass('f0');
+	} else if ( (distance > 3190 && distance <= 3240) || (distance > 6190 && distance <= 6240) ) {
+		$('#explosion').removeClass().addClass('f1');
+	} else if ( (distance > 3240 && distance <= 3290) || (distance > 6240 && distance <= 6290) ) {
+		$('#explosion').removeClass().addClass('f2');
+	} else if ( (distance > 3290 && distance <= 3340) || (distance > 6290 && distance <= 6340) ) {
+		$('#explosion').removeClass().addClass('f3');
+	} else if ( (distance > 3340 && distance <= 3390) || (distance > 6340 && distance <= 6390) ) {
+		$('#explosion').removeClass().addClass('f4');
+	} else {
+		$('#explosion').removeClass().addClass('hidden');
+	}
+*/
+
+	explosionTrigger(3140);
+	explosionTrigger(6140);
+		
+	// Skill (2) Test
+	if ( distance < 6000 ) {
+		$('#skill2').css({'bottom': 0, 'opacity': 0});
+	} else if ( distance >= 6000 && distance < 6140 ) {
+		myCalc(0,6000,10);
+		$('#skill2').css({'bottom': animUpdate, 'opacity': (animUpdate/14)});
+	} else if ( distance >= 6140 && distance <= 6390 ) {
+		$('#skill2').css('opacity', 1);
+	} else if ( distance > 6390 && distance <= 6530 ) {
+		myCalc(0,6390,1);
+		$('#skill2').css('opacity', (1-(animUpdate/140)));
+	} else {
+		$('#skill2').css({'bottom': '14px', 'opacity': 0});
+	}
+			
 	// Walking Sprite Update
-	if ( (distance <= walkingHeight) && (distance >= -(screenHeight)) ) {
+	if ( distance <= walkingHeight && distance >= -screenHeight ) {
 		mySprite(100,6);
 		if ( spriteUpdate == 0 ) {
-			$('#person, #person2').removeClass().addClass('f0');
+			$('#person').removeClass().addClass('f0');
 		} else if ( spriteUpdate == 1 ) {
-			$('#person, #person2').removeClass().addClass('f1');
+			$('#person').removeClass().addClass('f1');
 		} else if ( spriteUpdate == 2 ) {
-			$('#person, #person2').removeClass().addClass('f2');
+			$('#person').removeClass().addClass('f2');
 		} else if ( spriteUpdate == 3 ) {
-			$('#person, #person2').removeClass().addClass('f3');
+			$('#person').removeClass().addClass('f3');
 		} else if ( spriteUpdate == 4 ) {
-			$('#person, #person2').removeClass().addClass('f4');
+			$('#person').removeClass().addClass('f4');
 		} else if ( spriteUpdate == 5 ) {
-			$('#person, #person2').removeClass().addClass('f5');
+			$('#person').removeClass().addClass('f5');
 		}
 	}
 	
 	// Walking Right Test
-	if ( distance >= 1000 ) {
-		myCalc(75,1000,2);
+	if ( distance >= -650 && distance < 1460 ) {
+		myCalc(-650,-650,2);
+		$('#person').css('left', animUpdate);
+	} else if ( distance >= 1460 && distance <= 9000 ) {
+		$('#person').css('left', '405px');
+	} else if ( distance > 9000 ) {
+		myCalc(405,9000,2);
 		$('#person').css('left', animUpdate);
 	} else {
-		$('#person').css('left', '75px');
+		$('#person').css('left', '-650px');
 	}
 	
 	// Walking Left Test
+/*
 	if ( distance >= 3000 ) {
 		myCalc(-1075,1000,2);
 		$('#person2').css('right', animUpdate);
 	} else {
 		$('#person2').css('right', '-75px');
 	}
+*/
 	
 	// Taglines
 	if ( distance >= 4000 ) {
 		$('#t3').fadeIn();
 		$('#t2, #t1').hide();
-	} else if ( (distance >= 3800) && (distance < 4000) ) {
+	} else if ( distance >= 3800 && distance < 4000 ) {
 		$('#t2, #t3').fadeOut();
 		$('#t1').hide();
-	} else if ( (distance >= 2000) && (distance < 3800) ) {
+	} else if ( distance >= 2000 && distance < 3800 ) {
 		$('#t2').fadeIn();
 		$('#t1, #t3').fadeOut();
-	} else if ( (distance >= 1800) && (distance < 2000) ) {
+	} else if ( distance >= 1800 && distance < 2000 ) {
 		$('#t1, #t2').fadeOut();
 	} else {
 		$('#t1').fadeIn();

@@ -39,16 +39,16 @@ Resources:<br/>
 <p>Duration = <span id="durYears">1 Year</span> <span id="durMonths">6 Months</span></p>
 <div id="flexible-container">
 	<div id="credits">
-		<div class="credit">&copy;</div>
-		<div class="credit">&copy;</div>
-		<div class="credit">&copy;</div>
-		<div class="credit">&copy;</div>
-		<div class="credit">&copy;</div>
-		<div class="credit">&copy;</div>
-		<div class="credit">&copy;</div>
-		<div class="credit">&copy;</div>
-		<div class="credit">&copy;</div>
-		<div class="credit">&copy;</div>
+		<div>&copy;</div>
+		<div>&copy;</div>
+		<div>&copy;</div>
+		<div>&copy;</div>
+		<div>&copy;</div>
+		<div>&copy;</div>
+		<div>&copy;</div>
+		<div>&copy;</div>
+		<div>&copy;</div>
+		<div>&copy;</div>
 	</div>
 	<div id="range"></div>
 </div>
@@ -69,66 +69,70 @@ Resources:<br/>
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="../../js/jquery-ui-1.8.21.custom.min.js"></script>
+<script src="../../js/jquery-ui-1.8.22.custom.min.js"></script>
 <script>
 
 var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
-/* Set Global Month Variables */
+// Set Global Month Variables
 var curMonth = 0;
 var endMonth = 6;
 
-/* Set Current Month and Minimum End Month */
+var $endMonthText = $('#endMonth');
+
+// Set Current Month and Minimum End Month 
 $('#months a').click(function(){
 	curMonth = $(this).parent().index();
 	$('#startMonth').html(months[curMonth]);
-	/* Minimum End Month is 18 Months after Start */
+	// Minimum End Month is 18 Months after Start
 	if (curMonth > 5) {
 		endMonth = (curMonth -6);
 	} else {
 		endMonth = (curMonth + 6);
 	}
-	$('#endMonth').html(months[endMonth]);
+	$endMonthText.html(months[endMonth]);
 });
 
-/* Range Slider set to 18 month range */
+// Range Slider set to 18 month range
 $('#range').slider({
 	range: 'min',
 	value: 1,
 	min: 1,
 	max: 18,
 	slide: function( event, ui ) {
-		/* Start Date Range at 0 */
+		// Start Date Range at 0
 		var dateOffset = ui.value - 1;
-		/* Update End Month */
+		// Update End Month
 		var newEndMonth = (endMonth + dateOffset)%12;
-		$('#endMonth').html(months[newEndMonth]);
+		$endMonthText.html(months[newEndMonth]);
 		
-		/* Set Total Time to complete program */
-		/* Years */
+		// Set Total Time to complete program
+		// Years
 		var durYears = Math.floor((18 + dateOffset)/12);
+		var $totalYears = $('#durYears');
 		if (durYears < 2) {
-			$('#durYears').html(durYears+' Year');
+			$totalYears.html(durYears+' Year');
 		} else {
-			$('#durYears').html(durYears+' Years');
+			$totalYears.html(durYears+' Years');
 		}
-		/* Months */
+		// Months
 		var durMonths = ((18 + dateOffset)%12);
+		var $totalMonths = $('#durMonths');
 		if (durMonths > 1) {
-			$('#durMonths').html(durMonths+' Months');
+			$totalMonths.html(durMonths+' Months');
 		} else if (durMonths == 1) {
-			$('#durMonths').html(durMonths+' Month');
+			$totalMonths.html(durMonths+' Month');
 		} else if (durMonths == 0) {
-			$('#durMonths').html('');
+			$totalMonths.html('');
 		}
 		
-		/* Set CSS width of Credits to expand with slider */
+		// Set CSS width of Credits to expand with slider
 		var creditWidth = 263 + (16 * dateOffset);
 		$('#credits').css('width', creditWidth);
 	},
 	stop: function( event, ui ) {
-		/* Trigger Animation */
-		var monthID = $('#endMonth').text();
+		// Trigger Animation
+		var monthID = $endMonthText.text();
 		$('#animate div').hide();
 		$('#'+monthID).fadeIn();
 	}
