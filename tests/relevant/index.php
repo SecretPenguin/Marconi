@@ -176,9 +176,11 @@ $(window).on('scroll', function () {
 		$('#explosion').removeClass().addClass('hidden');
 	}
 */
-
-	explosionTrigger(3140);
-	explosionTrigger(6140);
+	if ( distance < 6140 ) {
+		explosionTrigger(3140);
+	} else {
+		explosionTrigger(6140);
+	}
 		
 	// Skill (2) Test
 	if ( distance < 6000 ) {
