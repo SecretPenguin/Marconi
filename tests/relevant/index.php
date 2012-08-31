@@ -10,6 +10,8 @@
 
 </head>
 <body>
+<div id="cursprite"></div>
+<div id="curposition"></div>
 <div class="space"></div>
 
 <div id="walking">
@@ -152,10 +154,10 @@ $(window).on('scroll', function () {
 		myCalc(0,3000,10);
 		$('#skill1').css({'bottom': animUpdate, 'opacity': (animUpdate/14)});
 	} else if ( distance >= 3140 && distance <= 3390 ) {
-		$('#skill1').css('opacity', 1);
+		$('#skill1').css({'bottom': '14px', 'opacity': 1});
 	} else if ( distance > 3390 && distance <= 3530 ) {
 		myCalc(0,3390,1);
-		$('#skill1').css('opacity', (1-(animUpdate/140)));
+		$('#skill1').css({'bottom': '14px', 'opacity': (1-(animUpdate/140))});
 	} else {
 		$('#skill1').css({'bottom': '14px', 'opacity': 0});
 	}
@@ -189,29 +191,47 @@ $(window).on('scroll', function () {
 		myCalc(0,6000,10);
 		$('#skill2').css({'bottom': animUpdate, 'opacity': (animUpdate/14)});
 	} else if ( distance >= 6140 && distance <= 6390 ) {
-		$('#skill2').css('opacity', 1);
+		$('#skill2').css({'bottom': '14px', 'opacity': 1});
 	} else if ( distance > 6390 && distance <= 6530 ) {
 		myCalc(0,6390,1);
-		$('#skill2').css('opacity', (1-(animUpdate/140)));
+		$('#skill2').css({'bottom': '14px', 'opacity': (1-(animUpdate/140))});
 	} else {
 		$('#skill2').css({'bottom': '14px', 'opacity': 0});
 	}
-			
-	// Walking Sprite Update
-	if ( distance <= walkingHeight && distance >= -screenHeight ) {
+		
+	// Walking Sprite Update at Negative Distance
+	if ( distance <= 0 && distance >= -screenHeight ) {
 		mySprite(100,6);
 		if ( spriteUpdate == 0 ) {
-			$('#person').removeClass().addClass('f0');
+			$('#person').attr('class', 'f0');
 		} else if ( spriteUpdate == 1 ) {
-			$('#person').removeClass().addClass('f1');
+			$('#person').attr('class', 'f5');
 		} else if ( spriteUpdate == 2 ) {
-			$('#person').removeClass().addClass('f2');
+			$('#person').attr('class', 'f4');
 		} else if ( spriteUpdate == 3 ) {
-			$('#person').removeClass().addClass('f3');
+			$('#person').attr('class', 'f3');
 		} else if ( spriteUpdate == 4 ) {
-			$('#person').removeClass().addClass('f4');
+			$('#person').attr('class', 'f2');
 		} else if ( spriteUpdate == 5 ) {
-			$('#person').removeClass().addClass('f5');
+			$('#person').attr('class', 'f1');
+		}
+	}
+		
+	// Walking Sprite Update
+	if ( distance <= walkingHeight && distance > 0 ) {
+		mySprite(100,6);
+		if ( spriteUpdate == 0 ) {
+			$('#person').attr('class', 'f0');
+		} else if ( spriteUpdate == 1 ) {
+			$('#person').attr('class', 'f1');
+		} else if ( spriteUpdate == 2 ) {
+			$('#person').attr('class', 'f2');
+		} else if ( spriteUpdate == 3 ) {
+			$('#person').attr('class', 'f3');
+		} else if ( spriteUpdate == 4 ) {
+			$('#person').attr('class', 'f4');
+		} else if ( spriteUpdate == 5 ) {
+			$('#person').attr('class', 'f5');
 		}
 	}
 	
@@ -275,7 +295,11 @@ $(window).on('scroll', function () {
 	}
 */
 
+
 console.log(distance);
+// Dev overlay
+$('#cursprite').html(spriteUpdate);
+$('#curposition').html(distance);
 
 });
 

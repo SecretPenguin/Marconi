@@ -251,3 +251,18 @@ display:block;
 	bottom:0;
 	z-index:10;
 	}
+	
+/* Dev overlay */
+#cursprite, #curposition {
+	position:fixed;
+	z-index:1000;
+	top:0;
+	left:0;
+	background:#000;
+	color:#fff;
+	padding:5px;
+	}
+	
+#curposition {
+	top:30px;
+	}
