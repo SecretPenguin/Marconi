@@ -76,7 +76,7 @@ display:block;
 .clear {
 	clear:both;
 	}
-	
+
 /* Begin Layout */
 
 body {
@@ -93,11 +93,11 @@ body {
 	height:1000px;
 	background:#000;
 	}
-	
+
 #mobile {
 	position:relative;
 	}
-		
+
 #screen {
 	position:relative;
 	width:100%;
@@ -110,18 +110,18 @@ body {
 	position:fixed!important;
 	top:0!important;
 	}
-	
+
 .stickTop {
 	position:absolute!important;
 	top:0!important;
 	}
-	
+
 .stickBot {
 	position:absolute!important;
 	bottom:0!important;
 	top:auto!important;
 	}
-	
+
 /* Mobile Scene */
 
 #social h2 {
@@ -136,7 +136,7 @@ body {
 	text-indent:-9999px;
 	display:block;
 	}
-	
+
 /* Devices */
 
 #devices {
@@ -147,7 +147,7 @@ body {
 	left:-480px;
 	margin-left:50%;
 	}
-	
+
 #devices div {
 	height:231px;
 	position:absolute;
@@ -159,23 +159,23 @@ body {
 	left:-135px;
 	background:url(images/phone.png) no-repeat;
 	}
-	
+
 #tablet {
 	width:789px;
 	left:-395px;
 	background:url(images/tablet.png) no-repeat;
 	top:231px;
 	}
-	
+
 #desktop {
 	width:989px;
 	left:-495px;
 	background:url(images/desktop.png) no-repeat;
 	top:231px;
 	}
-	
+
 /* Switchboard */
-	
+
 #switchboard {
 	height:146px;
 	width:100%;
@@ -184,46 +184,46 @@ body {
 	bottom:0;
 	z-index:50;
 	}
-	
+
 #switchboard .center {
 	width:362px;
 	position:relative;
 	top:13px;
 	height:122px;
 	}
-	
+
 #switchboard a {
 	position:absolute;
 	bottom:0;
 	text-indent:-9999px;
 	float:left;
 	}
-	
+
 #showPhone {
 	background:url(images/phoneLink.gif) no-repeat top;
 	width:49px;
 	height:77px;
 	left:0;
 	}
-	
+
 #showTablet {
 	background:url(images/tabletLink.gif) no-repeat top;
 	width:101px;
 	height:96px;
 	left:89px;
 	}
-	
+
 #showDesktop {
 	background:url(images/desktopLink.gif) no-repeat top;
 	width:132px;
 	height:122px;
 	right:0;
 	}
-	
+
 #switchboard a:hover, #switchboard .current {
 	background-position:bottom;
 	}
-	
+
 /* Slider Images */
 
 #phoneSlider, #tabletSlider, #desktopSlider {
@@ -231,10 +231,6 @@ body {
 	width:100%;
 	height:100%;
 	z-index:0;
-	}
-	
-#tabletSlider, #desktopSlider {
-	opacity:0;
 	}
 
 /*
@@ -244,7 +240,7 @@ body {
 	height:100%;
 	}
 */
-	
+
 /*! Version: 2.0.5 (25-July-2012) */
 .mc-hide-scrolls{overflow:hidden}
 body .mc-cycle{height:100%;left:0;overflow:hidden;position:fixed;top:0;width:100%;z-index:-1}
