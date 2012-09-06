@@ -4,9 +4,9 @@
       this.scrollBuffer = 400; // fit the scene to the screen
       this.$screen = $("#screen");
       this.$mobile = $("#mobile");
-      this.$devices = $("#devices");
       this.$switchButtons = $("#switchboard a");
-      this.$devices = $("#devices > div");
+      this.$devicesContainer = $("#devices");
+      this.$devices = this.$devicesContainer.find("div");
       this.$slidersContainer = $("#sliders");
       this.$phoneSlider = $("#phoneSlider").remove();
       this.$tabletSlider = $("#tabletSlider").remove();
@@ -46,17 +46,11 @@
       // Animate current device in when approaching scene
       var deviceSpeed = (distance / 2) + 146;
       if (distance < -292) {
-        this.$devices.css("bottom", 0);
+        this.$devicesContainer.css("bottom", 0);
       } else if ( distance >= -292 && distance < 0 ) {
-        this.$devices.css("bottom", deviceSpeed);
+        this.$devicesContainer.css("bottom", deviceSpeed);
       } else if (distance >= 0) {
-        this.$devices.css("bottom", 146);
-      }
-
-      // Start Sliders (if we decide to use auto play)
-      if ((distance >= -this.screenHeight) && ( distance <= this.sceneHeight)) {
-        // Trigger slider and turn off when outside scene
-        // Set correct slider to current based on current active nav element
+        this.$devicesContainer.css("bottom", 146);
       }
 
       console.log(distance);
