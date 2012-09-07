@@ -52,6 +52,7 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="jquery.cycle.all.js"></script>
 <script src="jquery.maximage.min.js"></script>
+<script src="/js/m.js"></script>
 <script src="mobile.js"></script>
 
 </body>

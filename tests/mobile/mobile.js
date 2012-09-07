@@ -1,5 +1,5 @@
 (function($) {
-  this.mobile = {
+  var mobile = {
     init: function() {
       this.scrollBuffer = 400; // fit the scene to the screen
       this.$screen = $("#screen");
@@ -87,5 +87,7 @@
       this.$slidersContainer.animate({opacity: 1}, 800);
     }
   };
-  mobile.init();
+
+  this.M.register(mobile);
+
 })(jQuery);
