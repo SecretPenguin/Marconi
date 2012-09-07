@@ -26,7 +26,6 @@
 		// on the matching divs using new values
 		onResize: function(event) {
 			this.screenHeight = $(window).height();
-			this.sceenHeight = this.screenHeight;
 			this.$screen.height(this.screenHeight);
 			this.$walking.height(this.screenHeight + this.sceneHeight);
 			this.walkingHeight = this.$walking.height();
