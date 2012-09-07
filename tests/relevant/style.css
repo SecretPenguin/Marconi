@@ -119,12 +119,8 @@ display:block;
 	top:0;
 	z-index:100;
 	}
-	
-#t2, #t3 {
-	display:none;
-	}
-	
-#person {
+		
+#bear {
 	width:150px;
 	height:350px;
 	margin-top:-75px;
@@ -208,12 +204,12 @@ display:block;
 	top:auto!important;
 	}
 
-#person.f0 { background-position: right -700px; }
-#person.f1 { background-position: right 0; }
-#person.f2 { background-position: left -350px; }
-#person.f3 { background-position: right -350px; }
-#person.f4 { background-position: left -700px; }
-#person.f5 { background-position: left 0; }
+#bear.f0 { background-position: right -700px; }
+#bear.f1 { background-position: right 0; }
+#bear.f2 { background-position: left -350px; }
+#bear.f3 { background-position: right -350px; }
+#bear.f4 { background-position: left -700px; }
+#bear.f5 { background-position: left 0; }
 
 #skillBox {
 	width:127px;
