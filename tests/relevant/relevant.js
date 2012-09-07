@@ -16,6 +16,7 @@
 
 			$(window).on("resize", $.proxy(this.onResize, this));
 			$(window).on("scroll", $.proxy(this.onScroll, this));
+			this.$scroll.on("click", $.proxy(this.autoPlay, this));
 
 			// trigger a resize to set the initial screen and scene heights
 			$(window).resize();
@@ -38,7 +39,7 @@
 			var distance = -(walkingOffset - scrollTop);
 
 			// Update play speed based on distance from end
-			scrollSpeed = (this.walkingHeight - distance)*this.setSpeed;
+			this.scrollSpeed = (this.walkingHeight - distance)*this.setSpeed;
 
 			// Keep scene still during scroll
 			if ( (distance < 0) ) {
@@ -169,32 +170,32 @@
 			} else {
 				this.$bear.css('left', '-650px');
 			}
-			
-			this.$scroll.click(function(event){
-				event.preventDefault();
-				var full_url = this.href;
-				//split the url by # and get the anchor target name
-				var parts = full_url.split("#");
-				var trgt = parts[1];
-				//get the top offset of the target anchor
-				var target_offset = $("#"+trgt).offset();
-				var target_top = target_offset.top;
-				//goto that anchor by setting the body scroll top to anchor top
-				// Set scrollSpeed by setting setSpeed
-				$('html, body').stop().animate({scrollTop:target_top}, scrollSpeed, 'linear');
-			
-				// Stop animation on scroll
-				$('body, html').bind('scroll mousedown DOMMouseScroll mousewheel keyup', function(e){
-					if ( e.which > 0 || e.type == "mousedown" || e.type == "mousewheel"){
-						$("html,body").stop().unbind();
-					}
-				});
-			});
-			
+
 			console.log(distance);
 			// Dev overlay -> Remove
 			$('#cursprite').html(spriteUpdate);
 			$('#curposition').html(distance);
+		},
+
+		autoPlay: function(event) {
+			event.preventDefault();
+			var full_url = event.target.href;
+			//split the url by # and get the anchor target name
+			var parts = full_url.split("#");
+			var trgt = parts[1];
+			//get the top offset of the target anchor
+			var target_offset = $("#"+trgt).offset();
+			var target_top = target_offset.top;
+			//goto that anchor by setting the body scroll top to anchor top
+			// Set scrollSpeed by setting setSpeed
+			$('html, body').stop().animate({scrollTop:target_top}, this.scrollSpeed, 'linear');
+
+			// Stop animation on scroll
+			$('body, html').bind('scroll mousedown DOMMouseScroll mousewheel keyup', function(e){
+				if ( e.which > 0 || e.type == "mousedown" || e.type == "mousewheel"){
+					$("html,body").stop().unbind();
+				}
+			});
 		},
 
 		triggerExplosion: function(distance) {
