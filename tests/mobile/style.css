@@ -98,13 +98,13 @@ body {
   position:relative;
   }
 
-#screen {
+#mobile-screen {
   position:relative;
   width:100%;
   overflow:hidden;
   top:0;
   background:#000;
-  }
+}
 
 .fixTop {
   position:fixed!important;

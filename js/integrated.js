@@ -4,8 +4,8 @@
       this.sceneHeight = 18000; // CSS height of #cogs
       this.scrollSpeed = 10000; // Base speed
       this.setSpeed = 2; // Scroll speed per pixel
-      this.$screen = $("#screen");
       this.$cogs = $("#cogs");
+      this.$screen = $("#cogs-screen");
       this.$cogShift = $('#cogShift');
       this.$scroll = $('.scroll');
       this.$cogSR = $('.cogS.rev');

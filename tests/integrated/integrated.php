@@ -1,5 +1,5 @@
 <div id="cogs">
-  <div id="screen">
+  <div id="cogs-screen">
     <div id="play"><p><a class="scroll" href="#End">Play</a></p></div>
     <div id="cogTagline">
       <h2>Integrated Tagline</h2>

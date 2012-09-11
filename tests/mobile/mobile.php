@@ -1,5 +1,5 @@
 <div id="mobile">
-  <div id="screen">
+  <div id="mobile-screen">
     <div id="sliders">
       <div id="phoneSlider">
           <img src="/images/mobile/beach.jpg" alt="beach" />

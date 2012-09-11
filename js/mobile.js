@@ -2,8 +2,8 @@
   var mobile = {
     init: function() {
       this.scrollBuffer = 400; // fit the scene to the screen
-      this.$screen = $("#screen");
       this.$mobile = $("#mobile");
+      this.$screen = $("#mobile-screen");
       this.$switchButtons = $("#switchboard a");
       this.$devicesContainer = $("#devices");
       this.$devices = this.$devicesContainer.find("div");
