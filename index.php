@@ -28,6 +28,9 @@ function is_dev_mode() {
   <div class="center">Test</div>
 </div>
   <?php include("tests/integrated/integrated.php"); ?>
+<div class="space">
+  <div class="center">Test</div>
+</div>
 
   <?php if (is_dev_mode()): ?>
   <script src="/js/vendor/jquery-1.8.1.js"></script>

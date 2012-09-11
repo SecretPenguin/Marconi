@@ -20,6 +20,7 @@
 
 <script src="/js/vendor/jquery-1.8.1.js"></script>
 <script src="/js/vendor/jquery.rotate.js"></script>
+<script src="/js/m.js"></script>
 <script src="/js/integrated.js"></script>
 </body>
 </html>
