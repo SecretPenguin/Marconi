@@ -12,36 +12,36 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	font-size: 100%;
-	vertical-align: baseline;
-	background: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
 }
 body {
-	line-height: 1;
-	-webkit-text-size-adjust: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-font-smoothing: antialiased;
+  line-height: 1;
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
     -o-font-smoothing: antialiased;
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 
 /* remember to define focus styles! */
 :focus {
-	outline: 0;
+  outline: 0;
 }
 
 /* no dotted outline when you click links */
@@ -57,16 +57,16 @@ a:focus
 
 /* remember to highlight inserts somehow! */
 ins {
-	text-decoration: none;
+  text-decoration: none;
 }
 del {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 /* tables still need 'cellspacing="0"' in the markup */
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 article, aside, figure, footer, header, hgroup, menu, nav, section {
@@ -74,285 +74,285 @@ display:block;
 }
 
 .clear {
-	clear:both;
-	}
-	
+  clear:both;
+  }
+
 /* Begin Layout */
 
 body {
-	min-width:960px;
-/* 	background:url(images/grid.gif) repeat center; */
-	}
+  min-width:960px;
+/*  background:url(/images/integrated/grid.gif) repeat center; */
+  }
 
 .center {
-	width:960px;
-	margin:0 auto;
-	}
+  width:960px;
+  margin:0 auto;
+  }
 
 .space {
-	height:1000px;
-	background:#000;
-	}
+  height:1000px;
+  background:#000;
+  }
 
 #cogs {
-	height:18000px;
-	position:relative;
-	}
-		
+  height:18000px;
+  position:relative;
+  }
+
 #screen {
-	position:relative;
-	width:100%;
-	overflow:hidden;
-	top:0;
-	}
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  top:0;
+  }
 
 .fixTop {
-	position:fixed!important;
-	top:0!important;
-	}
-	
+  position:fixed!important;
+  top:0!important;
+  }
+
 .stickTop {
-	position:absolute!important;
-	top:0!important;
-	}
-	
+  position:absolute!important;
+  top:0!important;
+  }
+
 .stickBot {
-	position:absolute!important;
-	bottom:0!important;
-	top:auto!important;
-	}
-	
+  position:absolute!important;
+  bottom:0!important;
+  top:auto!important;
+  }
+
 /* Play */
 
 #play {
-	position:absolute;
-	top:10px;
-	right:10px;
-	z-index:1000;
-	}
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:1000;
+  }
 
 /* Cogs */
 
 #cogShift {
-	height:6000px;
-	width:100%;
-	position:absolute;
-	left:0;
-	top:0;
-	}
-	
+  height:6000px;
+  width:100%;
+  position:absolute;
+  left:0;
+  top:0;
+  }
+
 .cogS {
-	width:190px;
-	height:190px;
-	background:url(images/cog-s.png) no-repeat;
-	}
-	
+  width:190px;
+  height:190px;
+  background:url(/images/integrated/cog-s.png) no-repeat;
+  }
+
 .cogS.back {
-	background:url(images/cog-s-red.png) no-repeat;
-	z-index:-10;
-	margin-top:-16px;
-	}
-	
+  background:url(/images/integrated/cog-s-red.png) no-repeat;
+  z-index:-10;
+  margin-top:-16px;
+  }
+
 .cogM {
-	width:340px;
-	height:340px;
-	background:url(images/cog-m.png) no-repeat;
-	}
-	
+  width:340px;
+  height:340px;
+  background:url(/images/integrated/cog-m.png) no-repeat;
+  }
+
 .cogM.back {
-	background:url(images/cog-m-red.png) no-repeat;
-	z-index:-10;
-	margin-top:-16px;
-	}
-	
+  background:url(/images/integrated/cog-m-red.png) no-repeat;
+  z-index:-10;
+  margin-top:-16px;
+  }
+
 .cogL {
-	width:490px;
-	height:490px;
-	background:url(images/cog-l.png) no-repeat;
-	}
-	
+  width:490px;
+  height:490px;
+  background:url(/images/integrated/cog-l.png) no-repeat;
+  }
+
 .cogL.back {
-	background:url(images/cog-l-red.png) no-repeat;
-	z-index:-10;
-	margin-top:-16px;
-	}
-	
+  background:url(/images/integrated/cog-l-red.png) no-repeat;
+  z-index:-10;
+  margin-top:-16px;
+  }
+
 .cogXL {
-	width:640px;
-	height:640px;
-	background:url(images/cog-xl.png) no-repeat;
-	}
-	
+  width:640px;
+  height:640px;
+  background:url(/images/integrated/cog-xl.png) no-repeat;
+  }
+
 .cogXL.back {
-	background:url(images/cog-xl-red.png) no-repeat;
-	z-index:-10;
-	margin-top:-16px;
-	}
-	
+  background:url(/images/integrated/cog-xl-red.png) no-repeat;
+  z-index:-10;
+  margin-top:-16px;
+  }
+
 #cogShift > div {
-	transition: none;
-	-webkit-transition: none;
-	-moz-transition: none;
-	-o-transition: none;
-	position:absolute;
-	left:50%;
-	}
+  transition: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  position:absolute;
+  left:50%;
+  }
 
 /* Cog Locations */
 
 #cog1, #cog1d {
-	margin-left:-195px;
-	top:2000px;;
-	}
-	
+  margin-left:-195px;
+  top:2000px;;
+  }
+
 #cog1d {
-	top:2008px;
-	}
-	
+  top:2008px;
+  }
+
 #cog2, #cog2d {
-	margin-left:-71px;
-	top:2069px;
-	}
-	
+  margin-left:-71px;
+  top:2069px;
+  }
+
 #cog2d {
-	top:2077px;
-	}
-	
+  top:2077px;
+  }
+
 #cog3, #cog3d {
-	margin-left:-433px;
-	top:2265px;
-	}
-	
+  margin-left:-433px;
+  top:2265px;
+  }
+
 #cog3d {
-	top:2273px;
-	}
-	
+  top:2273px;
+  }
+
 #cog4, #cog4d {
-	margin-left:-132px;
-	top:2585px;
-	}
-	
+  margin-left:-132px;
+  top:2585px;
+  }
+
 #cog4d {
-	top:2593px;
-	}
-	
+  top:2593px;
+  }
+
 #cog5 {
-	margin-left:-159px;
-	top:3115px;
-	}
-	
+  margin-left:-159px;
+  top:3115px;
+  }
+
 #cog6 {
-	margin-left:-35px;
-	top:3184px;
-	}
-	
+  margin-left:-35px;
+  top:3184px;
+  }
+
 #cog7 {
-	margin-left:-397px;
-	top:3380px;
-	}
-	
+  margin-left:-397px;
+  top:3380px;
+  }
+
 #cog8, #cog8mask {
-	width:740px;
-	height:740px;
-	background:url(images/text-cog.gif) no-repeat;
-	z-index:-10;
-	margin-left:-146px;
-	top:3650px;
-	}
-	
+  width:740px;
+  height:740px;
+  background:url(/images/integrated/text-cog.gif) no-repeat;
+  z-index:-10;
+  margin-left:-146px;
+  top:3650px;
+  }
+
 #cog8mask {
-	background:url(images/test-mask.gif) no-repeat;
-	z-index:-5;
-	}
-		
+  background:url(/images/integrated/test-mask.gif) no-repeat;
+  z-index:-5;
+  }
+
 #cog9 {
-	margin-left:-159px;
-	top:4196px;
-	}
-	
+  margin-left:-159px;
+  top:4196px;
+  }
+
 #cog10 {
-	margin-left:-35px;
-	top:4265px;
-	}
-	
+  margin-left:-35px;
+  top:4265px;
+  }
+
 #cog11 {
-	margin-left:-397px;
-	top:4461px;
-	}
-	
+  margin-left:-397px;
+  top:4461px;
+  }
+
 #cog12 {
-	margin-left:-96px;
-	top:4781px;
-	}
-	
+  margin-left:-96px;
+  top:4781px;
+  }
+
 #cog13 {
-	margin-left:-159px;
-	top:5277px;
-	}
-	
+  margin-left:-159px;
+  top:5277px;
+  }
+
 #cog14 {
-	margin-left:-35px;
-	top:5346px;
-	}
-	
+  margin-left:-35px;
+  top:5346px;
+  }
+
 #cog15 {
-	margin-left:-397px;
-	top:5542px;
-	}
-	
+  margin-left:-397px;
+  top:5542px;
+  }
+
 #cog16 {
-	margin-left:-96px;
-	top:5862px;
-	}
+  margin-left:-96px;
+  top:5862px;
+  }
 
 /* Tagline */
 
 #cogTagline {
-	position:absolute;
-	top:50%;
-	width:100%;
-	}
-	
+  position:absolute;
+  top:50%;
+  width:100%;
+  }
+
 #cogTagline h2 {
-	position:relative;
-	height:60px;
-	font-size:60px;
-	margin:-30px auto 0;
-	width:500px;
-	text-align:center;
-	}
-	
+  position:relative;
+  height:60px;
+  font-size:60px;
+  margin:-30px auto 0;
+  width:500px;
+  text-align:center;
+  }
+
 #cogLeft, #cogRight {
-	position:absolute;
-	}
-	
+  position:absolute;
+  }
+
 #cogLeft {
-	top:-95px;
-	left:50%;
-	margin-left:-440px;
-	}
-	
+  top:-95px;
+  left:50%;
+  margin-left:-440px;
+  }
+
 #cogRight {
-	top:-170px;
-	right:50%;
-	margin-right:-590px;
-	}
+  top:-170px;
+  right:50%;
+  margin-right:-590px;
+  }
 
 #hideLeft, #hideRight {
-	position:absolute;
-	top:50%;
-	margin-top:-50px;
-	height:100px;
-	background:#fff;
-	width:250px;
-	}
-	
+  position:absolute;
+  top:50%;
+  margin-top:-50px;
+  height:100px;
+  background:#fff;
+  width:250px;
+  }
+
 #hideLeft {
-	left:50%;
-	margin-left:-525px;
-	}
-	
+  left:50%;
+  margin-left:-525px;
+  }
+
 #hideRight {
-	right:50%;
-	margin-right:-525px;
-	}
+  right:50%;
+  margin-right:-525px;
+  }
