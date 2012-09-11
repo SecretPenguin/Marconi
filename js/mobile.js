@@ -12,20 +12,15 @@
       this.$tabletSlider = $("#tabletSlider").remove();
       this.$desktopSlider = $("#desktopSlider").remove();
 
-      $(window).on("resize", $.proxy(this.onResize, this));
       $(window).on("scroll", $.proxy(this.onScroll, this));
       this.$switchButtons.on("click", $.proxy(this.selectDevice, this));
 
-      // trigger a resize to set the initial screen and scene heights
-      $(window).resize();
       this.activateSlider("phone");
     },
-    // recalculate the screen height and scene height, then set the heights
-    // on the matching divs using new values
+
     onResize: function(event) {
-      this.screenHeight = $(window).height();
-      this.sceneHeight = this.screenHeight + this.scrollBuffer;
-      this.$screen.height(this.screenHeight);
+      this.sceneHeight = M.screenHeight + this.scrollBuffer;
+      this.$screen.height(M.screenHeight);
       this.$mobile.height(this.sceneHeight);
     },
 
