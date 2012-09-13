@@ -33,7 +33,7 @@ function is_dev_mode() {
 </div>
 
   <?php if (is_dev_mode()): ?>
-  <script src="/js/vendor/jquery-1.8.1.js"></script>
+  <script src="/js/vendor/jquery.js"></script>
   <script src="/js/vendor/jquery.cycle.all.js"></script>
   <script src="/js/vendor/jquery.maximage.js"></script>
   <script src="/js/vendor/jquery.rotate.js"></script>

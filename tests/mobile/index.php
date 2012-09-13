@@ -20,7 +20,7 @@
   <div class="center">Test</div>
 </div>
 
-<script src="/js/vendor/jquery-1.8.1.js"></script>
+<script src="/js/vendor/jquery.js"></script>
 <script src="/js/vendor/jquery.cycle.all.js"></script>
 <script src="/js/vendor/jquery.maximage.js"></script>
 <script src="/js/m.js"></script>
