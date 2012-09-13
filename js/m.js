@@ -1,30 +1,30 @@
 (function($, undefined) {
   function PageController() {
-    this.sections = [];
+    this.scenes = [];
     $(window).on("resize", $.proxy(this.onResize, this));
   }
 
   PageController.prototype.init = function() {
-    for (var i = 0; i < this.sections.length; i++) {
-      this.sections[i].init();
+    for (var i = 0; i < this.scenes.length; i++) {
+      this.scenes[i].init();
     }
 
     // trigger a resize to set the initial screen height
     $(window).resize();
   }
 
-  PageController.prototype.register = function(section) {
-    this.sections.push(section);
+  PageController.prototype.register = function(scene) {
+    this.scenes.push(scene);
   }
 
   PageController.prototype.onResize = function(event) {
     this.screenHeight = $(window).height();
 
-    for (var i = 0; i < this.sections.length; i++) {
-      var section = this.sections[i];
+    for (var i = 0; i < this.scenes.length; i++) {
+      var scene = this.scenes[i];
 
-      if (section.hasOwnProperty("onResize")) {
-        section.onResize(event);
+      if (scene.hasOwnProperty("onResize")) {
+        scene.onResize(event);
       }
     }
   }
