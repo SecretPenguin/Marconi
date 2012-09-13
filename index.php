@@ -11,6 +11,7 @@ function is_dev_mode() {
   <?php if (is_dev_mode()): ?>
   <link rel="stylesheet" href="/tests/mobile/style.css" />
   <link rel="stylesheet" href="/tests/integrated/style.css" />
+  <link rel="stylesheet" href="/tests/relevant/style.css" />
   <?php else: ?>
   <link rel="stylesheet" href="all.css" />
   <?php endif; ?>
@@ -20,17 +21,13 @@ function is_dev_mode() {
 </head>
 <body>
 
-<div class="space">
-  <div class="center">Test</div>
-</div>
+<div class="space"></div>
   <?php include("tests/mobile/mobile.php"); ?>
-<div class="space">
-  <div class="center">Test</div>
-</div>
+<div class="space"></div>
   <?php include("tests/integrated/integrated.php"); ?>
-<div class="space">
-  <div class="center">Test</div>
-</div>
+<div class="space"></div>
+  <?php include("tests/relevant/relevant.php"); ?>
+<div class="space"></div>
 
   <?php if (is_dev_mode()): ?>
   <script src="/js/vendor/jquery.js"></script>
@@ -40,6 +37,7 @@ function is_dev_mode() {
   <script src="/js/m.js"></script>
   <script src="/js/mobile.js"></script>
   <script src="/js/integrated.js"></script>
+  <script src="/js/relevant.js"></script>
   <?php else: ?>
   <script src="all.js"></script>
   <?php endif; ?>
