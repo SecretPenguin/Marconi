@@ -73,3 +73,20 @@ article, aside, figure, footer, header, hgroup, menu, nav, section {
 .clear {
   clear:both;
 }
+
+/* End Reset */
+
+  .play {
+    padding:5px;
+    background:#000;
+    position:absolute;
+    top:0;
+    right:0;
+    z-index:1000;
+  }
+
+  .play a {
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+  }

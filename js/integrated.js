@@ -7,7 +7,7 @@
       this.$cogs = $("#cogs");
       this.$screen = $("#cogs-screen");
       this.$cogShift = $('#cogShift');
-      this.$scroll = $('.scroll');
+      this.$scroll = $('#cogs .scroll');
       this.$cogSR = $('.cogS.rev');
       this.$cogSN = $('.cogS.norm');
       this.$cogMR = $('.cogM.rev');

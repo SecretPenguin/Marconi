@@ -92,21 +92,6 @@ right:-700px;
     /*  border-radius:25px; */
   }
 
-  #play {
-    padding:5px;
-    background:#000;
-    position:absolute;
-    top:0;
-    right:0;
-    z-index:1000;
-  }
-
-  #play a {
-    color:#fff;
-    text-decoration:none;
-    font-weight:bold;
-  }
-
   .fixTop {
     position:fixed!important;
     top:0!important;
