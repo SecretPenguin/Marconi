@@ -1,102 +1,21 @@
-/* http://meyerweb.com/eric/tools/css/reset/ */
-/* v1.0 | 20080212 */
-
-
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
-}
-body {
-  line-height: 1;
-  -webkit-text-size-adjust: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-    -o-font-smoothing: antialiased;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-
-/* remember to define focus styles! */
-:focus {
-  outline: 0;
-}
-
-/* no dotted outline when you click links */
-a:active
-{
-outline: none;
-}
-
-a:focus
-{
--moz-outline-style: none;
-}
-
-/* remember to highlight inserts somehow! */
-ins {
-  text-decoration: none;
-}
-del {
-  text-decoration: line-through;
-}
-
-/* tables still need 'cellspacing="0"' in the markup */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-article, aside, figure, footer, header, hgroup, menu, nav, section {
-display:block;
-}
-
-.clear {
-  clear:both;
-  }
-
-/* Begin Layout */
-
 body {
   min-width:960px;
-/*  background:url(/images/mobile/grid.gif) repeat center; */
-  }
+  /*  background:url(/images/mobile/grid.gif) repeat center; */
+}
 
 .center {
   width:960px;
   margin:0 auto;
-  }
+}
 
 .space {
   height:1000px;
   background:#000;
-  }
+}
 
 #mobile {
   position:relative;
-  }
+}
 
 #mobile-screen {
   position:relative;
@@ -109,18 +28,18 @@ body {
 .fixTop {
   position:fixed!important;
   top:0!important;
-  }
+}
 
 .stickTop {
   position:absolute!important;
   top:0!important;
-  }
+}
 
 .stickBot {
   position:absolute!important;
   bottom:0!important;
   top:auto!important;
-  }
+}
 
 /* Mobile Scene */
 
@@ -135,7 +54,7 @@ body {
   background:url(/images/mobile/anytime.png) no-repeat;
   text-indent:-9999px;
   display:block;
-  }
+}
 
 /* Devices */
 
@@ -146,33 +65,33 @@ body {
   height:231px;
   left:-480px;
   margin-left:50%;
-  }
+}
 
 #devices div {
   height:231px;
   position:absolute;
   margin-left:50%;
-  }
+}
 
 #phone {
   width:269px;
   left:-135px;
   background:url(/images/mobile/phone.png) no-repeat;
-  }
+}
 
 #tablet {
   width:789px;
   left:-395px;
   background:url(/images/mobile/tablet.png) no-repeat;
   top:231px;
-  }
+}
 
 #desktop {
   width:989px;
   left:-495px;
   background:url(/images/mobile/desktop.png) no-repeat;
   top:231px;
-  }
+}
 
 /* Switchboard */
 
@@ -183,46 +102,46 @@ body {
   position:absolute;
   bottom:0;
   z-index:50;
-  }
+}
 
 #switchboard .center {
   width:362px;
   position:relative;
   top:13px;
   height:122px;
-  }
+}
 
 #switchboard a {
   position:absolute;
   bottom:0;
   text-indent:-9999px;
   float:left;
-  }
+}
 
 #showPhone {
   background:url(/images/mobile/phoneLink.gif) no-repeat top;
   width:49px;
   height:77px;
   left:0;
-  }
+}
 
 #showTablet {
   background:url(/images/mobile/tabletLink.gif) no-repeat top;
   width:101px;
   height:96px;
   left:89px;
-  }
+}
 
 #showDesktop {
   background:url(/images/mobile/desktopLink.gif) no-repeat top;
   width:132px;
   height:122px;
   right:0;
-  }
+}
 
 #switchboard a:hover, #switchboard .current {
   background-position:bottom;
-  }
+}
 
 /* Slider Images */
 
@@ -231,18 +150,18 @@ body {
   width:100%;
   height:100%;
   z-index:0;
-  }
+}
 
 /*
 #slider > div {
-  position:relative;
-  width:100%;
-  height:100%;
-  }
-*/
+position:relative;
+width:100%;
+height:100%;
+}
+ */
 
-/*! Version: 2.0.5 (25-July-2012) */
-.mc-hide-scrolls{overflow:hidden}
-body .mc-cycle{height:100%;left:0;overflow:hidden;position:fixed;top:0;width:100%;z-index:-1}
-div.mc-image{background-position:center center;background-repeat:no-repeat;height:100%;overflow:hidden;width:100%}
-.mc-old-browser .mc-image{overflow:hidden}
+  /*! Version: 2.0.5 (25-July-2012) */
+  .mc-hide-scrolls{overflow:hidden}
+  body .mc-cycle{height:100%;left:0;overflow:hidden;position:fixed;top:0;width:100%;z-index:-1}
+  div.mc-image{background-position:center center;background-repeat:no-repeat;height:100%;overflow:hidden;width:100%}
+  .mc-old-browser .mc-image{overflow:hidden}

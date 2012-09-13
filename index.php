@@ -9,9 +9,10 @@ function is_dev_mode() {
 <head>
   <meta charset="utf-8">
   <?php if (is_dev_mode()): ?>
-  <link rel="stylesheet" href="/tests/mobile/style.css" />
-  <link rel="stylesheet" href="/tests/integrated/style.css" />
-  <link rel="stylesheet" href="/tests/relevant/style.css" />
+  <link rel="stylesheet" href="/css/shared.css" />
+  <link rel="stylesheet" href="/css/mobile.css" />
+  <link rel="stylesheet" href="/css/integrated.css" />
+  <link rel="stylesheet" href="/css/relevant.css" />
   <?php else: ?>
   <link rel="stylesheet" href="all.css" />
   <?php endif; ?>

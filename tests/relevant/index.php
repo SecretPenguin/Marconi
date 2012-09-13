@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="/css/shared.css" />
+<link rel="stylesheet" href="/css/relevant.css" />
 <!--[if lt IE 9]>
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
