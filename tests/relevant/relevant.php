@@ -3,7 +3,7 @@
 
 <div id="walking">
   <div id="relevant-screen">
-    <div id="play"><p><a class="scroll" href="#End">Play</a></p></div>
+    <div class="play"><p><a class="scroll" href="#End">Play</a></p></div>
     <div class="center">
       <div id="leftMask"></div>
       <div id="rightMask"></div>

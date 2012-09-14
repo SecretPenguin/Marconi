@@ -12,7 +12,7 @@
       this.$skill1 = $('#skill1');
       this.$skill2 = $('#skill2');
       this.$bear = $('#bear')
-      this.$scroll = $('.scroll');
+      this.$scroll = $('#walking .scroll');
 
       $(window).on("scroll", $.proxy(this.onScroll, this));
       this.$scroll.on("click", $.proxy(this.autoPlay, this));
