@@ -30,8 +30,7 @@
     var distance = this.distance();
 
     // Update play speed based on distance from end
-    this.scrollSpeed = (this.sceneLength - distance)*this.setSpeed;
-
+    this.setScrollSpeed(distance);
     this.condtionallyFixateScene(distance);
 
     // Move elements on scroll

@@ -30,6 +30,10 @@
     return -(this.offset() - $(window).scrollTop());
   }
 
+  Scene.prototype.setScrollSpeed = function(distance) {
+    this.scrollSpeed = (this.sceneLength - distance) * this.setSpeed;
+  };
+
   Scene.prototype.onResize = function(event) {
   };
 
