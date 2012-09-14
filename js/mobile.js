@@ -24,14 +24,7 @@
   mobile.onScroll = function(event) {
     var distance = this.distance();
 
-    // Keep scene still during scroll
-    if (distance < 0) {
-      this.$screen.attr("class", "stickTop");
-    } else if (distance >= this.sceneLength) {
-      this.$screen.attr("class", "stickBot");
-    } else if (distance >= 0 && distance < this.sceneLength) {
-      this.$screen.attr("class", "fixTop");
-    }
+    this.condtionallyFixateScene(distance);
 
     // Animate current device in when approaching scene
     var deviceSpeed = (distance / 2) + 146;

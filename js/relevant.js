@@ -27,14 +27,7 @@
     // Update play speed based on distance from end
     this.scrollSpeed = (this.sceneLength - distance)*this.setSpeed;
 
-    // Keep scene still during scroll
-    if ( (distance < 0) ) {
-      this.$screen.attr("class", "stickTop");
-    } else if (distance >= this.sceneLength) {
-      this.$screen.attr("class", "stickBot");
-    } else if (distance >= 0 && distance < this.sceneLength) {
-      this.$screen.attr("class", "fixTop");
-    }
+    this.condtionallyFixateScene(distance);
 
     // Move elements on scroll
     var animUpdate; // Used only for console.log
