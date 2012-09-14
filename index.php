@@ -36,6 +36,7 @@ function is_dev_mode() {
   <script src="/js/vendor/jquery.maximage.js"></script>
   <script src="/js/vendor/jquery.rotate.js"></script>
   <script src="/js/m.js"></script>
+  <script src="/js/scene.js"></script>
   <script src="/js/mobile.js"></script>
   <script src="/js/integrated.js"></script>
   <script src="/js/relevant.js"></script>

@@ -25,6 +25,7 @@
 <script src="/js/vendor/jquery.cycle.all.js"></script>
 <script src="/js/vendor/jquery.maximage.js"></script>
 <script src="/js/m.js"></script>
+<script src="/js/scene.js"></script>
 <script src="/js/mobile.js"></script>
 
 </body>
