@@ -25,7 +25,7 @@
     var distance = this.distance();
 
     this.setScrollSpeed(distance);
-    this.condtionallyFixateScene(distance);
+    this.conditionallyFixateScene(distance);
 
     // Move elements on scroll
     var animUpdate; // Used only for console.log

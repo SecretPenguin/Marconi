@@ -31,7 +31,7 @@
 
     // Update play speed based on distance from end
     this.setScrollSpeed(distance);
-    this.condtionallyFixateScene(distance);
+    this.conditionallyFixateScene(distance);
 
     // Move elements on scroll
     var animUpdate; // Used only for console.log

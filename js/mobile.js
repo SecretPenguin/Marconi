@@ -24,7 +24,7 @@
   mobile.onScroll = function(event) {
     var distance = this.distance();
 
-    this.condtionallyFixateScene(distance);
+    this.conditionallyFixateScene(distance);
 
     // Animate current device in when approaching scene
     var deviceSpeed = (distance / 2) + 146;
