@@ -40,10 +40,10 @@
   Scene.prototype.condtionallyFixateScene = function(distance) {
     if (distance < 0) {
       this.$screen.attr("class", "stickTop");
-    } else if (distance >= this.sceneLength) {
-      this.$screen.attr("class", "stickBot");
-    } else if (distance >= 0 && distance < this.sceneLength) {
+    } else if (distance < this.sceneLength) {
       this.$screen.attr("class", "fixTop");
+    } else {
+      this.$screen.attr("class", "stickBot");
     }
   };
 
