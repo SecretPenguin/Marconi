@@ -22,6 +22,7 @@
 <script src="/js/vendor/jquery.js"></script>
 <script src="/js/vendor/jquery.rotate.js"></script>
 <script src="/js/m.js"></script>
+<script src="/js/scene.js"></script>
 <script src="/js/integrated.js"></script>
 </body>
 </html>

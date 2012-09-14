@@ -1,98 +1,93 @@
 (function($) {
-  var relevant = {
-      init: function() {
-      this.sceneHeight = 18000; // CSS height of #cogs
-      this.scrollSpeed = 10000; // Base speed
-      this.setSpeed = 2; // Scroll speed per pixel
-      this.$cogs = $("#cogs");
-      this.$screen = $("#cogs-screen");
-      this.$cogShift = $('#cogShift');
-      this.$scroll = $('#cogs .scroll');
-      this.$cogSR = $('.cogS.rev');
-      this.$cogSN = $('.cogS.norm');
-      this.$cogMR = $('.cogM.rev');
-      this.$cogMN = $('.cogM.norm');
-      this.$cogLR = $('.cogL.rev');
-      this.$cogLN = $('.cogL.norm');
-      this.$cogXlR = $('.cogXL.rev');
-      this.$cogXlN = $('.cogXL.norm');
-      this.$cogLeft = $('#cogLeft');
-      this.$cogRight = $('#cogRight');
-      this.$hideLeft = $('#hideLeft');
-      this.$hideRight = $('#hideRight');
-      this.$cogTagline = $('#cogTagline');
+  var integrated = new Scene("cogs", 18000);
 
-      $(window).on("scroll", $.proxy(this.onScroll, this));
-      this.$scroll.on("click", $.proxy(this.autoPlay, this));
-    },
+  integrated.init = function() {
+    this.$cogShift = $('#cogShift');
+    this.$scroll = $('#cogs .scroll');
+    this.$cogSR = $('.cogS.rev');
+    this.$cogSN = $('.cogS.norm');
+    this.$cogMR = $('.cogM.rev');
+    this.$cogMN = $('.cogM.norm');
+    this.$cogLR = $('.cogL.rev');
+    this.$cogLN = $('.cogL.norm');
+    this.$cogXlR = $('.cogXL.rev');
+    this.$cogXlN = $('.cogXL.norm');
+    this.$cogLeft = $('#cogLeft');
+    this.$cogRight = $('#cogRight');
+    this.$hideLeft = $('#hideLeft');
+    this.$hideRight = $('#hideRight');
+    this.$cogTagline = $('#cogTagline');
 
-    onResize: function(event) {
-      this.$screen.height(M.screenHeight);
-    },
+    $(window).on("scroll", $.proxy(this.onScroll, this));
+    this.$scroll.on("click", $.proxy(this.autoPlay, this));
+  };
 
-    onScroll: function(event) {
-      var scrollTop = $(window).scrollTop();
-      cogsOffset = this.$cogs.offset().top;
-      distance = -(cogsOffset - scrollTop);
+  integrated.onResize = function(event) {
+    this.$screen.height(M.screenHeight);
+  };
 
-      // Update play speed based on distance from end
-      this.scrollSpeed = (this.sceneHeight - distance)*this.setSpeed;
+  integrated.onScroll = function(event) {
+    var scrollTop = $(window).scrollTop();
+    var distance = -(this.offset() - scrollTop);
 
-      // Keep scene still during scroll
-      if ( (distance < 0) ) {
-        this.$screen.attr("class", "stickTop");
-      } else if ( distance >= this.difHeight ) {
-        this.$screen.attr("class", "stickBot");
-      } else if ( distance >= 0 && distance < this.sceneHeight ) {
-        this.$screen.attr("class", "fixTop");
-      }
+    // Update play speed based on distance from end
+    this.scrollSpeed = (this.sceneLength - distance)*this.setSpeed;
 
-      // Move elements on scroll
-      var animUpdate; // Used only for console.log
-      function myCalc(animOrigin, animTrigger, animSpeed) {
-        // animOrigin = Element offset
-        // animTrigger = Position of variable "distance" when animation begins
-        // animSpeed = Pixels scrolled per pixels moved. 2 = 1px moved to 2px scrolled
-        animUpdate = (distance - animTrigger)/animSpeed + animOrigin;
-      }
+    // Keep scene still during scroll
+    if ( (distance < 0) ) {
+      this.$screen.attr("class", "stickTop");
+    } else if (distance >= this.sceneLength) {
+      this.$screen.attr("class", "stickBot");
+    } else if ( distance >= 0 && distance < this.sceneLength ) {
+      this.$screen.attr("class", "fixTop");
+    }
 
-      // Rotation
-      var rotateSpeedS = distance/2;
-      var rotateSpeedM = distance/4;
-      var rotateSpeedL = distance/6;
-      var rotateSpeedXL = distance/8;
-      if ( distance >= -M.screenHeight && distance <= this.sceneHeight ) {
-        this.$cogSR.rotate(- rotateSpeedS);
-        this.$cogSN.rotate(rotateSpeedS);
-        this.$cogMR.rotate(- rotateSpeedM);
-        this.$cogMN.rotate(rotateSpeedM);
-        this.$cogLR.rotate(- rotateSpeedL);
-        this.$cogLN.rotate(rotateSpeedL);
-        this.$cogXlR.rotate(- rotateSpeedXL);
-        this.$cogXlN.rotate(rotateSpeedXL);
-      }
+    // Move elements on scroll
+    var animUpdate; // Used only for console.log
+    function myCalc(animOrigin, animTrigger, animSpeed) {
+      // animOrigin = Element offset
+      // animTrigger = Position of variable "distance" when animation begins
+      // animSpeed = Pixels scrolled per pixels moved. 2 = 1px moved to 2px scrolled
+      animUpdate = (distance - animTrigger)/animSpeed + animOrigin;
+    }
 
-      // Cog Scroll
-      var cogScroll = -distance/3;
-      if ( distance >= 0 && distance <= this.sceneHeight ) {
-        this.$cogShift.css('top', cogScroll);
-      }
+    // Rotation
+    var rotateSpeedS = distance/2;
+    var rotateSpeedM = distance/4;
+    var rotateSpeedL = distance/6;
+    var rotateSpeedXL = distance/8;
+    if ( distance >= -M.screenHeight && distance <= this.sceneLength ) {
+      this.$cogSR.rotate(- rotateSpeedS);
+      this.$cogSN.rotate(rotateSpeedS);
+      this.$cogMR.rotate(- rotateSpeedM);
+      this.$cogMN.rotate(rotateSpeedM);
+      this.$cogLR.rotate(- rotateSpeedL);
+      this.$cogLN.rotate(rotateSpeedL);
+      this.$cogXlR.rotate(- rotateSpeedXL);
+      this.$cogXlN.rotate(rotateSpeedXL);
+    }
 
-      // Cogs Shift Test
-      if ( distance >= 5500 && distance < 8000 ) {
-        myCalc(0,5500,30);
-        this.$cogShift.css('left', animUpdate);
-      } else if ( distance >= 9000 && distance <= 13500 ) {
-        myCalc(84,9000,25);
-        var animUpdateTurn = -(animUpdate - 2*84); // Very crappy way of switching movement of animation
-        this.$cogShift.css('left', animUpdateTurn);
-      } else if ( distance > 13500 ) {
-        this.$cogShift.css('left', -96); // Make this (-96) be set by the last position of the cog shift
-      }
+    // Cog Scroll
+    var cogScroll = -distance/3;
+    if ( distance >= 0 && distance <= this.sceneLength ) {
+      this.$cogShift.css('top', cogScroll);
+    }
 
-      // Most likely removing this section - ignore until confirmed, then destroy!
-      // If we do use, fix NaN issue
-      // Cog Depth
+    // Cogs Shift Test
+    if ( distance >= 5500 && distance < 8000 ) {
+      myCalc(0,5500,30);
+      this.$cogShift.css('left', animUpdate);
+    } else if ( distance >= 9000 && distance <= 13500 ) {
+      myCalc(84,9000,25);
+      var animUpdateTurn = -(animUpdate - 2*84); // Very crappy way of switching movement of animation
+      this.$cogShift.css('left', animUpdateTurn);
+    } else if ( distance > 13500 ) {
+      this.$cogShift.css('left', -96); // Make this (-96) be set by the last position of the cog shift
+    }
+
+    // Most likely removing this section - ignore until confirmed, then destroy!
+    // If we do use, fix NaN issue
+    // Cog Depth
 /*
       $('.back').each(function() {
         $back = $(this);
@@ -108,53 +103,52 @@
       });
 */
 
-      // Tagline
-      if ( distance < 500 ) {
-        this.$cogLeft.css('margin-left', '-440px');
-        this.$cogRight.css('margin-right', '-590px');
-        this.$hideLeft.css('margin-left', '-525px');
-        this.$hideRight.css('margin-right', '-525px');
-      } else if ( distance >= 500 && distance <= 1540 ) {
-        myCalc(0,500,4);
-        this.$cogLeft.css('margin-left', (-440 + animUpdate));
-        this.$cogRight.css('margin-right', (-590 + animUpdate ));
-        this.$hideLeft.css('margin-left', (-525 + animUpdate));
-        this.$hideRight.css('margin-right', (-525 + animUpdate));
-      } else if ( distance > 1540 && distance <= this.sceneHeight ) {
-        myCalc(0,1540,5);
-        this.$cogTagline.css('margin-top', -animUpdate);
-        this.$cogLeft.css('margin-left', '-180px');
-        this.$cogRight.css('margin-right', '-330px');
-        this.$hideLeft.css('margin-left', '-268px');
-        this.$hideRight.css('margin-right', '-268px');
-      }
-
-      console.log(distance);
-    },
-
-    autoPlay: function(event) {
-      var $pageContainer = $('html, body');
-
-      event.preventDefault();
-      var full_url = event.target.href;
-      //split the url by # and get the anchor target name
-      var parts = full_url.split("#");
-      var trgt = parts[1];
-      //get the top offset of the target anchor
-      var target_offset = $("#"+trgt).offset();
-      var target_top = target_offset.top;
-      //goto that anchor by setting the body scroll top to anchor top
-      // Set scrollSpeed by setting setSpeed
-      $pageContainer.stop().animate({scrollTop:target_top}, this.scrollSpeed, 'linear');
-
-      // Stop animation on scroll
-      $pageContainer.bind('scroll mousedown DOMMouseScroll mousewheel keyup', function(e){
-        if ( e.which > 0 || e.type == "mousedown" || e.type == "mousewheel"){
-          $pageContainer.stop().unbind();
-        }
-      });
+    // Tagline
+    if ( distance < 500 ) {
+      this.$cogLeft.css('margin-left', '-440px');
+      this.$cogRight.css('margin-right', '-590px');
+      this.$hideLeft.css('margin-left', '-525px');
+      this.$hideRight.css('margin-right', '-525px');
+    } else if ( distance >= 500 && distance <= 1540 ) {
+      myCalc(0,500,4);
+      this.$cogLeft.css('margin-left', (-440 + animUpdate));
+      this.$cogRight.css('margin-right', (-590 + animUpdate ));
+      this.$hideLeft.css('margin-left', (-525 + animUpdate));
+      this.$hideRight.css('margin-right', (-525 + animUpdate));
+    } else if ( distance > 1540 && distance <= this.sceneLength ) {
+      myCalc(0,1540,5);
+      this.$cogTagline.css('margin-top', -animUpdate);
+      this.$cogLeft.css('margin-left', '-180px');
+      this.$cogRight.css('margin-right', '-330px');
+      this.$hideLeft.css('margin-left', '-268px');
+      this.$hideRight.css('margin-right', '-268px');
     }
+
+    console.log(distance);
   };
 
-  this.M.register(relevant);
+  integrated.autoPlay = function(event) {
+    var $pageContainer = $('html, body');
+
+    event.preventDefault();
+    var full_url = event.target.href;
+    //split the url by # and get the anchor target name
+    var parts = full_url.split("#");
+    var trgt = parts[1];
+    //get the top offset of the target anchor
+    var target_offset = $("#"+trgt).offset();
+    var target_top = target_offset.top;
+    //goto that anchor by setting the body scroll top to anchor top
+    // Set scrollSpeed by setting setSpeed
+    $pageContainer.stop().animate({scrollTop:target_top}, this.scrollSpeed, 'linear');
+
+    // Stop animation on scroll
+    $pageContainer.bind('scroll mousedown DOMMouseScroll mousewheel keyup', function(e){
+      if ( e.which > 0 || e.type == "mousedown" || e.type == "mousewheel"){
+        $pageContainer.stop().unbind();
+      }
+    });
+  };
+
+  this.M.register(integrated);
 })(jQuery);
