@@ -22,13 +22,10 @@ function is_dev_mode() {
 </head>
 <body>
 
-<div class="space"></div>
+  <div class="space"></div>
   <?php include("tests/mobile/mobile.php"); ?>
-<div class="space"></div>
   <?php include("tests/integrated/integrated.php"); ?>
-<div class="space"></div>
   <?php include("tests/relevant/relevant.php"); ?>
-<div class="space"></div>
 
   <?php if (is_dev_mode()): ?>
   <script src="/js/vendor/jquery.js"></script>
