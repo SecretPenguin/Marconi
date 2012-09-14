@@ -4,7 +4,7 @@
       this.sceneHeight = 10000; // CSS height of #walking
       this.scrollSpeed = 20000; // Base speed
       this.setSpeed = 2; // Scroll speed per pixel
-      this.$screen = $("#relevant-screen");
+      this.$screen = $("#walking-screen");
       this.$walking = $("#walking");
       this.$explosion = $('#explosion');
       this.$projectile = $('#projectile');
