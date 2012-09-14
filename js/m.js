@@ -1,35 +1,62 @@
 (function($, undefined) {
-  function PageController() {
-    this.scenes = [];
-    $(window).on("resize", $.proxy(this.onResize, this));
-  }
+  this.M = {
+    scenes: [],
+    activeScenes: [],
 
-  PageController.prototype.init = function() {
-    for (var i = 0; i < this.scenes.length; i++) {
-      this.scenes[i].init();
-    }
+    init: function() {
+      this.eachScene(function(scene) {
+        scene.init();
+      });
+      $(window).on("resize", $.proxy(this.onResize, this));
+      // $(window).on("scroll", $.proxy(this.onScroll, this));
+      // trigger a resize to set the initial screen height
+      $(window).resize();
+    },
 
-    // trigger a resize to set the initial screen height
-    $(window).resize();
-  }
+    register: function(scene) {
+      this.scenes.push(scene);
+    },
 
-  PageController.prototype.register = function(scene) {
-    this.scenes.push(scene);
-  }
+    onResize: function(event) {
+      this.screenHeight = $(window).height();
 
-  PageController.prototype.onResize = function(event) {
-    this.screenHeight = $(window).height();
+      this.eachScene(function(scene) {
+        if (scene.hasOwnProperty("onResize")) {
+          scene.onResize(event);
+        }
+      });
+    },
 
-    for (var i = 0; i < this.scenes.length; i++) {
-      var scene = this.scenes[i];
+    // onScroll: function(event) {
+    //   // monitoring share divs for scene activation/deactivation
 
-      if (scene.hasOwnProperty("onResize")) {
-        scene.onResize(event);
+    //   $.each(this.activeScenes, function() {
+    //     this.onScroll();
+    //   });
+    // },
+
+    // call fn on each scene, passing the scene as the only argument
+    // and keeping M as this
+    eachScene: function(fn) {
+      for (var i = 0; i < this.scenes.length; i++) {
+        var scene = this.scenes[i];
+
+        fn.call(this, scene);
       }
-    }
-  }
+    },
 
-  this.M = new PageController();
+    // activateScene: function(scene) {
+    //   this.activeScenes.push(scene);
+    // },
+
+    // deactivateScene: function(scene) {
+    //   var sceneIndex = this.activeScenes.indexOf(scene);
+
+    //   if (sceneIndex != -1) {
+    //     this.activeScenes.splice(sceneIndex, 1);
+    //   }
+    // }
+  };
 
   $(document).ready(function() {
     M.init();
