@@ -14,10 +14,10 @@
 
 <div class="space"></div>
 <?php include("relevant.php"); ?>
-<div class="space"></div>
 
 <script src="/js/vendor/jquery.js"></script>
 <script src="/js/m.js"></script>
+<script src="/js/scene.js"></script>
 <script src="/js/relevant.js"></script>
 </body>
 </html>
