@@ -20,9 +20,15 @@
   Scene.prototype.init = function() {
   };
 
+  // how far I am from the top of the page
   Scene.prototype.offset = function() {
     return this.$container.offset().top;
   };
+
+  // how far I am from the top of the viewport
+  Scene.prototype.distance = function() {
+    return -(this.offset() - $(window).scrollTop());
+  }
 
   Scene.prototype.onResize = function(event) {
   };

@@ -22,9 +22,7 @@
   };
 
   mobile.onScroll = function(event) {
-    var scrollTop = $(window).scrollTop();
-    var mobileOffset = this.$container.offset().top;
-    var distance = -(mobileOffset - scrollTop);
+    var distance = this.distance();
 
     // Keep scene still during scroll
     if (distance < 0) {
