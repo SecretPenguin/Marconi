@@ -118,7 +118,7 @@
     }
 
     // Walking Sprite Update
-    if ( distance <= this.walkingHeight && distance > 0 ) {
+    if ( distance <= this.$container.height() && distance > 0 ) {
       mySprite(100,6);
       if ( spriteUpdate == 0 ) {
         this.$bear.attr('class', 'f0');
