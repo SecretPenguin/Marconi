@@ -77,70 +77,96 @@ display:block;
 	clear:both;
 	}
 	
-/* Room to Breathe */
-
-body {
-	padding:10px;
-	}
-	
 /* Set Basic Slider Styles */
 
-#flexible-container {
-	width:540px;
-	border:1px solid #000;
-	padding-right:8px; /* Set based on width and position of handle on highest value */
+#timeline {
+	width:960px;
+	margin:20px auto 40px;
 	position:relative;
 	}
 	
-#range {
-	width:270px;
-	height:15px;
+#fast, #normal {
+	float:left;
+	width:480px;
 	position:relative;
-	left:270px;
+	height:250px;
 	}
 	
-.ui-slider-range {
-	width:15px;
+.bar {
+	background:#000;
+	height:3px;
+	width:100%;
 	position:absolute;
-	z-index:1;
-	border:0;
-	top:0;
-	height:100%;
+	bottom:75px;
 	}
 	
-.ui-slider-range-max {
+#breaks {
+	width:480px;
+	height:100px;
+	background:url(images/breaks.jpg) repeat-x left center;
+	position:absolute;
+	bottom:27px;
+	}
+	
+/* End Toggle */
+
+.toggleEnd {
+	width:13px;
+	height:13px;
+	border-radius:7px;
+	border:1px solid #000;
+	display:block;
+	position:absolute;
+	right:-6px;
+	bottom:69px;
+	background:#000;
+	z-index:100;
+	}
+	
+.toggleEnd:hover {
+	background:#ff0000;
+	}
+		
+/* Dates */
+
+#startMonth {
+	position:absolute;
+	bottom:0;
+	left:0;
+	}
+	
+#fastMonth {
+	position:absolute;
+	bottom:0;
 	right:0;
 	}
 	
-.ui-slider-handle {
-	width:15px;
-	height:15px;
+#normalMonth {
 	position:absolute;
-	z-index:2;
-	background:red;
-	margin-left:-7px;
+	bottom:0;
+	right:0;
 	}
 	
-/* Credits */
+/* Taglines */
 
-#credits {
-	position:absolute;
-	left:0;
-	top:0;
-	width:263px;
-	height:15px;
+#taglines {
+	width:400px;
+	margin:0 auto;
+	text-align:center;
 	}
 	
-#credits div {
-	float:left;
-	width:10%;
-	font-size:10px;
-	text-align:center;
-	line-height:15px;
+#taglines > div {
+	display:none;
 	}
 	
 /* Animations */
 
-#animate div {
+#animations {
+	position:absolute;
+	top:0;
+	right:0;
+	}
+	
+#animations > div {
 	display:none;
 	}
