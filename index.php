@@ -24,7 +24,7 @@ function is_dev_mode() {
 <body>
 
   <div class="space"></div>
-  <?php include("tests/mobile/flexible.php"); ?>
+  <?php // include("tests/flexible/flexible.php"); ?>
   <?php include("tests/mobile/mobile.php"); ?>
   <?php include("tests/integrated/integrated.php"); ?>
   <?php include("tests/relevant/relevant.php"); ?>
