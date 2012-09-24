@@ -1,4 +1,4 @@
-<div id="timeline">
+<div id="flexible">
 	<div id="fast">
 		<select id="startMonth"></select>
 		<div class="bar"></div>
