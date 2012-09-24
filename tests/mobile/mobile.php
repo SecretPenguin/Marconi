@@ -1,18 +1,9 @@
 <div id="mobile">
   <div id="mobile-screen">
-    <div id="sliders">
-      <div id="phoneSlider">
-          <img src="/images/mobile/beach.jpg" alt="beach" />
-          <img src="/images/mobile/beach-flip.jpg" alt="beach" />
-      </div>
-      <div id="tabletSlider">
-          <img src="/images/mobile/beach-flip.jpg" alt="beach" />
-          <img src="/images/mobile/beach.jpg" alt="beach" />
-      </div>
-      <div id="desktopSlider">
-          <img src="/images/mobile/beach.jpg" alt="beach" />
-          <img src="/images/mobile/beach-flip.jpg" alt="beach" />
-      </div>
+    <div id="fullScreen">
+      <div id="phoneBG"></div>
+      <div id="tabletBG"></div>
+      <div id="desktopBG"></div>
     </div>
     <h2>Mobile Tagline</h2>
     <div id="devices" class="center">

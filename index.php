@@ -32,7 +32,6 @@ function is_dev_mode() {
   <?php if (is_dev_mode()): ?>
   <script src="/js/vendor/jquery.js"></script>
   <script src="/js/vendor/jquery.cycle.all.js"></script>
-  <script src="/js/vendor/jquery.maximage.js"></script>
   <script src="/js/vendor/jquery.rotate.js"></script>
   <script src="/js/vendor/jquery.backgroundpos.min.js"></script>
   <script src="/js/m.js"></script>

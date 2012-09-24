@@ -5,15 +5,11 @@
     this.$switchButtons = $("#switchboard a");
     this.$devicesContainer = $("#devices");
     this.$devices = this.$devicesContainer.find("div");
-    this.$slidersContainer = $("#sliders");
-    this.$phoneSlider = $("#phoneSlider").remove();
-    this.$tabletSlider = $("#tabletSlider").remove();
-    this.$desktopSlider = $("#desktopSlider").remove();
+    this.$bgImages = $("#fullScreen div");
 
     $(window).on("scroll", $.proxy(this.onScroll, this));
     this.$switchButtons.on("click", $.proxy(this.selectDevice, this));
 
-    this.activateSlider("phone");
   };
 
   mobile.onResize = function(event) {
@@ -43,7 +39,6 @@
     var $clicked = $(event.target);
     var thisEQ = $clicked.index();
     var $selected = this.$devices.eq(thisEQ);
-    var selectedId = $selected.attr("id");
 
     this.$switchButtons.removeClass("current");
     $clicked.addClass("current");
@@ -51,24 +46,8 @@
     this.$devices.stop().css("z-index", 0).animate({top: 231}, 500, function() {
       $selected.stop().css("z-index", 10).animate({top: 0}, 500);
     });
-
-    this.activateSlider(selectedId);
-  };
-
-  mobile.activateSlider = function(deviceId) {
-    var slider = this["$"+deviceId+"Slider"].clone();
-    this.$slidersContainer.animate({opacity: 0}, 800);
-    this.$slidersContainer.html(slider);
-    this.$slidersContainer.find("div").maximage({
-      cycleOptions: {
-        fx: "fade",
-        speed: 800,
-        timeout: 1000
-      },
-      cssBackgroundSize: false,
-      cssTransitions: false
-    });
-    this.$slidersContainer.animate({opacity: 1}, 800);
+    this.$bgImages.stop().animate({opacity: 0}, 800);
+	this.$bgImages.eq(thisEQ).stop().animate({opacity: 1}, 800);
   };
 
   this.M.register(mobile);
