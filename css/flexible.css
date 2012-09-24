@@ -1,0 +1,93 @@
+/* Set Basic Slider Styles */
+
+#timeline {
+	width:960px;
+	margin:100px auto 40px;
+	position:relative;
+	}
+	
+#fast, #normal {
+	float:left;
+	width:480px;
+	position:relative;
+	height:250px;
+	}
+	
+.bar {
+	background:#000;
+	height:3px;
+	width:100%;
+	position:absolute;
+	bottom:75px;
+	}
+	
+#breaks {
+	width:480px;
+	height:150px;
+	background:url(/images/flexible/breaks-alt.jpg) repeat-x left center;
+	position:absolute;
+	bottom:27px;
+	}
+	
+/* End Toggle */
+
+.toggleEnd {
+	width:13px;
+	height:13px;
+	border-radius:7px;
+	border:1px solid #000;
+	display:block;
+	position:absolute;
+	right:-6px;
+	bottom:69px;
+	background:#000;
+	z-index:100;
+	}
+	
+.toggleEnd:hover {
+	background:#ff0000;
+	}
+		
+/* Dates */
+
+#startMonth {
+	position:absolute;
+	bottom:0;
+	left:0;
+	}
+	
+#fastMonth {
+	position:absolute;
+	bottom:0;
+	right:0;
+	}
+	
+#normalMonth {
+	position:absolute;
+	bottom:0;
+	right:0;
+	}
+	
+/* Quips */
+
+.quips {
+	width:400px;
+	margin:0 auto;
+	text-align:center;
+	}
+	
+.quips > div {
+	display:none;
+	}
+	
+/* Animations */
+
+#animations {
+	position:absolute;
+	top:0;
+	right:0;
+	}
+	
+#animations > div {
+	display:none;
+	}
