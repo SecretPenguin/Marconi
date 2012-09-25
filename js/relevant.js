@@ -1,5 +1,5 @@
 (function($) {
-  var relevant = new Scene("walking", 10000);
+  var relevant = new Scene("walking", 16000);
 
   relevant.init = function() {
     this.$explosion = $('#explosion');
@@ -101,48 +101,161 @@
 
     // Walking Sprite Update at Negative Distance
     if ( distance <= 0 && distance >= -M.screenHeight ) {
-      mySprite(100,6);
-      if ( spriteUpdate == 0 ) {
+      mySprite(50,18);
+      switch(spriteUpdate) {
+      case 0:
         this.$bear.attr('class', 'f0');
-      } else if ( spriteUpdate == 1 ) {
+        break;
+      case 1:
+        this.$bear.attr('class', 'f17');
+        break;
+      case 2:
+        this.$bear.attr('class', 'f16');
+        break;
+      case 3:
+        this.$bear.attr('class', 'f15');
+        break;
+      case 4:
+        this.$bear.attr('class', 'f14');
+        break;
+      case 5:
+        this.$bear.attr('class', 'f13');
+        break;
+      case 6:
+        this.$bear.attr('class', 'f12');
+        break;
+      case 7:
+        this.$bear.attr('class', 'f11');
+        break;
+      case 8:
+        this.$bear.attr('class', 'f10');
+        break;
+      case 9:
+        this.$bear.attr('class', 'f9');
+        break;
+      case 10:
+        this.$bear.attr('class', 'f8');
+        break;
+      case 11:
+        this.$bear.attr('class', 'f7');
+        break;
+      case 12:
+        this.$bear.attr('class', 'f6');
+        break;
+      case 13:
         this.$bear.attr('class', 'f5');
-      } else if ( spriteUpdate == 2 ) {
+        break;
+      case 14:
         this.$bear.attr('class', 'f4');
-      } else if ( spriteUpdate == 3 ) {
+        break;
+      case 15:
         this.$bear.attr('class', 'f3');
-      } else if ( spriteUpdate == 4 ) {
+        break;
+      case 16:
         this.$bear.attr('class', 'f2');
-      } else if ( spriteUpdate == 5 ) {
+        break;
+      case 17:
         this.$bear.attr('class', 'f1');
+        break;
       }
     }
 
     // Walking Sprite Update
     if ( distance <= this.$container.height() && distance > 0 ) {
-      mySprite(100,6);
-      if ( spriteUpdate == 0 ) {
+      mySprite(50,18);
+      switch(spriteUpdate) {
+      case 0:
         this.$bear.attr('class', 'f0');
-      } else if ( spriteUpdate == 1 ) {
+        break;
+      case 1:
         this.$bear.attr('class', 'f1');
-      } else if ( spriteUpdate == 2 ) {
+        break;
+      case 2:
         this.$bear.attr('class', 'f2');
-      } else if ( spriteUpdate == 3 ) {
+        break;
+      case 3:
         this.$bear.attr('class', 'f3');
-      } else if ( spriteUpdate == 4 ) {
+        break;
+      case 4:
         this.$bear.attr('class', 'f4');
-      } else if ( spriteUpdate == 5 ) {
+        break;
+      case 5:
         this.$bear.attr('class', 'f5');
+        break;
+      case 6:
+        this.$bear.attr('class', 'f6');
+        break;
+      case 7:
+        this.$bear.attr('class', 'f7');
+        break;
+      case 8:
+        this.$bear.attr('class', 'f8');
+        break;
+      case 9:
+        this.$bear.attr('class', 'f9');
+        break;
+      case 10:
+        this.$bear.attr('class', 'f10');
+        break;
+      case 11:
+        this.$bear.attr('class', 'f11');
+        break;
+      case 12:
+        this.$bear.attr('class', 'f12');
+        break;
+      case 13:
+        this.$bear.attr('class', 'f13');
+        break;
+      case 14:
+        this.$bear.attr('class', 'f14');
+        break;
+      case 15:
+        this.$bear.attr('class', 'f15');
+        break;
+      case 16:
+        this.$bear.attr('class', 'f16');
+        break;
+      case 17:
+        this.$bear.attr('class', 'f17');
+        break;
       }
+    }
+    
+    
+    // Change sprites throughout scene
+    // Note: has flicker between some transitions - can shorten this code but may change.
+    if ( distance >= -650 && distance <= 2650 ) {
+      this.$bear.css('background-image', 'url(/images/relevant/sprites/BearSprite-S.png)');
+    } else if ( distance > 2650 && distance <= 3550 ) {
+      this.$bear.css('background-image', 'url(/images/relevant/sprites/BearSprite-SS.png)');
+    } else if ( distance > 3550 && distance <= 5350 ) {
+      this.$bear.css('background-image', 'url(/images/relevant/sprites/BearSprite-S.png)');
+    } else if ( distance > 5350 && distance <= 6250 ) {
+      this.$bear.css('background-image', 'url(/images/relevant/sprites/BearSprite-SN.png)');
+    } else if ( distance > 6250 && distance <= 8050 ) {
+      this.$bear.css('background-image', 'url(/images/relevant/sprites/BearSprite-N.png)');
+    } else if ( distance > 8050 && distance <= 8950 ) {
+      this.$bear.css('background-image', 'url(/images/relevant/sprites/BearSprite-NN.png)');
+    } else if ( distance > 8950 && distance <= 10750 ) {
+      this.$bear.css('background-image', 'url(/images/relevant/sprites/BearSprite-N.png)');
+    } else if ( distance > 10750 && distance <= 11650 ) {
+      this.$bear.css('background-image', 'url(/images/relevant/sprites/BearSprite-NP.png)');
+    } else if ( distance > 11650 && distance <= 13450 ) {
+      this.$bear.css('background-image', 'url(/images/relevant/sprites/BearSprite-P.png)');
+    } else if ( distance > 13450 && distance <= 14350 ) {
+      this.$bear.css('background-image', 'url(/images/relevant/sprites/BearSprite-PP.png)');
+    } else {
+      this.$bear.css('background-image', 'url(/images/relevant/sprites/BearSprite-P.png)');
     }
 
     // Walking Right Test
-    if ( distance >= -650 && distance < 1460 ) {
+    if ( distance >= -650 && distance < 1324 ) {
       myCalc(-650,-650,2);
       this.$bear.css('left', animUpdate);
-    } else if ( distance >= 1460 && distance <= 9000 ) {
-      this.$bear.css('left', '405px');
-    } else if ( distance > 9000 ) {
-      myCalc(405,9000,2);
+    } else if ( distance >= 1324 && distance <= 15000 ) {
+      this.$bear.css('left', '337px');
+    } else if ( distance > 15000 ) {
+      myCalc(337,15000,2);
       this.$bear.css('left', animUpdate);
     } else {
       this.$bear.css('left', '-650px');
