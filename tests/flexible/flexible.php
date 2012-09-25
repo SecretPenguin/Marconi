@@ -26,32 +26,33 @@
 		<div id="December">December Animation!</div>
 	</div>
 	<div class="clear"></div>
+	<div id="fastQuips" class="quips">
+		<div>Placeholder text for the accelerated January Quip</div>
+		<div>Placeholder text for the accelerated February Quip</div>
+		<div>Placeholder text for the accelerated March Quip</div>
+		<div>Placeholder text for the accelerated April Quip</div>
+		<div>Placeholder text for the accelerated May Quip</div>
+		<div>Placeholder text for the accelerated June Quip</div>
+		<div>Placeholder text for the accelerated July Quip</div>
+		<div>Placeholder text for the accelerated August Quip</div>
+		<div>Placeholder text for the accelerated September Quip</div>
+		<div>Placeholder text for the accelerated October Quip</div>
+		<div>Placeholder text for the accelerated November Quip</div>
+		<div>Placeholder text for the accelerated December Quip</div>
+	</div>
+	<div id="normalQuips" class="quips">
+		<div>Placeholder text for the January Quip</div>
+		<div>Placeholder text for the February Quip</div>
+		<div>Placeholder text for the March Quip</div>
+		<div>Placeholder text for the April Quip</div>
+		<div>Placeholder text for the May Quip</div>
+		<div>Placeholder text for the June Quip</div>
+		<div>Placeholder text for the July Quip</div>
+		<div>Placeholder text for the August Quip</div>
+		<div>Placeholder text for the September Quip</div>
+		<div>Placeholder text for the October Quip</div>
+		<div>Placeholder text for the November Quip</div>
+		<div>Placeholder text for the December Quip</div>
+	</div>
 </div>
-<div id="fastQuips" class="quips">
-	<div>Placeholder text for the accelerated January Quip</div>
-	<div>Placeholder text for the accelerated February Quip</div>
-	<div>Placeholder text for the accelerated March Quip</div>
-	<div>Placeholder text for the accelerated April Quip</div>
-	<div>Placeholder text for the accelerated May Quip</div>
-	<div>Placeholder text for the accelerated June Quip</div>
-	<div>Placeholder text for the accelerated July Quip</div>
-	<div>Placeholder text for the accelerated August Quip</div>
-	<div>Placeholder text for the accelerated September Quip</div>
-	<div>Placeholder text for the accelerated October Quip</div>
-	<div>Placeholder text for the accelerated November Quip</div>
-	<div>Placeholder text for the accelerated December Quip</div>
-</div>
-<div id="normalQuips" class="quips">
-	<div>Placeholder text for the January Quip</div>
-	<div>Placeholder text for the February Quip</div>
-	<div>Placeholder text for the March Quip</div>
-	<div>Placeholder text for the April Quip</div>
-	<div>Placeholder text for the May Quip</div>
-	<div>Placeholder text for the June Quip</div>
-	<div>Placeholder text for the July Quip</div>
-	<div>Placeholder text for the August Quip</div>
-	<div>Placeholder text for the September Quip</div>
-	<div>Placeholder text for the October Quip</div>
-	<div>Placeholder text for the November Quip</div>
-	<div>Placeholder text for the December Quip</div>
-</div>
+<div class="space"></div>

@@ -10,6 +10,7 @@ function is_dev_mode() {
   <meta charset="utf-8">
   <?php if (is_dev_mode()): ?>
   <link rel="stylesheet" href="/css/shared.css" />
+  <link rel="stylesheet" href="/css/preface.css" />
   <link rel="stylesheet" href="/css/flexible.css" />
   <link rel="stylesheet" href="/css/mobile.css" />
   <link rel="stylesheet" href="/css/integrated.css" />
@@ -23,8 +24,8 @@ function is_dev_mode() {
 </head>
 <body>
 
-  <div class="space"></div>
-  <?php // include("tests/flexible/flexible.php"); ?>
+  <?php include("tests/preface/preface.php"); ?>
+  <?php include("tests/flexible/flexible.php"); ?>
   <?php include("tests/mobile/mobile.php"); ?>
   <?php include("tests/integrated/integrated.php"); ?>
   <?php include("tests/relevant/relevant.php"); ?>
@@ -36,6 +37,7 @@ function is_dev_mode() {
   <script src="/js/vendor/jquery.backgroundpos.min.js"></script>
   <script src="/js/m.js"></script>
   <script src="/js/scene.js"></script>
+  <script src="/js/preface.js"></script>
   <script src="/js/flexible.js"></script>
   <script src="/js/mobile.js"></script>
   <script src="/js/integrated.js"></script>
