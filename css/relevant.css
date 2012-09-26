@@ -42,11 +42,11 @@
 #bear {
   width:272px;
   height:375px;
-  margin-top:-98px;
+  margin-top:-92px;
   position:absolute;
   left:-650px;
   top:50%;
-  background:url(/images/relevant/sprites/BearSprite-S.png) no-repeat left 0;
+  background-image:url(/images/relevant/sprites/BearSprite-S.gif);
   z-index:20;
 }
 
@@ -56,38 +56,17 @@
   position:absolute;
   left:0;
   background:#e5e5e5;
-  /*  opacity:0.3; */
   z-index:10;
 }
 
-/*
-#leftMask, #rightMask {
-position:absolute;
-height:100%;
-width:600px;
-top:0;
-z-index:100;
-}
-
-#leftMask {
-background:url(/images/relevant/leftMask.png) repeat-y;
-left:-700px;
-}
-
-#rightMask {
-background:url(/images/relevant/rightMask.png) repeat-y;
-right:-700px;
-}
- */
-
-  #projectile, #projectile2 {
+  #projectile {
     position:absolute;
     z-index:1;
-    background:url(/images/relevant/fireball.gif) no-repeat;;
+    background-image:url(/images/relevant/sprites/CoinSprite.jpg);
     width:79px;
     height:75px;
     top:50%;
-    margin-top:120px;
+    margin-top:100px;
     right:-550px;
     /*  border-radius:25px; */
   }
@@ -107,6 +86,15 @@ right:-700px;
     bottom:0!important;
     top:auto!important;
   }
+  
+  #projectile.f0 { background-position: 0 0; }
+  #projectile.f1 { background-position: -80px 0; }
+  #projectile.f2 { background-position: -160px 0; }
+  #projectile.f3 { background-position: -240px 0; }
+  #projectile.f4 { background-position: 0 -80px; }
+  #projectile.f5 { background-position: -80px -80px; }
+  #projectile.f6 { background-position: -160px -80px; }
+  #projectile.f7 { background-position: -240px -80px; }
 
   #bear.f0 { background-position: 0 0; }
   #bear.f1 { background-position: -274px 0; }
@@ -141,7 +129,7 @@ right:-700px;
   #explosion {
     width:127px;
     height:49px;
-    background:url(/images/relevant/explosion.gif) no-repeat top;
+    background-image:url(/images/relevant/explosion.gif);
     position:absolute;
     top:0;
   }
@@ -153,7 +141,7 @@ right:-700px;
   #explosion.f4 { background-position: 0 -196px; }
   #explosion.hidden { background: 0 1000px no-repeat; }
 
-  #skill1, #skill2 {
+  #skill1, #skill2, #skill3, #skill4, #skill5 {
     width:76px;
     height:26px;
     background:url(/images/relevant/skill1.gif) no-repeat;
