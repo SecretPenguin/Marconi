@@ -59,7 +59,7 @@
     width:79px;
     height:75px;
     top:50%;
-    margin-top:100px;
+    margin-top:112px;
     right:-550px;
     /*  border-radius:25px; */
   }
@@ -134,7 +134,7 @@
   #explosion.f4 { background-position: 0 -196px; }
   #explosion.hidden { background: 0 1000px no-repeat; }
 
-  #skill1, #skill2, #skill3, #skill4, #skill5 {
+  .skill {
     width:76px;
     height:26px;
     background:url(/images/relevant/skill1.gif) no-repeat;

@@ -4,6 +4,7 @@
   relevant.init = function() {
     this.$explosion = $('#explosion');
     this.$projectile = $('#projectile');
+    this.$allSkills = $('.skill');
     this.$skill1 = $('#skill1');
     this.$skill2 = $('#skill2');
     this.$skill3 = $('#skill3');
@@ -53,82 +54,9 @@
     
     // Projectile Function
     this.triggerProjectile(distance);
-
-    // Skill Test
-    if ( distance < 2960 ) {
-      this.$skill1.css({'bottom': 0, 'opacity': 0});
-    } else if ( distance >= 2960 && distance < 3100 ) {
-      myCalc(0,2960,10);
-      this.$skill1.css({'bottom': animUpdate, 'opacity': (animUpdate/14)});
-    } else if ( distance >= 3100 && distance <= 3350 ) {
-      this.$skill1.css({'bottom': '14px', 'opacity': 1});
-    } else if ( distance > 3350 && distance <= 3490 ) {
-      myCalc(0,3350,1);
-      this.$skill1.css({'bottom': '14px', 'opacity': (1-(animUpdate/140))});
-    } else {
-      this.$skill1.css({'bottom': '14px', 'opacity': 0});
-    }
-
-    // Skill (2) Test
-    if ( distance < 5660 ) {
-      this.$skill2.css({'bottom': 0, 'opacity': 0});
-    } else if ( distance >= 5660 && distance < 5800 ) {
-      myCalc(0,5660,10);
-      this.$skill2.css({'bottom': animUpdate, 'opacity': (animUpdate/14)});
-    } else if ( distance >= 5800 && distance <= 6050 ) {
-      this.$skill2.css({'bottom': '14px', 'opacity': 1});
-    } else if ( distance > 6050 && distance <= 6190 ) {
-      myCalc(0,6050,1);
-      this.$skill2.css({'bottom': '14px', 'opacity': (1-(animUpdate/140))});
-    } else {
-      this.$skill2.css({'bottom': '14px', 'opacity': 0});
-    }
-
-    // Skill (3) Test
-    if ( distance < 8360 ) {
-      this.$skill3.css({'bottom': 0, 'opacity': 0});
-    } else if ( distance >= 8360 && distance < 8500 ) {
-      myCalc(0,8360,10);
-      this.$skill3.css({'bottom': animUpdate, 'opacity': (animUpdate/14)});
-    } else if ( distance >= 8500 && distance <= 8750 ) {
-      this.$skill3.css({'bottom': '14px', 'opacity': 1});
-    } else if ( distance > 8750 && distance <= 8890 ) {
-      myCalc(0,8750,1);
-      this.$skill3.css({'bottom': '14px', 'opacity': (1-(animUpdate/140))});
-    } else {
-      this.$skill3.css({'bottom': '14px', 'opacity': 0});
-    }
-
-    // Skill (4) Test
-    if ( distance < 11060 ) {
-      this.$skill4.css({'bottom': 0, 'opacity': 0});
-    } else if ( distance >= 11060 && distance < 11200 ) {
-      myCalc(0,11060,10);
-      this.$skill4.css({'bottom': animUpdate, 'opacity': (animUpdate/14)});
-    } else if ( distance >= 11200 && distance <= 11450 ) {
-      this.$skill4.css({'bottom': '14px', 'opacity': 1});
-    } else if ( distance > 11450 && distance <= 11590 ) {
-      myCalc(0,11450,1);
-      this.$skill4.css({'bottom': '14px', 'opacity': (1-(animUpdate/140))});
-    } else {
-      this.$skill4.css({'bottom': '14px', 'opacity': 0});
-    }
-
-    // Skill (5) Test
-    if ( distance < 13060 ) {
-      this.$skill5.css({'bottom': 0, 'opacity': 0});
-    } else if ( distance >= 13060 && distance < 13200 ) {
-      myCalc(0,13060,10);
-      this.$skill5.css({'bottom': animUpdate, 'opacity': (animUpdate/14)});
-    } else if ( distance >= 13200 && distance <= 13450 ) {
-      this.$skill5.css({'bottom': '14px', 'opacity': 1});
-    } else if ( distance > 13450 && distance <= 13590 ) {
-      myCalc(0,13450,1);
-      this.$skill5.css({'bottom': '14px', 'opacity': (1-(animUpdate/140))});
-    } else {
-      this.$skill5.css({'bottom': '14px', 'opacity': 0});
-    }
-
+    
+    // Skill Function
+    this.triggerSkill(distance);
 
     // Walking Sprite Update at Negative Distance
     if ( distance <= 0 && distance >= -M.screenHeight ) {
@@ -327,7 +255,7 @@
       this.$bear.css('background-image', 'url(' + img7.src + ')');
     }
 
-    // Walking Right Test
+    // Walking Right
     if ( distance >= -650 && distance < 1324 ) {
       myCalc(-650,-650,2);
       this.$bear.css('left', animUpdate);
@@ -421,7 +349,6 @@
       animUpdate = (distance - animTrigger)/animSpeed + animOrigin;
     }
     
-    // Projectile Test
     if ( distance >= (startProjectile + 2160) ) {
       this.$projectile.css('right', '480px');
     } else if ( distance >= startProjectile && distance < (startProjectile + 2160) ) {
@@ -429,6 +356,51 @@
       this.$projectile.css('right', animUpdate);
     } else {
       this.$projectile.css('right', '-550px');
+    }
+  }
+
+  relevant.triggerSkill = function(distance) {
+    var startSkill = this.sceneLength;
+    var currentSkill = this.$skill1;
+    var duration = 550; // How long the full opacity skill stays on the screen - in pixels.
+    
+    if (distance < 5660) {
+      startSkill = 2960;
+      currentSkill = this.$skill1;
+    } else if (distance < 8360) {
+      startSkill = 5660;
+      currentSkill = this.$skill2;
+    } else if (distance < 11060) {
+      startSkill = 8360;
+      currentSkill = this.$skill3;
+    } else if (distance < 13160) {
+      startSkill = 11060;
+      currentSkill = this.$skill4;
+    } else if (distance < this.sceneLength) {
+      startSkill = 13160;
+      currentSkill = this.$skill5;
+    }
+    
+    // duplicated function from relevant.onScroll
+    function myCalc(animOrigin, animTrigger, animSpeed) {
+      // animOrigin = Element offset
+      // animTrigger = Position of variable "distance" when animation begins
+      // animSpeed = Pixels scrolled per pixels moved. 2 = 1px moved to 2px scrolled
+      animUpdate = (distance - animTrigger)/animSpeed + animOrigin;
+    }
+        
+    if ( distance < startSkill ) {
+      this.$allSkills.css({'bottom': 0, 'opacity': 0});
+    } else if ( distance >= startSkill && distance < (startSkill + 140) ) {
+      myCalc(0,startSkill,10);
+      currentSkill.css({'bottom': animUpdate, 'opacity': (animUpdate/14)});
+    } else if ( distance >= (startSkill + 140) && distance <= (startSkill + 140 + duration) ) {
+      currentSkill.css({'bottom': '14px', 'opacity': 1});
+    } else if ( distance > (startSkill + 140 + duration) && distance <= (startSkill + 280 + duration) ) {
+      myCalc(0,(startSkill + 140 + duration),1);
+      currentSkill.css({'bottom': '14px', 'opacity': (1-(animUpdate/140))});
+    } else {
+      this.$allSkills.css({'bottom': '14px', 'opacity': 0});
     }
   }
 
