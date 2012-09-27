@@ -2,15 +2,59 @@
 
 #flexible {
 	width:960px;
-	margin:100px auto 40px;
+	margin:0 auto;
 	position:relative;
+	}
+	
+#flexible-screen {
+  position:relative;
+  width:960px;
+  top:0;
+}
+
+.fixTop {
+  position:fixed!important;
+  top:0!important;
+}
+
+.stickTop {
+  position:absolute!important;
+  top:0!important;
+}
+
+.stickBot {
+  position:absolute!important;
+  bottom:0!important;
+  top:auto!important;
+}
+
+#flexible-tagline {
+	position:absolute;
+	top:50%;
+	margin-top:-300px;
+	height:100px;
+	width:400px;
+	left:50%;
+	margin-left:-200px;
+	text-align:center;
 	}
 	
 #fast, #normal {
 	float:left;
-	width:480px;
-	position:relative;
-	height:250px;
+	position:absolute;
+	height:200px;
+	top:50%;
+	margin-top:-100px;
+	}
+	
+#fast {
+	width:720px;
+	left:0;
+	}
+	
+#normal {
+	width:240px;
+	right:0;
 	}
 	
 .bar {
@@ -22,11 +66,13 @@
 	}
 	
 #breaks {
-	width:480px;
-	height:150px;
-	background:url(/images/flexible/breaks-alt.jpg) repeat-x left center;
+	width:360px;
+	height:100px;
+	background:url(/images/flexible/breaks.jpg) repeat-x left center;
 	position:absolute;
-	bottom:27px;
+	bottom:100px;
+	left:180px;
+	border:1px dashed #000;
 	}
 	
 /* End Toggle */
@@ -46,6 +92,28 @@
 	
 .toggleEnd:hover {
 	background:#ff0000;
+	}
+	
+/* Sample timeline hashes */
+	
+#quarter, #half {
+	width:3px;
+	height:13px;
+	border-radius:2px;
+	border:1px solid #000;
+	display:block;
+	position:absolute;
+	bottom:69px;
+	background:#000;
+	z-index:100;
+	}
+	
+#quarter {
+	left:237px;
+	}
+	
+#half {
+	left:477px;
 	}
 		
 /* Dates */
@@ -72,7 +140,11 @@
 
 .quips {
 	width:400px;
-	margin:0 auto;
+	position:absolute;
+	top:50%;
+	margin-top:150px;
+	left:50%;
+	margin-left:-200px;
 	text-align:center;
 	}
 	
@@ -84,8 +156,13 @@
 
 #animations {
 	position:absolute;
-	top:0;
+	top:50%;
+	margin-top:-180px;
+	height:200px;
+	width:200px;
+	border:1px dashed #ccc;
 	right:0;
+	text-align:center;
 	}
 	
 #animations > div {
