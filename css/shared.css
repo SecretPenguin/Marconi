@@ -76,17 +76,48 @@ article, aside, figure, footer, header, hgroup, menu, nav, section {
 
 /* End Reset */
 
-  .play {
-    padding:5px;
-    background:#000;
-    position:absolute;
-    top:0;
-    right:0;
-    z-index:1000;
-  }
+body {
+	min-width:960px;
+	margin:0 auto;
+	}
 
-  .play a {
-    color:#fff;
-    text-decoration:none;
-    font-weight:bold;
-  }
+.center {
+  width:960px;
+  margin:0 auto;
+}
+
+.play {
+	padding:5px;
+	background:#000;
+	position:absolute;
+	top:0;
+	right:0;
+	z-index:1000;
+}
+
+.play a {
+	color:#fff;
+	text-decoration:none;
+	font-weight:bold;
+}
+  
+.space {
+  height:200px;
+  background:#000;
+}
+
+.fixTop {
+  position:fixed!important;
+  top:0!important;
+}
+
+.stickTop {
+  position:absolute!important;
+  top:0!important;
+}
+
+.stickBot {
+  position:absolute!important;
+  bottom:0!important;
+  top:auto!important;
+}

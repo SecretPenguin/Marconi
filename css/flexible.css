@@ -12,22 +12,6 @@
   top:0;
 }
 
-.fixTop {
-  position:fixed!important;
-  top:0!important;
-}
-
-.stickTop {
-  position:absolute!important;
-  top:0!important;
-}
-
-.stickBot {
-  position:absolute!important;
-  bottom:0!important;
-  top:auto!important;
-}
-
 #flexible-tagline {
 	position:absolute;
 	top:50%;

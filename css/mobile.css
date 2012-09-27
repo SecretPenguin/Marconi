@@ -1,18 +1,3 @@
-body {
-  min-width:960px;
-  /*  background:url(/images/mobile/grid.gif) repeat center; */
-}
-
-.center {
-  width:960px;
-  margin:0 auto;
-}
-
-.space {
-  height:1000px;
-  background:#000;
-}
-
 #mobile {
   position:relative;
 }
@@ -23,22 +8,6 @@ body {
   overflow:hidden;
   top:0;
   background:#000;
-}
-
-.fixTop {
-  position:fixed!important;
-  top:0!important;
-}
-
-.stickTop {
-  position:absolute!important;
-  top:0!important;
-}
-
-.stickBot {
-  position:absolute!important;
-  bottom:0!important;
-  top:auto!important;
 }
 
 /* Mobile Scene */
