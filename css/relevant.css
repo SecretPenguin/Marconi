@@ -63,22 +63,6 @@
     right:-550px;
     /*  border-radius:25px; */
   }
-
-  .fixTop {
-    position:fixed!important;
-    top:0!important;
-  }
-
-  .stickTop {
-    position:absolute!important;
-    top:0!important;
-  }
-
-  .stickBot {
-    position:absolute!important;
-    bottom:0!important;
-    top:auto!important;
-  }
   
   #projectile.f0 { background-position: 0 0; }
   #projectile.f1 { background-position: -80px 0; }
