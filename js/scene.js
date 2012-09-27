@@ -50,6 +50,14 @@
       this.$screen.attr("class", "stickBot");
     }
   };
+  
+  // calculate offset of elements for updating the position of elements on scroll
+  Scene.prototype.calculateOffset = function(origin, trigger, speed) {
+    // animOrigin = Element offset
+    // animTrigger = Position of variable "distance" when animation begins
+    // animSpeed = Pixels scrolled per pixels moved. 2 = 1px moved to 2px scrolled
+    return (this.distance - trigger)/speed + origin;
+  }
 
   this.Scene = Scene;
 })();
