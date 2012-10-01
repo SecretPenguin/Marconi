@@ -96,6 +96,7 @@
 
     // Tagline
     if ( distance < 500 ) {
+      this.$cogTagline.css('margin-top', 0);
       this.$cogLeft.css('margin-left', '-440px');
       this.$cogRight.css('margin-right', '-590px');
       this.$hideLeft.css('margin-left', '-525px');

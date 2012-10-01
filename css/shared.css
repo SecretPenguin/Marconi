@@ -104,6 +104,7 @@ body {
 .space {
   height:200px;
   background:#000;
+  position:relative;
 }
 
 .fixTop {
