@@ -1,0 +1,58 @@
+#social {
+	position:relative;
+	background:#fff;
+	}
+
+#social-screen {
+	position:relative;
+	width:100%;
+	overflow:hidden;
+	top:0;
+	}
+
+#social h2 {
+	width:960px;
+	text-align:center;
+	font-size:36px;
+	position:absolute;
+	top:20px;
+	margin-left:50%;
+	left:-480px;
+	}
+
+div#theConversation > div {
+	display: none;
+	padding:10px 0 0;
+}
+
+div#theConversation div.visible {
+	display: block;
+}
+
+#chat-container {
+	overflow:hidden;
+	width:960px;
+	margin-left:50%;
+	left:-480px;
+	position:absolute;
+	bottom:180px;
+	}
+
+#theConversation {
+	width:960px;
+	overflow-y:auto;
+	height:100%;
+	}
+
+#usersTyping {
+	width: 500px;
+	height: 100px;
+}
+
+#usersInput {
+	position:absolute;
+	bottom:20px;
+	margin-left:50%;
+	left:-480px;
+	width:960px;
+}
