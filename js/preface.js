@@ -28,12 +28,12 @@
       this.$slider.css('opacity', 0);
     }
     
-    if (distance > 1000 && distance < 1400) {
+    if (distance <= 1000) {
+      this.$title.css('opacity', 0);
+    } else if (distance > 1000 && distance < 1400) {
    	  this.$title.css('opacity', ((distance - 1000)/400));
     } else if (distance >= 1400) {
       this.$title.css('opacity', 1);
-    } else {
-      this.$title.css('opacity', 0);
     }
 
     console.log(distance);
