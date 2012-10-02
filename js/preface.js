@@ -20,13 +20,15 @@
 
     this.conditionallyFixateScene(distance);
     
-    if (distance > 100) {
-      this.$slider.css('opacity', ((200 - (distance - 100)/4)/200));
-    } else {
+    if (distance <= 100) {
       this.$slider.css('opacity', 1);
+    } else if (distance > 100 && distance <= 900) {
+      this.$slider.css('opacity', ((200 - (distance - 100)/4)/200));
+    } else if (distance > 900) {
+      this.$slider.css('opacity', 0);
     }
     
-    if (distance > 1000) {
+    if (distance > 1000 && distance < 1400) {
    	  this.$title.css('opacity', ((distance - 1000)/400));
     } else if (distance >= 1400) {
       this.$title.css('opacity', 1);
