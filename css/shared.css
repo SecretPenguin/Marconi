@@ -122,3 +122,149 @@ body {
   bottom:0!important;
   top:auto!important;
 }
+
+/* Share Sections */
+.share {
+	height:103px;
+	width:100%;
+	min-width:960px;
+	position:relative;
+	background:#797979;
+	}
+	
+.left-bg {
+	width:480px;
+	height:103px;
+	margin-left:50%;
+	position:absolute;
+	top:0;
+	left:-480px;
+	z-index:10;
+	background:url(/images/share/share-section.gif) no-repeat left center;
+	}
+	
+.right-bg {
+	width:50%;
+	height:103px;
+	position:absolute;
+	left:50%;
+	top:0;
+	z-index:10;
+	background:url(/images/share/share-site.gif) no-repeat left 0 #545454;
+	}
+	
+.texture {
+	height:103px;
+	width:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:20;
+	background:url(/images/share/share-texture.png) no-repeat center;
+	}
+	
+.shadow {
+	height:103px;
+	width:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:30;
+	background:url(/images/share/share-shade.png) repeat-x center;
+	}
+	
+.share-section {
+	position:absolute;
+	width:600px;
+	height:103px;
+	margin-left:50%;
+	left:-480px;
+	z-index:100;
+	}
+	
+.share-site {
+	position:absolute;
+	width:360px;
+	height:103px;
+	margin-left:50%;
+	left:120px;
+	z-index:100;
+	}
+	
+.permalink {
+	width:223px;
+	height:28px;
+	position:absolute;
+	top:39px;
+	left:130px;
+	}
+	
+.permalink input {
+	width:165px;
+	height:28px;
+	border:none;
+	background:url(/images/share/copy-input.gif) no-repeat;
+	cursor:text;
+	line-height:26px;
+	font-size:11px;
+	color:#bebebe;
+	text-indent:8px;
+	padding:0;
+	text-shadow:-1px -1px 1px #333;
+	position:absolute;
+	top:0;
+	left:0;
+	}
+	
+.permalink a {
+	width:58px;
+	height:28px;
+	background:url(/images/share/copy.gif) no-repeat top;
+	text-indent:-9999px;
+	display:block;
+	position:absolute;
+	top:0;
+	right:0;
+	z-index:10;
+	}
+	
+.permalink a.hover {
+	background-position:0 -28px;
+	}
+	
+.permalink a.active {
+	background-position:0 -56px;
+	}
+	
+.copy-confirm {
+	position:absolute;
+	top:0;
+	left:173px;
+	color:#191919;
+	font-size:12px;
+	font-family:ubuntu;
+	opacity:0;
+	z-index:0;
+	}
+	
+.facebook, .twitter {
+	position:absolute;
+	top:42px;
+	width:106px;
+	}
+	
+.share-section .facebook {
+	left:374px;
+	}
+
+.share-section .twitter {
+	left:480px;
+	}
+	
+.share-site .facebook {
+	left:131px;
+	}
+	
+.share-site .twitter {
+	left:237px;
+	}
