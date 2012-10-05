@@ -4,7 +4,6 @@
   social.init = function() {
     this.runOnce = true;
   	this.$chat = $('#chat-container');
-  	this.$conversation = $("#theConversation");
     
     $(window).on("scroll", $.proxy(this.onScroll, this));
     
@@ -14,7 +13,7 @@
     this.$screen.height(M.screenHeight);
     this.$container.height(M.screenHeight + this.sceneLength);
     this.$chat.height(M.screenHeight - 320);
-    this.$conversation.scrollTop(this.$conversation[0].scrollHeight);
+    $("#theConversation").scrollTop($("#theConversation")[0].scrollHeight);
   };
 
   social.onScroll = function(event) {
@@ -61,7 +60,7 @@
 			setTimeout(function() {
 				$('#theConversation > div').eq(elementNumber).show();
 				// Scroll to bottom
-				this.$conversation.scrollTop(this.$conversation[0].scrollHeight);
+				$("#theConversation").scrollTop($("#theConversation")[0].scrollHeight);
 				}, baseRandom);
 				i++;
 			});
