@@ -18,7 +18,6 @@
     this.$hideRight = $('#hideRight');
     this.$cogTagline = $('#cogTagline');
 
-    $(window).on("scroll", $.proxy(this.onScroll, this));
     this.$scroll.on("click", $.proxy(this.autoPlay, this));
   };
 

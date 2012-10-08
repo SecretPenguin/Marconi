@@ -4,9 +4,7 @@
   preface.init = function() {
   	this.$slider = $('#intro');
   	this.$title = $('h1');
-    
-    $(window).on("scroll", $.proxy(this.onScroll, this));
-    
+
     this.startSlider();
   };
 
@@ -19,7 +17,7 @@
     var distance = this.distance();
 
     this.conditionallyFixateScene(distance);
-    
+
     if (distance <= 100) {
       this.$slider.css('opacity', 1);
     } else if (distance > 100 && distance <= 900) {
@@ -27,7 +25,7 @@
     } else if (distance > 900) {
       this.$slider.css('opacity', 0);
     }
-    
+
     if (distance <= 1000) {
       this.$title.css('opacity', 0);
     } else if (distance > 1000 && distance < 1400) {

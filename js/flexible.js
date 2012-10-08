@@ -10,7 +10,6 @@
     this.$startMonth = $('#startMonth');
 
     // set up triggers
-    $(window).on("scroll", $.proxy(this.onScroll, this));
     this.$startMonth.change($.proxy(this.loadMonths, this));
     $('#normalEnd, #normalMonth').click($.proxy(this.displayNormalTimeline, this));
     $('#fastEnd, #fastMonth').click($.proxy(this.displayFastTimeline, this));

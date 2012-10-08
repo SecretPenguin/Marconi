@@ -7,9 +7,7 @@
     this.$devices = this.$devicesContainer.find("div");
     this.$bgImages = $("#fullScreen div");
 
-    $(window).on("scroll", $.proxy(this.onScroll, this));
     this.$switchButtons.on("click", $.proxy(this.selectDevice, this));
-
   };
 
   mobile.onResize = function(event) {

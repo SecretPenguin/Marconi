@@ -13,7 +13,6 @@
     this.$bear = $('#bear');
     this.$scroll = $('#walking .scroll');
 
-    $(window).on("scroll", $.proxy(this.onScroll, this));
     this.$scroll.on("click", $.proxy(this.autoPlay, this));
   };
 
