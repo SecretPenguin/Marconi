@@ -20,6 +20,23 @@
   Scene.prototype.init = function() {
   };
 
+  // my share bar, if I have one
+  Scene.prototype.shareBar = function() {
+    if (this._shareBar) {
+      return this._shareBar;
+    }
+
+    var $share = this.$container.next(".share");
+
+    if ($share.length) {
+      this._shareBar = new ShareBar($share, this);
+    } else {
+      this._shareBar = null;
+    }
+
+    return this._shareBar;
+  };
+
   // how far I am from the top of the page
   Scene.prototype.offset = function() {
     return this.$container.offset().top;
@@ -50,7 +67,7 @@
       this.$screen.attr("class", "stickBot");
     }
   };
-  
+
   // calculate offset of elements for updating the position of elements on scroll
   Scene.prototype.calculateOffset = function(origin, trigger, speed) {
     // animOrigin = Element offset

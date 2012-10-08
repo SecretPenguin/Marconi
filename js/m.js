@@ -1,19 +1,26 @@
 (function($, undefined) {
   this.M = {
     scenes: [],
+    shareBars: [],
     activeScenes: [],
 
     init: function() {
       this.eachScene(function(scene) {
         scene.init();
       });
+
       $(window).on("resize", $.proxy(this.onResize, this));
-      // $(window).on("scroll", $.proxy(this.onScroll, this));
+      $(window).on("scroll", $.proxy(this.onScroll, this));
       // trigger a resize to set the initial screen height
       $(window).resize();
     },
 
+    // add Scene to scenes and set up shareBar if scene has one
     register: function(scene) {
+      if (scene.shareBar()) {
+        this.shareBars.push(scene.shareBar());
+      }
+
       this.scenes.push(scene);
     },
 
@@ -27,13 +34,13 @@
       });
     },
 
-    // onScroll: function(event) {
-    //   // monitoring share divs for scene activation/deactivation
+    onScroll: function(event) {
+      // monitoring share divs for scene activation/deactivation
 
-    //   $.each(this.activeScenes, function() {
-    //     this.onScroll();
-    //   });
-    // },
+      $.each(this.activeScenes, function() {
+        this.onScroll();
+      });
+    },
 
     // call fn on each scene, passing the scene as the only argument
     // and keeping M as this
