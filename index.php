@@ -1,9 +1,4 @@
-<?php
-function is_dev_mode() {
-  $dev_hosts = array("marconi.dev");
-  return in_array($_SERVER["SERVER_NAME"], $dev_hosts);
-}
-?>
+<?php include ("helpers.php"); ?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
