@@ -1,7 +1,7 @@
 (function($) {
-  var relevant = new Scene("walking", 16000);
+  var walking = new Scene("walking", 16000);
 
-  relevant.init = function() {
+  walking.init = function() {
     this.$explosion = $('#explosion');
     this.$projectile = $('#projectile');
     this.$allSkills = $('.skill');
@@ -19,12 +19,12 @@
 
     // recalculate the screen height and scene height, then set the heights
     // on the matching divs using new values
-  relevant.onResize = function(event) {
+  walking.onResize = function(event) {
     this.$screen.height(M.screenHeight);
     this.$container.height(M.screenHeight + this.sceneLength);
   };
 
-  relevant.onScroll = function(event) {
+  walking.onScroll = function(event) {
     var distance = this.distance();
 
     this.setScrollSpeed(distance);
@@ -51,10 +51,10 @@
 
     // Explosion Function
     this.triggerExplosion(distance);
-    
+
     // Projectile Function
     this.triggerProjectile(distance);
-    
+
     // Skill Function
     this.triggerSkill(distance);
 
@@ -179,7 +179,7 @@
         break;
       }
     }
-    
+
     // Coin Sprite
     if ( distance <= this.$container.height() && distance > 0 ) {
       mySprite(50,8);
@@ -210,10 +210,10 @@
         break;
       }
     }
-    
+
     // Change sprites throughout scene
     // Preload Images - removes flicker
-    if (document.images) {	
+    if (document.images) {
 		img1 = new Image();
 		img2 = new Image();
 		img3 = new Image();
@@ -222,14 +222,14 @@
 		img6 = new Image();
 		img7 = new Image();
 		img8 = new Image();
-		img1.src = "/images/relevant/sprites/BearSprite-S.gif";
-		img2.src = "/images/relevant/sprites/BearSprite-SS.gif";
-		img3.src = "/images/relevant/sprites/BearSprite-SN.gif";
-		img4.src = "/images/relevant/sprites/BearSprite-N.gif";
-		img5.src = "/images/relevant/sprites/BearSprite-NN.gif";
-		img6.src = "/images/relevant/sprites/BearSprite-NP.gif";
-		img7.src = "/images/relevant/sprites/BearSprite-P.gif";
-		img8.src = "/images/relevant/sprites/BearSprite-PP.gif";
+		img1.src = "/images/walking/sprites/BearSprite-S.gif";
+		img2.src = "/images/walking/sprites/BearSprite-SS.gif";
+		img3.src = "/images/walking/sprites/BearSprite-SN.gif";
+		img4.src = "/images/walking/sprites/BearSprite-N.gif";
+		img5.src = "/images/walking/sprites/BearSprite-NN.gif";
+		img6.src = "/images/walking/sprites/BearSprite-NP.gif";
+		img7.src = "/images/walking/sprites/BearSprite-P.gif";
+		img8.src = "/images/walking/sprites/BearSprite-PP.gif";
 	}
     if ( distance >= -650 && distance <= 2650 ) {
       this.$bear.css('background-image', 'url(' + img1.src + ')');
@@ -274,7 +274,7 @@
     $('#curposition').html(distance);
   };
 
-  relevant.autoPlay = function(event) {
+  walking.autoPlay = function(event) {
     var $pageContainer = $('html, body');
 
     event.preventDefault();
@@ -297,7 +297,7 @@
     });
   };
 
-  relevant.triggerExplosion = function(distance) {
+  walking.triggerExplosion = function(distance) {
     var startExplosion = 13200;
 
     if (distance < 5800) {
@@ -325,10 +325,10 @@
       this.$explosion.attr('class', 'hidden');
     }
   };
-  
-  relevant.triggerProjectile = function(distance) {
+
+  walking.triggerProjectile = function(distance) {
     var startProjectile = 11000;
-    
+
     if (distance < 2960) {
       startProjectile = 800;
     } else if (distance < 5660) {
@@ -340,15 +340,15 @@
     } else if (distance < 13160) {
       startProjectile = 11000;
     }
-    
-    // duplicated function from relevant.onScroll
+
+    // duplicated function from walking.onScroll
     function myCalc(animOrigin, animTrigger, animSpeed) {
       // animOrigin = Element offset
       // animTrigger = Position of variable "distance" when animation begins
       // animSpeed = Pixels scrolled per pixels moved. 2 = 1px moved to 2px scrolled
       animUpdate = (distance - animTrigger)/animSpeed + animOrigin;
     }
-    
+
     if ( distance >= (startProjectile + 2160) ) {
       this.$projectile.css('right', '480px');
     } else if ( distance >= startProjectile && distance < (startProjectile + 2160) ) {
@@ -359,11 +359,11 @@
     }
   }
 
-  relevant.triggerSkill = function(distance) {
+  walking.triggerSkill = function(distance) {
     var startSkill = this.sceneLength;
     var currentSkill = this.$skill1;
     var duration = 550; // How long the full opacity skill stays on the screen - in pixels.
-    
+
     if (distance < 5660) {
       startSkill = 2960;
       currentSkill = this.$skill1;
@@ -380,15 +380,15 @@
       startSkill = 13160;
       currentSkill = this.$skill5;
     }
-    
-    // duplicated function from relevant.onScroll
+
+    // duplicated function from walking.onScroll
     function myCalc(animOrigin, animTrigger, animSpeed) {
       // animOrigin = Element offset
       // animTrigger = Position of variable "distance" when animation begins
       // animSpeed = Pixels scrolled per pixels moved. 2 = 1px moved to 2px scrolled
       animUpdate = (distance - animTrigger)/animSpeed + animOrigin;
     }
-        
+
     if ( distance < startSkill ) {
       this.$allSkills.css({'bottom': 0, 'opacity': 0});
     } else if ( distance >= startSkill && distance < (startSkill + 140) ) {
@@ -404,5 +404,5 @@
     }
   }
 
-  this.M.register(relevant);
+  this.M.register(walking);
 })(jQuery);

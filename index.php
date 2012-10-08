@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="/css/mobile.css" />
   <link rel="stylesheet" href="/css/integrated.css" />
   <link rel="stylesheet" href="/css/social.css" />
-  <link rel="stylesheet" href="/css/relevant.css" />
+  <link rel="stylesheet" href="/css/walking.css" />
   <?php else: ?>
   <link rel="stylesheet" href="all.css" />
   <?php endif; ?>
@@ -22,7 +22,7 @@
 
   <?php
   include("tests/preface/preface.php");
-  $scenes = array("flexible", "mobile", "integrated", "social", "relevant");
+  $scenes = array("flexible", "mobile", "integrated", "social", "walking");
 
   foreach ($scenes as $scene) {
     include("tests/$scene/$scene.php");
@@ -43,7 +43,7 @@
   <script src="/js/mobile.js"></script>
   <script src="/js/integrated.js"></script>
   <script src="/js/social.js"></script>
-  <script src="/js/relevant.js"></script>
+  <script src="/js/walking.js"></script>
   <script src="/js/share.js"></script>
   <?php else: ?>
   <script src="all.js"></script>
