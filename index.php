@@ -44,6 +44,7 @@ if (empty($scene)) {
     <script src="/js/vendor/jquery.rotate.js"></script>
     <script src="/js/vendor/jquery.backgroundpos.min.js"></script>
     <script src="/js/vendor/jquery.zclip.min.js"></script>
+    <script src="/js/vendor/underscore.js"></script>
     <script src="/js/m.js"></script>
     <script src="/js/share_bar.js"></script>
     <script src="/js/scene.js"></script>
