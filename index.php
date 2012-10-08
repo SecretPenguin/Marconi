@@ -26,7 +26,7 @@
 
   foreach ($scenes as $scene) {
     include("tests/$scene/$scene.php");
-    include("share.php");
+    include("share_bar.php");
   }
   ?>
 
