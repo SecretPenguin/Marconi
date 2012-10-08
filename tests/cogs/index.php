@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <link rel="stylesheet" href="/css/shared.css" />
-<link rel="stylesheet" href="/css/integrated.css" />
+<link rel="stylesheet" href="/css/cogs.css" />
 <!--[if lt IE 9]>
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -14,7 +14,7 @@
 <div class="space">
   <div class="center">Test</div>
 </div>
-<?php include("integrated.php"); ?>
+<?php include("cogs.php"); ?>
 <div class="space">
   <div class="center">Test</div>
 </div>
@@ -23,6 +23,6 @@
 <script src="/js/vendor/jquery.rotate.js"></script>
 <script src="/js/m.js"></script>
 <script src="/js/scene.js"></script>
-<script src="/js/integrated.js"></script>
+<script src="/js/cogs.js"></script>
 </body>
 </html>

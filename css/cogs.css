@@ -14,7 +14,7 @@
 
 #cogShift {
   height:6000px;
-  width:100%;
+  width:100%
   position:absolute;
   left:0;
   top:0;
@@ -23,11 +23,11 @@
 .cogS {
   width:190px;
   height:190px;
-  background:url(/images/integrated/cog-s.png) no-repeat;
+  background:url(/images/cogs/cog-s.png) no-repeat;
 }
 
 .cogS.back {
-  background:url(/images/integrated/cog-s-red.png) no-repeat;
+  background:url(/images/cogs/cog-s-red.png) no-repeat;
   z-index:-10;
   margin-top:-16px;
 }
@@ -35,11 +35,11 @@
 .cogM {
   width:340px;
   height:340px;
-  background:url(/images/integrated/cog-m.png) no-repeat;
+  background:url(/images/cogs/cog-m.png) no-repeat;
 }
 
 .cogM.back {
-  background:url(/images/integrated/cog-m-red.png) no-repeat;
+  background:url(/images/cogs/cog-m-red.png) no-repeat;
   z-index:-10;
   margin-top:-16px;
 }
@@ -47,11 +47,11 @@
 .cogL {
   width:490px;
   height:490px;
-  background:url(/images/integrated/cog-l.png) no-repeat;
+  background:url(/images/cogs/cog-l.png) no-repeat;
 }
 
 .cogL.back {
-  background:url(/images/integrated/cog-l-red.png) no-repeat;
+  background:url(/images/cogs/cog-l-red.png) no-repeat;
   z-index:-10;
   margin-top:-16px;
 }
@@ -59,11 +59,11 @@
 .cogXL {
   width:640px;
   height:640px;
-  background:url(/images/integrated/cog-xl.png) no-repeat;
+  background:url(/images/cogs/cog-xl.png) no-repeat;
 }
 
 .cogXL.back {
-  background:url(/images/integrated/cog-xl-red.png) no-repeat;
+  background:url(/images/cogs/cog-xl-red.png) no-repeat;
   z-index:-10;
   margin-top:-16px;
 }
@@ -133,14 +133,14 @@
 #cog8, #cog8mask {
   width:740px;
   height:740px;
-  background:url(/images/integrated/text-cog.gif) no-repeat;
+  background:url(/images/cogs/text-cog.gif) no-repeat;
   z-index:-10;
   margin-left:-146px;
   top:3650px;
 }
 
 #cog8mask {
-  background:url(/images/integrated/test-mask.gif) no-repeat;
+  background:url(/images/cogs/test-mask.gif) no-repeat;
   z-index:-5;
 }
 

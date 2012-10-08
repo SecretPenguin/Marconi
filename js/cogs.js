@@ -1,7 +1,7 @@
 (function($) {
-  var integrated = new Scene("cogs", 18000);
+  var cogs = new Scene("cogs", 18000);
 
-  integrated.init = function() {
+  cogs.init = function() {
     this.$cogShift = $('#cogShift');
     this.$scroll = $('#cogs .scroll');
     this.$cogSR = $('.cogS.rev');
@@ -22,11 +22,11 @@
     this.$scroll.on("click", $.proxy(this.autoPlay, this));
   };
 
-  integrated.onResize = function(event) {
+  cogs.onResize = function(event) {
     this.$screen.height(M.screenHeight);
   };
 
-  integrated.onScroll = function(event) {
+  cogs.onScroll = function(event) {
     var distance = this.distance();
 
     // Update play speed based on distance from end
@@ -119,7 +119,7 @@
     console.log(distance);
   };
 
-  integrated.autoPlay = function(event) {
+  cogs.autoPlay = function(event) {
     var $pageContainer = $('html, body');
 
     event.preventDefault();
@@ -142,5 +142,5 @@
     });
   };
 
-  this.M.register(integrated);
+  this.M.register(cogs);
 })(jQuery);
