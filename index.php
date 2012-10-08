@@ -1,4 +1,4 @@
-<?php include ("helpers.php"); ?>
+<?php include("helpers.php"); ?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -20,13 +20,15 @@
 </head>
 <body>
 
-  <?php include("tests/preface/preface.php"); ?>
-  <?php include("tests/flexible/flexible.php"); ?>
-  <?php $scene="flexible"; include("share.php"); ?>
-  <?php include("tests/mobile/mobile.php"); ?>
-  <?php include("tests/integrated/integrated.php"); ?>
-  <?php include("tests/social/social.php"); ?>
-  <?php include("tests/relevant/relevant.php"); ?>
+  <?php
+  include("tests/preface/preface.php");
+  $scenes = array("flexible", "mobile", "integrated", "social", "relevant");
+
+  foreach ($scenes as $scene) {
+    include("tests/$scene/$scene.php");
+    include("share.php");
+  }
+  ?>
 
   <?php if (is_dev_mode()): ?>
   <script src="/js/vendor/jquery.js"></script>
