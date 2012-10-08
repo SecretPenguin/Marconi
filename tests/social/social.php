@@ -25,4 +25,3 @@
 			</form>
 	</div>
 </div>
-<div class="space"></div>

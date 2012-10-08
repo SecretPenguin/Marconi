@@ -20,4 +20,3 @@
   </div>
 </div>
 <div id="End"></div>
-<div class="space"></div>

@@ -34,4 +34,3 @@
   </div>
 </div>
 <div id="cogEnd"></div>
-<div class="space"></div>
