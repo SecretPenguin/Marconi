@@ -2,7 +2,9 @@
   this.M = {
     scenes: [],
     shareBars: [],
-    activeScenes: [],
+    screenHeight: null,
+    screenTop: null,
+    screenBottom: null,
 
     init: function() {
       this.eachScene(function(scene) {
@@ -24,8 +26,16 @@
       this.scenes.push(scene);
     },
 
+    // call position-related stuff here so calculations will be correct
+    onLoad: function(event) {
+      this.eachShareBar(function(shareBar) {
+        shareBar.onLoad();
+      });
+    },
+
     onResize: function(event) {
-      this.screenHeight = $(window).height();
+      this.calculateScreenHeight();
+      this.calculateScreenTopBottom();
 
       this.eachScene(function(scene) {
         if (scene.hasOwnProperty("onResize")) {
@@ -35,11 +45,77 @@
     },
 
     onScroll: function(event) {
-      // monitoring share divs for scene activation/deactivation
+      this.calculateScreenTopBottom();
 
-      $.each(this.activeScenes, function() {
-        this.onScroll();
+      var screenTop = this.screenTop;
+      var screenBottom = this.screenBottom;
+      var shareBarsCopy = this.shareBars.slice();
+      var shareBarIndex = this.onScreenShareBarIndex();
+      var shareBarsToActivate = 2;
+
+      // there is no on screen share bar. get the next one below and activate
+      // only its scene
+      if (shareBarIndex === undefined) {
+        shareBarIndex = this.belowScreenShareBarIndex();
+        shareBarsToActivate = 1;
+      }
+
+      var active = shareBarsCopy.splice(shareBarIndex, shareBarsToActivate);
+
+      for (var i = 0; i < active.length; i++) {
+        active[i].activateScene();
+      }
+
+      for (var i = 0; i < shareBarsCopy.length; i++) {
+        shareBarsCopy[i].deactivateScene();
+      }
+
+      this.eachScene(function(scene) {
+        if (scene.active && scene.hasOwnProperty("onScroll")) {
+          scene.onScroll();
+        }
       });
+    },
+
+    calculateScreenHeight: function() {
+      this.screenHeight = $(window).height();
+    },
+
+    calculateScreenTopBottom: function() {
+      this.screenTop = $(window).scrollTop();
+      this.screenBottom = this.screenTop + this.screenHeight;
+    },
+
+    onScreenShareBarIndex: function() {
+      var screenTop = this.screenTop;
+      var screenBottom = this.screenBottom;
+      var onScreenShareBarIndex;
+
+      $.each(this.shareBars, function(index, shareBar) {
+        if (shareBar.isOnScreen(screenTop, screenBottom)) {
+          onScreenShareBarIndex = index;
+          return false; // early break from $.each
+        }
+      });
+
+      return onScreenShareBarIndex;
+    },
+
+    belowScreenShareBarIndex: function() {
+      var screenBottom = this.screenBottom;
+
+      var distances = $.map(this.shareBars, function(shareBar) {
+        var distance = shareBar.bottom - screenBottom;
+
+        if (distance < 0) {
+          return NaN;
+        } else {
+          return distance;
+        }
+      });
+
+      var closestIndex = distances.indexOf(_.min(distances));
+      return closestIndex;
     },
 
     // call fn on each scene, passing the scene as the only argument
@@ -52,20 +128,18 @@
       }
     },
 
-    // activateScene: function(scene) {
-    //   this.activeScenes.push(scene);
-    // },
+    eachShareBar: function(fn) {
+      for (var i = 0; i < this.shareBars.length; i++) {
+        var shareBar = this.shareBars[i];
 
-    // deactivateScene: function(scene) {
-    //   var sceneIndex = this.activeScenes.indexOf(scene);
-
-    //   if (sceneIndex != -1) {
-    //     this.activeScenes.splice(sceneIndex, 1);
-    //   }
-    // }
+        fn.call(this, shareBar);
+      }
+    }
   };
 
   $(document).ready(function() {
     M.init();
   });
+
+  $(window).on("load", $.proxy(M.onLoad, M));
 })(jQuery);

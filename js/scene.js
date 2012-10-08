@@ -15,6 +15,7 @@
     this.sceneLength = sceneLength;
     this.$container = $("#" + containerId);
     this.$screen = $("#" + containerId + "-screen");
+    this.active = false;
   };
 
   Scene.prototype.init = function() {
