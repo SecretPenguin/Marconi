@@ -59,24 +59,3 @@
 		</div>
 	</div>
 </div>
-<div class="share">
-	<div class="left-bg"></div>
-	<div class="right-bg"></div>
-	<div class="texture"></div>
-	<div class="shadow"></div>
-	<div class="share-content">
-		<div class="share-section">
-			<div class="permalink">
-				<input type="text" disabled="disabled" id="pFlexible" value="http://marconi.dev/#flexible" onfocus="if(this.value=='http://marconi.dev/#flexible'){this.value=''}" onblur="if(this.value==''){this.value='http://marconi.dev/#flexible'}" />
-				<a href="#" id="copyFlexible">Copy</a>
-				<p class="copy-confirm">Copied!</p>
-			</div>
-			<div class="facebook">facebook</div>
-			<div class="twitter">twitter</div>
-		</div>
-		<div class="share-site">
-			<div class="facebook">facebook</div>
-			<div class="twitter">twitter</div>
-		</div>
-	</div>
-</div>
