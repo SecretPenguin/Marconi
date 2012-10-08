@@ -30,10 +30,10 @@ if (empty($scene)) {
 <body>
 
   <?php
-  include("tests/preface/preface.php");
+  include("scenes/preface.php");
 
   foreach ($scenes as $scene) {
-    include("tests/$scene/$scene.php");
+    include("scenes/$scene.php");
     include("share_bar.php");
   }
   ?>
