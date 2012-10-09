@@ -1,146 +1,121 @@
 (function($) {
+	// returns a random integer between `from` and `to`
+	function randomFromTo(from, to) {
+		return Math.floor(Math.random() * (to - from + 1) + from);
+	}
+
   var social = new Scene("social", 400);
 
   social.init = function() {
+  	this.chatRounds = [
+				[0, 1, 2],
+				[3, 4, 5, 6],
+				[7, 8, 9, 10]
+		];
     this.runOnce = true;
-  	this.$chat = $('#chat-container');
+  	this.$chat = $("#chat-container");
+  	this.$conversation = $("#theConversation");
+  	this.$form = $("#usersInput");
+  	this.$typing = $("#usersTyping");
+  	this.userSentences = this.$conversation
+  		.find(".userText > p.theText")
+	  	.map(function() { return $(this).text(); });
+
+	  this.initTypeJack();
+
+  	this.$typing.on("keydown", $.proxy(this.typeJack.addText, this.typeJack));
+  	this.$form.on("submit", $.proxy(this.onSubmit, this));
+  };
+
+  social.initTypeJack = function() {
+  	var $typing = this.$typing;
+
+  	this.typeJack = {
+			text: this.userSentences[0],
+			index: 0, // current cursor position
+			keysPer: 2, // how many letters to type per key press
+			addText: function(key) {
+				if (this.text) { // otherway if text is loaded
+					if (key.keyCode == 13) { // on enter
+						$("#usersInput").submit();
+					} else if (key.keyCode == 9) { // on tab
+						// no op
+					} else if (key.keyCode != 8){ // anything but backspace
+						this.index += this.keysPer; // advance index
+					} else { // backspace
+						if (this.index > 0) {
+							this.index -= this.keysPer;//	retreat index
+						}
+					}
+
+					$typing.val(this.text.substring(0, this.index));
+				}
+
+				if (key.preventDefault && key.keyCode != 122) {
+					// prevent F11(fullscreen) from being blocked
+					key.preventDefault()
+				}
+
+				if (key.keyCode != 122) { // otherway prevent keys default behavior
+					key.returnValue = false;
+			  }
+			}
+		}
   };
 
   social.onResize = function(event) {
     this.$screen.height(M.screenHeight);
     this.$container.height(M.screenHeight + this.sceneLength);
     this.$chat.height(M.screenHeight - 320);
-    $("#theConversation").scrollTop($("#theConversation")[0].scrollHeight);
+    this.$conversation.scrollTop(this.$conversation[0].scrollHeight);
   };
 
   social.onScroll = function(event) {
     this.conditionallyFixateScene();
 
 		if (this.distance >= -M.screenHeight - this.distance && this.runOnce ) {
-	    this.startChat(0);
+	    this.showChatRound(0);
 	    this.runOnce = false;
 		}
   };
 
-  social.startChat = function(roundNumber) {
-		// This function emulates PHPs rand() function. It is used in the chatRound() function.
-		function randomFromTo(from, to){
-			return Math.floor(Math.random() * (to - from + 1) + from);
-		}
+  social.onSubmit = function(event) {
+  	event.preventDefault();
 
-		// Chat Rounds
-		function chatRound(roundNumber) {
+  	// Clear the typing area
+  	$("#usersTyping").val("");
 
-		// Each round gets a comma seperated list of the conversation <div>s that need to show up during that round
-		var rounds = new Array();
-		rounds[0] = new Array(0,1,2);
-		rounds[1] = new Array(3,4,5,6);
-		rounds[2]= new Array(7,8,9,10);
+  	// This tells us how many of the users texts are visible (which means they have happened)
+  	var hasHappened = $(".userText:visible").length;
+  	var nextSentence = $(".userText:visible").length + 1;
 
-		// Random number to add to each additional element so they all happen after each other
-		var baseRandom = randomFromTo(8,14)*100;
-		i = 0;
+  	// Set the next script for the user
+  	this.typeJack.text = this.userSentences[nextSentence];
+  	this.typeJack.index = 0;
 
-		// NEXT STEP... Make a four each that replicates the below set-timeout loop things in a more random and less verbose way
-		$.each(rounds[roundNumber], function() {
-			var elementNumber = this;
-			// Add some more time to each so they happen after each other - make the first one happen instantly
-			if (i == 0) {
-				baseRandom = 0;
-			} else {
-				baseRandom = baseRandom+(randomFromTo(8,12)*100);
-			}
-			setTimeout(function() {
-				$('#theConversation > div').eq(elementNumber).show();
-				// Scroll to bottom
-				$("#theConversation").scrollTop($("#theConversation")[0].scrollHeight);
-				}, baseRandom);
-				i++;
-			});
-		}
+  	// Make the next round happen
+  	this.showChatRound(nextSentence);
+  };
 
-		// chatRound(0); Moved to onScroll function
+  social.showChatRound = function(round) {
+  	var timeoutDuration = 0;
+  	var $conversation = this.$conversation;
 
-		$('#usersInput').submit(function() {
+  	$.each(this.chatRounds[round], function(index, divIndex) {
+  		// increase the timeoutDuration each round (except the first)
+  		// so they occur serially
+  		if (index !== 0) {
+  			timeoutDuration += randomFromTo(800, 1200);
+  		}
 
-		// Clear the typing area
-		$("#usersTyping").val('');
+  		setTimeout(function() {
+  			$conversation.find("> div").eq(divIndex).show();
+  			// Scroll to bottom
+  			$conversation.scrollTop($conversation[0].scrollHeight);
+  		}, timeoutDuration);
+  	});
+  };
 
-		// This tells us how many of the users texts are visible (which means they have happened)
-		var hasHappened = $(".userText:visible").length;
-
-		// Set the next script for the user
-		TypeJack.init();
-		TypeJack.text = userSentences[hasHappened+1];
-		TypeJack.index = 0;
-
-		// Make the next round happen
-		chatRound(hasHappened+1);
-
-		return false; // Prevent button from submitting
-
-		});
-
-
-		// Type hijacker
-
-		// Create an array of all the text a user says in the order that they should say it
-		var userSentences = new Array();
-
-		$('#theConversation div.userText').each(function(index) {
-			userSentences[index]=$(this).children('p.theText').text();
-		});
-
-
-		// Start the key jacking on page load
-		$('#usersTyping').keydown(
-			function ( event ) {
-			TypeJack.addText( event ); //Capture the keydown event and call the addText
-			}
-		);
-
-
-		var TypeJack={
-			text: userSentences[0],
-			accessCountimer:null,
-			keysPer:2, // how many letters to type per key press
-			index:0, // current cursor position
-			init: function(){// inizialize
-		},
-
-		content:function(){
-			return $("#usersTyping").val();// get console content
-		},
-
-		addText:function(key){//Main function to add the code
-			if(TypeJack.text){ // otherway if text is loaded
-				var cont=TypeJack.content(); // get the console content
-				if (key.keyCode==13) { // if user clicks ENTER
-					$('#usersInput').submit(); // submit the form
-				} else if(key.keyCode==9) { // if user clicks TAB
-					// this should tab to the next element
-				} else if (key.keyCode!=8){ // if key is not backspace (this is the default behavior)
-					TypeJack.index+=TypeJack.keysPer;	// add to the index the keysPer
-				} else { // This is the backspace
-					if(TypeJack.index>0) // else if index is not less than 0
-					TypeJack.index-=TypeJack.keysPer;//	remove keysPer for deleting text
-				}
-				$("#usersTyping").val(TypeJack.text.substring(0,TypeJack.index));// replace newline chars with br, tabs with 4 space and blanks with an html blank
-			}
-
-			if ( key.preventDefault && key.keyCode != 122 ) { // prevent F11(fullscreen) from being blocked
-				key.preventDefault()
-			};
-			if(key.keyCode != 122){ // otherway prevent keys default behavior
-				key.returnValue = false;
-		  }
-			}
-		}
-
-	// Set the defaults and initiate
-
-		TypeJack.init();
-	};
-
+ 	this.scene = social;
   this.M.register(social);
 })(jQuery);

@@ -4,19 +4,19 @@
 		<div id="chat-container">
 			<div id="theConversation">
 
-				<div class="userText">
+				<div>
 					<div class="userName">John Doe</div>
 					<p class="theText"> Does anybody know what the material means by "This and that and whatever else"?</p>
 					<p>Posted July 10th, 2012</p>
 				</div>
 
-				<div class="userText">
+				<div>
 					<div class="userName">Stephen W</div>
 					<p class="theText">Not sure, you could check the thing.</p>
 					<p>Posted July 11th, 2012</p>
 				</div>
 
-				<div class="userText">
+				<div>
 					<div class="userName">George K</div>
 					<p class="theText">Yeah, check the thing.</p>
 					<p>Posted July 11th, 2012</p>
@@ -28,19 +28,19 @@
 					<p>Posted July 11th, 2012</p>
 				</div>
 
-				<div class="userText">
+				<div>
 					<div class="userName">George K</div>
 					<p class="theText">Nice! Good call REAL USER.</p>
 					<p>Posted July 11th, 2012</p>
 				</div>
 
-				<div class="userText">
+				<div>
 					<div class="userName">Stephen W</div>
 					<p>Yeah, that sounds right.</p>
 					<p>Posted July 11th, 2012</p>
 				</div>
 
-				<div class="userText">
+				<div>
 					<div class="userName">John Doe</div>
 					<p>Perfect, thanks REAL USER!</p>
 					<p>Posted July 11th, 2012</p>
