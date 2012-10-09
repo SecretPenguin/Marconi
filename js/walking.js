@@ -98,10 +98,12 @@
     if (this.distance <= this.$container.height() && this.distance > 0 ) {
       this.$bear.attr("class", "f" + currentSprite);
     }
+    
+    var coinSprite = this.calculateSprite(50, 8);
 
     // Coin Sprite
     if (this.distance <= this.$container.height() && this.distance > 0) {
-      this.$projectile.attr("class", "f" + currentSprite);
+      this.$projectile.attr("class", "f" + coinSprite);
     }
 
     // Change sprites throughout scene
@@ -261,7 +263,7 @@
     } else if (this.distance < 13160) {
       startSkill = 11060;
       currentSkill = this.$skill4;
-    } else if (this.distance < this.sceneLength) {
+    } else {
       startSkill = 13160;
       currentSkill = this.$skill5;
     };
