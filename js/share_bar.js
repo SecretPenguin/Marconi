@@ -42,6 +42,7 @@
   ShareBar.prototype.deactivateScene = function() {
     if (this.scene.active) {
       console.log("deactivating scene " + this.scene.containerId);
+      this.scene.unFixateScene();
       this.scene.active = false;
     }
   };

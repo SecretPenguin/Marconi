@@ -75,6 +75,10 @@
     }
   };
 
+  Scene.prototype.unFixateScene = function() {
+    this.$screen.attr("class", "");
+  };
+
   // calculate offset of elements for updating the position of elements on scroll
   Scene.prototype.calculateOffset = function(origin, trigger, speed) {
     // animOrigin = Element offset
