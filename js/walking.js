@@ -32,7 +32,7 @@
     this.triggerProjectile();
     this.triggerSkill();
 
-    var currentSprite = this.calculateSprite(50, 18);;
+    var currentSprite = this.calculateSprite(50, 18);
 
     // Walking Sprite Update at Negative Distance
     if (this.distance <= 0 && this.distance >= -M.screenHeight) {
@@ -96,92 +96,12 @@
 
     // Walking Sprite Update
     if (this.distance <= this.$container.height() && this.distance > 0 ) {
-      switch(currentSprite) {
-      case 0:
-        this.$bear.attr('class', 'f0');
-        break;
-      case 1:
-        this.$bear.attr('class', 'f1');
-        break;
-      case 2:
-        this.$bear.attr('class', 'f2');
-        break;
-      case 3:
-        this.$bear.attr('class', 'f3');
-        break;
-      case 4:
-        this.$bear.attr('class', 'f4');
-        break;
-      case 5:
-        this.$bear.attr('class', 'f5');
-        break;
-      case 6:
-        this.$bear.attr('class', 'f6');
-        break;
-      case 7:
-        this.$bear.attr('class', 'f7');
-        break;
-      case 8:
-        this.$bear.attr('class', 'f8');
-        break;
-      case 9:
-        this.$bear.attr('class', 'f9');
-        break;
-      case 10:
-        this.$bear.attr('class', 'f10');
-        break;
-      case 11:
-        this.$bear.attr('class', 'f11');
-        break;
-      case 12:
-        this.$bear.attr('class', 'f12');
-        break;
-      case 13:
-        this.$bear.attr('class', 'f13');
-        break;
-      case 14:
-        this.$bear.attr('class', 'f14');
-        break;
-      case 15:
-        this.$bear.attr('class', 'f15');
-        break;
-      case 16:
-        this.$bear.attr('class', 'f16');
-        break;
-      case 17:
-        this.$bear.attr('class', 'f17');
-        break;
-      }
+      this.$bear.attr("class", "f" + currentSprite);
     }
 
     // Coin Sprite
     if (this.distance <= this.$container.height() && this.distance > 0) {
-      switch(currentSprite) {
-      case 0:
-        this.$projectile.attr('class', 'f0');
-        break;
-      case 1:
-        this.$projectile.attr('class', 'f1');
-        break;
-      case 2:
-        this.$projectile.attr('class', 'f2');
-        break;
-      case 3:
-        this.$projectile.attr('class', 'f3');
-        break;
-      case 4:
-        this.$projectile.attr('class', 'f4');
-        break;
-      case 5:
-        this.$projectile.attr('class', 'f5');
-        break;
-      case 6:
-        this.$projectile.attr('class', 'f6');
-        break;
-      case 7:
-        this.$projectile.attr('class', 'f7');
-        break;
-      }
+      this.$projectile.attr("class", "f" + currentSprite);
     }
 
     // Change sprites throughout scene
