@@ -24,43 +24,19 @@
   };
 
   walking.onScroll = function(event) {
-    var distance = this.distance();
-
-    this.setScrollSpeed(distance);
-    this.conditionallyFixateScene(distance);
-
-    // Move elements on scroll
-    var animUpdate; // Used only for console.log
-    function myCalc(animOrigin, animTrigger, animSpeed) {
-      // animOrigin = Element offset
-      // animTrigger = Position of variable "distance" when animation begins
-      // animSpeed = Pixels scrolled per pixels moved. 2 = 1px moved to 2px scrolled
-      animUpdate = (distance - animTrigger)/animSpeed + animOrigin;
-    }
-
-    // Update sprites on scroll
-    var spriteUpdate = 0;
-    function mySprite(spriteSpeed, spriteNum) {
-      // spriteSpeed = Pixels scrolled between sprite triggers
-      // spriteNum = Number of sprites in animation
-      spriteUpdate = Math.abs((Math.ceil(distance/spriteSpeed))%spriteNum);
-    }
+    this.calculateScrollSpeed();
+    this.conditionallyFixateScene();
 
     // Animations!
+    this.triggerExplosion();
+    this.triggerProjectile();
+    this.triggerSkill();
 
-    // Explosion Function
-    this.triggerExplosion(distance);
-
-    // Projectile Function
-    this.triggerProjectile(distance);
-
-    // Skill Function
-    this.triggerSkill(distance);
+    var currentSprite = this.calculateSprite(50, 18);;
 
     // Walking Sprite Update at Negative Distance
-    if ( distance <= 0 && distance >= -M.screenHeight ) {
-      mySprite(50,18);
-      switch(spriteUpdate) {
+    if (this.distance <= 0 && this.distance >= -M.screenHeight) {
+      switch(currentSprite) {
       case 0:
         this.$bear.attr('class', 'f0');
         break;
@@ -119,9 +95,8 @@
     }
 
     // Walking Sprite Update
-    if ( distance <= this.$container.height() && distance > 0 ) {
-      mySprite(50,18);
-      switch(spriteUpdate) {
+    if (this.distance <= this.$container.height() && this.distance > 0 ) {
+      switch(currentSprite) {
       case 0:
         this.$bear.attr('class', 'f0');
         break;
@@ -180,9 +155,8 @@
     }
 
     // Coin Sprite
-    if ( distance <= this.$container.height() && distance > 0 ) {
-      mySprite(50,8);
-      switch(spriteUpdate) {
+    if (this.distance <= this.$container.height() && this.distance > 0) {
+      switch(currentSprite) {
       case 0:
         this.$projectile.attr('class', 'f0');
         break;
@@ -229,48 +203,47 @@
 		img6.src = "/images/walking/sprites/BearSprite-NP.gif";
 		img7.src = "/images/walking/sprites/BearSprite-P.gif";
 		img8.src = "/images/walking/sprites/BearSprite-PP.gif";
-	}
-    if ( distance >= -650 && distance <= 2650 ) {
+	  }
+    if ( this.distance >= -650 && this.distance <= 2650 ) {
       this.$bear.css('background-image', 'url(' + img1.src + ')');
-    } else if ( distance > 2650 && distance <= 3550 ) {
+    } else if ( this.distance > 2650 && this.distance <= 3550 ) {
       this.$bear.css('background-image', 'url(' + img2.src + ')');
-    } else if ( distance > 3550 && distance <= 5350 ) {
+    } else if ( this.distance > 3550 && this.distance <= 5350 ) {
       this.$bear.css('background-image', 'url(' + img1.src + ')');
-    } else if ( distance > 5350 && distance <= 6250 ) {
+    } else if ( this.distance > 5350 && this.distance <= 6250 ) {
       this.$bear.css('background-image', 'url(' + img3.src + ')');
-    } else if ( distance > 6250 && distance <= 8050 ) {
+    } else if ( this.distance > 6250 && this.distance <= 8050 ) {
       this.$bear.css('background-image', 'url(' + img4.src + ')');
-    } else if ( distance > 8050 && distance <= 8950 ) {
+    } else if ( this.distance > 8050 && this.distance <= 8950 ) {
       this.$bear.css('background-image', 'url(' + img5.src + ')');
-    } else if ( distance > 8950 && distance <= 10750 ) {
+    } else if ( this.distance > 8950 && this.distance <= 10750 ) {
       this.$bear.css('background-image', 'url(' + img4.src + ')');
-    } else if ( distance > 10750 && distance <= 11650 ) {
+    } else if ( this.distance > 10750 && this.distance <= 11650 ) {
       this.$bear.css('background-image', 'url(' + img6.src + ')');
-    } else if ( distance > 11650 && distance <= 13450 ) {
+    } else if ( this.distance > 11650 && this.distance <= 13450 ) {
       this.$bear.css('background-image', 'url(' + img7.src + ')');
-    } else if ( distance > 13450 && distance <= 14350 ) {
+    } else if ( this.distance > 13450 && this.distance <= 14350 ) {
       this.$bear.css('background-image', 'url(' + img8.src + ')');
     } else {
       this.$bear.css('background-image', 'url(' + img7.src + ')');
     }
 
     // Walking Right
-    if ( distance >= -650 && distance < 1324 ) {
-      myCalc(-650,-650,2);
-      this.$bear.css('left', animUpdate);
-    } else if ( distance >= 1324 && distance <= 14300 ) {
+    var newOffset;
+    if (this.distance >= -650 && this.distance < 1324) {
+      newOffset = this.calculateOffset(-650, -650, 2);
+      this.$bear.css('left', newOffset);
+    } else if (this.distance >= 1324 && this.distance <= 14300) {
       this.$bear.css('left', '337px');
-    } else if ( distance > 14300 ) {
-      myCalc(337,14300,3);
-      this.$bear.css('left', animUpdate);
+    } else if (this.distance > 14300) {
+      newOffset = this.calculateOffset(337, 14300, 3);
+      this.$bear.css('left', newOffset);
     } else {
       this.$bear.css('left', '-650px');
     }
 
-    console.log(distance);
     // Dev overlay -> Remove
-    $('#cursprite').html(spriteUpdate);
-    $('#curposition').html(distance);
+    $('#cursprite').html(currentSprite);
   };
 
   walking.autoPlay = function(event) {
@@ -296,112 +269,104 @@
     });
   };
 
-  walking.triggerExplosion = function(distance) {
+  walking.triggerExplosion = function() {
     var startExplosion = 13200;
 
-    if (distance < 5800) {
+    if (this.distance < 5800) {
       startExplosion = 3100;
-    } else if (distance < 8500) {
+    } else if (this.distance < 8500) {
       startExplosion = 5800;
-    } else if (distance < 11200) {
+    } else if (this.distance < 11200) {
       startExplosion = 8500;
-    } else if (distance < 13200) {
+    } else if (this.distance < 13200) {
       startExplosion = 11200;
     }
 
     // startExplosion = Distance to trigger animation
-    if (distance >= startExplosion && distance <= startExplosion + 50) {
+    if (this.distance >= startExplosion && this.distance <= startExplosion + 50) {
       this.$explosion.attr('class', 'f0');
-    } else if (distance > startExplosion + 50 && distance <= startExplosion + 100) {
+    } else if (this.distance > startExplosion + 50 && this.distance <= startExplosion + 100) {
       this.$explosion.attr('class', 'f1');
-    } else if (distance > startExplosion + 100 && distance <= startExplosion + 150) {
+    } else if (this.distance > startExplosion + 100 && this.distance <= startExplosion + 150) {
       this.$explosion.attr('class', 'f2');
-    } else if (distance > startExplosion + 150 && distance <= startExplosion + 200) {
+    } else if (this.distance > startExplosion + 150 && this.distance <= startExplosion + 200) {
       this.$explosion.attr('class', 'f3');
-    } else if (distance > startExplosion + 200 && distance <= startExplosion + 250) {
+    } else if (this.distance > startExplosion + 200 && this.distance <= startExplosion + 250) {
       this.$explosion.attr('class', 'f4');
     } else {
       this.$explosion.attr('class', 'hidden');
     }
   };
 
-  walking.triggerProjectile = function(distance) {
+  walking.triggerProjectile = function() {
     var startProjectile = 11000;
 
-    if (distance < 2960) {
+    if (this.distance < 2960) {
       startProjectile = 800;
-    } else if (distance < 5660) {
+    } else if (this.distance < 5660) {
       startProjectile = 3500;
-    } else if (distance < 8360) {
+    } else if (this.distance < 8360) {
       startProjectile = 6200;
-    } else if (distance < 11060) {
+    } else if (this.distance < 11060) {
       startProjectile = 8900;
-    } else if (distance < 13160) {
+    } else if (this.distance < 13160) {
       startProjectile = 11000;
     }
 
-    // duplicated function from walking.onScroll
-    function myCalc(animOrigin, animTrigger, animSpeed) {
-      // animOrigin = Element offset
-      // animTrigger = Position of variable "distance" when animation begins
-      // animSpeed = Pixels scrolled per pixels moved. 2 = 1px moved to 2px scrolled
-      animUpdate = (distance - animTrigger)/animSpeed + animOrigin;
-    }
-
-    if ( distance >= (startProjectile + 2160) ) {
+    var newOffset;
+    if (this.distance >= (startProjectile + 2160)) {
       this.$projectile.css('right', '480px');
-    } else if ( distance >= startProjectile && distance < (startProjectile + 2160) ) {
-      myCalc(-550,startProjectile,2);
-      this.$projectile.css('right', animUpdate);
+    } else if ( this.distance >= startProjectile && this.distance < (startProjectile + 2160) ) {
+      newOffset = this.calculateOffset(-550, startProjectile, 2);
+      this.$projectile.css('right', newOffset);
     } else {
       this.$projectile.css('right', '-550px');
     }
-  }
+  };
 
-  walking.triggerSkill = function(distance) {
+  walking.triggerSkill = function() {
     var startSkill = this.sceneLength;
     var currentSkill = this.$skill1;
     var duration = 550; // How long the full opacity skill stays on the screen - in pixels.
 
-    if (distance < 5660) {
+    if (this.distance < 5660) {
       startSkill = 2960;
       currentSkill = this.$skill1;
-    } else if (distance < 8360) {
+    } else if (this.distance < 8360) {
       startSkill = 5660;
       currentSkill = this.$skill2;
-    } else if (distance < 11060) {
+    } else if (this.distance < 11060) {
       startSkill = 8360;
       currentSkill = this.$skill3;
-    } else if (distance < 13160) {
+    } else if (this.distance < 13160) {
       startSkill = 11060;
       currentSkill = this.$skill4;
-    } else if (distance < this.sceneLength) {
+    } else if (this.distance < this.sceneLength) {
       startSkill = 13160;
       currentSkill = this.$skill5;
-    }
+    };
 
-    // duplicated function from walking.onScroll
-    function myCalc(animOrigin, animTrigger, animSpeed) {
-      // animOrigin = Element offset
-      // animTrigger = Position of variable "distance" when animation begins
-      // animSpeed = Pixels scrolled per pixels moved. 2 = 1px moved to 2px scrolled
-      animUpdate = (distance - animTrigger)/animSpeed + animOrigin;
-    }
-
-    if ( distance < startSkill ) {
+    var newOffset;
+    if (this.distance < startSkill) {
       this.$allSkills.css({'bottom': 0, 'opacity': 0});
-    } else if ( distance >= startSkill && distance < (startSkill + 140) ) {
-      myCalc(0,startSkill,10);
-      currentSkill.css({'bottom': animUpdate, 'opacity': (animUpdate/14)});
-    } else if ( distance >= (startSkill + 140) && distance <= (startSkill + 140 + duration) ) {
+    } else if (this.distance >= startSkill && this.distance < (startSkill + 140)) {
+      newOffset = this.calculateOffset(0, startSkill, 10);
+      currentSkill.css({'bottom': newOffset, 'opacity': (newOffset/14)});
+    } else if (this.distance >= (startSkill + 140) && this.distance <= (startSkill + 140 + duration)) {
       currentSkill.css({'bottom': '14px', 'opacity': 1});
-    } else if ( distance > (startSkill + 140 + duration) && distance <= (startSkill + 280 + duration) ) {
-      myCalc(0,(startSkill + 140 + duration),1);
-      currentSkill.css({'bottom': '14px', 'opacity': (1-(animUpdate/140))});
+    } else if ( this.distance > (startSkill + 140 + duration) && this.distance <= (startSkill + 280 + duration) ) {
+      newOffset = this.calculateOffset(0, (startSkill + 140 + duration), 1);
+      currentSkill.css({'bottom': '14px', 'opacity': (1-(newOffset/140))});
     } else {
       this.$allSkills.css({'bottom': '14px', 'opacity': 0});
     }
-  }
+  };
+
+  walking.calculateSprite = function(speed, count) {
+    // speed = Pixels scrolled between sprite triggers
+    // count = Number of sprites in animation
+    return Math.abs((Math.ceil(this.distance / speed)) % count);
+  };
 
   this.M.register(walking);
 })(jQuery);

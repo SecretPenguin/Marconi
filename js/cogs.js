@@ -26,27 +26,26 @@
   };
 
   cogs.onScroll = function(event) {
-    var distance = this.distance();
-
     // Update play speed based on distance from end
-    this.setScrollSpeed(distance);
-    this.conditionallyFixateScene(distance);
+    this.calculateScrollSpeed();
+    this.conditionallyFixateScene();
 
-    // Move elements on scroll
-    var animUpdate; // Used only for console.log
-    function myCalc(animOrigin, animTrigger, animSpeed) {
-      // animOrigin = Element offset
-      // animTrigger = Position of variable "distance" when animation begins
-      // animSpeed = Pixels scrolled per pixels moved. 2 = 1px moved to 2px scrolled
-      animUpdate = (distance - animTrigger)/animSpeed + animOrigin;
-    }
+    // // Move elements on scroll
+    // var animUpdate; // Used only for console.log
+    // function myCalc(animOrigin, animTrigger, animSpeed) {
+    //   // animOrigin = Element offset
+    //   // animTrigger = Position of variable "distance" when animation begins
+    //   // animSpeed = Pixels scrolled per pixels moved. 2 = 1px moved to 2px scrolled
+    //   animUpdate = (this.distance - animTrigger)/animSpeed + animOrigin;
+    // }
 
     // Rotation
-    var rotateSpeedS = distance/2;
-    var rotateSpeedM = distance/4;
-    var rotateSpeedL = distance/6;
-    var rotateSpeedXL = distance/8;
-    if ( distance >= -M.screenHeight && distance <= this.sceneLength ) {
+    var rotateSpeedS = this.distance/2;
+    var rotateSpeedM = this.distance/4;
+    var rotateSpeedL = this.distance/6;
+    var rotateSpeedXL = this.distance/8;
+
+    if ( this.distance >= -M.screenHeight && this.distance <= this.sceneLength) {
       this.$cogSR.rotate(- rotateSpeedS);
       this.$cogSN.rotate(rotateSpeedS);
       this.$cogMR.rotate(- rotateSpeedM);
@@ -58,20 +57,20 @@
     }
 
     // Cog Scroll
-    var cogScroll = -distance/3;
-    if ( distance >= 0 && distance <= this.sceneLength ) {
+    var cogScroll = -this.distance/3;
+    if ( this.distance >= 0 && this.distance <= this.sceneLength ) {
       this.$cogShift.css('top', cogScroll);
     }
 
     // Cogs Shift Test
-    if ( distance >= 5500 && distance < 8000 ) {
-      myCalc(0,5500,30);
-      this.$cogShift.css('left', animUpdate);
-    } else if ( distance >= 9000 && distance <= 13500 ) {
-      myCalc(84,9000,25);
-      var animUpdateTurn = -(animUpdate - 2*84); // Very crappy way of switching movement of animation
-      this.$cogShift.css('left', animUpdateTurn);
-    } else if ( distance > 13500 ) {
+    var newOffset;
+    if ( this.distance >= 5500 && this.distance < 8000 ) {
+      newOffset = this.calculateOffset(0, 5500, 30);
+      this.$cogShift.css('left', newOffset);
+    } else if ( this.distance >= 9000 && this.distance <= 13500 ) {
+      newOffset = this.calculateOffset(84, 9000, 25);
+      this.$cogShift.css('left', -(newOffset - 2*84)); // Very crappy way of switching movement of animation
+    } else if (this.distance > 13500) {
       this.$cogShift.css('left', -96); // Make this (-96) be set by the last position of the cog shift
     }
 
@@ -94,28 +93,28 @@
 */
 
     // Tagline
-    if ( distance < 500 ) {
+    if (this.distance < 500) {
       this.$cogTagline.css('margin-top', 0);
       this.$cogLeft.css('margin-left', '-440px');
       this.$cogRight.css('margin-right', '-590px');
       this.$hideLeft.css('margin-left', '-525px');
       this.$hideRight.css('margin-right', '-525px');
-    } else if ( distance >= 500 && distance <= 1540 ) {
-      myCalc(0,500,4);
-      this.$cogLeft.css('margin-left', (-440 + animUpdate));
-      this.$cogRight.css('margin-right', (-590 + animUpdate ));
-      this.$hideLeft.css('margin-left', (-525 + animUpdate));
-      this.$hideRight.css('margin-right', (-525 + animUpdate));
-    } else if ( distance > 1540 && distance <= this.sceneLength ) {
-      myCalc(0,1540,5);
-      this.$cogTagline.css('margin-top', -animUpdate);
+    } else if (this.distance >= 500 && this.distance <= 1540) {
+      newOffset = this.calculateOffset(0, 500, 4);
+      // myCalc(0,500,4);
+      this.$cogLeft.css('margin-left', (-440 + newOffset));
+      this.$cogRight.css('margin-right', (-590 + newOffset));
+      this.$hideLeft.css('margin-left', (-525 + newOffset));
+      this.$hideRight.css('margin-right', (-525 + newOffset));
+    } else if (this.distance > 1540 && this.distance <= this.sceneLength ) {
+      newOffset = this.calculateOffset(0, 1540, 5);
+      // myCalc(0,1540,5);
+      this.$cogTagline.css('margin-top', -newOffset);
       this.$cogLeft.css('margin-left', '-180px');
       this.$cogRight.css('margin-right', '-330px');
       this.$hideLeft.css('margin-left', '-268px');
       this.$hideRight.css('margin-right', '-268px');
     }
-
-    console.log(distance);
   };
 
   cogs.autoPlay = function(event) {

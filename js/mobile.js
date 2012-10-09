@@ -16,21 +16,18 @@
   };
 
   mobile.onScroll = function(event) {
-    var distance = this.distance();
-
-    this.conditionallyFixateScene(distance);
+    this.conditionallyFixateScene();
 
     // Animate current device in when approaching scene
-    var deviceSpeed = (distance / 2) + 146;
-    if (distance < -292) {
+    var deviceSpeed = (this.distance / 2) + 146;
+
+    if (this.distance < -292) {
       this.$devicesContainer.css("bottom", 0);
-    } else if ( distance >= -292 && distance < 0 ) {
+    } else if (this.distance >= -292 && this.distance < 0) {
       this.$devicesContainer.css("bottom", deviceSpeed);
-    } else if (distance >= 0) {
+    } else if (this.distance >= 0) {
       this.$devicesContainer.css("bottom", 146);
     }
-
-    console.log(distance);
   };
 
   mobile.selectDevice = function(event) {

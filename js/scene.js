@@ -38,31 +38,37 @@
     return this._shareBar;
   };
 
-  // how far I am from the top of the page
-  Scene.prototype.offset = function() {
-    return this.$container.offset().top;
+  Scene.prototype.calculateTopAndDistance = function() {
+    this.top = this.$container.offset().top;
+    this.distance = -(this.top - M.screenTop);
   };
 
-  // how far I am from the top of the viewport
-  Scene.prototype.distance = function() {
-    return -(this.offset() - $(window).scrollTop());
-  }
-
-  Scene.prototype.setScrollSpeed = function(distance) {
-    this.scrollSpeed = (this.sceneLength - distance) * this.setSpeed;
+  Scene.prototype.calculateScrollSpeed = function() {
+    this.scrollSpeed = (this.sceneLength - this.distance) * this.setSpeed;
   };
 
   Scene.prototype.onResize = function(event) {
   };
 
+  // any calculations that all scenes need in their onScroll functions are done
+  // here.
+  Scene.prototype.beforeScroll = function() {
+    this.calculateTopAndDistance();
+  };
+
   Scene.prototype.onScroll = function(event) {
   };
 
+  Scene.prototype.afterScroll = function(event) {
+    // console.log(this.distance);
+    $("#curposition").html(this.distance);
+  };
+
   // this is not a great function name
-  Scene.prototype.conditionallyFixateScene = function(distance) {
-    if (distance < 0) {
+  Scene.prototype.conditionallyFixateScene = function() {
+    if (this.distance < 0) {
       this.$screen.attr("class", "stickTop");
-    } else if (distance < this.sceneLength) {
+    } else if (this.distance < this.sceneLength) {
       this.$screen.attr("class", "fixTop");
     } else {
       this.$screen.attr("class", "stickBot");

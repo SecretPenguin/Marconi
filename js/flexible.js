@@ -110,13 +110,7 @@
   };
 
   flexible.onScroll = function(event) {
-    var distance = this.distance();
-
-    this.conditionallyFixateScene(distance);
-
-
-
-    console.log(distance);
+    this.conditionallyFixateScene();
   };
 
   this.M.register(flexible);

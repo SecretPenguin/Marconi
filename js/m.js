@@ -71,8 +71,10 @@
       }
 
       this.eachScene(function(scene) {
-        if (scene.active && scene.hasOwnProperty("onScroll")) {
+        if (scene.active) {
+          scene.beforeScroll();
           scene.onScroll();
+          scene.afterScroll();
         }
       });
     },

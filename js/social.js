@@ -14,16 +14,12 @@
   };
 
   social.onScroll = function(event) {
-    var distance = this.distance();
+    this.conditionallyFixateScene();
 
-    this.conditionallyFixateScene(distance);
-
-	if ( distance >= -M.screenHeight - distance && this.runOnce ) {
-      this.startChat(0);
-      this.runOnce = false;
-	}
-
-    console.log(distance);
+		if (this.distance >= -M.screenHeight - this.distance && this.runOnce ) {
+	    this.startChat(0);
+	    this.runOnce = false;
+		}
   };
 
   social.startChat = function(roundNumber) {
