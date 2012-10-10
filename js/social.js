@@ -62,7 +62,7 @@
 
     if (!this.chatStarted && this.isFixated()) {
     	this.chatStarted = true;
-    	// wait half a secnd and then show first message to kick off scene
+    	// wait half a second and then show first message to kick off scene
     	setTimeout($.proxy(this.showFirstMessage, this), 500);
     }
   };
@@ -104,6 +104,5 @@
   	}
   };
 
- 	this.scene = social;
   this.M.register(social);
 })(jQuery);
