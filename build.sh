@@ -20,9 +20,14 @@ function clean_up() {
 }
 
 function process_js() {
+  copy_extras
   combine_js
   minify_js
   checksum_js
+}
+
+function copy_extras() {
+  cp js/vendor/ZeroClipboard.swf build/js/vendor/
 }
 
 function combine_js() {
