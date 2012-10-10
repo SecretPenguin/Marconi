@@ -17,7 +17,7 @@ if (isset($_GET["scene"])) {
       <link rel="stylesheet" href="/css/<?php echo $scene; ?>.css" />
     <?php } ?>
   <?php else: ?>
-    <link rel="stylesheet" href="<?php echo production_file('css') ?>" />
+    <link rel="stylesheet" href="/css/<?php echo production_file('css') ?>" />
   <?php endif; ?>
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -26,8 +26,6 @@ if (isset($_GET["scene"])) {
 <body>
 
   <?php
-  include("scenes/preface.php");
-
   foreach ($scenes as $scene) {
     include("scenes/$scene.php");
     include("share_bar.php");
@@ -50,7 +48,7 @@ if (isset($_GET["scene"])) {
   <?php } ?>
 
   <?php else: ?>
-  <script src="<?php echo production_file('js') ?>"></script>
+  <script src="/js/<?php echo production_file('js') ?>"></script>
   <?php endif; ?>
 </body>
 </html>
