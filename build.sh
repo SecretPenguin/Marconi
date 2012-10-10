@@ -55,7 +55,7 @@ function echo_sans_bom() {
 
 function process_css() {
   combine_css
-  minify_css
+  # minify_css
   checksum_css
 }
 
@@ -74,8 +74,8 @@ function minify_css() {
 
 function checksum_css() {
   echo "checksumming css..."
-  checksum=`md5 -q minified.css`
-  cp minified.css build/css/all-$checksum.css
+  checksum=`md5 -q combined.css`
+  cp combined.css build/css/all-$checksum.css
 }
 
 function process_images() {
