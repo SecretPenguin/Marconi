@@ -22,16 +22,6 @@
     this.bottom = this.top + this.height;
   };
 
-  ShareBar.prototype.isOnScreen = function(screenTop, screenBottom) {
-    var isOnScreen = false;
-
-    if (this.top > screenTop && this.bottom <= screenBottom) {
-      isOnScreen = true;
-    }
-
-    return isOnScreen;
-  }
-
   ShareBar.prototype.activateScene = function() {
     if (!this.scene.active) {
       console.log("activating scene " + this.scene.containerId);

@@ -40,6 +40,7 @@
 
   Scene.prototype.calculateTopAndDistance = function() {
     this.top = this.$container.offset().top;
+    this.bottom = this.top + this.sceneLength;
     this.distance = -(this.top - M.screenTop);
   };
 

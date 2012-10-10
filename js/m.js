@@ -89,12 +89,11 @@
     },
 
     onScreenShareBarIndex: function() {
-      var screenTop = this.screenTop;
-      var screenBottom = this.screenBottom;
       var onScreenShareBarIndex;
+      var self = this;
 
       $.each(this.shareBars, function(index, shareBar) {
-        if (shareBar.isOnScreen(screenTop, screenBottom)) {
+        if (self.isOnScreen(shareBar)) {
           onScreenShareBarIndex = index;
           return false; // early break from $.each
         }
@@ -135,6 +134,14 @@
         var shareBar = this.shareBars[i];
 
         fn.call(this, shareBar);
+      }
+    },
+
+    isOnScreen: function(object) {
+      if (object.top > this.screenTop && object.bottom <= this.screenBottom) {
+        return true;
+      } else {
+        return false;
       }
     }
   };
