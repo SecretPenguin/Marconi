@@ -76,6 +76,10 @@
     }
   };
 
+  Scene.prototype.isFixated = function() {
+    return this.$screen.hasClass("fixTop");
+  };
+
   Scene.prototype.unFixateScene = function() {
     this.$screen.attr("class", "");
   };

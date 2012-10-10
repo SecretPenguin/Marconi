@@ -2,78 +2,60 @@
 	<div id="social-screen">
 		<h2>Social Tagline</h2>
 		<div id="chat-container">
-			<div id="theConversation">
-
-				<div>
-					<div class="userName">John Doe</div>
-					<p class="theText"> Does anybody know what the material means by "This and that and whatever else"?</p>
+			<div id="the-chat">
+				<div id="first-message">
+					<div class="username">Stephen W</div>
+					<p class="message">So do we still get Spring Break in this program?</p>
 					<p>Posted July 10th, 2012</p>
 				</div>
 
-				<div>
-					<div class="userName">Stephen W</div>
-					<p class="theText">Not sure, you could check the thing.</p>
+				<div id="user-message-one" class="user-message">
+					<div class="username">You</div>
+					<p class="message">Hmm, good question. I sure hope so, because Spring Break is my favorite thing about school!</p>
 					<p>Posted July 11th, 2012</p>
 				</div>
 
-				<div>
-					<div class="userName">George K</div>
-					<p class="theText">Yeah, check the thing.</p>
+				<div class="reply-to-user-message-one">
+					<div class="username">Stephen W</div>
+					<p class="message">YES! Me too. We should check the schedule and make sure we're not missing out.</p>
 					<p>Posted July 11th, 2012</p>
 				</div>
 
-				<div class="userText">
-					<div class="userName">You</div>
-					<p class="theText">This text should match up exactly with the text from the file that generates the text that the user inputs.</p>
+				<div class="reply-to-user-message-one">
+					<div class="username">George K</div>
+					<p class="message">Amen to that! Check the schedule.</p>
 					<p>Posted July 11th, 2012</p>
 				</div>
 
-				<div>
-					<div class="userName">George K</div>
-					<p class="theText">Nice! Good call REAL USER.</p>
+				<div id="user-message-two" class="user-message">
+					<div class="username">You</div>
+					<p class="message">It looks like we get Spring Break after all.</p>
 					<p>Posted July 11th, 2012</p>
 				</div>
 
-				<div>
-					<div class="userName">Stephen W</div>
-					<p>Yeah, that sounds right.</p>
+				<div class="reply-to-user-message-two">
+					<div class="username">George K</div>
+					<p class="message">Nice! Good thing you checked.</p>
 					<p>Posted July 11th, 2012</p>
 				</div>
 
-				<div>
-					<div class="userName">John Doe</div>
-					<p>Perfect, thanks REAL USER!</p>
+				<div class="reply-to-user-message-two">
+					<div class="username">Stephen W</div>
+					<p class="message">Yeah, that sounds right. Phew!</p>
 					<p>Posted July 11th, 2012</p>
 				</div>
 
-				<div class="userText">
-					<div class="userName">You</div>
-					<p class="theText">The User Typed for a second time</p>
-					<p>Posted July 11th, 2012</p>
-				</div>
-
-				<div class="userText">
-					<div class="userName">You</div>
-					<p class="theText">For a third time.<p>Posted July 11th, 2012</p>
-				</div>
-
-				<div class="userText">
-					<div class="userName">You</div>
-					<p class="theText">4th time.</p>
-						<p>Posted July 11th, 2012</p>
-				</div>
-
-				<div class="userText">
-					<div class="userName">You</div>
-					<p class="theText">5th time - maybe after this we start writing random weird stuff?</p>
+				<div class="reply-to-user-message-two">
+					<div class="username">John Doe</div>
+					<p class="message">SPRING BREAAAAKKKK!!!</p>
 					<p>Posted July 11th, 2012</p>
 				</div>
 			</div>
 		</div>
 
-		<form id="usersInput">
-			<textarea name="usersTyping" id="usersTyping"></textarea><br />
-			<input type="submit" name="usersSubmit" />
+		<form>
+			<textarea></textarea><br/>
+			<input type="submit"/>
 		</form>
 	</div>
 </div>
