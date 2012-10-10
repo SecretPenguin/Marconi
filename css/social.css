@@ -1,6 +1,6 @@
 #social {
 	position:relative;
-	background:#fff;
+	background:#5e5e5e;
 	}
 
 #social-screen {
@@ -8,27 +8,97 @@
 	width:100%;
 	overflow:hidden;
 	top:0;
+	background:url(/images/social/top-texture.jpg) no-repeat top center;
 	}
 
 #social h2 {
-	width:960px;
-	text-align:center;
-	font-size:36px;
+	width:284px;
+	height:86px;
 	position:absolute;
-	top:40px;
+	top:74px;
 	margin-left:50%;
-	left:-480px;
+	left:-142px;
+	background:url(/images/social/social-tagline.png) no-repeat;
+	text-indent:-9999px;
+	display:block;
+	}
+	
+#social p, .username, #social-screen textarea {
+	font-family:Ubuntu Regular, Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size:17px;
+	color:#706e6e;
+	line-height:24px;
+	}
+	
+.username {
+	font-size:13px;
+	font-weight:bold;
+	line-height:normal;
+	margin:0 0 5px;
+	text-transform:uppercase;
+	}
+	
+.username span {
+	font-weight:normal;
+	font-style:italic;
+	text-transform:none;
+	}
+	
+.user-message {
+	background:url(/images/social/icon-cat.jpg) no-repeat right top;
+	}
+	
+.dog {
+	background:url(/images/social/icon-dog.jpg) no-repeat left top;
+	}
+	
+.point {
+	width:10px;
+	height:12px;
+	position:absolute;
+	top:39px;
+	}
+	
+.left .point {
+	left:-10px;
+	background:url(/images/social/left-point.gif) no-repeat;
+	}
+	
+.user-message .point {
+	right:-10px;
+	background:url(/images/social/right-point.gif) no-repeat;
+	}
+	
+.bubble {
+	padding:14px;
+	border:1px solid #383636;
+	border-radius:10px;
+	width:462px;
+	position:relative;
+	background:url(/images/social/bubble-texture.jpg) no-repeat bottom center #fff;
+	}
+	
+#social .left .bubble {
+	left:110px;
+	}
+
+.user-message .bubble {
+	left:150px;
 	}
 
 #the-chat {
-	width:960px;
+	width:766px;
 	overflow-y:auto;
 	height:100%;
+	padding-right:50px;
 }
 
 #the-chat > div {
 	display: none;
-	padding:10px 0 0;
+	position:relative;
+	margin:20px 0 8px;
+	width:100%;
+	min-height:89px;
 }
 
 #the-chat div.visible {
@@ -37,23 +107,40 @@
 
 #chat-container {
 	overflow:hidden;
-	width:960px;
+	width:750px;
 	margin-left:50%;
-	left:-480px;
+	left:-375px;
 	position:absolute;
-	bottom:200px;
+	bottom:215px;
+	padding-right:20px;
 	}
 
-
 #social-screen textarea {
-	width: 500px;
+	width: 502px;
+	padding:14px;
 	height: 100px;
+	color:#aeadad;
+	border:1px solid #383636;
+	border-radius:10px;
+	resize:none;
+}
+
+#social-screen textarea:focus {
+	color:#706e6e;
 }
 
 #social-screen form {
 	position:absolute;
 	bottom:40px;
 	margin-left:50%;
-	left:-480px;
-	width:960px;
+	left:-265px;
+	width:530px;
 }
+
+#reply-bg {
+	height:215px;
+	background:#4b4b4b;
+	width:100%;
+	position:absolute;
+	bottom:0;
+	}

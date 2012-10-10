@@ -53,7 +53,7 @@
   social.onResize = function(event) {
     this.$screen.height(M.screenHeight);
     this.$container.height(M.screenHeight + this.sceneLength);
-    this.$chatContainer.height(M.screenHeight - 320);
+    this.$chatContainer.height(M.screenHeight - 407);
     this.scrollChatToBottom();
   };
 
