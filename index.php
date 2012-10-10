@@ -1,14 +1,11 @@
 <?php
 include("helpers.php");
 
-$scene = $singleScene = $_GET["scene"];
-
-if (empty($scene)) {
-  $scenes = array("flexible", "mobile", "cogs", "social", "walking");
+if (isset($_GET["scene"])) {
+  $scenes = array("preface", $_GET["scene"]);
 } else {
-  $scenes = array($scene);
+  $scenes = array("preface", "flexible", "mobile", "cogs", "social", "walking");
 }
-
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -16,12 +13,11 @@ if (empty($scene)) {
   <meta charset="utf-8">
   <?php if (is_dev_mode()): ?>
     <link rel="stylesheet" href="/css/shared.css" />
-    <link rel="stylesheet" href="/css/preface.css" />
     <?php foreach ($scenes as $scene) { ?>
       <link rel="stylesheet" href="/css/<?php echo $scene; ?>.css" />
     <?php } ?>
   <?php else: ?>
-    <link rel="stylesheet" href="all.css" />
+    <link rel="stylesheet" href="<?php echo production_file('css') ?>" />
   <?php endif; ?>
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -39,22 +35,22 @@ if (empty($scene)) {
   ?>
 
   <?php if (is_dev_mode()): ?>
-    <script src="/js/vendor/jquery.js"></script>
-    <script src="/js/vendor/jquery.cycle.all.js"></script>
-    <script src="/js/vendor/jquery.rotate.js"></script>
-    <script src="/js/vendor/jquery.backgroundpos.min.js"></script>
-    <script src="/js/vendor/jquery.zclip.min.js"></script>
-    <script src="/js/vendor/underscore.js"></script>
-    <script src="/js/m.js"></script>
-    <script src="/js/share_bar.js"></script>
-    <script src="/js/scene.js"></script>
-    <script src="/js/preface.js"></script>
+  <script src="/js/vendor/jquery.js"></script>
+  <script src="/js/vendor/jquery.cycle.all.js"></script>
+  <script src="/js/vendor/jquery.rotate.js"></script>
+  <script src="/js/vendor/jquery.backgroundpos.js"></script>
+  <script src="/js/vendor/jquery.zclip.js"></script>
+  <script src="/js/vendor/underscore.js"></script>
+  <script src="/js/m.js"></script>
+  <script src="/js/share_bar.js"></script>
+  <script src="/js/scene.js"></script>
 
-    <?php foreach ($scenes as $scene) { ?>
-      <script src="/js/<?php echo $scene; ?>.js"></script>
-    <?php } ?>
+  <?php foreach ($scenes as $scene) { ?>
+  <script src="/js/<?php echo $scene; ?>.js"></script>
+  <?php } ?>
+
   <?php else: ?>
-    <script src="all.js"></script>
+  <script src="<?php echo production_file('js') ?>"></script>
   <?php endif; ?>
 </body>
 </html>

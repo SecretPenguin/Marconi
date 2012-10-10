@@ -1,0 +1,15 @@
+/js/vendor/jquery.js
+/js/vendor/jquery.cycle.all.js
+/js/vendor/jquery.rotate.js
+/js/vendor/jquery.backgroundpos.js
+/js/vendor/jquery.zclip.js
+/js/vendor/underscore.js
+/js/m.js
+/js/share_bar.js
+/js/scene.js
+/js/preface.js
+/js/flexible.js
+/js/mobile.js
+/js/cogs.js
+/js/social.js
+/js/walking.js

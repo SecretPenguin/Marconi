@@ -1,8 +1,8 @@
 <?php
 // returns boolean whether or not app is running in dev mode
 function is_dev_mode() {
-  $dev_hosts = array("marconi.dev");
-  return in_array(server_name(), $dev_hosts);
+  $mode = getenv("MARCONI_PRODUCTION");
+  return empty($mode);
 }
 
 // returns the current server's name, allowing manual override by setting
@@ -20,5 +20,10 @@ function server_name() {
 // abstract out the root url so it can be easily embedded in static pages
 function root_url() {
   return "http://" . server_name();
+}
+
+function production_file($type) {
+  $files = glob("build/$type/*.$type");
+  return basename($files[0]);
 }
 ?>
