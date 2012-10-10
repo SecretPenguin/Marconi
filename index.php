@@ -53,7 +53,6 @@ if (empty($scene)) {
     <?php foreach ($scenes as $scene) { ?>
       <script src="/js/<?php echo $scene; ?>.js"></script>
     <?php } ?>
-    <script src="/js/share.js"></script>
   <?php else: ?>
     <script src="all.js"></script>
   <?php endif; ?>

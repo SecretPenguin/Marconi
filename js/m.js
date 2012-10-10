@@ -11,6 +11,10 @@
         scene.init();
       });
 
+      this.eachShareBar(function(shareBar) {
+        shareBar.init();
+      });
+
       $(window).on("resize", $.proxy(this.onResize, this));
       $(window).on("scroll", $.proxy(this.onScroll, this));
       // trigger a resize to set the initial screen height
