@@ -16,7 +16,7 @@
   preface.onScroll = function(event) {
     var distance = this.distance();
 
-    this.conditionallyFixateScene(distance);
+    this.conditionallyFixateScene();
 
     if (distance <= 100) {
       this.$slider.css('opacity', 1);

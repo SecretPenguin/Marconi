@@ -130,6 +130,7 @@ body {
 	min-width:960px;
 	position:relative;
 	background:#797979;
+	z-index:200;
 	}
 	
 .left-bg {
