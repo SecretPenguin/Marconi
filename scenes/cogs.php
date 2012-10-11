@@ -24,6 +24,7 @@
       <div id="cog7" class="cogL norm"></div>
       <div id="cog8" class="cogXL rev"></div>
       <div id="cog8mask"></div>
+<!--
       <div id="cog9" class="cogS norm"></div>
       <div id="cog10" class="cogM rev"></div>
       <div id="cog11" class="cogL norm"></div>
@@ -32,6 +33,7 @@
       <div id="cog14" class="cogM rev"></div>
       <div id="cog15" class="cogL norm"></div>
       <div id="cog16" class="cogXL rev"></div>
+-->
     </div>
   </div>
 </div>

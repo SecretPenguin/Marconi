@@ -1,5 +1,5 @@
 (function($) {
-  var cogs = new Scene("cogs", 18000);
+  var cogs = new Scene("cogs", 11000);
 
   cogs.init = function() {
     this.$cogShift = $('#cogShift');
