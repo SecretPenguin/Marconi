@@ -14,27 +14,23 @@
   };
 
   preface.onScroll = function(event) {
-    var distance = this.distance();
-
     this.conditionallyFixateScene();
 
-    if (distance <= 100) {
+    if (this.distance <= 100) {
       this.$slider.css('opacity', 1);
-    } else if (distance > 100 && distance <= 900) {
-      this.$slider.css('opacity', ((200 - (distance - 100)/4)/200));
-    } else if (distance > 900) {
+    } else if (this.distance > 100 && this.distance <= 900) {
+      this.$slider.css('opacity', ((200 - (this.distance - 100)/4)/200));
+    } else if (this.distance > 900) {
       this.$slider.css('opacity', 0);
     }
 
-    if (distance <= 1000) {
+    if (this.distance <= 1000) {
       this.$title.css('opacity', 0);
-    } else if (distance > 1000 && distance < 1400) {
-   	  this.$title.css('opacity', ((distance - 1000)/400));
-    } else if (distance >= 1400) {
+    } else if (this.distance > 1000 && this.distance < 1400) {
+   	  this.$title.css('opacity', ((this.distance - 1000)/400));
+    } else if (this.distance >= 1400) {
       this.$title.css('opacity', 1);
     }
-
-    console.log(distance);
   };
 
   preface.startSlider = function() {

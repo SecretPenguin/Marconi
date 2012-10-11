@@ -9,4 +9,3 @@
 		<h1>Title + Logo</h1>
 	</div>
 </div>
-<div class="space"></div>
