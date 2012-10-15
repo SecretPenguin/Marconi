@@ -26,18 +26,8 @@
   };
 
   cogs.onScroll = function(event) {
-    // Update play speed based on distance from end
     this.calculateScrollSpeed();
     this.conditionallyFixateScene();
-
-    // // Move elements on scroll
-    // var animUpdate; // Used only for console.log
-    // function myCalc(animOrigin, animTrigger, animSpeed) {
-    //   // animOrigin = Element offset
-    //   // animTrigger = Position of variable "distance" when animation begins
-    //   // animSpeed = Pixels scrolled per pixels moved. 2 = 1px moved to 2px scrolled
-    //   animUpdate = (this.distance - animTrigger)/animSpeed + animOrigin;
-    // }
 
     // Rotation
     var rotateSpeedS = this.distance/2;
@@ -101,14 +91,12 @@
       this.$hideRight.css('margin-right', '-525px');
     } else if (this.distance >= 500 && this.distance <= 1540) {
       newOffset = this.calculateOffset(0, 500, 4);
-      // myCalc(0,500,4);
       this.$cogLeft.css('margin-left', (-440 + newOffset));
       this.$cogRight.css('margin-right', (-590 + newOffset));
       this.$hideLeft.css('margin-left', (-525 + newOffset));
       this.$hideRight.css('margin-right', (-525 + newOffset));
     } else if (this.distance > 1540 && this.distance <= this.sceneLength ) {
       newOffset = this.calculateOffset(0, 1540, 5);
-      // myCalc(0,1540,5);
       this.$cogTagline.css('margin-top', -newOffset);
       this.$cogLeft.css('margin-left', '-180px');
       this.$cogRight.css('margin-right', '-330px');
