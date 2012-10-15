@@ -20,19 +20,15 @@
   };
 
   ShareBar.prototype.onLoad = function() {
-    this.calculateHeight();
-    this.calculateTopBottom();
+    this.calculateProperties();
   };
 
   ShareBar.prototype.name = function() {
     return this.scene.containerId;
   };
 
-  ShareBar.prototype.calculateHeight = function() {
+  ShareBar.prototype.calculateProperties = function() {
     this.height = this.$container.height();
-  };
-
-  ShareBar.prototype.calculateTopBottom = function() {
     this.top = this.$container.offset().top;
     this.bottom = this.top + this.height;
   };
