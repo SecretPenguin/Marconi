@@ -11,9 +11,6 @@
     this.$skill4 = $('#skill4');
     this.$skill5 = $('#skill5');
     this.$bear = $('#bear');
-    this.$scroll = $('#walking .scroll');
-
-    this.$scroll.on("click", $.proxy(this.autoPlay, this));
   };
 
     // recalculate the screen height and scene height, then set the heights
@@ -98,7 +95,7 @@
     if (this.distance <= this.$container.height() && this.distance > 0 ) {
       this.$bear.attr("class", "f" + currentSprite);
     }
-    
+
     var coinSprite = this.calculateSprite(50, 8);
 
     // Coin Sprite
@@ -166,29 +163,6 @@
 
     // Dev overlay -> Remove
     $('#cursprite').html(currentSprite);
-  };
-
-  walking.autoPlay = function(event) {
-    var $pageContainer = $('html, body');
-
-    event.preventDefault();
-    var full_url = event.target.href;
-    //split the url by # and get the anchor target name
-    var parts = full_url.split("#");
-    var trgt = parts[1];
-    //get the top offset of the target anchor
-    var target_offset = $("#"+trgt).offset();
-    var target_top = target_offset.top;
-    //goto that anchor by setting the body scroll top to anchor top
-    // Set scrollSpeed by setting setSpeed
-    $pageContainer.stop().animate({scrollTop:target_top}, this.scrollSpeed, 'linear');
-
-    // Stop animation on scroll
-    $pageContainer.bind('scroll mousedown DOMMouseScroll mousewheel keyup', function(e){
-      if ( e.which > 0 || e.type == "mousedown" || e.type == "mousewheel"){
-        $pageContainer.stop().unbind();
-      }
-    });
   };
 
   walking.triggerExplosion = function() {

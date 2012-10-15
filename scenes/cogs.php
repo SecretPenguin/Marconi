@@ -1,6 +1,8 @@
 <div id="cogs">
   <div id="cogs-screen">
-    <div class="play"><p><a class="scroll" href="#share-cogs">Play</a></p></div>
+    <div class="play">
+      <p><a class="scroll" href="javascript:void(0);">Play</a></p>
+    </div>
     <div id="cogTagline">
       <h2>Integrated Tagline</h2>
       <div id="hideLeft"></div>

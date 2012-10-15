@@ -16,6 +16,7 @@
     this.$container = $("#" + containerId);
     this.$screen = $("#" + containerId + "-screen");
     this.active = false;
+    this.initAutoPlay();
   };
 
   Scene.prototype.init = function() {
@@ -84,13 +85,37 @@
     this.$screen.attr("class", "");
   };
 
+  Scene.prototype.initAutoPlay = function() {
+    var $play = this.$container.find("div.play");
+
+    if ($play.length) {
+      $play.on("click", $.proxy(this.autoPlay, this));
+    }
+  };
+
+  Scene.prototype.autoPlay = function(event) {
+    event.preventDefault();
+
+    var scrollTo = this.$container.next(".share").offset().top;
+
+    $("html, body")
+      .stop()
+      .animate({scrollTop: scrollTo}, this.scrollSpeed, "linear")
+      // user interaction cancels autoplay
+      .bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(e) {
+        if (e.which > 0 || e.type === "mousedown" || e.type === "mousewheel") {
+          $(this).stop().unbind();
+        }
+    });
+  };
+
   // calculate offset of elements for updating the position of elements on scroll
   Scene.prototype.calculateOffset = function(origin, trigger, speed) {
     // animOrigin = Element offset
     // animTrigger = Position of variable "distance" when animation begins
     // animSpeed = Pixels scrolled per pixels moved. 2 = 1px moved to 2px scrolled
     return (this.distance - trigger)/speed + origin;
-  }
+  };
 
   this.Scene = Scene;
 })();

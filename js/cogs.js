@@ -3,7 +3,6 @@
 
   cogs.init = function() {
     this.$cogShift = $('#cogShift');
-    this.$scroll = $('#cogs .scroll');
     this.$cogSR = $('.cogS.rev');
     this.$cogSN = $('.cogS.norm');
     this.$cogMR = $('.cogM.rev');
@@ -17,8 +16,6 @@
     this.$hideLeft = $('#hideLeft');
     this.$hideRight = $('#hideRight');
     this.$cogTagline = $('#cogTagline');
-
-    this.$scroll.on("click", $.proxy(this.autoPlay, this));
   };
 
   cogs.onResize = function(event) {
@@ -103,29 +100,6 @@
       this.$hideLeft.css('margin-left', '-268px');
       this.$hideRight.css('margin-right', '-268px');
     }
-  };
-
-  cogs.autoPlay = function(event) {
-    var $pageContainer = $('html, body');
-
-    event.preventDefault();
-    var full_url = event.target.href;
-    //split the url by # and get the anchor target name
-    var parts = full_url.split("#");
-    var trgt = parts[1];
-    //get the top offset of the target anchor
-    var target_offset = $("#"+trgt).offset();
-    var target_top = target_offset.top;
-    //goto that anchor by setting the body scroll top to anchor top
-    // Set scrollSpeed by setting setSpeed
-    $pageContainer.stop().animate({scrollTop:target_top}, this.scrollSpeed, 'linear');
-
-    // Stop animation on scroll
-    $pageContainer.bind('scroll mousedown DOMMouseScroll mousewheel keyup', function(e){
-      if ( e.which > 0 || e.type == "mousedown" || e.type == "mousewheel"){
-        $pageContainer.stop().unbind();
-      }
-    });
   };
 
   this.M.register(cogs);

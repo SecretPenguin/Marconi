@@ -3,7 +3,9 @@
 
 <div id="walking">
   <div id="walking-screen">
-    <div class="play"><p><a class="scroll" href="#share-walking">Play</a></p></div>
+    <div class="play">
+      <p><a class="scroll" href="javascript:void(0);">Play</a></p>
+    </div>
     <div class="center">
       <div id="bear"></div>
       <div id="wall"></div>
