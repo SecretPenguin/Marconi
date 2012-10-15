@@ -46,6 +46,8 @@
           scene.onResize(event);
         }
       });
+
+      $(window).trigger("scroll");
     },
 
     onScroll: function(event) {
