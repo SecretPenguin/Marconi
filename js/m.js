@@ -32,6 +32,10 @@
 
     // call position-related stuff here so calculations will be correct
     onLoad: function(event) {
+      this.eachScene(function(scene) {
+        scene.onLoad();
+      });
+
       this.eachShareBar(function(shareBar) {
         shareBar.onLoad();
       });

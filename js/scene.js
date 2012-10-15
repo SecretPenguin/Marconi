@@ -39,14 +39,21 @@
     return this._shareBar;
   };
 
-  Scene.prototype.calculateTopAndDistance = function() {
+  Scene.prototype.calculateDistance = function() {
+    this.distance = -(this.top - M.screenTop);
+  };
+
+  Scene.prototype.calculateProperties = function() {
     this.top = this.$container.offset().top;
     this.bottom = this.top + this.sceneLength;
-    this.distance = -(this.top - M.screenTop);
   };
 
   Scene.prototype.calculateScrollSpeed = function() {
     this.scrollSpeed = (this.sceneLength - this.distance) * this.setSpeed;
+  };
+
+  Scene.prototype.onLoad = function() {
+    this.calculateProperties();
   };
 
   Scene.prototype.onResize = function(event) {
@@ -55,7 +62,7 @@
   // any calculations that all scenes need in their onScroll functions are done
   // here.
   Scene.prototype.beforeScroll = function() {
-    this.calculateTopAndDistance();
+    this.calculateDistance();
   };
 
   Scene.prototype.onScroll = function(event) {
