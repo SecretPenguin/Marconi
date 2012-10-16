@@ -1,20 +1,17 @@
 (function($) {
-  var cogs = new Scene("cogs", 11000);
+  var cogs = new Scene("cogs", 5500);
 
   cogs.init = function() {
-    this.$cogShift = $('#cogShift');
+    this.$cogGroup = $('#cogGroup');
+    this.$cogPhase2 = $('#cogPhase2');
+    this.$cogPhase3 = $('#cogPhase3');
+    this.$exitCogs = $('#exitCogs');
+    this.$cogBG = $('#cogsBG');
+    this.$scroll = $('#cogs .scroll');
     this.$cogSR = $('.cogS.rev');
     this.$cogSN = $('.cogS.norm');
     this.$cogMR = $('.cogM.rev');
     this.$cogMN = $('.cogM.norm');
-    this.$cogLR = $('.cogL.rev');
-    this.$cogLN = $('.cogL.norm');
-    this.$cogXlR = $('.cogXL.rev');
-    this.$cogXlN = $('.cogXL.norm');
-    this.$cogLeft = $('#cogLeft');
-    this.$cogRight = $('#cogRight');
-    this.$hideLeft = $('#hideLeft');
-    this.$hideRight = $('#hideRight');
     this.$cogTagline = $('#cogTagline');
   };
 
@@ -27,78 +24,81 @@
     this.conditionallyFixateScene();
 
     // Rotation
-    var rotateSpeedS = this.distance/2;
-    var rotateSpeedM = this.distance/4;
-    var rotateSpeedL = this.distance/6;
-    var rotateSpeedXL = this.distance/8;
+    var rotateSpeedS = this.distance/6;
+    var rotateSpeedM = this.distance/12;
 
     if ( this.distance >= -M.screenHeight && this.distance <= this.sceneLength) {
       this.$cogSR.rotate(- rotateSpeedS);
       this.$cogSN.rotate(rotateSpeedS);
       this.$cogMR.rotate(- rotateSpeedM);
       this.$cogMN.rotate(rotateSpeedM);
-      this.$cogLR.rotate(- rotateSpeedL);
-      this.$cogLN.rotate(rotateSpeedL);
-      this.$cogXlR.rotate(- rotateSpeedXL);
-      this.$cogXlN.rotate(rotateSpeedXL);
     }
-
-    // Cog Scroll
-    var cogScroll = -this.distance/3;
-    if ( this.distance >= 0 && this.distance <= this.sceneLength ) {
-      this.$cogShift.css('top', cogScroll);
-    }
-
-    // Cogs Shift Test
+    
     var newOffset;
-    if ( this.distance >= 5500 && this.distance < 8000 ) {
-      newOffset = this.calculateOffset(0, 5500, 30);
-      this.$cogShift.css('left', newOffset);
-    } else if ( this.distance >= 9000 && this.distance <= 13500 ) {
-      newOffset = this.calculateOffset(84, 9000, 25);
-      this.$cogShift.css('left', -(newOffset - 2*84)); // Very crappy way of switching movement of animation
-    } else if (this.distance > 13500) {
-      this.$cogShift.css('left', -96); // Make this (-96) be set by the last position of the cog shift
+    
+    // Background Scroll
+    if (this.distance < 0) {
+      this.$cogBG.css('top', 0);
+    } else {
+      newOffset = this.calculateOffset(0, 0, 30);
+      this.$cogBG.css('top', -newOffset);
     }
 
-    // Most likely removing this section - ignore until confirmed, then destroy!
-    // If we do use, fix NaN issue
-    // Cog Depth
-/*
-      $('.back').each(function() {
-        $back = $(this);
-        backTop = parseInt($back.css('top'));
-        cogHeight = $back.height();
-        percentShift = (backTop + cogScroll + cogHeight/2)/M.screenHeight;
-        updateMargin = -16*percentShift;
-        if ( percentShift >= 0 && percentShift <=1 ) {
-          $back.css('margin-top', updateMargin);
-        } else if ( percentShift < 0 ) {
-          $back.css('margin-top', 0);
-        }
-      });
-*/
+    // Cog Scroll - Group
+    if (this.distance < 0) {
+      this.$cogGroup.css('top', 1000);
+    } else if ( this.distance >= 0 && this.distance <= 1290 ) {
+      newOffset = this.calculateOffset(0, 0, 1.5);
+      this.$cogGroup.css('top', (1000 - newOffset));
+    } else  if (this.distance >= 4000) {
+      newOffset = this.calculateOffset(0, 4000, 2);
+      this.$cogGroup.css('top', (140 - newOffset));
+    } else {
+      this.$cogGroup.css('top', 140);
+    }
+    
+    // Cog Scroll - Phase 2
+    if (this.distance < 0) {
+      this.$cogPhase2.css('top', 251);
+    } else if ( this.distance >= 0 && this.distance <= 1760 ) {
+      newOffset = this.calculateOffset(0, 0, 10);
+      this.$cogPhase2.css('top', (251 - newOffset));
+    } else {
+      this.$cogPhase2.css('top', 75);
+    }
+    
+    // Cog Scroll - Phase 3
+    if (this.distance < 0) {
+      this.$cogPhase3.css('top', 678);
+    } else if ( this.distance >= 0 && this.distance <= 2640 ) {
+      newOffset = this.calculateOffset(0, 0, 5);
+      this.$cogPhase3.css('top', (678 - newOffset));
+    } else {
+      this.$cogPhase3.css('top', 150);
+    }
+    
+    // Cog Scroll - Exit Cogs
+    if (this.distance < 0) {
+      this.$exitCogs.css('top', 928);
+    } else if ( this.distance >= 0 && this.distance <= 3520 ) {
+      newOffset = this.calculateOffset(0, 0, 5);
+      this.$exitCogs.css('top', (928 - newOffset));
+    } else {
+      this.$exitCogs.css('top', 224);
+    }
+    
 
     // Tagline
-    if (this.distance < 500) {
-      this.$cogTagline.css('margin-top', 0);
-      this.$cogLeft.css('margin-left', '-440px');
-      this.$cogRight.css('margin-right', '-590px');
-      this.$hideLeft.css('margin-left', '-525px');
-      this.$hideRight.css('margin-right', '-525px');
-    } else if (this.distance >= 500 && this.distance <= 1540) {
-      newOffset = this.calculateOffset(0, 500, 4);
-      this.$cogLeft.css('margin-left', (-440 + newOffset));
-      this.$cogRight.css('margin-right', (-590 + newOffset));
-      this.$hideLeft.css('margin-left', (-525 + newOffset));
-      this.$hideRight.css('margin-right', (-525 + newOffset));
-    } else if (this.distance > 1540 && this.distance <= this.sceneLength ) {
-      newOffset = this.calculateOffset(0, 1540, 5);
-      this.$cogTagline.css('margin-top', -newOffset);
-      this.$cogLeft.css('margin-left', '-180px');
-      this.$cogRight.css('margin-right', '-330px');
-      this.$hideLeft.css('margin-left', '-268px');
-      this.$hideRight.css('margin-right', '-268px');
+    if (this.distance < 0) {
+      this.$cogTagline.css('top', 400);
+    } else if (this.distance >= 0 && this.distance <= 1050) {
+      newOffset = this.calculateOffset(0, 0, 3);
+      this.$cogTagline.css('top', (400 - newOffset));
+    } else  if (this.distance >= 4000) {
+      newOffset = this.calculateOffset(0, 4000, 2);
+      this.$cogTagline.css('top', (50 - newOffset));
+    } else {
+      this.$cogTagline.css('top', 50);
     }
   };
 
