@@ -1,7 +1,9 @@
 <div id="cogs">
   <div id="cogs-screen">
     <div id="cogsBG"></div>
+    <div class="play">
       <p><a class="scroll" href="javascript:void(0);">Play</a></p>
+    </div>
     <div id="cogTagline">
       <h2>Courses and Concepts that work together from your first class to your last.</h2>
     </div>
