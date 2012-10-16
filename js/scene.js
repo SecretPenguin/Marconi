@@ -85,8 +85,6 @@
 
     M.setClassName(this.$screen, screenClass);
   };
-    }
-  };
 
   Scene.prototype.isFixated = function() {
     return this.$screen.hasClass("fixTop");
