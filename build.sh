@@ -11,12 +11,12 @@ function main() {
 }
 
 function prepare() {
+  rm -rf build
   mkdir -p build/js/vendor build/css build/images
 }
 
 function clean_up() {
   rm -f combined.{css,js} minified.{css,js}
-  # rm -rf build
 }
 
 function process_js() {
