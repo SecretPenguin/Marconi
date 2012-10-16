@@ -23,64 +23,13 @@
     this.triggerSkill();
 
     var currentSprite = this.calculateSprite(50, 18);
-
+    
     // Walking Sprite Update at Negative Distance
     if (this.distance <= 0 && this.distance >= -M.screenHeight) {
-      switch(currentSprite) {
-      case 0:
+      if (currentSprite == 0) {
         M.setClassName(this.$bear, "f0");
-        break;
-      case 1:
-        M.setClassName(this.$bear, "f17");
-        break;
-      case 2:
-        M.setClassName(this.$bear, "f16");
-        break;
-      case 3:
-        M.setClassName(this.$bear, "f15");
-        break;
-      case 4:
-        M.setClassName(this.$bear, "f14");
-        break;
-      case 5:
-        M.setClassName(this.$bear, "f13");
-        break;
-      case 6:
-        M.setClassName(this.$bear, "f12");
-        break;
-      case 7:
-        M.setClassName(this.$bear, "f11");
-        break;
-      case 8:
-        M.setClassName(this.$bear, "f10");
-        break;
-      case 9:
-        M.setClassName(this.$bear, "f9");
-        break;
-      case 10:
-        M.setClassName(this.$bear, "f8");
-        break;
-      case 11:
-        M.setClassName(this.$bear, "f7");
-        break;
-      case 12:
-        M.setClassName(this.$bear, "f6");
-        break;
-      case 13:
-        M.setClassName(this.$bear, "f5");
-        break;
-      case 14:
-        M.setClassName(this.$bear, "f4");
-        break;
-      case 15:
-        M.setClassName(this.$bear, "f3");
-        break;
-      case 16:
-        M.setClassName(this.$bear, "f2");
-        break;
-      case 17:
-        M.setClassName(this.$bear, "f1");
-        break;
+      } else {
+        M.setClassName(this.$bear, "f" + (18 - currentSprite));
       }
     }
 
