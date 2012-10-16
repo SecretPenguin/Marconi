@@ -11,7 +11,7 @@ function main() {
 }
 
 function prepare() {
-  mkdir -p build/js build/css build/images
+  mkdir -p build/js/vendor build/css build/images
 }
 
 function clean_up() {
@@ -55,7 +55,7 @@ function echo_sans_bom() {
 
 function process_css() {
   combine_css
-  # minify_css
+  minify_css
   checksum_css
 }
 
@@ -68,14 +68,21 @@ function combine_css() {
 
 function minify_css() {
   echo "minifying css..."
-   cat combined.css | sed -e 's/^[ \t]*//g; s/[ \t]*$//g; s/\([:{;,]\) /\1/g; s/ {/{/g; s/\/\*.*\*\///g; /^$/d' \
-    | sed -e :a -e '$!N; s/\n\(.\)/\1/; ta' > minified.css
+  cat combined.css \
+  | sed 's/^[[:space:]]*//' `# remove leading tabs/spaces` \
+  | sed 's/[[:space:]]*$//' `#remove trailing tabs/spaces` \
+  | sed 's/  */ /g'         `#collapse multiple spaces` \
+  | sed 's/\/\*.*\*\///g'   `#remove single line comments` \
+  | sed 's/{ /{/g'          `#remove left bracket white space` \
+  | sed 's/; }/;}/g'        `#remove right bracket white space` \
+  | sed '/^$/d'             `#delete blank lines` \
+  > minified.css
 }
 
 function checksum_css() {
   echo "checksumming css..."
   checksum=`md5 -q combined.css`
-  cp combined.css build/css/all-$checksum.css
+  cp minified.css build/css/all-$checksum.css
 }
 
 function process_images() {
