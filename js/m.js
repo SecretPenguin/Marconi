@@ -52,6 +52,8 @@
       this.eachShareBar(function(shareBar) {
         shareBar.onResize(event);
       });
+
+      $(window).trigger("scroll");
     },
 
     onScroll: function(event) {
