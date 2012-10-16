@@ -8,11 +8,6 @@
     this.startSlider();
   };
 
-  preface.onResize = function(event) {
-    this.$screen.height(M.screenHeight);
-    this.$container.height(M.screenHeight + this.sceneLength);
-  };
-
   preface.onScroll = function(event) {
     this.conditionallyFixateScene();
 

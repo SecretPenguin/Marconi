@@ -23,6 +23,10 @@
     this.calculateProperties();
   };
 
+  ShareBar.prototype.onResize = function() {
+    this.calculateProperties();
+  };
+
   ShareBar.prototype.name = function() {
     return this.scene.containerId;
   };

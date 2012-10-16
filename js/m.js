@@ -46,12 +46,12 @@
       this.calculateScreenTopBottom();
 
       this.eachScene(function(scene) {
-        if (scene.hasOwnProperty("onResize")) {
-          scene.onResize(event);
-        }
+        scene.onResize(event);
       });
 
-      $(window).trigger("scroll");
+      this.eachShareBar(function(shareBar) {
+        shareBar.onResize(event);
+      });
     },
 
     onScroll: function(event) {

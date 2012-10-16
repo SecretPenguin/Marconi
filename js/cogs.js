@@ -15,10 +15,6 @@
     this.$cogTagline = $('#cogTagline');
   };
 
-  cogs.onResize = function(event) {
-    this.$screen.height(M.screenHeight);
-  };
-
   cogs.onScroll = function(event) {
     this.calculateScrollSpeed();
     this.conditionallyFixateScene();
@@ -33,9 +29,9 @@
       this.$cogMR.rotate(- rotateSpeedM);
       this.$cogMN.rotate(rotateSpeedM);
     }
-    
+
     var newOffset;
-    
+
     // Background Scroll
     if (this.distance < 0) {
       this.$cogBG.css('top', 0);
@@ -56,7 +52,7 @@
     } else {
       this.$cogGroup.css('top', 140);
     }
-    
+
     // Cog Scroll - Phase 2
     if (this.distance < 0) {
       this.$cogPhase2.css('top', 251);
@@ -66,7 +62,7 @@
     } else {
       this.$cogPhase2.css('top', 75);
     }
-    
+
     // Cog Scroll - Phase 3
     if (this.distance < 0) {
       this.$cogPhase3.css('top', 678);
@@ -76,7 +72,7 @@
     } else {
       this.$cogPhase3.css('top', 150);
     }
-    
+
     // Cog Scroll - Exit Cogs
     if (this.distance < 0) {
       this.$exitCogs.css('top', 928);
@@ -86,7 +82,7 @@
     } else {
       this.$exitCogs.css('top', 224);
     }
-    
+
 
     // Tagline
     if (this.distance < 0) {

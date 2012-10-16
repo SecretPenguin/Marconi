@@ -56,7 +56,17 @@
     this.calculateProperties();
   };
 
+  // these are things that ALL scenes need to do on resize. If a scene needs
+  // special things in addition to these, it should define an `afterResize`
+  // function
   Scene.prototype.onResize = function(event) {
+    this.calculateProperties();
+    this.calculateDistance();
+    this.$screen.height(M.screenHeight);
+    this.$container.height(M.screenHeight + this.sceneLength);
+    if (this.afterResize) {
+      this.afterResize();
+    }
   };
 
   // any calculations that all scenes need in their onScroll functions are done

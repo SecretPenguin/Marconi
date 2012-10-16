@@ -104,11 +104,6 @@
     this.loadMonthAssets();
   }
 
-  flexible.onResize = function(event) {
-    this.$screen.height(M.screenHeight);
-    this.$container.height(M.screenHeight + this.sceneLength);
-  };
-
   flexible.onScroll = function(event) {
     this.conditionallyFixateScene();
   };

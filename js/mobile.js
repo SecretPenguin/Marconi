@@ -10,11 +10,6 @@
     this.$switchButtons.on("click", $.proxy(this.selectDevice, this));
   };
 
-  mobile.onResize = function(event) {
-    this.$screen.height(M.screenHeight);
-    this.$container.height(M.screenHeight + this.sceneLength);
-  };
-
   mobile.onScroll = function(event) {
     this.conditionallyFixateScene();
 

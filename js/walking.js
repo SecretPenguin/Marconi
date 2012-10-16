@@ -13,13 +13,6 @@
     this.$bear = $('#bear');
   };
 
-    // recalculate the screen height and scene height, then set the heights
-    // on the matching divs using new values
-  walking.onResize = function(event) {
-    this.$screen.height(M.screenHeight);
-    this.$container.height(M.screenHeight + this.sceneLength);
-  };
-
   walking.onScroll = function(event) {
     this.calculateScrollSpeed();
     this.conditionallyFixateScene();
