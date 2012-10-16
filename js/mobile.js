@@ -6,6 +6,7 @@
     this.$devicesContainer = $("#devices");
     this.$devices = this.$devicesContainer.find("div");
     this.$bgImages = $("#fullScreen div");
+    this.$tagline = $("#mobile h2");
     
     $("#phoneBG").backstretch("/images/mobile/beach.jpg");
     $("#tabletBG").backstretch("/images/mobile/beach-flip.jpg");
@@ -26,6 +27,16 @@
       this.$devicesContainer.css("bottom", deviceSpeed);
     } else if (this.distance >= 0) {
       this.$devicesContainer.css("bottom", 146);
+    }
+    
+    var newOffset;
+    if (this.distance < -500) {
+      this.$tagline.css("top", 30);
+    } else if (this.distance >= -500 && this.distance < 0) {
+      newOffset = this.calculateOffset(0, -500, 10);
+      this.$tagline.css("top", (30 + newOffset));
+    } else if (this.distance > 0) {
+      this.$tagline.css("top", 80);
     }
   };
 
