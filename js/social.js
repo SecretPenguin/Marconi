@@ -50,7 +50,8 @@
   	this.$chat.scrollTop(this.$chat[0].scrollHeight);
   };
 
-  social.afterResize = function() {
+  social.onResize = function() {
+    this.$container.height(M.screenHeight + this.sceneLength);
     this.$chatContainer.height(M.screenHeight - 407);
     this.scrollChatToBottom();
   };

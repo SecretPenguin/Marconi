@@ -46,6 +46,7 @@
       this.calculateScreenTopBottom();
 
       this.eachScene(function(scene) {
+        scene.beforeResize(event);
         scene.onResize(event);
       });
 

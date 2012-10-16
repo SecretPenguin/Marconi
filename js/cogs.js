@@ -15,6 +15,10 @@
     this.$cogTagline = $('#cogTagline');
   };
 
+  cogs.onResize = function(event) {
+    // do not resize the cogs scene's container
+  };
+
   cogs.onScroll = function(event) {
     this.calculateScrollSpeed();
     this.conditionallyFixateScene();
