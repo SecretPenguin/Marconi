@@ -57,8 +57,6 @@
     onScroll: function(event) {
       this.calculateScreenTopBottom();
 
-      var screenTop = this.screenTop;
-      var screenBottom = this.screenBottom;
       var shareBarsCopy = this.shareBars.slice();
       var shareBarIndex = this.onScreenShareBarIndex();
       var shareBarsToActivate = 2;
