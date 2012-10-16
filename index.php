@@ -39,6 +39,7 @@ if (isset($_GET["scene"])) {
   <script src="/js/vendor/jquery.backgroundpos.js"></script>
   <script src="/js/vendor/jquery.zclip.js"></script>
   <script src="/js/vendor/underscore.js"></script>
+  <script src="/js/vendor/jquery.backstretch.min.js"></script>
   <script src="/js/m.js"></script>
   <script src="/js/share_bar.js"></script>
   <script src="/js/scene.js"></script>

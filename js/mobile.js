@@ -6,6 +6,10 @@
     this.$devicesContainer = $("#devices");
     this.$devices = this.$devicesContainer.find("div");
     this.$bgImages = $("#fullScreen div");
+    
+    $("#phoneBG").backstretch("/images/mobile/beach.jpg");
+    $("#tabletBG").backstretch("/images/mobile/beach-flip.jpg");
+    $("#desktopBG").backstretch("/images/mobile/beach.jpg");
 
     this.$switchButtons.on("click", $.proxy(this.selectDevice, this));
   };

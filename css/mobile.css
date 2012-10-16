@@ -121,23 +121,10 @@
   z-index:0;
 }
 
-#phoneBG {
-  background: url(/images/mobile/beach.jpg) no-repeat center center;
-}
-
 #tabletBG {
-  background: url(/images/mobile/beach-flip.jpg) no-repeat center center;
   opacity:0;
 }
 
 #desktopBG {
-  background: url(/images/mobile/beach.jpg) no-repeat center center;
   opacity:0;
-}
-
-#fullScreen div {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
