@@ -75,12 +75,16 @@
 
   // this is not a great function name
   Scene.prototype.conditionallyFixateScene = function() {
+    var screenClass = "stickBot";
+
     if (this.distance < 0) {
-      this.$screen.attr("class", "stickTop");
+      screenClass = "stickTop";
     } else if (this.distance < this.sceneLength) {
-      this.$screen.attr("class", "fixTop");
-    } else {
-      this.$screen.attr("class", "stickBot");
+      screenClass = "fixTop";
+    }
+
+    M.setClassName(this.$screen, screenClass);
+  };
     }
   };
 
@@ -89,7 +93,7 @@
   };
 
   Scene.prototype.unFixateScene = function() {
-    this.$screen.attr("class", "");
+    M.setClassName(this.$screen, "");
   };
 
   Scene.prototype.initAutoPlay = function() {

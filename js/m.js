@@ -153,6 +153,11 @@
       } else {
         return false;
       }
+    },
+
+    // this is the optimal way of setting a jQuery object's class name
+    setClassName: function($target, name) {
+      $target[0].className = name;
     }
   };
 

@@ -35,72 +35,72 @@
     if (this.distance <= 0 && this.distance >= -M.screenHeight) {
       switch(currentSprite) {
       case 0:
-        this.$bear.attr('class', 'f0');
+        M.setClassName(this.$bear, "f0");
         break;
       case 1:
-        this.$bear.attr('class', 'f17');
+        M.setClassName(this.$bear, "f17");
         break;
       case 2:
-        this.$bear.attr('class', 'f16');
+        M.setClassName(this.$bear, "f16");
         break;
       case 3:
-        this.$bear.attr('class', 'f15');
+        M.setClassName(this.$bear, "f15");
         break;
       case 4:
-        this.$bear.attr('class', 'f14');
+        M.setClassName(this.$bear, "f14");
         break;
       case 5:
-        this.$bear.attr('class', 'f13');
+        M.setClassName(this.$bear, "f13");
         break;
       case 6:
-        this.$bear.attr('class', 'f12');
+        M.setClassName(this.$bear, "f12");
         break;
       case 7:
-        this.$bear.attr('class', 'f11');
+        M.setClassName(this.$bear, "f11");
         break;
       case 8:
-        this.$bear.attr('class', 'f10');
+        M.setClassName(this.$bear, "f10");
         break;
       case 9:
-        this.$bear.attr('class', 'f9');
+        M.setClassName(this.$bear, "f9");
         break;
       case 10:
-        this.$bear.attr('class', 'f8');
+        M.setClassName(this.$bear, "f8");
         break;
       case 11:
-        this.$bear.attr('class', 'f7');
+        M.setClassName(this.$bear, "f7");
         break;
       case 12:
-        this.$bear.attr('class', 'f6');
+        M.setClassName(this.$bear, "f6");
         break;
       case 13:
-        this.$bear.attr('class', 'f5');
+        M.setClassName(this.$bear, "f5");
         break;
       case 14:
-        this.$bear.attr('class', 'f4');
+        M.setClassName(this.$bear, "f4");
         break;
       case 15:
-        this.$bear.attr('class', 'f3');
+        M.setClassName(this.$bear, "f3");
         break;
       case 16:
-        this.$bear.attr('class', 'f2');
+        M.setClassName(this.$bear, "f2");
         break;
       case 17:
-        this.$bear.attr('class', 'f1');
+        M.setClassName(this.$bear, "f1");
         break;
       }
     }
 
     // Walking Sprite Update
     if (this.distance <= this.$container.height() && this.distance > 0 ) {
-      this.$bear.attr("class", "f" + currentSprite);
+      M.setClassName(this.$bear, "f" + currentSprite);
     }
 
     var coinSprite = this.calculateSprite(50, 8);
 
     // Coin Sprite
     if (this.distance <= this.$container.height() && this.distance > 0) {
-      this.$projectile.attr("class", "f" + coinSprite);
+      M.setClassName(this.$projectile, "f" + coinSprite);
     }
 
     // Change sprites throughout scene
@@ -180,17 +180,17 @@
 
     // startExplosion = Distance to trigger animation
     if (this.distance >= startExplosion && this.distance <= startExplosion + 50) {
-      this.$explosion.attr('class', 'f0');
+      M.setClassName(this.$explosion, "f0");
     } else if (this.distance > startExplosion + 50 && this.distance <= startExplosion + 100) {
-      this.$explosion.attr('class', 'f1');
+      M.setClassName(this.$explosion, "f1");
     } else if (this.distance > startExplosion + 100 && this.distance <= startExplosion + 150) {
-      this.$explosion.attr('class', 'f2');
+      M.setClassName(this.$explosion, "f2");
     } else if (this.distance > startExplosion + 150 && this.distance <= startExplosion + 200) {
-      this.$explosion.attr('class', 'f3');
+      M.setClassName(this.$explosion, "f3");
     } else if (this.distance > startExplosion + 200 && this.distance <= startExplosion + 250) {
-      this.$explosion.attr('class', 'f4');
+      M.setClassName(this.$explosion, "f4");
     } else {
-      this.$explosion.attr('class', 'hidden');
+      M.setClassName(this.$explosion, "hidden");
     }
   };
 
