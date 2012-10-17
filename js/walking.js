@@ -45,7 +45,6 @@
     }
 
     if (between(this.distance, -650, 2650)) {
-      console.log("between");
       bearClass += " s";
     } else if (between(this.distance, 2650, 3550)) {
       bearClass += " ss";
