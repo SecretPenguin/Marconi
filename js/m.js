@@ -13,7 +13,9 @@
         scene.init();
       });
 
-      ShareBar.initAll();
+      this.eachShareBar(function(shareBar) {
+        shareBar.init();
+      });
 
       $(window).on("resize", $.proxy(this.onResize, this));
       $(window).on("scroll", $.proxy(this.onScroll, this));
