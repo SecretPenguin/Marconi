@@ -7,13 +7,13 @@
     screenBottom: null,
 
     init: function() {
+      $.preloadCssImages();
+
       this.eachScene(function(scene) {
         scene.init();
       });
 
-      this.eachShareBar(function(shareBar) {
-        shareBar.init();
-      });
+      ShareBar.initAll();
 
       $(window).on("resize", $.proxy(this.onResize, this));
       $(window).on("scroll", $.proxy(this.onScroll, this));
