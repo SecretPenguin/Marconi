@@ -92,6 +92,15 @@
   #bear.f16 { background-position: -1088px -750px; }
   #bear.f17 { background-position: -1360px -750px; }
 
+  #bear.s  { background-image:url(/images/walking/sprites/BearSprite-S.gif); }
+  #bear.ss { background-image:url(/images/walking/sprites/BearSprite-SS.gif); }
+  #bear.sn { background-image:url(/images/walking/sprites/BearSprite-SN.gif); }
+  #bear.n  { background-image:url(/images/walking/sprites/BearSprite-N.gif); }
+  #bear.nn { background-image:url(/images/walking/sprites/BearSprite-NN.gif); }
+  #bear.np { background-image:url(/images/walking/sprites/BearSprite-NP.gif); }
+  #bear.p  { background-image:url(/images/walking/sprites/BearSprite-P.gif); }
+  #bear.pp { background-image:url(/images/walking/sprites/BearSprite-PP.gif); }
+
   #skillBox {
     width:127px;
     height:71px;

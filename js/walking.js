@@ -1,4 +1,8 @@
 (function($) {
+  function between(x, min, max) {
+    return min < x && x <= max;
+  }
+
   var walking = new Scene("walking", 16000);
 
   walking.init = function() {
@@ -22,79 +26,58 @@
     this.triggerProjectile();
     this.triggerSkill();
 
-    var currentSprite = this.calculateSprite(50, 18);
-    
-    // Walking Sprite Update at Negative Distance
-    if (this.distance <= 0 && this.distance >= -M.screenHeight) {
-      if (currentSprite == 0) {
-        M.setClassName(this.$bear, "f0");
-      } else {
-        M.setClassName(this.$bear, "f" + (18 - currentSprite));
-      }
-    }
-
-    // Walking Sprite Update
-    if (this.distance <= this.$container.height() && this.distance > 0 ) {
-      M.setClassName(this.$bear, "f" + currentSprite);
-    }
-
     var coinSprite = this.calculateSprite(50, 8);
 
-    // Coin Sprite
-    if (this.distance <= this.$container.height() && this.distance > 0) {
+    if (this.distance > 0) {
       M.setClassName(this.$projectile, "f" + coinSprite);
     }
 
-    // Change sprites throughout scene
-    // Preload Images - removes flicker
-    if (document.images) {
-		img1 = new Image();
-		img2 = new Image();
-		img3 = new Image();
-		img4 = new Image();
-		img5 = new Image();
-		img6 = new Image();
-		img7 = new Image();
-		img8 = new Image();
-		img1.src = "/images/walking/sprites/BearSprite-S.gif";
-		img2.src = "/images/walking/sprites/BearSprite-SS.gif";
-		img3.src = "/images/walking/sprites/BearSprite-SN.gif";
-		img4.src = "/images/walking/sprites/BearSprite-N.gif";
-		img5.src = "/images/walking/sprites/BearSprite-NN.gif";
-		img6.src = "/images/walking/sprites/BearSprite-NP.gif";
-		img7.src = "/images/walking/sprites/BearSprite-P.gif";
-		img8.src = "/images/walking/sprites/BearSprite-PP.gif";
-	  }
-    if ( this.distance >= -650 && this.distance <= 2650 ) {
-      this.$bear.css('background-image', 'url(' + img1.src + ')');
-    } else if ( this.distance > 2650 && this.distance <= 3550 ) {
-      this.$bear.css('background-image', 'url(' + img2.src + ')');
-    } else if ( this.distance > 3550 && this.distance <= 5350 ) {
-      this.$bear.css('background-image', 'url(' + img1.src + ')');
-    } else if ( this.distance > 5350 && this.distance <= 6250 ) {
-      this.$bear.css('background-image', 'url(' + img3.src + ')');
-    } else if ( this.distance > 6250 && this.distance <= 8050 ) {
-      this.$bear.css('background-image', 'url(' + img4.src + ')');
-    } else if ( this.distance > 8050 && this.distance <= 8950 ) {
-      this.$bear.css('background-image', 'url(' + img5.src + ')');
-    } else if ( this.distance > 8950 && this.distance <= 10750 ) {
-      this.$bear.css('background-image', 'url(' + img4.src + ')');
-    } else if ( this.distance > 10750 && this.distance <= 11650 ) {
-      this.$bear.css('background-image', 'url(' + img6.src + ')');
-    } else if ( this.distance > 11650 && this.distance <= 13450 ) {
-      this.$bear.css('background-image', 'url(' + img7.src + ')');
-    } else if ( this.distance > 13450 && this.distance <= 14350 ) {
-      this.$bear.css('background-image', 'url(' + img8.src + ')');
-    } else {
-      this.$bear.css('background-image', 'url(' + img7.src + ')');
+    var bearSprite = this.calculateSprite(50, 18);
+    var bearClass = "f" + bearSprite;
+
+    // special considerations when at negative distance
+    if (this.distance <= 0) {
+      if (bearSprite === 0) {
+        bearClass = "f0";
+      } else {
+        bearClass = "f" + (18 - bearSprite);
+      }
     }
 
-    // Walking Right
+    if (between(this.distance, -650, 2650)) {
+      console.log("between");
+      bearClass += " s";
+    } else if (between(this.distance, 2650, 3550)) {
+      bearClass += " ss";
+    } else if (between(this.distance, 3550, 5350)) {
+      bearClass += " s";
+    } else if (between(this.distance, 5350, 6250)) {
+      bearClass += " sn";
+    } else if (between(this.distance, 6250, 8050)) {
+      bearClass += " n";
+    } else if (between(this.distance, 8050, 8950)) {
+      bearClass += " nn";
+    } else if (between(this.distance, 8950, 10750)) {
+      bearClass += " n";
+    } else if (between(this.distance, 10750, 11650)) {
+      bearClass += " np";
+    } else if (between(this.distance, 11650, 13450)) {
+      bearClass += " p";
+    } else if (between(this.distance, 13450, 14350)) {
+      bearClass += " pp";
+    } else {
+      bearClass += " p";
+    }
+
+    M.setClassName(this.$bear, bearClass);
+
+    // screen traversal from left to right (start and end of scene)
     var newOffset;
-    if (this.distance >= -650 && this.distance < 1324) {
+
+    if (between(this.distance, -650, 1324)) {
       newOffset = this.calculateOffset(-650, -650, 2);
       this.$bear.css('left', newOffset);
-    } else if (this.distance >= 1324 && this.distance <= 14300) {
+    } else if (between(this.distance, 1324, 14300)) {
       this.$bear.css('left', '337px');
     } else if (this.distance > 14300) {
       newOffset = this.calculateOffset(337, 14300, 3);
@@ -104,7 +87,7 @@
     }
 
     // Dev overlay -> Remove
-    $('#cursprite').html(currentSprite);
+    $('#cursprite').html(bearSprite);
   };
 
   walking.triggerExplosion = function() {
