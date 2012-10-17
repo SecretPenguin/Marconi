@@ -6,7 +6,7 @@ function main() {
   process_js
   process_css
   process_images
-  process_index
+  process_index $1
   clean_up
 }
 
@@ -96,9 +96,11 @@ function copy_images() {
 
 function process_index() {
   echo "processing index..."
+  domain=marconi.dev
+  if [ -n "$1" ]; then domain=$1; fi
   export MARCONI_PRODUCTION=true
-  export MARCONI_SERVER_NAME=marconi.dev
+  export MARCONI_SERVER_NAME=$domain
   php index.php > build/index.html
 }
 
-main
+main $*
