@@ -3,7 +3,8 @@
 /js/vendor/jquery.rotate.js
 /js/vendor/jquery.backgroundpos.js
 /js/vendor/jquery.zclip.js
-/js/jquery.preloadcssimages.js
+/js/vendor/jquery.preloadcssimages.js
+/js/vendor/jquery.backstretch.js
 /js/vendor/underscore.js
 /js/m.js
 /js/share_bar.js
