@@ -8,7 +8,7 @@
     this.$bgImages = $("#fullScreen div");
     this.$tagline = $("#mobile h2");
     
-    $("#phoneBG").backstretch("/images/mobile/beach.jpg");
+    $("#phoneBG").backstretch("/images/mobile/phone-bg.jpg");
     $("#tabletBG").backstretch("/images/mobile/beach-flip.jpg");
     $("#desktopBG").backstretch("/images/mobile/beach.jpg");
 
