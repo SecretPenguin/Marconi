@@ -103,33 +103,34 @@
 
   #skillBox {
     width:127px;
-    height:71px;
+    height:64px;
     position:absolute;
     top:50%;
-    margin-top:-163px;
+    margin-top:-159px;
     left:417px;
     background:#e5e5e5;
     z-index:100;
   }
 
   #explosion {
-    width:127px;
-    height:49px;
+    width:107px;
+    height:30px;
     background-image:url(/images/walking/explosion.gif);
     position:absolute;
     top:0;
+    left:10px;
   }
 
   #explosion.f0 { background-position: 0 0; }
-  #explosion.f1 { background-position: 0 -49px; }
-  #explosion.f2 { background-position: 0 -98px; }
-  #explosion.f3 { background-position: 0 -147px; }
-  #explosion.f4 { background-position: 0 -196px; }
+  #explosion.f1 { background-position: 0 -30px; }
+  #explosion.f2 { background-position: 0 -60px; }
+  #explosion.f3 { background-position: 0 -90px; }
+  #explosion.f4 { background-position: 0 -120px; }
   #explosion.hidden { background: 0 1000px no-repeat; }
 
   .skill {
     width:149px;
-    height:29px;
+    height:13px;
     background:url(/images/walking/skills.gif) no-repeat 0 0;
     opacity:0;
     position:absolute;
@@ -139,23 +140,23 @@
   }
   
   #skill1 {
-    background-position:0 -29px;
-  }
-  
-  #skill2 {
-    background-position:0 -87px;
-  }
-  
-  #skill3 {
-    background-position:0 -58px;
-  }
-  
-  #skill4 {
     background-position:0 0;
   }
   
+  #skill2 {
+    background-position:0 -13px;
+  }
+  
+  #skill3 {
+    background-position:0 -26px;
+  }
+  
+  #skill4 {
+    background-position:0 -39px;
+  }
+  
   #skill5 {
-    background-position:0 -116px;
+    background-position:0 -52px;
   }
 
   /* Dev overlay */

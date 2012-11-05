@@ -90,7 +90,7 @@
   };
 
   walking.triggerExplosion = function() {
-    var startExplosion = 13200;
+    var startExplosion = 13300;
 
     if (this.distance < 5800) {
       startExplosion = 3100;
@@ -98,7 +98,7 @@
       startExplosion = 5800;
     } else if (this.distance < 11200) {
       startExplosion = 8500;
-    } else if (this.distance < 13200) {
+    } else if (this.distance < 13300) {
       startExplosion = 11200;
     }
 
