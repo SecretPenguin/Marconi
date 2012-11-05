@@ -52,6 +52,10 @@
 	background:url(/images/social/icon-dog.jpg) no-repeat left top;
 	}
 	
+.bird {
+	background:url(/images/social/icon-bird.jpg) no-repeat left top;
+	}
+	
 .point {
 	width:10px;
 	height:12px;
@@ -135,6 +139,7 @@
 	margin-left:50%;
 	left:-265px;
 	width:530px;
+	z-index:10;
 }
 
 #reply-bg {
@@ -162,4 +167,19 @@
 	
 #social-screen form input:active {
 	background-position:bottom;
+	}
+	
+#disclaimer {
+	opacity:0;
+	z-index:0;
+	position:absolute;
+	bottom:45px;
+	margin-left:50%;
+	left:-265px;
+	width:530px;
+	color:#e9e9e9;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	font-size:14px;
+	line-height:20px;
+	font-style:italic;
 	}

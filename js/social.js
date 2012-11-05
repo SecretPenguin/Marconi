@@ -92,8 +92,15 @@
   			clearInterval(interval);
   		}
   	}, 1200);
+  	
+  	if (messageId == "user-message-three") {
+  	  this.$form.fadeOut();
+  	  setTimeout(function() {
+  	    $('#disclaimer').animate({opacity: 1}, fast);
+  	  }, 2500);
+  	}
   };
-
+  
   social.showMessage = function($message) {
   	$message = $($message);
 
