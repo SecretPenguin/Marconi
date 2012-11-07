@@ -15,6 +15,7 @@
     this.$skill4 = $('#skill4');
     this.$skill5 = $('#skill5');
     this.$bear = $('#bear');
+    this.$legs = $('#legs');
   };
 
   walking.onScroll = function(event) {
@@ -69,6 +70,7 @@
     }
 
     M.setClassName(this.$bear, bearClass);
+    M.setClassName(this.$legs, bearClass);
 
     // screen traversal from left to right (start and end of scene)
     var newOffset;

@@ -2,6 +2,7 @@
   <div id="cogs-screen">
     <div id="cogsBG"></div>
     <div class="play">
+      <div id="play-cog"></div>
       <p><a class="scroll" href="javascript:void(0);">Play</a></p>
     </div>
     <div id="cogTagline">

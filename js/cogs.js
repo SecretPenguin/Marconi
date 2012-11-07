@@ -12,6 +12,7 @@
     this.$cogSN = $('.cogS.norm');
     this.$cogMR = $('.cogM.rev');
     this.$cogMN = $('.cogM.norm');
+    this.$playCog = $('#play-cog');
     this.$cogTagline = $('#cogTagline');
   };
 
@@ -32,6 +33,7 @@
       this.$cogSN.rotate(rotateSpeedS);
       this.$cogMR.rotate(- rotateSpeedM);
       this.$cogMN.rotate(rotateSpeedM);
+      this.$playCog.rotate(rotateSpeedS);
     }
 
     var newOffset;

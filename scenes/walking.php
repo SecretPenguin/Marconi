@@ -4,6 +4,7 @@
 <div id="walking">
   <div id="walking-screen">
     <div class="play">
+      <div id="legs"></div>
       <p><a class="scroll" href="javascript:void(0);">Play</a></p>
     </div>
     <div class="center">

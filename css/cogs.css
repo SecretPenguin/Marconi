@@ -175,3 +175,33 @@
   display:block;
   background:url(/images/cogs/cog-tagline.png) no-repeat;
 }
+
+/* Play */
+
+#cogs .play {
+  top:17px;
+  right:27px;
+  background:none;
+  padding:0;
+}
+
+#cogs .play p {
+  position:relative;
+}
+
+#play-cog {
+  width:35px;
+  height:35px;
+  background:url(/images/cogs/play-cog.png) no-repeat;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+#cogs .play a {
+  width:35px;
+  height:35px;
+  background:url(/images/cogs/cog-play.png) no-repeat 7px 8px;
+  text-indent:-9999px;
+  display:block;
+}
