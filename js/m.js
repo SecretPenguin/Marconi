@@ -1,4 +1,11 @@
 (function($, undefined) {
+  // stub out console.log for browsers that don't have it
+  if (this.console === undefined) {
+    this.console = {
+      log: function() {}
+    }
+  }
+
   this.M = {
     scenes: [],
     shareBars: [],
