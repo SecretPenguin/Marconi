@@ -135,7 +135,9 @@
         }
       });
 
-      var closestIndex = distances.indexOf(_.min(distances));
+      var closestDistance = _.min(distances);
+      var closestIndex = _.indexOf(distances, closestDistance);
+
       return closestIndex;
     },
 
