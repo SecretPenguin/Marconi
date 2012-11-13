@@ -4,7 +4,7 @@ include("helpers.php");
 if (isset($_GET["scene"])) {
   $scenes = array("preface", $_GET["scene"]);
 } else {
-  $scenes = array("preface", "flexible", "mobile", "cogs", "social", "walking");
+  $scenes = array("preface", "flexible", "mobile", "cogs", "social", "walking", "enroll");
 }
 ?>
 <!DOCTYPE HTML>

@@ -5,3 +5,4 @@
 /css/cogs.css
 /css/social.css
 /css/walking.css
+/css/enroll.css
