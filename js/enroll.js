@@ -1,5 +1,5 @@
 (function($) {
-  var enroll = new Scene("enroll", 1200);
+  var enroll = new Scene("enroll", 1050);
 
   enroll.init = function() {
     this.$affordable = $('#affordable');
@@ -10,20 +10,16 @@
   enroll.onScroll = function(event) {
     this.conditionallyFixateScene();
     
-    
-    // Forms Scroll
-    if ( this.distance <= 1200 + M.screenHeight ) {
-      newOffset = this.calculateOffset(0, 0, 2);
-      this.$callToAction.css('top', (600 - newOffset));
-    }
-    
+    // most scenes just need their container resized to fit the scene
+    this.$container.height(this.sceneLength);
+        
     // Tagline
     if (this.distance < 0) {
       newOffset = this.calculateOffset(0, 0, 6);
-      this.$affordable.css('top', (200 - newOffset));
+      this.$affordable.css('top', (150 - newOffset));
     } else if (this.distance >= 0 && this.distance <= 1850) {
       newOffset = this.calculateOffset(0, 0, 3);
-      this.$affordable.css('top', (200 - newOffset));
+      this.$affordable.css('top', (150 - newOffset));
     } else {
       this.$affordable.css('top', -500);
     }
