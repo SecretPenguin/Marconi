@@ -19,6 +19,7 @@ if (isset($_GET["scene"])) {
   <?php else: ?>
     <link rel="stylesheet" href="/css/<?php echo production_file('css') ?>" />
   <?php endif; ?>
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css" />
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -41,6 +42,9 @@ if (isset($_GET["scene"])) {
   <script src="/js/vendor/jquery.preloadcssimages.js"></script>
   <script src="/js/vendor/underscore.js"></script>
   <script src="/js/vendor/jquery.backstretch.js"></script>
+  <script src="/js/vendor/jquery.infieldlabel.js"></script>
+  <script src="/js/vendor/jquery.validate.js"></script>
+  <script src="/js/vendor/jquery.selectbox-0.2.js"></script>
   <script src="/js/m.js"></script>
   <script src="/js/share_bar.js"></script>
   <script src="/js/scene.js"></script>

@@ -6,6 +6,9 @@
 /js/vendor/jquery.preloadcssimages.js
 /js/vendor/jquery.backstretch.js
 /js/vendor/underscore.js
+/js/vendor/jquery.infieldlabel.js
+/js/vendor/jquery.selectbox-0.2.js
+/js/vendor/jquery.validate.js
 /js/m.js
 /js/share_bar.js
 /js/scene.js

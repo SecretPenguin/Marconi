@@ -4,6 +4,37 @@
   enroll.init = function() {
     this.$affordable = $('#affordable');
     this.$callToAction = $('#call-to-action');
+    
+    $('label').inFieldLabels();
+    
+	/* Validation */
+	$('#requestForm').validate({
+		errorPlacement: function(error,element) {
+           return true;
+        },
+		rules: {
+			required: "required",
+			email: {
+				required: true,
+				email: true
+			}
+		}
+	});
+	
+	$('#interestForm').validate({
+		errorPlacement: function(error,element) {
+           return true;
+        },
+		rules: {
+			required: "required",
+			email: {
+				required: true,
+				email: true
+			}
+		}
+	});
+	
+	$(".selectOptions").selectbox();
 
   };
 
@@ -12,17 +43,6 @@
     
     // most scenes just need their container resized to fit the scene
     this.$container.height(this.sceneLength);
-        
-    // Tagline
-    if (this.distance < 0) {
-      newOffset = this.calculateOffset(0, 0, 6);
-      this.$affordable.css('top', (150 - newOffset));
-    } else if (this.distance >= 0 && this.distance <= 1850) {
-      newOffset = this.calculateOffset(0, 0, 3);
-      this.$affordable.css('top', (150 - newOffset));
-    } else {
-      this.$affordable.css('top', -500);
-    }
   };
   
   this.M.register(enroll);
