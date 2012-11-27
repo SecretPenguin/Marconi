@@ -1,5 +1,5 @@
 #cogs {
-  height:5500px;
+  height:5800px;
   position:relative;
   background:#2e2437;
 }
@@ -102,13 +102,23 @@
 }
 
 #cog6, #cog6-inside {
-  margin-left:-99px;
-  top:51px;
+  margin-left:-8px;
+  top:376px;
 }
 
 #cog7, #cog7-inside {
-  margin-left:-423px;
-  top:29px;
+  margin-left:-186px;
+  top:347px;
+}
+
+#cog8, #cog8-inside {
+  margin-left:-108px;
+  top:104px;
+}
+
+#cog9, #cog9-inside {
+  margin-left:-432px;
+  top:82px;
 }
 
 /* Cog Inners */
@@ -130,7 +140,7 @@
   background:url(/images/cogs/medium-inside.png) no-repeat center;
 }
 
-#cogText1, #cogText2, #cogText3 {
+#cogText1, #cogText2, #cogText3, #cogText8 {
   position:absolute;
 }
 
@@ -156,6 +166,14 @@
   background:url(/images/cogs/last.png) no-repeat;
   left:75px;
   top:120px;
+}
+
+#cogText8 {
+  width:80px;
+  height:78px;
+  background:url(/images/cogs/makes-sense.png) no-repeat;
+  left:53px;
+  top:57px;
 }
 
 /* Tagline */

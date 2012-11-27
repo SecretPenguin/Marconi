@@ -28,10 +28,16 @@
             <div id="cog4-inside" class="inside-s"></div>
             <div id="cog5" class="cogM norm"></div>
             <div id="cog5-inside" class="inside-m"></div>
-            <div id="cog6" class="cogS altCog norm"></div>
+            <div id="cog6" class="cogS altCog rev"></div>
             <div id="cog6-inside" class="inside-s"></div>
-            <div id="cog7" class="cogM altCog rev"></div>
-            <div id="cog7-inside" class="inside-m"></div>
+            <div id="cog7" class="cogS altCog norm"></div>
+            <div id="cog7-inside" class="inside-s"></div>
+            <div id="cog8" class="cogS altCog norm"></div>
+            <div id="cog8-inside" class="inside-s">
+              <div id="cogText8"></div>
+            </div>
+            <div id="cog9" class="cogM altCog rev"></div>
+            <div id="cog9-inside" class="inside-m"></div>
           </div>
         </div>
       </div>
