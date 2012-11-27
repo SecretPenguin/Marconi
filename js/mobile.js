@@ -9,8 +9,8 @@
     this.$tagline = $("#mobile h2");
     
     $("#phoneBG").backstretch("/images/mobile/phone-bg.jpg");
-    $("#tabletBG").backstretch("/images/mobile/beach-flip.jpg");
-    $("#desktopBG").backstretch("/images/mobile/beach.jpg");
+    $("#tabletBG").backstretch("/images/mobile/tablet-bg.jpg");
+    $("#desktopBG").backstretch("/images/mobile/desktop-bg.jpg");
 
     this.$switchButtons.on("click", $.proxy(this.selectDevice, this));
   };
