@@ -9,6 +9,7 @@
   	this.$chat = $("#the-chat");
   	this.$form = this.$container.find("form");
   	this.$textarea = this.$form.find("textarea");
+  	this.$hint = $("#chat-hint");
 
   	this.activateUserMessage($("#user-message-one"));
 
@@ -64,6 +65,9 @@
     	// wait half a second and then show first message to kick off scene
     	setTimeout($.proxy(this.showFirstMessage, this), 500);
     }
+    
+    var deviceSpeed = (this.distance / 2) + 19;
+
   };
 
   social.onSubmit = function(event) {
@@ -77,6 +81,7 @@
   social.showFirstMessage = function() {
   	var first = $("#first-message");
   	this.showMessage(first);
+  	this.$hint.addClass('showHint');
   };
 
   social.showRepliesToMessage = function($message) {
@@ -92,6 +97,10 @@
   			clearInterval(interval);
   		}
   	}, 1200);
+  	
+  	if (messageId == "user-message-one") {
+  	  this.$hint.removeClass('showHint');
+  	}
   	
   	if (messageId == "user-message-three") {
   	  this.$form.fadeOut();

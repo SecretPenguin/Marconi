@@ -1,13 +1,14 @@
 <div id="social">
 	<div id="social-screen">
-		<h2>A shared experience that goes beyond learning.</h2>
+		<h2>A shared experience that goes beyond learning</h2>
 		<div id="chat-container">
+			<div id="chat-hint">Join in on the conversation.</div>
 			<div id="the-chat">
 				<div id="first-message" class="left dog">
 					<div class="bubble">
 						<div class="point"></div>
 						<div class="username">Mary <span>June 28th, 2012</span></div>
-						<p class="message">Did today’s Geology lecture making any sense to anyone?</p>
+						<p class="message">How did you like the Geology video?</p>
 					</div>
 				</div>
 
@@ -23,7 +24,7 @@
 					<div class="bubble">
 						<div class="point"></div>
 						<div class="username">Jim <span>June 28th, 2012</span></div>
-						<p class="message">Yeah, I think Prof. Jennings is a real <em>gem</em>.</p>
+						<p class="message">Yeah, I think Prof. Lewis is a real <em>gem</em>.</p>
 					</div>
 				</div>
 
@@ -84,6 +85,6 @@
 			<input type="submit"/>
 		</form>
 		
-		<div id="disclaimer">The Geology class represented in this conversation is not currently offered by this program, but the functionality to converse with your classmates and alumn is. The animals represented here are fictional. You are not really a cat. Furthermore, animals are not allowed to sign up for this program. Sorry, Whiskers.</div>
+		<div id="disclaimer">The Geology class represented in this conversation is not currently offered by this program, but the functionality to converse with your classmates is. The animals represented here are fictional. You are not really a cat. Furthermore, animals are not allowed to sign up for this program. Sorry, Whiskers.</div>
 	</div>
 </div>
