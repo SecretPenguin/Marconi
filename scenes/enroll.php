@@ -58,7 +58,7 @@
         <div class="form-bot"></div>
         <div class="left"></div>
         <div class="right">
-          <p><em>More degrees may be added to this program over time. <br/>Tell us the degree you're interested in to receive info on these updates.</em></p>
+          <p><em>More degrees may be added to this program over time. <br/>Tell us the degree you're seeking to receive info on these updates.</em></p>
           <form name="" method="get" action="" id="interestForm">
             <p>
               <label for="Email2" class="infield">Email</label>
@@ -87,7 +87,7 @@
       <div id="connect">
         <p>Connect and stay up to date with new info, programs, and innovative educational resources.</p>
         <a id="bu-fb" href="http://www.facebook.com/BellevueUniversity" title="Bellevue University on Facebook">/BellevueUniversity</a>
-        <a id="bu-twitter" href="https://twitter.com/BellevueU" title="Bellevue University on Twitter">@BU_Innovate</a>
+        <a id="bu-twitter" href="https://twitter.com/bu_innovate" title="Bellevue University on Twitter">@BU_Innovate</a>
       </div>
     </div>
   </div>
