@@ -1,6 +1,3 @@
-<div id="cursprite"></div>
-<div id="curposition"></div>
-
 <div id="walking">
   <div id="walking-screen">
     <div class="play">
