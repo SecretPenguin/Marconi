@@ -19,7 +19,6 @@ if (isset($_GET["scene"])) {
   <?php else: ?>
     <link rel="stylesheet" href="/css/<?php echo production_file('css') ?>" />
   <?php endif; ?>
-    <link href="http://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css" />
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
