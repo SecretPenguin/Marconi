@@ -5,11 +5,6 @@
   <div id="enroll-screen">
     
   </div>
-  <div id="affordable">
-    <div id="inner-bg">
-      <p>Oh, and did we mention it's quite affordable?</p>
-    </div>
-  </div>
   <div id="call-to-action">
     <div id="forms">
       <div id="enroll-slider">

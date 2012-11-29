@@ -17,6 +17,8 @@
         <div id="skill4" class="skill"></div>
         <div id="skill5" class="skill"></div>
       </div>
+      <div id="ground"></div>
+      <div id="affordable">Oh, and did we mention it's quite affordable?</div>
     </div>
   </div>
 </div>

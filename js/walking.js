@@ -3,7 +3,7 @@
     return min < x && x <= max;
   }
 
-  var walking = new Scene("walking", 16000);
+  var walking = new Scene("walking", 17500);
 
   walking.init = function() {
     this.$explosion = $('#explosion');
@@ -16,6 +16,7 @@
     this.$skill5 = $('#skill5');
     this.$bear = $('#bear');
     this.$legs = $('#legs');
+    this.$affordable = $('#affordable');
   };
 
   walking.onScroll = function(event) {
@@ -85,6 +86,15 @@
       this.$bear.css('left', newOffset);
     } else {
       this.$bear.css('left', '-650px');
+    }
+    
+    if (this.distance < 15370) {
+      this.$affordable.css({'margin-left': -267, 'opacity': 0});
+    } if (between(this.distance, 15370, 15870)) {
+   	  newOffset = this.calculateOffset(0, 15370, 10);
+   	  this.$affordable.css({'margin-left': (-267-newOffset), 'opacity': (newOffset/50) });
+    } else if (this.distance > 15870) {
+      this.$affordable.css({'margin-left': -317, 'opacity': 1});
     }
 
     // Dev overlay -> Remove
