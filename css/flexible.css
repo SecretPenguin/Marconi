@@ -1,45 +1,56 @@
 /* Set Basic Slider Styles */
 
 #flexible {
-	width:960px;
-	margin:0 auto;
 	position:relative;
+	background:#ededed;
 	}
 	
 #flexible-screen {
   position:relative;
-  width:960px;
+  width:100%;
   top:0;
 }
 
 #flexible-tagline {
 	position:absolute;
 	top:50%;
-	margin-top:-300px;
+	margin-top:-305px;
 	height:100px;
-	width:400px;
+	width:245px;
 	left:50%;
-	margin-left:-200px;
-	text-align:center;
+	margin-left:-122px;
+	text-indent:-9999px;
+	display:block;
+	background:url(/images/flexible/tagline.png) no-repeat;
 	}
 	
 #fast, #normal {
 	float:left;
 	position:absolute;
-	height:200px;
+	height:371px;
 	top:50%;
-	margin-top:-100px;
+	left:50%;
+	margin-top:-185px;
 	}
 	
 #fast {
-	width:720px;
-	left:0;
+	width:635px;
+	margin-left:-484px;
+	background:url(/images/flexible/left-path.png) no-repeat;
 	}
 	
 #normal {
-	width:240px;
-	right:0;
+	width:380px;
+	margin-left:103px;
 	}
+	
+#normal-bg {
+	width:380px;
+	height:371px;
+	position:absolute;
+	z-index:0;
+	background:url(/images/flexible/right-path.png) no-repeat;
+}
 	
 .bar {
 	background:#000;
@@ -58,67 +69,66 @@
 	left:180px;
 	border:1px dashed #000;
 	}
-	
-/* End Toggle */
-
-.toggleEnd {
-	width:13px;
-	height:13px;
-	border-radius:7px;
-	border:1px solid #000;
-	display:block;
-	position:absolute;
-	right:-6px;
-	bottom:69px;
-	background:#000;
-	z-index:100;
-	}
-	
-.toggleEnd:hover {
-	background:#ff0000;
-	}
-	
-/* Sample timeline hashes */
-	
-#quarter, #half {
-	width:3px;
-	height:13px;
-	border-radius:2px;
-	border:1px solid #000;
-	display:block;
-	position:absolute;
-	bottom:69px;
-	background:#000;
-	z-index:100;
-	}
-	
-#quarter {
-	left:237px;
-	}
-	
-#half {
-	left:477px;
-	}
 		
 /* Dates */
 
 #startMonth {
 	position:absolute;
-	bottom:0;
-	left:0;
+	top:89px;
+	left:30px;
 	}
 	
-#fastMonth {
+.endToggle {
+	background:url(/images/flexible/circle.png) no-repeat;
+	width:79px;
+	height:78px;
 	position:absolute;
-	bottom:0;
+	z-index:200;
+}
+
+.toggleHover {
+	background:url(/images/flexible/circle-hover.png) no-repeat;
+	width:79px;
+	height:78px;
+	position:absolute;
+	z-index:1;
+	opacity:0;
+}
+	
+#fast .endToggle {
+	top:173px;
+	left:573px;
+	}
+	
+#normal .endToggle {
+	top:138px;
 	right:0;
 	}
 	
-#normalMonth {
+.endToggle a {
+	width:79px;
+	height:78px;
+	text-align:center;
+	line-height:78px;
+	text-transform:uppercase;
+	color:#533091;
+	font-size:12px;
+	font-family: UbuntuRegular, sans-serif;
+	font-weight:bold;
+	text-decoration:none;
+	display:block;
 	position:absolute;
-	bottom:0;
-	right:0;
-	}
+	z-index:10;
+}
+
+#flag {
+	width:86px;
+	height:61px;
+	position:absolute;
+	left:250px;
+	top:213px;
+	background:url(/images/flexible/flag.png) no-repeat;
+}
 	
 /* Quips */
 
@@ -126,7 +136,7 @@
 	width:400px;
 	position:absolute;
 	top:50%;
-	margin-top:150px;
+	margin-top:193px;
 	left:50%;
 	margin-left:-200px;
 	text-align:center;
@@ -141,11 +151,12 @@
 #animations {
 	position:absolute;
 	top:50%;
-	margin-top:-180px;
-	height:200px;
-	width:200px;
+	left:50%;
+	margin-top:-132px;
+	height:100px;
+	width:100px;
 	border:1px dashed #ccc;
-	right:0;
+	margin-left:359px;
 	text-align:center;
 	}
 	

@@ -3,17 +3,21 @@
 		<h2 id="flexible-tagline">Tagline: Flexible Scene</h2>
 		<div id="fast">
 			<select id="startMonth"></select>
-			<div id="breaks"></div>
-			<div class="bar"></div>
-			<div id="quarter"></div>
-			<div id="half"></div>
-			<a id="fastEnd" class="toggleEnd" href="javascript:void(0);"></a>
-			<a id="fastMonth" href="javascript:void(0);"></a>
+			<div id="break1"></div>
+			<div id="break2"></div>
+			<div id="break3"></div>
+			<div class="endToggle">
+				<div class="toggleHover"></div>
+				<a id="fastMonth" href="javascript:void(0);"></a>
+			</div>
 		</div>
 		<div id="normal" class="currentEnd">
-			<div class="bar"></div>
-			<a id="normalEnd" class="toggleEnd" href="javascript:void(0);"></a>
-			<a id="normalMonth" href="javascript:void(0);"></a>
+			<div id="normal-bg"></div>
+			<div id="flag"></div>
+			<div class="endToggle">
+				<div class="toggleHover"></div>
+				<a id="normalMonth" href="javascript:void(0);"></a>
+			</div>
 		</div>
 		<div id="animations">
 			<div id="January">January Animation!</div>

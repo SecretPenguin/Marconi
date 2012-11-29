@@ -4,15 +4,31 @@
   flexible.init = function() {
     this.monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'];
+    this.monthNamesShort = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
+    'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     this.months = [];
     this.normalMonth;
     this.fastMonth;
     this.$startMonth = $('#startMonth');
-
+    this.$normalMonth = $('#normalMonth');
+    this.$fastMonth = $('#fastMonth');
+    
+    $('.endToggle a').mouseenter(function(){
+      $(this).siblings('.toggleHover').stop().animate({'opacity': 1}, 250);
+    }).mouseleave(function(){
+      $(this).siblings('.toggleHover').stop().animate({'opacity': 0}, 250);
+    });
+    
+    this.$normalMonth.mouseenter(function(){
+      $('#flag.faded').stop().animate({'opacity': 1}, 250);
+    }).mouseleave(function(){
+      $('#flag.faded').stop().animate({'opacity': .35}, 250);
+    });
+    
     // set up triggers
     this.$startMonth.change($.proxy(this.loadMonths, this));
-    $('#normalEnd, #normalMonth').click($.proxy(this.displayNormalTimeline, this));
-    $('#fastEnd, #fastMonth').click($.proxy(this.displayFastTimeline, this));
+    this.$normalMonth.click($.proxy(this.displayNormalTimeline, this));
+    this.$fastMonth.click($.proxy(this.displayFastTimeline, this));
 
     this.initMonthsArray();
     this.initMonthSelect();
@@ -46,11 +62,11 @@
     this.normalMonth = this.months[((curMonth + 11)%12)];
 
     // display end months
-    $('#fastMonth').html(this.monthNames[this.fastMonth]);
-    $('#normalMonth').html(this.monthNames[this.normalMonth]);
+    this.$fastMonth.html(this.monthNamesShort[this.fastMonth]);
+    this.$normalMonth.html(this.monthNamesShort[this.normalMonth]);
 
     this.loadMonthAssets();
-    this.positionBreakImage(true);
+    // this.positionBreakImage(true);
   };
 
   flexible.loadMonthAssets = function() {
@@ -91,16 +107,18 @@
   };
 
   flexible.displayNormalTimeline = function() {
-    $('#normal').animate({opacity: 1}, 500).addClass('currentEnd');
+    $('#normal').addClass('currentEnd')
+    $('#normal-bg, #flag').animate({opacity: 1}, 500).removeClass('faded');
     $('#fast .bar').animate({height: '3px', bottom: '75px'}, 300);
-    $('#animations').css('right', '0');
+    $('#animations').css({'margin-left': '359px', 'margin-top': '-132px'});
     this.loadMonthAssets();
   };
 
   flexible.displayFastTimeline = function() {
-    $('#normal').animate({opacity: 0.35}, 500).removeClass();
+    $('#normal').removeClass();
+    $('#normal-bg, #flag').animate({opacity: 0.35}, 500).addClass('faded');
     $('#fast .bar').animate({height: '7px', bottom: '73px'}, 300);
-    $('#animations').css('right', '240px');
+    $('#animations').css({'margin-left': '29px', 'margin-top': '-100px'});
     this.loadMonthAssets();
   }
 
