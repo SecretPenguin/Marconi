@@ -12,19 +12,7 @@
     this.$startMonth = $('#startMonth');
     this.$normalMonth = $('#normalMonth');
     this.$fastMonth = $('#fastMonth');
-    
-    $('.endToggle a').mouseenter(function(){
-      $(this).siblings('.toggleHover').stop().animate({'opacity': 1}, 250);
-    }).mouseleave(function(){
-      $(this).siblings('.toggleHover').stop().animate({'opacity': 0}, 250);
-    });
-    
-    this.$normalMonth.mouseenter(function(){
-      $('#flag.faded').stop().animate({'opacity': 1}, 250);
-    }).mouseleave(function(){
-      $('#flag.faded').stop().animate({'opacity': .35}, 250);
-    });
-    
+        
     // set up triggers
     this.$startMonth.change($.proxy(this.loadMonths, this));
     this.$normalMonth.click($.proxy(this.displayNormalTimeline, this));
@@ -33,6 +21,8 @@
     this.initMonthsArray();
     this.initMonthSelect();
     this.loadMonths();
+    
+    $(".selectOptions").selectbox();
   };
 
   flexible.initMonthsArray = function() {
@@ -64,6 +54,20 @@
     // display end months
     this.$fastMonth.html(this.monthNamesShort[this.fastMonth]);
     this.$normalMonth.html(this.monthNamesShort[this.normalMonth]);
+    
+    // toggle months
+    $('.endToggle a').mouseenter(function(){
+      $(this).siblings('.toggleHover').stop().animate({'opacity': 1}, 250);
+    }).mouseleave(function(){
+      $(this).siblings('.toggleHover').stop().animate({'opacity': 0}, 250);
+    });
+    
+    // fade flag on normal end date hover when early end date is selected
+    this.$normalMonth.mouseenter(function(){
+      $('#flag.faded').stop().animate({'opacity': 1}, 250);
+    }).mouseleave(function(){
+      $('#flag.faded').stop().animate({'opacity': .35}, 250);
+    });
 
     this.loadMonthAssets();
     // this.positionBreakImage(true);

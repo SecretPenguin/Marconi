@@ -2,7 +2,7 @@
 	<div id="flexible-screen">
 		<h2 id="flexible-tagline">Tagline: Flexible Scene</h2>
 		<div id="fast">
-			<select id="startMonth"></select>
+			<select id="startMonth" class="selectOptions"></select>
 			<div id="break1"></div>
 			<div id="break2"></div>
 			<div id="break3"></div>

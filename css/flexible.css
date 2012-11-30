@@ -9,6 +9,7 @@
   position:relative;
   width:100%;
   top:0;
+  background:url(/images/flexible/texture.png) no-repeat center top;
 }
 
 #flexible-tagline {
