@@ -1,5 +1,5 @@
 (function($) {
-  var enroll = new Scene("enroll", 1050);
+  var enroll = new Scene("enroll", 630);
 
   enroll.init = function() {
     this.$affordable = $('#affordable');
