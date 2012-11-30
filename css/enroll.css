@@ -280,10 +280,10 @@
 	overflow:hidden;
 }
 .sbOptions li:first-child a {
-	border-top:none;
+	border-top:none!important;
 }
 .sbOptions li:last-child a {
-	border-bottom:none;
+	border-bottom:none!important;
 	}
 .sbOptions a:link, .sbOptions a:visited{
 	text-decoration: none;

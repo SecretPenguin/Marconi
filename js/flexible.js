@@ -29,7 +29,7 @@
     var date = new Date();
 
     for (var i = 0; i < 12; i++) {
-        date.setMonth(date.getMonth() + 1);
+        date.setMonth(date.getMonth() + 1, 1);
         this.months.push(date.getMonth());
     }
   };

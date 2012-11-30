@@ -71,14 +71,7 @@
 	border:1px dashed #000;
 	}
 		
-/* Dates */
-
-#startMonth {
-	position:absolute;
-	top:89px;
-	left:30px;
-	}
-	
+/* Dates */	
 .endToggle {
 	background:url(/images/flexible/circle.png) no-repeat;
 	width:79px;
@@ -164,3 +157,54 @@
 #animations > div {
 	display:none;
 	}
+	
+/* Selectbox Styles */
+#flexible .sbHolder{
+	font-weight: bold;
+	text-transform:uppercase;
+	width:121px;
+	height:25px;
+	margin:0;
+	font-size:11px;
+	color:#fff;
+	line-height:25px;
+	background:url(/images/flexible/selectbox.gif) no-repeat;
+	position:absolute;
+	top:89px;
+	left:30px;
+	text-shadow:1px 1px 1px #533091;
+}
+#flexible .sbHolder a {
+	color:#fff;
+	}
+#flexible .sbHolder li {
+	line-height:23px;
+	height:25px;
+	}
+#flexible .sbSelector{
+	height: 25px;
+	width:121px;
+	line-height: 25px;
+	text-indent: 11px;
+}
+#flexible .sbToggle{
+	width: 23px;
+	height:25px;
+	background:url(/images/flexible/toggle.gif) no-repeat!important;
+}
+#flexible .sbOptions{
+	top: 25px;
+	background:#6d5d8d;
+	border:1px solid #504269;
+}
+#flexible .sbOptions a{
+	color:#d9d4e3;
+	line-height:23px;
+	height:23px;
+	width:119px;
+	border-bottom:1px solid #504269;
+	border-top:1px solid #b7a7d3;
+}
+#flexible .sbOptions a:hover{
+	color: #fff;
+}
