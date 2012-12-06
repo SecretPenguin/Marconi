@@ -21,6 +21,13 @@
   background:#2c1c44;
 }
 
+#intro {
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+}
+
 #preface-texture {
   width:636px;
   height:546px;
