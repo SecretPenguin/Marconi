@@ -44,6 +44,7 @@ if (isset($_GET["scene"])) {
   <script src="/js/vendor/jquery.infieldlabel.js"></script>
   <script src="/js/vendor/jquery.validate.js"></script>
   <script src="/js/vendor/jquery.selectbox-0.2.js"></script>
+  <script src="/js/vendor/jquery.spritely-0.6.1.js"></script>
   <script src="/js/m.js"></script>
   <script src="/js/share_bar.js"></script>
   <script src="/js/scene.js"></script>

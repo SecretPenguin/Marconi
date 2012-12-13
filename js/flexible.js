@@ -81,12 +81,34 @@
     $('.quips div').hide();
 
     if ($('#normal').hasClass('currentEnd')) {
-        animationsDiv.stop().delay('500').eq(this.normalMonth).fadeIn();
+        animationsDiv.stop().delay('500').eq(this.normalMonth).show()
+        	.sprite({
+        		fps: 5,
+        		no_of_frames: 7,
+        		start_at_frame: 1,
+        		play_frames: 6,
+        		on_last_frame: function(obj) {
+        			obj.spStop(true);
+        		}
+        	});
         $('#normalQuips div').stop().delay('500').eq(this.normalMonth).fadeIn();
     } else {
-        animationsDiv.stop().delay('500').eq(this.fastMonth).fadeIn();
+        animationsDiv.stop().delay('500').eq(this.fastMonth).show()
+        	.sprite({
+        		fps: 5,
+        		no_of_frames: 7,
+        		start_at_frame: 1,
+        		play_frames: 6,
+        		on_last_frame: function(obj) {
+        			obj.spStop(true);
+        		}
+        	});
         $('#fastQuips div').stop().delay('500').eq(this.fastMonth).fadeIn();
     }
+    
+    $('#startMonth, normalMonth, fastMonth').click(function(){
+    	animationsDiv.spStart();
+    });
   };
 
   flexible.positionBreakImage = function(animate) {

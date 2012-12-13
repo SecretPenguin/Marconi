@@ -149,13 +149,17 @@
 	margin-top:-132px;
 	height:100px;
 	width:100px;
-	border:1px dashed #ccc;
 	margin-left:359px;
 	text-align:center;
 	}
 	
 #animations > div {
 	display:none;
+	width:100px;
+	height:100px;
+	position:absolute;
+	background:url(/images/flexible/animation-test.gif) no-repeat;
+	color:#fff;
 	}
 	
 /* Selectbox Styles */
