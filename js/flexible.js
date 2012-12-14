@@ -44,7 +44,7 @@
     this.$startMonth.html(options);
   };
 
-  flexible.loadMonths = function() {
+  flexible.loadMonths = function() {  
     var curMonth = $('#startMonth option:selected').index();
     // Set accelerated program's end month
     this.fastMonth = this.months[((curMonth + 5)%12)];
@@ -55,6 +55,17 @@
     this.$fastMonth.html(this.monthNamesShort[this.fastMonth]);
     this.$normalMonth.html(this.monthNamesShort[this.normalMonth]);
     
+    // set breaks
+    $('.breaks').attr('class', 'breaks'); // Reset months
+    var break1month = this.monthNames[this.months[((curMonth + 2)%12)]];
+    $('#break1').addClass('break'+break1month);
+    var break2month = this.monthNames[this.months[((curMonth + 5)%12)]];
+    $('#break2').addClass('break'+break2month);
+    var break3month = this.monthNames[this.months[((curMonth + 0)%12)]];
+    $('#break3').addClass('break'+break3month);
+    var break4month = this.monthNames[this.months[((curMonth + 9)%12)]];
+    $('#break4').addClass('break'+break4month);
+	
     // toggle months
     $('.endToggle a').mouseenter(function(){
       $(this).siblings('.toggleHover').stop().animate({'opacity': 1}, 250);
@@ -78,39 +89,44 @@
     var animationsDiv = $('#animations div');
 
     animationsDiv.hide();
+    
     $('.quips div').hide();
 
     if ($('#normal').hasClass('currentEnd')) {
         animationsDiv.stop().delay('500').eq(this.normalMonth).show()
         	.sprite({
-        		fps: 5,
-        		no_of_frames: 7,
-        		start_at_frame: 1,
-        		play_frames: 6,
-        		on_last_frame: function(obj) {
-        			obj.spStop(true);
+        		fps: 10,
+        		no_of_frames: 19,
+        		start_at_frame: 0,
+        		play_frames: 14,
+        		on_frame: {
+        			13: function(obj) {
+        				obj.spStop();
+        			}
         		}
         	});
-        $('#normalQuips div').stop().delay('500').eq(this.normalMonth).fadeIn();
+        $('#normalQuips div').stop().delay('1500').eq(this.normalMonth).fadeIn();
     } else {
-        animationsDiv.stop().delay('500').eq(this.fastMonth).show()
+        animationsDiv.stop().delay('1500').eq(this.fastMonth).show()
         	.sprite({
-        		fps: 5,
-        		no_of_frames: 7,
-        		start_at_frame: 1,
-        		play_frames: 6,
-        		on_last_frame: function(obj) {
-        			obj.spStop(true);
+        		fps: 10,
+        		no_of_frames: 19,
+        		start_at_frame: 0,
+        		play_frames: 14,
+        		on_frame: {
+        			13: function(obj) {
+        				obj.spStop();
+        			}
         		}
         	});
-        $('#fastQuips div').stop().delay('500').eq(this.fastMonth).fadeIn();
+        $('#fastQuips div').stop().delay('1500').eq(this.fastMonth).fadeIn();
     }
-    
     $('#startMonth, normalMonth, fastMonth').click(function(){
     	animationsDiv.spStart();
     });
   };
 
+/* Updated the way we display breaks - no longer needed
   flexible.positionBreakImage = function(animate) {
     var selected = this.$startMonth.find("option:selected");
     var curVal = selected.val();
@@ -131,10 +147,11 @@
       $('#breaks').css('backgroundPosition', updateBreak + 'px center');
     }
   };
+*/
 
   flexible.displayNormalTimeline = function() {
     $('#normal').addClass('currentEnd')
-    $('#normal-bg, #flag').animate({opacity: 1}, 500).removeClass('faded');
+    $('#normal-bg, #flag, #break4').animate({opacity: 1}, 500).removeClass('faded');
     $('#fast .bar').animate({height: '3px', bottom: '75px'}, 300);
     $('#animations').css({'margin-left': '359px', 'margin-top': '-132px'});
     this.loadMonthAssets();
@@ -142,9 +159,9 @@
 
   flexible.displayFastTimeline = function() {
     $('#normal').removeClass();
-    $('#normal-bg, #flag').animate({opacity: 0.35}, 500).addClass('faded');
+    $('#normal-bg, #flag, #break4').animate({opacity: 0.35}, 500).addClass('faded');
     $('#fast .bar').animate({height: '7px', bottom: '73px'}, 300);
-    $('#animations').css({'margin-left': '29px', 'margin-top': '-100px'});
+    $('#animations').css({'margin-left': '36px', 'margin-top': '-95px'});
     this.loadMonthAssets();
   }
 

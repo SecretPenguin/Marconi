@@ -3,9 +3,9 @@
 		<h2 id="flexible-tagline">Tagline: Flexible Scene</h2>
 		<div id="fast">
 			<select id="startMonth" class="selectOptions"></select>
-			<div id="break1"></div>
-			<div id="break2"></div>
-			<div id="break3"></div>
+			<div class="breaks" id="break1"></div>
+			<div class="breaks" id="break2"></div>
+			<div class="breaks" id="break3"></div>
 			<div class="endToggle">
 				<div class="toggleHover"></div>
 				<a id="fastMonth" href="javascript:void(0);"></a>
@@ -14,52 +14,53 @@
 		<div id="normal" class="currentEnd">
 			<div id="normal-bg"></div>
 			<div id="flag"></div>
+			<div class="breaks" id="break4"></div>
 			<div class="endToggle">
 				<div class="toggleHover"></div>
 				<a id="normalMonth" href="javascript:void(0);"></a>
 			</div>
 		</div>
 		<div id="animations">
-			<div id="January">January Animation!</div>
-			<div id="February">February Animation!</div>
-			<div id="March">March Animation!</div>
-			<div id="April">April Animation!</div>
-			<div id="May">May Animation!</div>
-			<div id="June">June Animation!</div>
-			<div id="July">July Animation!</div>
-			<div id="August">August Animation!</div>
-			<div id="September">September Animation!</div>
-			<div id="October">October Animation!</div>
-			<div id="November">November Animation!</div>
-			<div id="December">December Animation!</div>
+			<div id="January"></div>
+			<div id="February"></div>
+			<div id="March"></div>
+			<div id="April"></div>
+			<div id="May"></div>
+			<div id="June"></div>
+			<div id="July"></div>
+			<div id="August"></div>
+			<div id="September"></div>
+			<div id="October"></div>
+			<div id="November"></div>
+			<div id="December"></div>
 		</div>
 		<div id="fastQuips" class="quips">
-			<div>Placeholder text for the accelerated January Quip</div>
-			<div>Placeholder text for the accelerated February Quip</div>
-			<div>Placeholder text for the accelerated March Quip</div>
-			<div>Placeholder text for the accelerated April Quip</div>
-			<div>Placeholder text for the accelerated May Quip</div>
-			<div>Placeholder text for the accelerated June Quip</div>
-			<div>Placeholder text for the accelerated July Quip</div>
-			<div>Placeholder text for the accelerated August Quip</div>
-			<div>Placeholder text for the accelerated September Quip</div>
-			<div>Placeholder text for the accelerated October Quip</div>
-			<div>Placeholder text for the accelerated November Quip</div>
-			<div>Placeholder text for the accelerated December Quip</div>
+			<div class="quip1">Cheers! You sure worked hard. Cheers to a new year and a new degree!</div>
+			<div class="quip2">Phew! That was a lot of work. Look forward to saying 'be Mine' to that promotion!</div>
+			<div class="quip3">Well Done! March yourself across the stage and grab that hard-earned diploma!</div>
+			<div class="quip4">Congrats! All that hard work has earned you the best spring break there is: graduation!</div>
+			<div class="quip5">Yay! The long-awaited day is here! April showers bring... May graduates!</div>
+			<div class="quip6">Phew! Working hard has paid off - you'll have that new degree right in time for the official start of summer.</div>
+			<div class="quip7">Boom! You see those fireworks in the sky? Yep, those are for all of your hard work, graduate!</div>
+			<div class="quip8">Done! Congrats on all those all-nighters - you're finished!</div>
+			<div class="quip9">Hut Hut! Kick off the fall as a new graduate - all those long hours have paid off!</div>
+			<div class="quip10">It Paid Off! Just as the leaves are turning colors, you're turning one degree smarter!</div>
+			<div class="quip11">Finished! You'll be done in time to watch the ol' Thanksgiving parade with no thoughts of extra studying!</div>
+			<div class="quip12">Brr! Just as the temperature is dropping in degrees, you'll be gaining one!</div>
 		</div>
 		<div id="normalQuips" class="quips">
-			<div>Placeholder text for the January Quip</div>
-			<div>Placeholder text for the February Quip</div>
-			<div>Placeholder text for the March Quip</div>
-			<div>Placeholder text for the April Quip</div>
-			<div>Placeholder text for the May Quip</div>
-			<div>Placeholder text for the June Quip</div>
-			<div>Placeholder text for the July Quip</div>
-			<div>Placeholder text for the August Quip</div>
-			<div>Placeholder text for the September Quip</div>
-			<div>Placeholder text for the October Quip</div>
-			<div>Placeholder text for the November Quip</div>
-			<div>Placeholder text for the December Quip</div>
+			<div class="quip1">Yay! Happy New Degree!</div>
+			<div class="quip2">Nice Work! Your new degree can be your Valentine.</div>
+			<div class="quip3">Go You! March down that aisle to pick up your very own diploma!</div>
+			<div class="quip4">You Did It! What better way to spring into life than with a new degree?</div>
+			<div class="quip5">Hooray! April showers bring... May graduates!</div>
+			<div class="quip6">Congrats! Schooool's out for summer!</div>
+			<div class="quip7">Ooh Ahh! Enjoy those fireworks and enjoy that new degree!</div>
+			<div class="quip8">Yay! It's officially your day in the sun - happy graduation!</div>
+			<div class="quip9">Good Hustle! If there's ever a reason to be glad for all your hard work, it's that you're done with school in time for football season!</div>
+			<div class="quip10">Yep! Just when everyone else is going back to school, you'll be graduating in fall!</div>
+			<div class="quip11">Cheers! You're no turkey, you're finishing just in time for a celebratory dinner, pilgrim' style.</div>
+			<div class="quip12">Joy! Tis the season to graduate!</div>
 		</div>
 	</div>
 </div>

@@ -9,7 +9,7 @@
   position:relative;
   width:100%;
   top:0;
-  background:url(/images/flexible/texture.png) no-repeat center top;
+  background:url(/images/flexible/texture.jpg) no-repeat center top;
 }
 
 #flexible-tagline {
@@ -38,11 +38,13 @@
 	width:635px;
 	margin-left:-484px;
 	background:url(/images/flexible/left-path.png) no-repeat;
+	z-index:2;
 	}
 	
 #normal {
 	width:380px;
 	margin-left:103px;
+	z-index:1;
 	}
 	
 #normal-bg {
@@ -52,24 +54,6 @@
 	z-index:0;
 	background:url(/images/flexible/right-path.png) no-repeat;
 }
-	
-.bar {
-	background:#000;
-	height:3px;
-	width:100%;
-	position:absolute;
-	bottom:75px;
-	}
-	
-#breaks {
-	width:360px;
-	height:100px;
-	background:url(/images/flexible/breaks.jpg) repeat-x left center;
-	position:absolute;
-	bottom:100px;
-	left:180px;
-	border:1px dashed #000;
-	}
 		
 /* Dates */	
 .endToggle {
@@ -127,7 +111,8 @@
 /* Quips */
 
 .quips {
-	width:400px;
+	width:451px;
+	height:66px;
 	position:absolute;
 	top:50%;
 	margin-top:193px;
@@ -138,6 +123,107 @@
 	
 .quips > div {
 	display:none;
+	width:451px;
+	height:66px;
+	text-indent:-9999px;
+	display:block;
+	background:url(/images/flexible/quips.gif) no-repeat;
+	}
+	
+#fastQuips .quip1 {
+	background-position:left 0;
+	}
+	
+#fastQuips .quip2 {
+	background-position:left -66px;
+	}
+	
+#fastQuips .quip3 {
+	background-position:left -132px;
+	}
+	
+#fastQuips .quip4 {
+	background-position:left -198px;
+	}
+	
+#fastQuips .quip5 {
+	background-position:left -264px;
+	}
+	
+#fastQuips .quip6 {
+	background-position:left -330px;
+	}
+	
+#fastQuips .quip7 {
+	background-position:left -396px;
+	}
+	
+#fastQuips .quip8 {
+	background-position:left -462px;
+	}
+	
+#fastQuips .quip9 {
+	background-position:left -528px;
+	}
+	
+#fastQuips .quip10 {
+	background-position:left -594px;
+	}
+	
+#fastQuips .quip11 {
+	background-position:left -660px;
+	}
+	
+#fastQuips .quip12 {
+	background-position:left -726px;
+	}
+
+#normalQuips .quip1 {
+	background-position:right -0;
+	}
+	
+#normalQuips .quip2 {
+	background-position:right -66px;
+	}
+	
+#normalQuips .quip3 {
+	background-position:right -132px;
+	}
+	
+#normalQuips .quip4 {
+	background-position:right -198px;
+	}
+	
+#normalQuips .quip5 {
+	background-position:right -264px;
+	}
+	
+#normalQuips .quip6 {
+	background-position:right -330px;
+	}
+	
+#normalQuips .quip7 {
+	background-position:right -396px;
+	}
+	
+#normalQuips .quip8 {
+	background-position:right -462px;
+	}
+	
+#normalQuips .quip9 {
+	background-position:right -528px;
+	}
+	
+#normalQuips .quip10 {
+	background-position:right -594px;
+	}
+	
+#normalQuips .quip11 {
+	background-position:right -660px;
+	}
+	
+#normalQuips .quip12 {
+	background-position:right -726px;
 	}
 	
 /* Animations */
@@ -151,6 +237,7 @@
 	width:100px;
 	margin-left:359px;
 	text-align:center;
+	z-index:0;
 	}
 	
 #animations > div {
@@ -158,7 +245,7 @@
 	width:100px;
 	height:100px;
 	position:absolute;
-	background:url(/images/flexible/animation-test.gif) no-repeat;
+	background:url(/images/flexible/animation-july.gif) no-repeat;
 	color:#fff;
 	}
 	
@@ -214,3 +301,70 @@
 #flexible .sbOptions a:hover{
 	color: #fff;
 }
+
+/* Breaks */
+
+.breaks {
+	width:64px;
+	height:64px;
+	background:url(/images/flexible/breaks.gif) no-repeat;
+	position:absolute;
+	bottom:100px;
+	left:180px;
+	}
+	
+#break1 {
+	bottom:160px;
+	left:127px;
+	}
+	
+#break2 {
+	bottom:120px;
+	left:271px;
+	}
+	
+#break3 {
+	bottom:196px;
+	left:391px;
+	}
+	
+#break4 {
+	bottom:190px;
+	left:185px;
+	}
+	
+.breakJanuary, .breakDecember {
+	background-position:0 0;
+	}
+	
+.breakFebruary {
+	background-position:0 -64px;
+	}
+	
+.breakMarch, .breakApril {
+	background-position:0 -128px;
+	}
+	
+.breakMay {
+	background-position:0 -192px;
+	}
+	
+.breakJune, .breakJuly {
+	background-position:0 -256px;
+	}
+	
+.breakAugust {
+	background-position:0 -320px;
+	}
+	
+.breakSeptember {
+	background-position:0 -384px;
+	}
+	
+.breakOctober {
+	background-position:0 -448px;
+	}
+
+.breakNovember {
+	background-position:0 -512px;
+	}
