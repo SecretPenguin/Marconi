@@ -85,31 +85,40 @@
   bottom:0;
   text-indent:-9999px;
   float:left;
+  background:url(/images/mobile/mobileLinks.gif) no-repeat;
 }
 
-#showPhone {
-  background:url(/images/mobile/phoneLink.gif) no-repeat top;
+#switchboard #showPhone {
+  background-position:-233px top;
   width:49px;
   height:77px;
   left:0;
 }
 
-#showTablet {
-  background:url(/images/mobile/tabletLink.gif) no-repeat top;
+#switchboard #showPhone:hover, #switchboard #showPhone.current {
+  background-position:-233px bottom;
+}
+
+#switchboard #showTablet {
+  background-position:-132px top;
   width:101px;
   height:96px;
   left:89px;
 }
 
-#showDesktop {
-  background:url(/images/mobile/desktopLink.gif) no-repeat top;
+#switchboard #showTablet:hover, #switchboard #showTablet.current {
+  background-position:-132px bottom;
+}
+
+#switchboard #showDesktop {
+  background-position:0 top;
   width:132px;
   height:122px;
   right:0;
 }
 
-#switchboard a:hover, #switchboard .current {
-  background-position:bottom;
+#switchboard #showDesktop:hover, #switchboard #showDesktop.current {
+  background-position:0 bottom;
 }
 
 /* Full Screen Images */

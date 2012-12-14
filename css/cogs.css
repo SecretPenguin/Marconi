@@ -32,21 +32,21 @@
 .cogS {
   width:190px;
   height:190px;
-  background:url(/images/cogs/cog-s.png) no-repeat;
+  background:url(/images/cogs/cog-sprite.png) no-repeat -681px -190px;
 }
 
 .cogS.altCog {
-  background:url(/images/cogs/cog-s-alt.png) no-repeat;
+  background:url(/images/cogs/cog-sprite.png) no-repeat -681px 0;
 }
 
 .cogM {
   width:340px;
   height:340px;
-  background:url(/images/cogs/cog-m.png) no-repeat;
+  background:url(/images/cogs/cog-sprite.png) no-repeat -341px 0;
 }
 
 .cogM.altCog {
-  background:url(/images/cogs/cog-m-alt.png) no-repeat;
+  background:url(/images/cogs/cog-sprite.png) no-repeat 0 0;
 }
 
 .rev, .norm {
@@ -131,13 +131,13 @@
 .inside-s {
   width:190px;
   height:190px;
-  background:url(/images/cogs/small-inside.png) no-repeat center;
+  background:url(/images/cogs/cog-sprite.png) no-repeat 0 -380px;
 }
 
 .inside-m {
   width:340px;
   height:340px;
-  background:url(/images/cogs/medium-inside.png) no-repeat center;
+  background:url(/images/cogs/cog-sprite.png) no-repeat -872px 0;
 }
 
 #cogText1, #cogText2, #cogText3, #cogText8 {
@@ -147,7 +147,7 @@
 #cogText1 {
   width:65px;
   height:50px;
-  background:url(/images/cogs/from.png) no-repeat;
+  background:url(/images/cogs/cog-sprite.png) no-repeat -731px -456px;
   left:63px;
   top:66px;
 }
@@ -155,7 +155,7 @@
 #cogText2 {
   width:191px;
   height:107px;
-  background:url(/images/cogs/first.png) no-repeat;
+  background:url(/images/cogs/cog-sprite.png) no-repeat -274px -456px;
   left:73px;
   top:124px;
 }
@@ -163,7 +163,7 @@
 #cogText3 {
   width:186px;
   height:108px;
-  background:url(/images/cogs/last-dash.png) no-repeat;
+  background:url(/images/cogs/cog-sprite.png) no-repeat -465px -456px;
   left:75px;
   top:120px;
 }
@@ -171,7 +171,7 @@
 #cogText8 {
   width:80px;
   height:78px;
-  background:url(/images/cogs/makes-sense.png) no-repeat;
+  background:url(/images/cogs/cog-sprite.png) no-repeat -651px -456px;
   left:53px;
   top:57px;
 }
@@ -191,7 +191,7 @@
   width:683px;
   text-indent:-9999px;
   display:block;
-  background:url(/images/cogs/cog-tagline.png) no-repeat;
+  background:url(/images/cogs/cog-sprite.png) no-repeat -274px -380px;
 }
 
 /* Play */
@@ -210,7 +210,7 @@
 #play-cog {
   width:35px;
   height:35px;
-  background:url(/images/cogs/play-cog.png) no-repeat;
+  background:url(/images/cogs/cog-sprite.png) no-repeat -796px -456px;
   position:absolute;
   top:0;
   left:0;
@@ -219,7 +219,7 @@
 #cogs .play a {
   width:35px;
   height:35px;
-  background:url(/images/cogs/cog-play.png) no-repeat 7px 8px;
+  background:url(/images/cogs/cog-sprite.png) no-repeat -830px -456px;
   text-indent:-9999px;
   display:block;
 }
