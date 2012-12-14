@@ -9,6 +9,7 @@
 /js/vendor/jquery.infieldlabel.js
 /js/vendor/jquery.selectbox-0.2.js
 /js/vendor/jquery.validate.js
+/js/vendor/jquery.spritely-0.6.1.js
 /js/m.js
 /js/share_bar.js
 /js/scene.js
