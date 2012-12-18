@@ -148,6 +148,7 @@
 	border:1px solid #383636;
 	border-radius:10px;
 	resize:none;
+	overflow:hidden;
 }
 
 #social-screen textarea:focus {
