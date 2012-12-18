@@ -24,7 +24,10 @@ if (isset($_GET["scene"])) {
   <![endif]-->
 </head>
 <body>
-
+  <div id="corner">
+  	<a id="learn-more" href="#" title="Learn More">Learn More</a>
+  	<a id="contact-us" href="#enroll" title="Contact Us">Contact Us</a>
+  </div>
   <?php
   foreach ($scenes as $scene) {
     include("scenes/$scene.php");
