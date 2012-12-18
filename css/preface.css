@@ -39,18 +39,27 @@
   margin-left:-273px;
 }
 
-#logo {
-  width:157px;
-  height:47px;
+#logo, #logo a {
+  width:188px;
+  height:56px;
   text-indent:-9999px;
   display:block;
-  background:url(/images/preface/bellevue-logo.png) no-repeat;
+  background:url(/images/preface/bellevue-logo.png) no-repeat top;
   position:absolute;
   left:50%;
   top:50%;
-  margin-left:-78px;
-  margin-top:-250px;
+  margin-left:-94px;
+  margin-top:-263px;
 }
+
+#logo a {
+	background-position:bottom;
+	position:absolute;
+	left:0;
+	top:0;
+	margin:0;
+	opacity:0;
+	}
 
 #slider {
 	width:960px;
@@ -180,13 +189,29 @@
 }
 
 h1 {
-	height:60px;
-	font-size:60px;
-	line-height:60px;
-	text-align:center;
+	width:960px;
+	height:834px;
 	position:absolute;
+	left:50%;
+	margin-left:-480px;
 	top:50%;
-	margin-top:-30px;
-	width:100%;
+	margin-top:-132px;
 	opacity:0;
+	background:url(/images/preface/logo.gif) no-repeat;
+	text-indent:-9999px;
+	display:block;
 }
+
+#introduces {
+	width:228px;
+	height:32px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-114px;
+	margin-top:-193px;
+	text-indent:-9999px;
+	display:block;
+	background:url(/images/preface/introduces.gif) no-repeat;
+	opacity:0;
+	}

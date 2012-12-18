@@ -1,9 +1,9 @@
 <div id="preface">
 	<div id="preface-screen">
 		<div id="purpleBG"></div>
+		
 		<div id="intro">
 			<div id="preface-texture"></div>
-			<div id="logo">Bellevue University</div>
 			<div id="slider">
 				<p id="preface-tagline-1">Are you ready for a new way to learn?</p>
 				<p id="preface-tagline-2">Does your present stand in the way of your future?</p>
@@ -18,6 +18,10 @@
 			</ul>
 		</div>
 		<div id="scrollDown">Scroll Down</div>
-		<h1>Title + Logo</h1>
+		<div id="logo">
+			<a href="#" title="">Bellevue University</a>
+		</div>
+		<div id="introduces">Introduces</div>
+		<h1>Flexxive - The New Learning Experience</h1>
 	</div>
 </div>
