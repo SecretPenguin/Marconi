@@ -79,7 +79,7 @@
     }).mouseleave(function(){
       $('#flag.faded').stop().animate({'opacity': .35}, 250);
     });
-
+	
     this.loadMonthAssets();
     // this.positionBreakImage(true);
   };
@@ -87,42 +87,38 @@
   flexible.loadMonthAssets = function() {
     // animate in the new end months
     var animationsDiv = $('#animations div');
-
-    animationsDiv.hide();
+    
+    // exit animation (should probably move this - just testing)
+    // previously simply hid all animations before triggering new one
+    $('.activeAnimation').stop().sprite({
+        		fps: 10,
+        		no_of_frames: 19,
+        		start_at_frame: 13, // this doesn't seem to affect anything once it's already been set
+        		play_frames: 6
+			}).delay(500).hide().removeClass();
     
     $('.quips div').hide();
 
     if ($('#normal').hasClass('currentEnd')) {
-        animationsDiv.stop().delay('500').eq(this.normalMonth).show()
+        animationsDiv.stop().delay('500').eq(this.normalMonth).addClass('activeAnimation').show()
         	.sprite({
         		fps: 10,
         		no_of_frames: 19,
-        		start_at_frame: 0,
-        		play_frames: 14,
-        		on_frame: {
-        			13: function(obj) {
-        				obj.spStop();
-        			}
-        		}
+        		start_at_frame: 1,
+        		play_frames: 13
         	});
         $('#normalQuips div').stop().delay('1500').eq(this.normalMonth).fadeIn();
     } else {
-        animationsDiv.stop().delay('1500').eq(this.fastMonth).show()
+        animationsDiv.stop().delay('500').eq(this.fastMonth).addClass('activeAnimation').show()
         	.sprite({
         		fps: 10,
         		no_of_frames: 19,
-        		start_at_frame: 0,
-        		play_frames: 14,
-        		on_frame: {
-        			13: function(obj) {
-        				obj.spStop();
-        			}
-        		}
+        		start_at_frame: 1,
+        		play_frames: 13
         	});
         $('#fastQuips div').stop().delay('1500').eq(this.fastMonth).fadeIn();
     }
     $('#startMonth, normalMonth, fastMonth').click(function(){
-    	animationsDiv.spStart();
     });
   };
 
@@ -151,7 +147,7 @@
 
   flexible.displayNormalTimeline = function() {
     $('#normal').addClass('currentEnd')
-    $('#normal-bg, #flag, #break4').animate({opacity: 1}, 500).removeClass('faded');
+	$('#normal-bg, #flag, #break4').animate({opacity: 1}, 500).removeClass('faded');
     $('#fast .bar').animate({height: '3px', bottom: '75px'}, 300);
     $('#animations').css({'margin-left': '359px', 'margin-top': '-132px'});
     this.loadMonthAssets();
