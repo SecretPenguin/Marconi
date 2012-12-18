@@ -336,3 +336,30 @@ body {
 .share-site .twitter {
 	left:237px;
 }
+
+
+/* Overlay for site width warning */
+
+#warning {
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:#000;
+	color:#fff;
+	z-index:500;
+	display:none;
+}
+
+@media only screen and (max-width: 960px){
+
+#warning {
+	display:block;
+}
+
+body {
+	overflow:hidden;
+}
+
+}

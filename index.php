@@ -34,6 +34,9 @@ if (isset($_GET["scene"])) {
     include("share_bar.php");
   }
   ?>
+  <div id="warning">
+    Warn user about viewport width and offer a bear hug or alternate version.
+  </div>
 
   <?php if (is_dev_mode()): ?>
   <script src="/js/vendor/jquery.js"></script>
