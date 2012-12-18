@@ -204,7 +204,7 @@
 }
 
 #cogs .play p {
-  position:relative;
+  position:absolute;
 }
 
 #play-cog {
