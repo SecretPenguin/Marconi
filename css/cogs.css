@@ -64,6 +64,8 @@
   position:absolute;
   width:100%;
   left:0;
+  margin:0;
+  padding:0;
 }
 
 #cog1, #cog1-inside {
@@ -205,6 +207,7 @@
 
 #cogs .play p {
   position:absolute;
+  top:0;
 }
 
 #play-cog {
