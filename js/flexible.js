@@ -1,12 +1,29 @@
 (function($) {
   var flexible = new Scene("flexible", 400);
 
+  function MonthName(long, short) {
+    this.long = long;
+    this.short = short;
+  };
+
+  var monthNames = [
+    new MonthName("January",   "JAN"),
+    new MonthName("February",  "FEB"),
+    new MonthName("March",     "MAR"),
+    new MonthName("April",     "APR"),
+    new MonthName("May",       "MAY"),
+    new MonthName("June",      "JUN"),
+    new MonthName("July",      "JUL"),
+    new MonthName("August",    "AUG"),
+    new MonthName("September", "SEP"),
+    new MonthName("October",   "OCT"),
+    new MonthName("November",  "NOV"),
+    new MonthName("December",  "DEC")
+  ];
+
   flexible.init = function() {
-    this.monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'];
-    this.monthNamesShort = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
-    'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     this.months = [];
+    this.selectedMonth;
     this.normalMonth;
     this.fastMonth;
     this.$startMonth = $('#startMonth');
@@ -35,41 +52,36 @@
   };
 
   flexible.initMonthSelect = function() {
-    var monthNames = this.monthNames;
-
     var options = $.map(this.months, function(value, key) {
-      return '<option value="'+value+'">'+ monthNames[value] +'</option>';
+      return '<option value="'+value+'">'+ monthNames[value].long +'</option>';
     }).join("");
 
     this.$startMonth.html(options);
   };
 
-  flexible.loadMonths = function() {
-    var selectedMonth = $('#startMonth option:selected').index();
+  flexible.selectedMonthPlus = function(offset) {
+    return (this.selectedMonth + offset) % 12;
+  };
 
-    function selectedMonthPlus(offset) {
-      return (selectedMonth + offset) % 12;
-    };
+  flexible.monthFromSelected = function(offset) {
+    var adjustedOffset = (this.selectedMonth + offset) % 12;
+    return this.months[adjustedOffset];
+  }
+
+  flexible.loadMonths = function() {
+    this.selectedMonth = parseInt(this.$startMonth.val(), 10);
 
     // Set accelerated program's end month
-    this.fastMonth = this.months[selectedMonthPlus(5)];
+    this.fastMonth = this.monthFromSelected(5);
     // Set normal program's end month
-    this.normalMonth = this.months[selectedMonthPlus(11)];
+    this.normalMonth = this.monthFromSelected(11);
 
     // display end months
-    this.$fastMonth.html(this.monthNamesShort[this.fastMonth]);
-    this.$normalMonth.html(this.monthNamesShort[this.normalMonth]);
+    this.$fastMonth.html(monthNames[this.fastMonth].short);
+    this.$normalMonth.html(monthNames[this.normalMonth].short);
 
     // set breaks
-    $('.breaks').attr('class', 'breaks'); // Reset months
-    var break1month = this.monthNames[this.months[selectedMonthPlus(2)]];
-    $('#break1').addClass('break'+break1month);
-    var break2month = this.monthNames[this.months[selectedMonthPlus(5)]];
-    $('#break2').addClass('break'+break2month);
-    var break3month = this.monthNames[this.months[selectedMonth]];
-    $('#break3').addClass('break'+break3month);
-    var break4month = this.monthNames[this.months[selectedMonthPlus(9)]];
-    $('#break4').addClass('break'+break4month);
+    this.setBreaks();
 
     // toggle months
     $('.endToggle a').mouseenter(function(){
@@ -86,6 +98,22 @@
     });
 
     this.loadMonthAssets();
+  };
+
+  flexible.setBreaks = function() {
+    $('.breaks').attr('class', 'breaks'); // Reset months
+
+    var break1month = monthNames[this.monthFromSelected(2)].long;
+    $('#break1').addClass('break'+break1month);
+
+    var break2month = monthNames[this.monthFromSelected(5)].long;
+    $('#break2').addClass('break'+break2month);
+
+    var break3month = monthNames[this.selectedMonth].long;
+    $('#break3').addClass('break'+break3month);
+
+    var break4month = monthNames[this.monthFromSelected(9)].long;
+    $('#break4').addClass('break'+break4month);
   };
 
   flexible.loadMonthAssets = function() {
