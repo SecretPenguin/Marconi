@@ -21,18 +21,18 @@
 			</div>
 		</div>
 		<div id="animations">
-			<div id="January"></div>
-			<div id="February"></div>
-			<div id="March"></div>
-			<div id="April"></div>
-			<div id="May"></div>
-			<div id="June"></div>
-			<div id="July"></div>
-			<div id="August"></div>
-			<div id="September"></div>
-			<div id="October"></div>
-			<div id="November"></div>
-			<div id="December"></div>
+			<div id="January"   style="background-position: 0px 0px;"></div>
+			<div id="February"  style="background-position: 0px -100px;"></div>
+			<div id="March"     style="background-position: 0px -200px;"></div>
+			<div id="April"     style="background-position: 0px -300px;"></div>
+			<div id="May"       style="background-position: 0px -400px;"></div>
+			<div id="June"      style="background-position: 0px -500px;"></div>
+			<div id="July"      style="background-position: 0px -600px;"></div>
+			<div id="August"    style="background-position: 0px -700px;"></div>
+			<div id="September" style="background-position: 0px -800px;"></div>
+			<div id="October"   style="background-position: 0px -900px;"></div>
+			<div id="November"  style="background-position: 0px -1000px;"></div>
+			<div id="December"  style="background-position: 0px -1100px;"></div>
 		</div>
 		<div id="fastQuips" class="quips">
 			<div class="quip1">Cheers! You sure worked hard. Cheers to a new year and a new degree!</div>

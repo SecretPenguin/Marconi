@@ -247,20 +247,7 @@
 	position:absolute;
 	color:#fff;
 	background-image: url(/images/flexible/animations.png);
-	}
-
-#January   { background-position: 0px 0px; }
-#February  { background-position: 0px -100px; }
-#March     { background-position: 0px -200px; }
-#April     { background-position: 0px -300px; }
-#May       { background-position: 0px -400px; }
-#June      { background-position: 0px -500px; }
-#July      { background-position: 0px -600px; }
-#August    { background-position: 0px -700px; }
-#September { background-position: 0px -800px; }
-#October   { background-position: 0px -900px; }
-#November  { background-position: 0px -1000px; }
-#December  { background-position: 0px -1100px; }
+}
 
 /* Selectbox Styles */
 #flexible .sbHolder{
