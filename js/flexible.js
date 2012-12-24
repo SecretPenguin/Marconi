@@ -23,6 +23,7 @@
 
   flexible.init = function() {
     this.months = [];
+    this.sceneStarted = false;
     this.selectedMonth;
     this.selectedTimeline = "normal";
     this.normalMonth;
@@ -38,7 +39,6 @@
 
     this.initMonthsArray();
     this.initMonthSelect();
-    this.loadMonths();
 
     $(".selectOptions").selectbox();
   };
@@ -175,6 +175,11 @@
 
   flexible.onScroll = function(event) {
     this.conditionallyFixateScene();
+
+    if (!this.sceneStarted && this.isFixated()) {
+      this.sceneStarted = true;
+      this.loadMonths();
+    }
   };
 
   this.M.register(flexible);
