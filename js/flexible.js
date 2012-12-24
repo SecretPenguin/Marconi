@@ -24,6 +24,7 @@
   flexible.init = function() {
     this.months = [];
     this.selectedMonth;
+    this.selectedTimeline = "normal";
     this.normalMonth;
     this.fastMonth;
     this.$startMonth = $('#startMonth');
@@ -97,7 +98,7 @@
       $('#flag.faded').stop().animate({'opacity': .35}, 250);
     });
 
-    this.loadMonthAssets();
+    this.animateMonths();
   };
 
   flexible.setBreaks = function() {
@@ -116,56 +117,60 @@
     $('#break4').addClass('break'+break4month);
   };
 
-  flexible.loadMonthAssets = function() {
-    // animate in the new end months
-    var animationsDiv = $('#animations div');
+  flexible.animateMonths = function() {
+    // hide stuff that may be active
+    $(".quips div").hide();
+    $(".activeAnimation").removeClass().hide();
 
-    // exit animation (should probably move this - just testing)
-    // previously simply hid all animations before triggering new one
-    $('.activeAnimation').stop().sprite({
-      fps: 10,
-      no_of_frames: 19,
-      start_at_frame: 13, // this doesn't seem to affect anything once it's already been set
-      play_frames: 6
-    }).delay(500).hide().removeClass();
-
-    $('.quips div').hide();
-
-    if ($('#normal').hasClass('currentEnd')) {
-      animationsDiv.stop().delay('500').eq(this.normalMonth).addClass('activeAnimation').show()
-        .sprite({
-          fps: 10,
-          no_of_frames: 19,
-          start_at_frame: 1,
-          play_frames: 13
-        });
-      $('#normalQuips div').stop().delay('1500').eq(this.normalMonth).fadeIn();
+    if (this.selectedTimeline === "normal") {
+      var activeMonth = this.normalMonth;
+      var $activeQuips = $("#normalQuips div");
     } else {
-      animationsDiv.stop().delay('500').eq(this.fastMonth).addClass('activeAnimation').show()
-        .sprite({
-          fps: 10,
-          no_of_frames: 19,
-          start_at_frame: 1,
-          play_frames: 13
-        });
-      $('#fastQuips div').stop().delay('1500').eq(this.fastMonth).fadeIn();
+      var activeMonth = this.fastMonth;
+      var $activeQuips = $("#fastQuips div");
     }
+
+    $("#animations div")
+      .stop()
+      .delay("500")
+      .eq(activeMonth)
+        .addClass("activeAnimation")
+        .show()
+        .spriteIn();
+
+    $activeQuips.stop().delay('1500').eq(activeMonth).fadeIn();
   };
 
   flexible.displayNormalTimeline = function() {
+    if (this.selectedTimeline === "normal") {
+      $(".activeAnimation").spriteOutAndBackIn();
+      return false;
+    }
+
+    this.selectedTimeline = "normal";
+
     $('#normal').addClass('currentEnd');
     $('#normal-bg, #flag, #break4').animate({opacity: 1}, 500).removeClass('faded');
     $('#fast .bar').animate({height: '3px', bottom: '75px'}, 300);
     $('#animations').css({'margin-left': '359px', 'margin-top': '-132px'});
-    this.loadMonthAssets();
+
+    this.animateMonths();
   };
 
   flexible.displayFastTimeline = function() {
+    if (this.selectedTimeline === "fast") {
+      $(".activeAnimation").spriteOutAndBackIn();
+      return false;
+    }
+
+    this.selectedTimeline = "fast";
+
     $('#normal').removeClass();
     $('#normal-bg, #flag, #break4').animate({opacity: 0.35}, 500).addClass('faded');
     $('#fast .bar').animate({height: '7px', bottom: '73px'}, 300);
     $('#animations').css({'margin-left': '36px', 'margin-top': '-95px'});
-    this.loadMonthAssets();
+
+    this.animateMonths();
   }
 
   flexible.onScroll = function(event) {
