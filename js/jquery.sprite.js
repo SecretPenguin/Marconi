@@ -1,6 +1,10 @@
 (function($, undefined) {
   var getBgY = function($el) {
-    return ($el.css("background-position") || " ").split(" ")[1];
+    if ($.browser.msie) {
+      return $el.css("background-position-y") || "0";
+    } else {
+      return ($el.css("background-position") || " ").split(" ")[1];
+    }
   }
 
   $.fn.extend({
