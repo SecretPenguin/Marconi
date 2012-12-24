@@ -28,6 +28,7 @@ function process_js() {
 
 function copy_extras() {
   cp js/vendor/ZeroClipboard.swf build/js/vendor/
+  cp -r fonts build/fonts
 }
 
 function combine_js() {
