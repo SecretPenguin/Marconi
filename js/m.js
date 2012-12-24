@@ -12,6 +12,7 @@
     screenHeight: null,
     screenTop: null,
     screenBottom: null,
+    startingSlide: Math.floor(Math.random()*4),
 
     init: function() {
       $.preloadCssImages();

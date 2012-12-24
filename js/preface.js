@@ -15,8 +15,8 @@
 
   preface.onScroll = function(event) {
     this.conditionallyFixateScene();
-    
-    
+
+
     if (this.distance <= 500) {
       this.$scroll.delay('5000').queue(function() {
         $(this).addClass('showScroll');
@@ -33,7 +33,7 @@
     } else if (this.distance > 900) {
       this.$intro.css('opacity', 0).hide();
     }
-    
+
     if (this.distance <= 500) {
       this.$purpleBG.css('opacity', 1);
       this.$preface.css('background-color', '#1c1422');
@@ -58,20 +58,25 @@
   };
 
   preface.startSlider = function() {
+    this.startingSlide = M.startingSlide || 0;
+
     this.$slider.cycle({
       fx:'fade',
       speedOut: 300,
       speedIn: 1100,
       timeout:0,
       next: '#intro p',
-      startingSlide: Math.floor(Math.random()*4),
+      startingSlide: this.startingSlide,
       cleartypeNoBg: true,
       pager: '#slider-nav',
       pagerAnchorBuilder: function paginate(idx, el) {
 			return '#slider-nav li:eq(' + idx + ') a';
-			}
+			},
+      after: function(currSlideElement, nextSlideElement, options) {
+        $(document).trigger("preface.switch", options.currSlide);
+      }
     });
   };
-  
+
   this.M.register(preface);
 })(jQuery);

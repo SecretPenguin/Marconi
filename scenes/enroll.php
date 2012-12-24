@@ -3,12 +3,15 @@
 
 <div id="enroll">
   <div id="enroll-screen">
-    
+
   </div>
   <div id="call-to-action">
     <div id="forms">
       <div id="enroll-slider">
         <p id="enroll-tagline-1">Get Ready for a New Way to Learn</p>
+        <p id="enroll-tagline-2">Don't let your present stand in the way of your future</p>
+        <p id="enroll-tagline-3">There shouldn't be anything stopping you from getting your degree</p>
+        <p id="enroll-tagline-4">Get the degree that gives you real skills without the hassles</p>
       </div>
       <div id="request-info">
         <div class="form-top"></div>
