@@ -246,56 +246,22 @@
 	height:100px;
 	position:absolute;
 	color:#fff;
-	}
-	
-#January {
-	background:url(/images/flexible/animation-january.gif) no-repeat;
-	}
-	
-#February {
-	background:url(/images/flexible/animation-february.gif) no-repeat;
-	}
-	
-#March {
-	background:url(/images/flexible/animation-march.gif) no-repeat;
-	}
-	
-#April {
-	background:url(/images/flexible/animation-april.gif) no-repeat;
+	background-image: url(/images/flexible/animations.png);
 	}
 
-#May {
-	background:url(/images/flexible/animation-may.gif) no-repeat;
-	}
-	
-#June {
-	background:url(/images/flexible/animation-june.gif) no-repeat;
-	}
+#January   { background-position: 0px 0px; }
+#February  { background-position: 0px -100px; }
+#March     { background-position: 0px -200px; }
+#April     { background-position: 0px -300px; }
+#May       { background-position: 0px -400px; }
+#June      { background-position: 0px -500px; }
+#July      { background-position: 0px -600px; }
+#August    { background-position: 0px -700px; }
+#September { background-position: 0px -800px; }
+#October   { background-position: 0px -900px; }
+#November  { background-position: 0px -1000px; }
+#December  { background-position: 0px -1100px; }
 
-#July {
-	background:url(/images/flexible/animation-july.gif) no-repeat;
-	}
-	
-#August {
-	background:url(/images/flexible/animation-august.gif) no-repeat;
-	}
-
-#September {
-	background:url(/images/flexible/animation-september.gif) no-repeat;
-	}
-	
-#October {
-	background:url(/images/flexible/animation-october.gif) no-repeat;
-	}
-
-#November {
-	background:url(/images/flexible/animation-november.gif) no-repeat;
-	}
-	
-#December {
-	background:url(/images/flexible/animation-december.gif) no-repeat;
-	}
-	
 /* Selectbox Styles */
 #flexible .sbHolder{
 	font-weight: bold;
