@@ -73,12 +73,10 @@
 
       return this;
     },
-    spriteOutAndBackIn: function(delay) {
+    spriteOutAndBackIn: function() {
       var $self = $(this);
       $self.spriteOut(function($el) {
-        setTimeout(function() {
-          $el.spriteIn();
-        }, (delay || 500));
+        $el.spriteIn();
       });
     }
   });
