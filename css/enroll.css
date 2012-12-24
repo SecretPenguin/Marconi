@@ -37,19 +37,19 @@
 }
 
 #enroll-tagline-1 {
-	background:url(/images/enroll/tagline-1.gif) no-repeat;
+	background:url(/images/enroll/enroll-taglines.gif) 0px 0px no-repeat;
 }
 
 #enroll-tagline-2 {
-	background:url(/images/enroll/tagline-2.gif) no-repeat;
+	background:url(/images/enroll/enroll-taglines.gif) 0px -97px no-repeat;
 }
 
 #enroll-tagline-3 {
-	background:url(/images/enroll/tagline-3.gif) no-repeat;
+	background:url(/images/enroll/enroll-taglines.gif) 0px -194px no-repeat;
 }
 
 #enroll-tagline-4 {
-	background:url(/images/enroll/tagline-4.gif) no-repeat;
+	background:url(/images/enroll/enroll-taglines.gif) 0px -291px no-repeat;
 }
 
 #request-info, #show-interest {
@@ -217,7 +217,7 @@
 	text-decoration:none;
 	background:none;
 	}
-	
+
 .sbHolder li {
 	line-height:31px;
 	height:33px;
