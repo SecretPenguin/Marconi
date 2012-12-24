@@ -82,19 +82,19 @@
 }
 
 #preface-tagline-1 {
-  background:url(/images/preface/preface-tagline-1.png) no-repeat;
+  background: url(/images/preface/preface-tagline.png) 0px 0px no-repeat;
 }
 
 #preface-tagline-2 {
-  background:url(/images/preface/preface-tagline-2.png) no-repeat;
+  background:url(/images/preface/preface-tagline.png) -960px 0px no-repeat;
 }
 
 #preface-tagline-3 {
-  background:url(/images/preface/preface-tagline-3.png) no-repeat;
+  background:url(/images/preface/preface-tagline.png) -1920px 0px no-repeat;
 }
 
 #preface-tagline-4 {
-  background:url(/images/preface/preface-tagline-4.png) no-repeat;
+  background:url(/images/preface/preface-tagline.png) -2880px 0px no-repeat;
 }
 
 #slider-nav {
@@ -103,14 +103,14 @@
   top:50%;
   margin-top:181px;
   margin-left:-42px;
-  z-index:100;	
+  z-index:100;
 }
 
 #slider-nav li {
   float:left;
   padding:0 4px;
 }
-	
+
 #slider-nav li a {
   width:13px;
   height:13px;
