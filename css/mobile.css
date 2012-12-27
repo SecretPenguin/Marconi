@@ -45,20 +45,20 @@
 #phone {
   width:269px;
   left:-135px;
-  background:url(/images/mobile/phone.png) no-repeat;
+  background: url(/images/mobile/devices.png) no-repeat 0px 0px;
 }
 
 #tablet {
   width:789px;
   left:-395px;
-  background:url(/images/mobile/tablet.png) no-repeat;
+  background: url(/images/mobile/devices.png) no-repeat -1258px 0px;
   top:231px;
 }
 
 #desktop {
   width:989px;
   left:-495px;
-  background:url(/images/mobile/desktop.png) no-repeat;
+  background: url(/images/mobile/devices.png) no-repeat -269px 0px;
   top:231px;
 }
 
