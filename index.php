@@ -23,6 +23,11 @@ if (isset($_GET["scene"])) {
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  <!--[if lte IE 7]>
+    <style type="text/css">
+      #warning { display: block; }
+    </style>
+  <![endif]-->
 </head>
 <body>
   <div id="corner">
