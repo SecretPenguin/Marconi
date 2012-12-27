@@ -14,12 +14,38 @@ $share_url = root_url() . "/#" . $scene;
         <a class="share-copy-button" href="#">Copy</a>
         <p class="copy-confirm">Copied!</p>
       </div>
-      <div class="facebook">facebook</div>
-      <div class="twitter">twitter</div>
+      <div class="social-container">
+        <ul class="socialcount" data-url="<?php echo $share_url; ?>">
+          <li class="facebook">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $share_url; ?>" title="Share on Facebook">
+              <span class="count">Like</span>
+            </a>
+          </li>
+
+          <li class="twitter">
+            <a href="https://twitter.com/intent/tweet?text=TODO need some copy here" title="Share on Twitter">
+              <span class="count">Tweet</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="share-site">
-      <div class="facebook">facebook</div>
-      <div class="twitter">twitter</div>
+      <div class="social-container">
+        <ul class="socialcount" data-url="<?php echo root_url(); ?>">
+          <li class="facebook">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo root_url(); ?>" title="Share on Facebook">
+              <span class="count">Like</span>
+            </a>
+          </li>
+
+          <li class="twitter">
+            <a href="https://twitter.com/intent/tweet?text=TODO need some copy here" title="Share on Twitter">
+              <span class="count">Tweet</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

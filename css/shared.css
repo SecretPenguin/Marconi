@@ -315,28 +315,19 @@ body {
 	z-index:0;
 }
 
-.facebook, .twitter {
+.social-container {
 	position:absolute;
-	top:42px;
-	width:106px;
+	top:37px;
+	width:212px;
 }
 
-.share-section .facebook {
+.share-section .social-container {
 	left:374px;
 }
 
-.share-section .twitter {
-	left:480px;
-}
-
-.share-site .facebook {
+.share-site .social-container {
 	left:131px;
 }
-
-.share-site .twitter {
-	left:237px;
-}
-
 
 /* Overlay for site width warning */
 

@@ -12,6 +12,7 @@ if (isset($_GET["scene"])) {
 <head>
   <meta charset="utf-8">
   <?php if (is_dev_mode()): ?>
+  <link rel="stylesheet" href="/css/vendor/socialcount.css" />
     <link rel="stylesheet" href="/css/shared.css" />
     <?php foreach ($scenes as $scene) { ?>
       <link rel="stylesheet" href="/css/<?php echo $scene; ?>.css" />
@@ -50,6 +51,7 @@ if (isset($_GET["scene"])) {
   <script src="/js/vendor/jquery.infieldlabel.js"></script>
   <script src="/js/vendor/jquery.validate.js"></script>
   <script src="/js/vendor/jquery.selectbox-0.2.js"></script>
+  <script src="/js/vendor/socialcount.js"></script>
   <script src="/js/jquery.sprite.js"></script>
   <script src="/js/m.js"></script>
   <script src="/js/share_bar.js"></script>
