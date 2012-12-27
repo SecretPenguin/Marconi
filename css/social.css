@@ -18,18 +18,18 @@
 	top:46px;
 	margin-left:50%;
 	left:-142px;
-	background:url(/images/social/social-tagline.png) no-repeat;
+	background:url(/images/social/social-sprite.png) no-repeat -975px 0px;
 	text-indent:-9999px;
 	display:block;
 	}
-	
+
 #social p, .username, #social-screen textarea {
 	font-family:Ubuntu Regular, Arial, "Helvetica Neue", Helvetica, sans-serif;
 	font-size:17px;
 	color:#706e6e;
 	line-height:24px;
 	}
-	
+
 .username {
 	font-size:13px;
 	font-weight:bold;
@@ -37,51 +37,62 @@
 	margin:0 0 5px;
 	text-transform:uppercase;
 	}
-	
+
 .username span {
 	font-weight:normal;
 	font-style:italic;
 	text-transform:none;
 	}
-	
-.user-message {
-	background:url(/images/social/icon-cat.jpg) no-repeat right top;
-	}
-	
-.dog {
-	background:url(/images/social/icon-dog.jpg) no-repeat left top;
-	}
-	
-.bird {
-	background:url(/images/social/icon-bird.jpg) no-repeat left top;
-	}
-	
+
+.user-message:before, .dog:before, .bird:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 89px;
+	height: 89px;
+}
+
+.user-message:before {
+	right: 0;
+	background:url(/images/social/social-sprite.png) no-repeat -797px 0px;
+}
+
+.dog:before {
+	left: 0;
+	background:url(/images/social/social-sprite.png) no-repeat -708px 0px;
+}
+
+.bird:before {
+	left: 0;
+	background:url(/images/social/social-sprite.png) no-repeat -886px 0px;
+}
+
 .point {
 	width:10px;
 	height:12px;
 	position:absolute;
 	top:39px;
 	}
-	
+
 .left .point {
 	left:-10px;
-	background:url(/images/social/left-point.gif) no-repeat;
+	background:url(/images/social/social-sprite.png) no-repeat -500px -98px;
 	}
-	
+
 .user-message .point {
 	right:-10px;
-	background:url(/images/social/right-point.gif) no-repeat;
+	background:url(/images/social/social-sprite.png) no-repeat -490px -98px;
 	}
-	
+
 .bubble {
 	padding:14px;
 	border:1px solid #383636;
 	border-radius:10px;
 	width:462px;
 	position:relative;
-	background:url(/images/social/bubble-texture.jpg) no-repeat bottom center #fff;
+	background:url(/images/social/social-sprite.png) no-repeat 0px 0px #fff;
 	}
-	
+
 #social .left .bubble {
 	left:110px;
 	}
@@ -89,17 +100,18 @@
 .user-message .bubble {
 	left:150px;
 	}
-	
+
 #chat-hint {
 	width:218px;
 	height:98px;
 	opacity:0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	position:absolute;
 	bottom:0px;
 	left:266px;
 	text-indent:-9999px;
 	display:block;
-	background:url(/images/social/chat-hint.gif) no-repeat;
+	background:url(/images/social/social-sprite.png) no-repeat -490px 0px #5E5E5E;
 	transition: all .5s ease-in-out;
 	-webkit-transition: all .5s ease-in-out;
 	-moz-transition: all .5s ease-in-out;
@@ -109,6 +121,7 @@
 #chat-hint.showHint {
   bottom:19px;
   opacity:1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
 #the-chat {
@@ -171,9 +184,9 @@
 	position:absolute;
 	bottom:0;
 	}
-	
+
 #social-screen form input {
-	background:url(/images/social/reply.gif) no-repeat top;
+	background:url(/images/social/social-sprite.png) no-repeat -1259px 0px;
 	width:73px;
 	height:26px;
 	text-indent:-9999px;
@@ -182,15 +195,15 @@
 	cursor:pointer;
 	float:right;
 	}
-	
+
 #social-screen form input:hover, #social-screen form input:focus {
-	background-position:0 -26px;
+	background-position:-1259px -26px;
 	}
-	
+
 #social-screen form input:active {
-	background-position:bottom;
+	background-position:-1259px -52px;
 	}
-	
+
 #disclaimer {
 	opacity:0;
 	z-index:0;
