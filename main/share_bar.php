@@ -1,5 +1,5 @@
 <?php
-include_once("helpers.php");
+include_once(dirname(__FILE__) . "/../helpers.php");
 $share_url = root_url() . "/#" . $scene;
 ?>
 <div id="share-<?php echo $scene; ?>" class="share">

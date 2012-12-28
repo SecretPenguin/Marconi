@@ -1,22 +1,16 @@
 <?php
-include(dirname(__FILE__) . "/../helpers.php");
+include_once(dirname(__FILE__) . "/../helpers.php");
 
-if (isset($_GET["scene"])) {
-  $scenes = array("preface", $_GET["scene"]);
-} else {
-  $scenes = array("preface", "flexible", "mobile", "cogs", "social", "walking", "enroll");
-}
+$scenes = array("preface", "flexible", "mobile", "cogs", "social", "walking", "enroll");
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <?php if (is_dev_mode()): ?>
-  <link rel="stylesheet" href="/css/vendor/socialcount.css" />
-    <link rel="stylesheet" href="/css/shared.css" />
-    <?php foreach ($scenes as $scene) { ?>
-      <link rel="stylesheet" href="/css/<?php echo $scene; ?>.css" />
-    <?php } ?>
+    <?php foreach(file("css_manifest.txt") as $css_src): ?>
+      <link rel="stylesheet" href="<?php echo chop($css_src); ?>"></link>
+    <?php endforeach; ?>
   <?php else: ?>
     <link rel="stylesheet" href="/css/<?php echo production_file('main', 'css') ?>" />
   <?php endif; ?>
@@ -45,27 +39,9 @@ if (isset($_GET["scene"])) {
   </div>
 
   <?php if (is_dev_mode()): ?>
-  <script src="/js/vendor/jquery.js"></script>
-  <script src="/js/vendor/jquery.cycle.all.js"></script>
-  <script src="/js/vendor/jquery.rotate.js"></script>
-  <script src="/js/vendor/jquery.backgroundpos.js"></script>
-  <script src="/js/vendor/jquery.zclip.js"></script>
-  <script src="/js/vendor/jquery.preloadcssimages.js"></script>
-  <script src="/js/vendor/underscore.js"></script>
-  <script src="/js/vendor/jquery.backstretch.js"></script>
-  <script src="/js/vendor/jquery.infieldlabel.js"></script>
-  <script src="/js/vendor/jquery.validate.js"></script>
-  <script src="/js/vendor/jquery.selectbox-0.2.js"></script>
-  <script src="/js/vendor/socialcount.js"></script>
-  <script src="/js/jquery.sprite.js"></script>
-  <script src="/js/m.js"></script>
-  <script src="/js/share_bar.js"></script>
-  <script src="/js/scene.js"></script>
-
-  <?php foreach ($scenes as $scene) { ?>
-  <script src="/js/<?php echo $scene; ?>.js"></script>
-  <?php } ?>
-
+    <?php foreach(file("js_manifest.txt") as $js_src): ?>
+      <script src="<?php echo chop($js_src); ?>"></script>
+    <?php endforeach; ?>
   <?php else: ?>
   <script src="/js/<?php echo production_file('main', 'js') ?>"></script>
   <?php endif; ?>

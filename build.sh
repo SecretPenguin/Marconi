@@ -3,7 +3,8 @@ set -e
 
 function main() {
   process_site "main" $1
-  # process_site "mobile" "m.$1"
+  clean_up
+  process_site "mobile" "m.$1"
   clean_up
 }
 
@@ -32,15 +33,19 @@ function clean_up() {
 }
 
 function process_js() {
-  copy_extras
   combine_js
   minify_js
   checksum_js
 }
 
 function copy_extras() {
-  cp $src/js/vendor/ZeroClipboard.swf $dst/js/vendor/
-  cp -r $src/fonts $dst/fonts
+  if [ -f $src/js/vendor/ZeroClipboard.swf ]; then
+    cp $src/js/vendor/ZeroClipboard.swf $dst/js/vendor/
+  fi
+
+  if [ -f $src/fonts ]; then
+    cp -r $src/fonts $dst/fonts
+  fi
 }
 
 function combine_js() {
