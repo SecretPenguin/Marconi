@@ -22,8 +22,8 @@ function root_url() {
   return "http://" . server_name();
 }
 
-function production_file($type) {
-  $files = glob("build/$type/*.$type");
+function production_file($site, $type) {
+  $files = glob("build/$site/$type/*.$type");
   return basename($files[0]);
 }
 ?>

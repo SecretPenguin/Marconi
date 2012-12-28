@@ -2,17 +2,29 @@
 set -e
 
 function main() {
-  prepare
-  process_js
-  process_css
-  process_images
-  process_index $1
+  process_site "main" $1
+  # process_site "mobile" "m.$1"
   clean_up
 }
 
+function process_site() {
+  src=$1
+  dst=build/$src
+  domain=$2
+
+  echo "processing $src site as $domain..."
+
+  prepare
+  copy_extras
+  process_js
+  process_css
+  process_images
+  process_index $domain
+}
+
 function prepare() {
-  rm -rf build
-  mkdir -p build/js/vendor build/css build/images
+  rm -rf $dst
+  mkdir -p $dst/js/vendor $dst/css $dst/images
 }
 
 function clean_up() {
@@ -27,14 +39,14 @@ function process_js() {
 }
 
 function copy_extras() {
-  cp js/vendor/ZeroClipboard.swf build/js/vendor/
-  cp -r fonts build/fonts
+  cp $src/js/vendor/ZeroClipboard.swf $dst/js/vendor/
+  cp -r $src/fonts $dst/fonts
 }
 
 function combine_js() {
   echo "combining js..."
-  for file in `cat js_manifest.txt`; do
-    echo_sans_bom ./$file >> combined.js
+  for file in `cat $src/js_manifest.txt`; do
+    echo_sans_bom ./$src/$file >> combined.js
   done
 }
 
@@ -47,7 +59,7 @@ function minify_js() {
 function checksum_js() {
   echo "checksumming js..."
   checksum=`md5 -q minified.js`
-  cp minified.js build/js/all-$checksum.js
+  cp minified.js $dst/js/all-$checksum.js
 }
 
 function echo_sans_bom() {
@@ -62,8 +74,8 @@ function process_css() {
 
 function combine_css() {
   echo "combining css..."
-  for file in `cat css_manifest.txt`; do
-    echo_sans_bom ./$file >> combined.css
+  for file in `cat $src/css_manifest.txt`; do
+    echo_sans_bom ./$src/$file >> combined.css
   done
 }
 
@@ -83,7 +95,7 @@ function minify_css() {
 function checksum_css() {
   echo "checksumming css..."
   checksum=`md5 -q combined.css`
-  cp minified.css build/css/all-$checksum.css
+  cp minified.css $dst/css/all-$checksum.css
 }
 
 function process_images() {
@@ -92,16 +104,18 @@ function process_images() {
 
 function copy_images() {
   echo "copying images..."
-  cp -r images build/
+  cp -r $src/images $dst/
 }
 
 function process_index() {
   echo "processing index..."
-  domain=marconi.dev
-  if [ -n "$1" ]; then domain=$1; fi
   export MARCONI_PRODUCTION=true
-  export MARCONI_SERVER_NAME=$domain
-  php index.php > build/index.html
+  export MARCONI_SERVER_NAME=$1
+  php $src/index.php > $dst/index.html
 }
 
-main $*
+domain=marconi.dev
+
+if [ -n "$1" ]; then domain=$1; fi
+
+main $domain

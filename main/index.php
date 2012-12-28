@@ -1,5 +1,5 @@
 <?php
-include("helpers.php");
+include(dirname(__FILE__) . "/../helpers.php");
 
 if (isset($_GET["scene"])) {
   $scenes = array("preface", $_GET["scene"]);
@@ -18,7 +18,7 @@ if (isset($_GET["scene"])) {
       <link rel="stylesheet" href="/css/<?php echo $scene; ?>.css" />
     <?php } ?>
   <?php else: ?>
-    <link rel="stylesheet" href="/css/<?php echo production_file('css') ?>" />
+    <link rel="stylesheet" href="/css/<?php echo production_file('main', 'css') ?>" />
   <?php endif; ?>
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -67,7 +67,7 @@ if (isset($_GET["scene"])) {
   <?php } ?>
 
   <?php else: ?>
-  <script src="/js/<?php echo production_file('js') ?>"></script>
+  <script src="/js/<?php echo production_file('main', 'js') ?>"></script>
   <?php endif; ?>
 </body>
 </html>
