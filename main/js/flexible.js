@@ -138,7 +138,7 @@
         .show()
         .spriteIn();
 
-    $activeQuips.stop().delay('1500').eq(activeMonth).fadeIn();
+    $activeQuips.stop().delay('1400').eq(activeMonth).fadeIn();
   };
 
   flexible.displayNormalTimeline = function() {
