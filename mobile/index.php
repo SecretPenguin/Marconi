@@ -85,12 +85,10 @@
 		  <label for="Zip" class="infield">Zip Code</label>
 		  <input type="text" name="n5" id="Zip" class="required" />
 		</p>
-		<p class="select">
-		  <select class="selectOptions" name="">
-		  	<option value="Select Degree">Select Degree</option>
-		    <option value="Bachelor of Business Administration">Bachelor of Business Admin</option>
-		  </select>
-		</p>
+		<select class="selectOptions" name="">
+		  <option value="Select Degree">Select Degree</option>
+		  <option value="Bachelor of Business Administration">Bachelor of Business Admin</option>
+		</select>
 		<input class="submit" type="submit" value="Submit" />
 		</form>
         <div id="form-bot"></div>

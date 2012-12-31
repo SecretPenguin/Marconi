@@ -1,1 +1,4 @@
+/js/vendor/jquery.js
 /js/mobile.js
+/js/vendor/jquery.infieldlabel.js
+/js/vendor/jquery.validate.js
