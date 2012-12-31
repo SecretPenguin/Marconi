@@ -166,7 +166,7 @@
 #forms .submit {
 	width:94px;
 	height:33px;
-	background:url(/images/enroll/submit.png) no-repeat 0px 0px;
+	background:url(/images/enroll/enroll-sprite.png) no-repeat 0px 0px;
 	text-indent:-9999px;
 	line-height:0;
 	display:block;
@@ -177,11 +177,11 @@
 }
 
 #forms .submit:hover, #forms .submit:focus {
-	background-position:0 -33px;
+	background-position: 0 -33px;
 }
 
 #forms .submit:active {
-	background-position:bottom;
+	background-position: 0 -66px;
 }
 
 #forms form p.select {
