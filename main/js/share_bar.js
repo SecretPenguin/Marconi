@@ -3,6 +3,7 @@
     this.$container = $container;
     this.$copyButton = this.$container.find("a.share-copy-button");
     this.scene = scene;
+    this.height = 103; // default - recalculated from container
   };
 
   ShareBar.prototype.init = function() {

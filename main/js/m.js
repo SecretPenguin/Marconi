@@ -168,6 +168,10 @@
       }
     },
 
+    shareBarHeight: function() {
+      return this.shareBars[0].height;
+    },
+
     // this is the optimal way of setting a jQuery object's class name
     setClassName: function($target, name) {
       $target[0].className = name;

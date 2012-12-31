@@ -5,6 +5,7 @@
     this.$affordable = $("#affordable");
     this.$slider = $("#enroll-slider");
     this.$callToAction = $("#call-to-action");
+    this.originalSceneLength = this.sceneLength;
 
     $("label").inFieldLabels();
 
@@ -47,6 +48,16 @@
 
     // most scenes just need their container resized to fit the scene
     this.$container.height(this.sceneLength);
+  };
+
+  enroll.onResize = function(event) {
+    var viewportHeight = M.screenHeight - M.shareBarHeight();
+
+    if (viewportHeight > this.originalSceneLength) {
+      this.sceneLength = viewportHeight;
+    } else {
+      this.sceneLength = this.originalSceneLength;
+    }
   };
 
   enroll.startSlider = function() {
