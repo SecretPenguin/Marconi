@@ -24,8 +24,18 @@
 	padding-bottom:10px;
 	margin-left:180px;
 	overflow:hidden;
-	background:url(/images/enroll/arrow.png) no-repeat center bottom;
 	margin-bottom:18px;
+}
+
+#enroll-slider:before {
+	content: "";
+	position: absolute;
+	width: 15px;
+	height: 10px;
+	bottom: 0;
+	left: 50%;
+	margin-left: -7px;
+	background: url(/images/enroll/enroll-sprite.png) no-repeat 0px -99px;
 }
 
 #enroll-slider p {
@@ -37,19 +47,19 @@
 }
 
 #enroll-tagline-1 {
-	background:url(/images/enroll/enroll-taglines.png) 0px 0px no-repeat;
+	background:url(/images/enroll/enroll-sprite.png) -94px 0px no-repeat;
 }
 
 #enroll-tagline-2 {
-	background:url(/images/enroll/enroll-taglines.png) 0px -97px no-repeat;
+	background:url(/images/enroll/enroll-sprite.png) -494px 0px no-repeat;
 }
 
 #enroll-tagline-3 {
-	background:url(/images/enroll/enroll-taglines.png) 0px -194px no-repeat;
+	background:url(/images/enroll/enroll-sprite.png) -894px -0px no-repeat;
 }
 
 #enroll-tagline-4 {
-	background:url(/images/enroll/enroll-taglines.png) 0px -291px no-repeat;
+	background:url(/images/enroll/enroll-sprite.png) -1294px 0px no-repeat;
 }
 
 #request-info, #show-interest {
@@ -58,7 +68,7 @@
 	margin-bottom:35px;
 	float:left;
 	margin-left:17px;
-	background:url(/images/enroll/form-bg.png) repeat-y;
+	background:url(/images/enroll/enroll-bg-sprite.png) 0px 0px repeat-y;
 }
 
 #request-info {
@@ -87,12 +97,12 @@
 }
 
 .form-top {
-	background:url(/images/enroll/form-bg-top.png) no-repeat;
+	background: url(/images/enroll/enroll-sprite.png) -221px -97px no-repeat;
 	top:0;
 }
 
 .form-bot {
-	background:url(/images/enroll/form-bg-bot.png) no-repeat;
+	background: url(/images/enroll/enroll-sprite.png) -427px -103px no-repeat;
 	bottom:0;
 }
 
@@ -109,13 +119,32 @@
 
 #request-info .left {
 	padding-top:82px;
-	background:url(/images/enroll/more-info.png) no-repeat center 25px;
+}
+
+#request-info .left:before {
+	content: "";
+	position: absolute;
+	width: 185px;
+	height: 50px;
+	top: 25px;
+	left: 30px;
+	background: url(/images/enroll/enroll-sprite.png) no-repeat -1865px -50px;
 }
 
 #show-interest .left {
 	height:100px;
-	background:url(/images/enroll/other-degrees.png) no-repeat center 19px;
 }
+
+#show-interest .left:before {
+	content: "";
+	position: absolute;
+	width: 169px;
+	height: 72px;
+	top: 19px;
+	left: 37px;
+	background: url(/images/enroll/enroll-sprite.png) no-repeat -1694px 0px;
+}
+
 
 #forms form {
 	position:relative;
@@ -137,7 +166,7 @@
 #forms .submit {
 	width:94px;
 	height:33px;
-	background:url(/images/enroll/submit.png) no-repeat top;
+	background:url(/images/enroll/submit.png) no-repeat 0px 0px;
 	text-indent:-9999px;
 	line-height:0;
 	display:block;
@@ -208,7 +237,7 @@
 	line-height:33px;
 	padding:0;
 	text-indent:11px;
-	background:url(/images/enroll/selectbox.png) no-repeat;
+	background:url(/images/enroll/enroll-sprite.png) no-repeat -2050px -42px;
 }
 .sbHolder a {
 	color:#575757;
@@ -248,7 +277,7 @@
 	top: 0;
 	width: 29px;
 	height:33px;
-	background:url(/images/enroll/toggle.png) no-repeat!important;
+	background:url(/images/enroll/enroll-sprite.png) no-repeat -1694px -72px !important;
 	z-index:100;
 }
 .sbHolderDisabled{
@@ -320,7 +349,7 @@
 	font-size:12px;
 	color:#5d5a5a;
 	line-height:15px;
-	background:url(/images/enroll/sidebar-bg.png) repeat-y;
+	background:url(/images/enroll/enroll-bg-sprite.png) -686px 0px repeat-y;
 	float:left;
 	position:relative;
 	font-style:italic;
@@ -335,12 +364,12 @@
 }
 
 #sidebar-top {
-	background:url(/images/enroll/sidebar-top.png) no-repeat;
+	background:url(/images/enroll/enroll-sprite.png) no-repeat -221px -103px;
 	top:0;
 }
 
 #sidebar-bot {
-	background:url(/images/enroll/sidebar-bot.png) no-repeat;
+	background:url(/images/enroll/enroll-sprite.png) no-repeat -15px -99px;
 	bottom:0;
 }
 
@@ -351,7 +380,7 @@
 	margin-bottom:16px;
 	text-indent:-9999px;
 	display:block;
-	background:url(/images/enroll/alt-logo.png) no-repeat;
+	background: url(/images/enroll/enroll-sprite.png) no-repeat -1863px 0px;
 }
 
 #sidebar p {
@@ -377,7 +406,18 @@
 
 #connect {
 	padding-top:100px;
-	background:url(/images/enroll/connect.png) no-repeat center 50px;
+	position: relative;
+}
+
+#connect:before {
+	content: "";
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	margin-left: -85px;
+	width: 169px;
+	height: 42px;
+	background: url(/images/enroll/enroll-sprite.png) no-repeat -2029px 0px;
 }
 
 #bu-fb, #bu-twitter {
@@ -394,11 +434,27 @@
 }
 
 #bu-fb {
-	background:url(/images/enroll/fb.png) no-repeat left center;
 	color:#653c79;
 }
 
+#bu-fb:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 19px;
+	height: 20px;
+	background: url(/images/enroll/enroll-sprite.png) no-repeat -1723px -72px;
+}
+
 #bu-twitter {
-	background:url(/images/enroll/twitter.png) no-repeat left center;
 	color:#653c79;
+}
+
+#bu-twitter:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 22px;
+	height: 18px;
+	background: url(/images/enroll/enroll-sprite.png) no-repeat -1742px -72px;
 }

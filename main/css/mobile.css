@@ -20,7 +20,7 @@
   margin-left:-175px;
   width:349px;
   height:162px;
-  background:url(/images/mobile/anytime.png) no-repeat;
+  background:url(/images/mobile/mobile-sprite.png) no-repeat -2329px 0px;
   text-indent:-9999px;
   display:block;
 }
@@ -45,20 +45,20 @@
 #phone {
   width:269px;
   left:-135px;
-  background: url(/images/mobile/devices.png) no-repeat 0px 0px;
+  background: url(/images/mobile/mobile-sprite.png) no-repeat -282px 0px;
 }
 
 #tablet {
   width:789px;
   left:-395px;
-  background: url(/images/mobile/devices.png) no-repeat -1258px 0px;
+  background: url(/images/mobile/mobile-sprite.png) no-repeat -551px 0px;
   top:231px;
 }
 
 #desktop {
   width:989px;
   left:-495px;
-  background: url(/images/mobile/devices.png) no-repeat -269px 0px;
+  background: url(/images/mobile/mobile-sprite.png) no-repeat -1340px 0px;
   top:231px;
 }
 
@@ -85,7 +85,7 @@
   bottom:0;
   text-indent:-9999px;
   float:left;
-  background:url(/images/mobile/mobileLinks.gif) no-repeat;
+  background:url(/images/mobile/mobile-sprite.png) no-repeat 0px 0px;
 }
 
 #switchboard #showPhone {

@@ -43,7 +43,7 @@ function copy_extras() {
     cp $src/js/vendor/ZeroClipboard.swf $dst/js/vendor/
   fi
 
-  if [ -f $src/fonts ]; then
+  if [ -e $src/fonts ]; then
     cp -r $src/fonts $dst/fonts
   fi
 }
