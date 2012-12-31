@@ -35,7 +35,8 @@ $scenes = array("preface", "flexible", "mobile", "cogs", "social", "walking", "e
   }
   ?>
   <div id="warning">
-    Warn user about viewport width and offer a bear hug or alternate version.
+    <div id="bearHug">Please make your browser this big. }----(o_o)----{</div>
+    <a href="#" title="View Alternate Version of Site">or view the alternate version &raquo;</a>
   </div>
 
   <?php if (is_dev_mode()): ?>

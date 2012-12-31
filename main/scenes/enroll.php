@@ -17,7 +17,7 @@
         <div class="form-top"></div>
         <div class="form-bot"></div>
         <div class="left">
-          <p><em>We'll be in contact with you soon. <br/>Thanks for your interest in Bellevue University's "Marconi" program.</em></p>
+          <p><em>We'll be in contact with you soon. <br/>Thanks for your interest in Bellevue University's Flexxive&#8480; Learning BBA.</em></p>
         </div>
         <div class="right">
           <form name="" method="get" action="" id="requestForm">

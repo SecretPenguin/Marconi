@@ -60,12 +60,62 @@
   </div>
   <div id="enroll">
   	<div class="center">
-  	
+  	  <div id="get-ready">Get Ready for a New Way To Learn</div>
+  	  <div id="request-info">
+        <div id="form-top"></div>
+		<p><em>We'll be in contact with you soon. <br/>Thanks for your interest in Bellevue University's Flexxive&#8480; Learning BBA.</em></p>
+		<form name="" method="get" action="" id="requestForm">
+		<p>
+		  <label for="FirstName" class="infield">First Name</label>
+		  <input type="text" name="n1" id="FirstName" class="required" />
+		</p>
+		 <p>
+		  <label for="LastName" class="infield">Last Name</label>
+		  <input type="text" name="n2" id="LastName" class="required" />
+		</p>
+		 <p>
+		  <label for="Email" class="infield">Email</label>
+		  <input type="text" name="n3" id="Email" class="required email" />
+		</p>
+		 <p>
+		  <label for="Phone" class="infield">Phone</label>
+		  <input type="text" name="n4" id="Phone" class="required" />
+		</p>
+		 <p>
+		  <label for="Zip" class="infield">Zip Code</label>
+		  <input type="text" name="n5" id="Zip" class="required" />
+		</p>
+		<p class="select">
+		  <select class="selectOptions" name="">
+		  	<option value="Select Degree">Select Degree</option>
+		    <option value="Bachelor of Business Administration">Bachelor of Business Admin</option>
+		  </select>
+		</p>
+		<input class="submit" type="submit" value="Submit" />
+		</form>
+        <div id="form-bot"></div>
+      </div>
+  	<div id="contact">
+        <div id="contact-top"></div>
+        <p class="text1">You can speak to one of our Admissions Advisors:</p>
+        <p class="text2"><span>MON - THUR</span>
+        8:00 a.m. to 8:00 p.m. (CST)</p>
+        <p class="text2"><span>FRI</span>
+        8:00 a.m. to 5:00 p.m. (CST)</p>
+        <p class="text3"><span>TOLL FREE:</span> 1-800-756-7920</p>
+        <p class="text3"><span>LOCAL:</span> (402) 293-2000</p>
+        <div id="connect">
+          <p>Connect and stay up to date with new info, programs, and innovative educational resources.</p>
+          <a id="bu-fb" href="http://www.facebook.com/BellevueUniversity" title="Bellevue University on Facebook">/BellevueUniversity</a>
+          <a id="bu-twitter" href="https://twitter.com/bu_innovate" title="Bellevue University on Twitter">@BU_Innovate</a>
+        </div>
+        <div id="contact-bot"></div>
+      </div>
   	</div>
   </div>
   <div id="share">
   	<div class="center">
-  	
+  	  Share Links FB + Twitter
   	</div>
   </div>
   <?php if (is_dev_mode()): ?>

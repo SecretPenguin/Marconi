@@ -99,6 +99,7 @@ article, aside, figure, footer, header, hgroup, menu, nav, section {
 body {
   /* just a placeholder */
   width: auto;
+	font-family: Georgia, Times, "Times New Roman", serif;
 }
 
 body > div {
@@ -127,7 +128,6 @@ body > div {
 }
 
 #flexible p {
-	font-family: Georgia, Times, "Times New Roman", serif;
 	color:#706e6e;
 	width:522px;
 	padding-left:64px;
@@ -170,6 +170,91 @@ body > div {
 
 #enroll, #enroll .center {
 	background:#fff;
+}
+
+#get-ready {
+	width:640px;
+	height:197px;
+	text-indent:-9999px;
+	display:block;
+	background:url(/images/get-ready.gif) no-repeat;
+}
+
+#form-top {
+	width:640px;
+	height:85px;
+	background:url(/images/form-top.jpg) no-repeat;
+}
+
+#request-info {
+	background:url(/images/form-bg.jpg) repeat-y;
+	margin-bottom:19px;
+}
+
+#form-bot {
+	width:640px;
+	height:6px;
+	background:url(/images/form-bot.jpg) no-repeat;
+}
+
+#request-info p {
+	color:#626161;
+	font-size:14px;
+	line-height:18px;
+	margin:0 0 14px;
+	text-align:center;
+}
+
+#contact-top {
+	width:640px;
+	height:134px;
+	background:url(/images/contact-top.jpg) no-repeat;
+}
+
+#contact {
+	background:url(/images/contact-bg.jpg) repeat-y;
+}
+
+#contact-bot {
+	width:640px;
+	height:4px;
+	background:url(/images/contact-bot.jpg) no-repeat;
+}
+
+#contact p {
+	color:#595858;
+	font-style:italic;
+	padding-left:47px;
+}
+
+#contact .text1 {
+	font-size:24px;
+	margin:12px 0 16px;
+}
+
+#contact .text2 {
+	font-size:20px;
+	margin:0 0 18px;
+}
+
+#contact .text2 span {
+	color:#653c79;
+}
+
+#contact .text3 {
+	font-size:20px;
+	margin:0 0 4px;
+}
+
+#contact .text3 span {
+	font-size:17px;
+	color:#653c79;
+}
+
+#connect {
+	margin:58px 0 20px;
+	padding-top:107px;
+	background:url(/images/connect.png) no-repeat top center;
 }
 
 #share, #share .center {
