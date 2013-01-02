@@ -74,7 +74,6 @@
 
   enroll.syncSlider = function(event, context) {
     this.$slider.cycle(context);
-    console.log("sync slider!", context);
   };
 
   this.M.register(enroll);

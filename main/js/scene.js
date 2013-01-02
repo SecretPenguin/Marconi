@@ -81,7 +81,7 @@
 
   Scene.prototype.afterScroll = function(event) {
     // console.log(this.distance);
-    $("#curposition").html(this.distance);
+    // $("#curposition").html(this.distance);
   };
 
   // this is not a great function name

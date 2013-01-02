@@ -61,14 +61,12 @@
 
   ShareBar.prototype.activateScene = function() {
     if (!this.scene.active) {
-      console.log("activating scene " + this.scene.containerId);
       this.scene.active = true;
     }
   };
 
   ShareBar.prototype.deactivateScene = function() {
     if (this.scene.active) {
-      console.log("deactivating scene " + this.scene.containerId);
       this.scene.unFixateScene();
       this.scene.active = false;
     }
