@@ -109,7 +109,7 @@ body {
 #corner {
 	width:110px;
 	height:101px;
-	background:url(/images/share/corner-banner.png) no-repeat;
+	background:url(/images/share/share-sprite.png) no-repeat -960px -206px;
 	position:fixed;
 	z-index:300;
 	top:0;
@@ -121,14 +121,23 @@ body {
 	height:11px;
 	text-indent:-9999px;
 	display:block;
-	background:url(/images/share/corner-arrow.gif) no-repeat 60px 4px;
 	position:absolute;
 	top:25px;
 	left:22px;
 }
 
-#learn-more:hover {
-	background-position:62px 4px;
+#learn-more:before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 60px;
+  width: 4px;
+  height: 6px;
+  background:url(/images/share/share-sprite.png) no-repeat -1057px -335px;
+}
+
+#learn-more:hover:before {
+	left: 62px;
 }
 
 #contact-us {
@@ -136,14 +145,14 @@ body {
 	height:11px;
 	text-indent:-9999px;
 	display:block;
-	background:url(/images/share/corner-contact.gif) no-repeat top;
+  background: url(/images/share/share-sprite.png) no-repeat -960px -335px;
 	position:absolute;
 	top:45px;
 	left:1px;
 }
 
 #contact-us:hover {
-	background-position:bottom;
+	background-position: -960px -346px;
 }
 
 .center {
@@ -201,24 +210,34 @@ body {
 }
 
 .left-bg {
-	width:480px;
+	width:109px;
 	height:103px;
 	margin-left:50%;
 	position:absolute;
 	top:0;
 	left:-480px;
 	z-index:10;
-	background:url(/images/share/share-section.gif) no-repeat left center;
+  background: url(/images/share/share-sprite.png) no-repeat -960px -103px;
 }
 
 .right-bg {
-	width:50%;
+	width:227px;
 	height:103px;
 	position:absolute;
 	left:50%;
 	top:0;
 	z-index:10;
-	background:url(/images/share/share-site.gif) no-repeat left 0 #545454;
+  background: url(/images/share/share-sprite.png) no-repeat -960px 0px;
+}
+
+.share:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 103px;
+  background-color: #545454;
 }
 
 .texture {
@@ -252,7 +271,7 @@ body {
 
 .share-site {
 	position:absolute;
-	width:360px;
+	width:50%;
 	height:103px;
 	margin-left:50%;
 	left:120px;
@@ -271,7 +290,7 @@ body {
 	width:165px;
 	height:28px;
 	border:none;
-	background:url(/images/share/copy-input.gif) no-repeat;
+	background:url(/images/share/share-sprite.png) no-repeat -960px -307px;
 	cursor:text;
 	line-height:26px;
 	font-size:11px;
@@ -287,7 +306,7 @@ body {
 .permalink a {
 	width:58px;
 	height:28px;
-	background:url(/images/share/copy.gif) no-repeat top;
+  background:url(/images/share/share-sprite.png) no-repeat -1069px -103px;
 	text-indent:-9999px;
 	display:block;
 	position:absolute;
@@ -297,11 +316,11 @@ body {
 }
 
 .permalink a.hover {
-	background-position:0 -28px;
+	background-position:-1069px -131px;
 }
 
 .permalink a.active {
-	background-position:0 -56px;
+	background-position:-1069px -159px;
 }
 
 .copy-confirm {
@@ -348,7 +367,7 @@ body {
 	height:360px;
 	text-indent:-9999px;
 	display:block;
-	background:url(/images/share/bear-hug.gif) no-repeat;
+  background: url(/images/share/share-sprite.png) no-repeat 0px 0px;
 	position:absolute;
 	left:50%;
 	margin-left:-480px;
