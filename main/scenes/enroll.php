@@ -1,6 +1,3 @@
-<div id="cursprite"></div>
-<div id="curposition"></div>
-
 <div id="enroll">
   <div id="enroll-screen">
 
