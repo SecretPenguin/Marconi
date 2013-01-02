@@ -1,6 +1,6 @@
 (function($, undefined) {
   var getBgY = function($el) {
-    if ($.browser.msie) {
+    if ($.browser.msie && $.browser.version < 9) {
       return $el.css("background-position-y") || "0";
     } else {
       return ($el.css("background-position") || " ").split(" ")[1];
