@@ -39,6 +39,8 @@ $scenes = array("preface", "flexible", "mobile", "cogs", "social", "walking", "e
     <a href="#" title="View Alternate Version of Site">or view the alternate version &raquo;</a>
   </div>
 
+  <div class="curtain">
+  </div>
   <?php if (is_dev_mode()): ?>
     <?php foreach(file("js_manifest.txt") as $js_src): ?>
       <script src="<?php echo chop($js_src); ?>"></script>

@@ -20,7 +20,7 @@ function process_site() {
   process_js
   process_css
   process_images
-  process_index $domain
+  process_index $src $domain
 }
 
 function prepare() {
@@ -115,8 +115,18 @@ function copy_images() {
 function process_index() {
   echo "processing index..."
   export MARCONI_PRODUCTION=true
-  export MARCONI_SERVER_NAME=$1
+  export MARCONI_SERVER_NAME=$2
+
   php $src/index.php > $dst/index.html
+
+  if [ $1 == "main" ]; then
+    scenes=`ls main/scenes/*.php | xargs -I {} basename {} .php`
+
+    for scene in $scenes; do
+      mkdir -p $dst/$scene
+      php $src/index.php > $dst/$scene/index.html
+    done
+  fi
 }
 
 domain=marconi.dev

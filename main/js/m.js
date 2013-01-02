@@ -49,6 +49,17 @@
       this.eachShareBar(function(shareBar) {
         shareBar.onLoad();
       });
+
+      var initialScene = location.pathname.replace(/\//g, "");
+
+      if (initialScene) {
+        setTimeout(function() {
+          document.getElementById(initialScene).scrollIntoView();
+          $("#curtain").hide();
+        }, 30);
+      } else {
+        $("#curtain").hide();
+      }
     },
 
     onResize: function(event) {

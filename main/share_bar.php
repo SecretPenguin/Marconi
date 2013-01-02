@@ -1,6 +1,6 @@
 <?php
 include_once(dirname(__FILE__) . "/../helpers.php");
-$share_url = root_url() . "/#" . $scene;
+$share_url = root_url() . "/" . $scene;
 ?>
 <div id="share-<?php echo $scene; ?>" class="share">
   <div class="left-bg"></div>
