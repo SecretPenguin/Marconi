@@ -262,7 +262,7 @@
 					'<a href="https://twitter.com/share" class="twitter-share-button"' + 
 						' data-url="' + encodeURI( url ) + '"' +
 						( shareText ? ' data-text="' + shareText + '"': '' ) +
-						' data-count="none" data-dnt="true">Tweet</a>',
+						' data-count="true" data-dnt="true">Tweet</a>',
 					'//platform.twitter.com/widgets.js' );
 
 				bind( $el.find( SocialCount.selectors.googleplus + ' a' ),
