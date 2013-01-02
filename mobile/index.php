@@ -16,7 +16,7 @@
 <body>
   <div id="warning">
   	<div class="center">
-  	  Display alert for user to view full site in a modern browser (if viewing from IE) or on a desktop computer (if viewing from mobile).
+  	  <p>To view the full, interactive site, <br/><span>use an updated browser on a desktop computer.</span></p>
   	</div>
   </div>
   <div id="preface">
