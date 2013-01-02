@@ -20,7 +20,7 @@ $share_url = root_url() . "/#" . $scene;
         </div>
         <ul class="socialcount" data-url="<?php echo $share_url; ?>">
           <li class="twitter">
-            <a href="https://twitter.com/intent/tweet?text=TODO need some copy here" title="Share on Twitter">
+            <a href="https://twitter.com/intent/tweet?text=<?php echo root_url(); ?>" title="Share on Twitter">
               <span class="count">Tweet</span>
             </a>
           </li>
@@ -37,7 +37,7 @@ $share_url = root_url() . "/#" . $scene;
           </li>
 
           <li class="twitter">
-            <a href="https://twitter.com/intent/tweet?text=TODO need some copy here" title="Share on Twitter">
+            <a href="https://twitter.com/intent/tweet?text=<?php echo root_url(); ?>" title="Share on Twitter">
               <span class="count">Tweet</span>
             </a>
           </li>

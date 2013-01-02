@@ -113,7 +113,19 @@
   </div>
   <div id="share">
   	<div class="center">
-  	  Share Links FB + Twitter
+      <ul class="socialcount" data-url="<?php echo main_root_url(); ?>">
+        <li class="facebook">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo main_root_url(); ?>" title="Share on Facebook">
+            <span class="count">Like</span>
+          </a>
+        </li>
+
+        <li class="twitter">
+          <a href="https://twitter.com/intent/tweet?text=<?php echo main_root_url(); ?>" title="Share on Twitter">
+            <span class="count">Tweet</span>
+          </a>
+        </li>
+      </ul>
   	</div>
   </div>
   <?php if (is_dev_mode()): ?>
