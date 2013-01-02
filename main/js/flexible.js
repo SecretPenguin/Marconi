@@ -40,6 +40,20 @@
     this.initMonthsArray();
     this.initMonthSelect();
 
+    // fade in/out hover state on end month buttons
+    $(".endToggle a").mouseenter(function(){
+      $(this).siblings(".toggleHover").stop().animate({"opacity": 1}, 250);
+    }).mouseleave(function(){
+      $(this).siblings(".toggleHover").stop().animate({"opacity": 0}, 250);
+    });
+
+    // fade flag on normal end date hover when early end date is selected
+    this.$normalMonth.mouseenter(function(){
+      $("#flag.faded").stop().animate({"opacity": 1}, 250);
+    }).mouseleave(function(){
+      $("#flag.faded").stop().animate({"opacity": .35}, 250);
+    });
+
     $(".selectOptions").selectbox();
   };
 
@@ -83,20 +97,6 @@
 
     // set breaks
     this.setBreaks();
-
-    // toggle months
-    $('.endToggle a').mouseenter(function(){
-      $(this).siblings('.toggleHover').stop().animate({'opacity': 1}, 250);
-    }).mouseleave(function(){
-      $(this).siblings('.toggleHover').stop().animate({'opacity': 0}, 250);
-    });
-
-    // fade flag on normal end date hover when early end date is selected
-    this.$normalMonth.mouseenter(function(){
-      $('#flag.faded').stop().animate({'opacity': 1}, 250);
-    }).mouseleave(function(){
-      $('#flag.faded').stop().animate({'opacity': .35}, 250);
-    });
 
     this.animateMonths();
   };
