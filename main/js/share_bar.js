@@ -27,7 +27,7 @@
         method: "feed",
         redirect_uri: $(this).data("url"),
         link: $(this).data("url"),
-        picture: "http://fbrell.com/f8.jpg",
+        picture: "http://flexxivelearning.bellevue.edu/images/share/fb-share.jpg",
         name: "Flexxive",
         caption: "Bellevue University",
         description: "Are you ready for a new way to learn?"
