@@ -378,3 +378,34 @@ form label {
 #share, #share .center {
 	background:#fff;
 }
+
+.socialcount {
+	width:200px;
+	margin:10px auto;
+}
+
+.socialcount > li {
+	width:89px;
+	height:26px;
+	background:url(/images/social-buttons.png) no-repeat;
+}
+
+.socialcount > li .count {
+	text-indent:-9999px;
+}
+
+.socialcount .facebook {
+	background-position:0 -26px;
+}
+
+.socialcount .twitter {
+	background-position:0 0;
+}
+
+.socialcount > li:hover {
+	background:none;
+}
+
+.socialcount .button {
+	bottom:-8px;
+}
