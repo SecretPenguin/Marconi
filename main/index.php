@@ -39,6 +39,8 @@ $scenes = array("preface", "flexible", "mobile", "cogs", "social", "walking", "e
     <a href="#" title="View Alternate Version of Site">or view the alternate version &raquo;</a>
   </div>
 
+  <div id="fb-root"></div>
+
   <?php if (is_dev_mode()): ?>
     <?php foreach(file("js_manifest.txt") as $js_src): ?>
       <script src="<?php echo chop($js_src); ?>"></script>
@@ -46,5 +48,7 @@ $scenes = array("preface", "flexible", "mobile", "cogs", "social", "walking", "e
   <?php else: ?>
   <script src="/js/<?php echo production_file('main', 'js') ?>"></script>
   <?php endif; ?>
+
+  <script src="http://connect.facebook.net/en_US/all.js"></script>
 </body>
 </html>

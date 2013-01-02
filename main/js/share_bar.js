@@ -18,6 +18,27 @@
         });
       }
     });
+
+    this.$container.find("a.facebook-link").click(function(event) {
+      event.preventDefault();
+
+      var $clicked = $(this);
+      var fbParams = {
+        method: "feed",
+        redirect_uri: $(this).data("url"),
+        link: $(this).data("url"),
+        picture: "http://fbrell.com/f8.jpg",
+        name: "Flexxive stuff",
+        caption: "Share this scene",
+        description: "Sharing a scene"
+      };
+
+      function callback(reponse) {
+        console.log(response);
+      }
+
+      FB.ui(fbParams, callback);
+    });
   };
 
   ShareBar.prototype.onLoad = function() {

@@ -15,13 +15,10 @@ $share_url = root_url() . "/#" . $scene;
         <p class="copy-confirm">Copied!</p>
       </div>
       <div class="social-container">
+        <div class="facebook-share">
+          <a href="javascript:void(0);" class="facebook-link" data-url="<?php echo $share_url; ?>">Like</a>
+        </div>
         <ul class="socialcount" data-url="<?php echo $share_url; ?>">
-          <li class="facebook">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $share_url; ?>" title="Share on Facebook">
-              <span class="count">Like</span>
-            </a>
-          </li>
-
           <li class="twitter">
             <a href="https://twitter.com/intent/tweet?text=TODO need some copy here" title="Share on Twitter">
               <span class="count">Tweet</span>
