@@ -336,7 +336,7 @@ body {
 
 .social-container {
 	position:absolute;
-	top:37px;
+	top:40px;
 	width:212px;
 }
 
@@ -346,6 +346,44 @@ body {
 
 .share-site .social-container {
 	left:131px;
+}
+
+.socialcount > li, .facebook-share a {
+	width:89px;
+	height:26px;
+	background:url(/images/share/social-buttons.png) no-repeat;
+}
+
+.socialcount > li .count {
+	text-indent:-9999px;
+}
+
+.socialcount .facebook {
+	background-position:0 -26px;
+}
+
+.socialcount .twitter {
+	background-position:0 0;
+}
+
+.socialcount > li:hover {
+	background:none;
+}
+
+.facebook-share a {
+	text-indent:-9999px;
+	display:block;
+	margin-right:4px;
+	float:left;
+	background-position:0 -52px;
+}
+
+.facebook-share a:hover {
+	background-position:bottom;
+}
+
+.socialcount .button {
+	bottom:-8px;
 }
 
 /* Overlay for site width warning */

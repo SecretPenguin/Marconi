@@ -15,7 +15,7 @@
     startingSlide: Math.floor(Math.random()*4),
 
     init: function() {
-      FB.init({appId: "300137136773338", status: true, cookie: true});
+      FB.init({appId: "372149322880287", status: true, cookie: true});
       $.preloadCssImages();
 
       this.eachScene(function(scene) {

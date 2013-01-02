@@ -19,7 +19,7 @@
 		</div>
 		<div id="scrollDown">Scroll Down</div>
 		<div id="logo">
-			<a href="#" title="">Bellevue University</a>
+			<a href="http://www.bellevue.edu/" title="">Bellevue University</a>
 		</div>
 		<div id="introduces">Introduces</div>
 		<h1>Flexxive - The New Learning Experience</h1>

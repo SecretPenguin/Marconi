@@ -25,7 +25,7 @@ $scenes = array("preface", "flexible", "mobile", "cogs", "social", "walking", "e
 </head>
 <body>
   <div id="corner">
-  	<a id="learn-more" href="#" title="Learn More">Learn More</a>
+  	<a id="learn-more" href="http://www.bellevue.edu/degrees/undergraduate/bba/" title="Learn More">Learn More</a>
   	<a id="contact-us" href="#enroll" title="Contact Us">Contact Us</a>
   </div>
   <?php
@@ -36,7 +36,7 @@ $scenes = array("preface", "flexible", "mobile", "cogs", "social", "walking", "e
   ?>
   <div id="warning">
     <div id="bearHug">Please make your browser this big. }----(o_o)----{</div>
-    <a href="#" title="View Alternate Version of Site">or view the alternate version &raquo;</a>
+    <a href="LINK MOBILE SITE" title="View Alternate Version of Site">or view the alternate version &raquo;</a>
   </div>
 
   <div id="fb-root"></div>

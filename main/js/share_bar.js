@@ -28,9 +28,9 @@
         redirect_uri: $(this).data("url"),
         link: $(this).data("url"),
         picture: "http://fbrell.com/f8.jpg",
-        name: "Flexxive stuff",
-        caption: "Share this scene",
-        description: "Sharing a scene"
+        name: "Flexxive",
+        caption: "Bellevue University",
+        description: "Are you ready for a new way to learn?"
       };
 
       function callback(reponse) {
