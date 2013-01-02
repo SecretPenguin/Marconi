@@ -45,9 +45,6 @@
 
   enroll.onScroll = function(event) {
     this.conditionallyFixateScene();
-
-    // most scenes just need their container resized to fit the scene
-    this.$container.height(this.sceneLength);
   };
 
   enroll.onResize = function(event) {
@@ -58,6 +55,8 @@
     } else {
       this.sceneLength = this.originalSceneLength;
     }
+
+     this.$container.height(this.sceneLength);
   };
 
   enroll.startSlider = function() {
