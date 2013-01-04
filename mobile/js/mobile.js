@@ -27,4 +27,14 @@ $(document).ready(function() {
         }
       }
     });
+
+    $("#requestForm").submit(function(event) {
+      event.preventDefault();
+
+      var $form = $(this);
+
+      $.post($form.attr("action"), $form.serialize(), function(response) {
+        $form.find(".thanks").show();
+      });
+    });
 });

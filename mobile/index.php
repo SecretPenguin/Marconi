@@ -15,85 +15,86 @@
 </head>
 <body>
   <div id="warning">
-  	<div class="center">
-  	  <p>To view the full, interactive site, <br/><span>use an updated browser on a desktop computer.</span></p>
-  	</div>
+    <div class="center">
+      <p>To view the full, interactive site, <br/><span>use an updated browser on a desktop computer.</span></p>
+    </div>
   </div>
   <div id="preface">
-  	<div class="center">
-  	  <img src="images/preface.jpg" alt="Are you ready for a new way to learn?" />
-  	</div>
+    <div class="center">
+      <img src="images/preface.jpg" alt="Are you ready for a new way to learn?" />
+    </div>
   </div>
   <div id="intro">
-  	<div class="center">
-  	  <img src="images/intro.jpg" alt="Flexxive - the new learning experience" />
-  	</div>
+    <div class="center">
+      <img src="images/intro.jpg" alt="Flexxive - the new learning experience" />
+    </div>
   </div>
   <div id="flexible">
-  	<div class="center">
-  	  <img src="images/flexible-title.jpg" alt="flexible degree schedule" />
-  	  <p class="text1"><em>It's about time.</em></p>
-  	  <p class="text2"><em>Start when you want. Breaks when you need.</em></p>
-  	  <p class="text3">With the Flexxive Learning BBA, you can also design your own timeline. There are no fixed due dates, you simply have to complete your courses within the six month session.</p>
-  	  <img src="images/flexible.jpg" alt="Flexible Timeline" />
-  	</div>
+    <div class="center">
+      <img src="images/flexible-title.jpg" alt="flexible degree schedule" />
+      <p class="text1"><em>It's about time.</em></p>
+      <p class="text2"><em>Start when you want. Breaks when you need.</em></p>
+      <p class="text3">With the Flexxive Learning BBA, you can also design your own timeline. There are no fixed due dates, you simply have to complete your courses within the six month session.</p>
+      <img src="images/flexible.jpg" alt="Flexible Timeline" />
+    </div>
   </div>
   <div id="mobile">
-  	<div class="center">
-  	  <img src="images/mobile.jpg" alt="Courses on the go: Anytime, Anywhere. Work on your degree from your phone, tablet, or desktop." />
-  	</div>
+    <div class="center">
+      <img src="images/mobile.jpg" alt="Courses on the go: Anytime, Anywhere. Work on your degree from your phone, tablet, or desktop." />
+    </div>
   </div>
   <div id="cogs">
-  	<div class="center">
-  	  <img src="images/cogs.jpg" alt="Courses and concepts that fit together from your 1st class to your last - it just makes sense." />
-  	</div>
+    <div class="center">
+      <img src="images/cogs.jpg" alt="Courses and concepts that fit together from your 1st class to your last - it just makes sense." />
+    </div>
   </div>
   <div id="social">
-  	<div class="center">
-  	  <img src="images/social.jpg" alt="A Shared Experience that goes Beyond Learning" />
-  	</div>
+    <div class="center">
+      <img src="images/social.jpg" alt="A Shared Experience that goes Beyond Learning" />
+    </div>
   </div>
   <div id="walking">
-  	<div class="center">
-  	  <img src="images/walking.jpg" alt="Develop The Skills that make you Indispensable" />
-  	</div>
+    <div class="center">
+      <img src="images/walking.jpg" alt="Develop The Skills that make you Indispensable" />
+    </div>
   </div>
   <div id="enroll">
-  	<div class="center">
-  	  <div id="get-ready">Get Ready for a New Way To Learn</div>
-  	  <div id="request-info">
+    <div class="center">
+      <div id="get-ready">Get Ready for a New Way To Learn</div>
+      <div id="request-info">
         <div id="form-top"></div>
-		<p><em>We'll be in contact with you soon. <br/>Thanks for your interest in Bellevue University's Flexxive&#8480; Learning BBA.</em></p>
-		<form name="" method="get" action="" id="requestForm">
-		<p>
-		  <label for="FirstName" class="infield">First Name</label>
-		  <input type="text" name="n1" id="FirstName" class="required" />
-		</p>
-		 <p>
-		  <label for="LastName" class="infield">Last Name</label>
-		  <input type="text" name="n2" id="LastName" class="required" />
-		</p>
-		 <p>
-		  <label for="Email" class="infield">Email</label>
-		  <input type="text" name="n3" id="Email" class="required email" />
-		</p>
-		 <p>
-		  <label for="Phone" class="infield">Phone</label>
-		  <input type="text" name="n4" id="Phone" class="required" />
-		</p>
-		 <p>
-		  <label for="Zip" class="infield">Zip Code</label>
-		  <input type="text" name="n5" id="Zip" class="required" />
-		</p>
-		<select class="selectOptions" name="">
-		  <option value="Select Degree">Select Degree</option>
-		  <option value="Bachelor of Business Administration">Bachelor of Business Admin</option>
-		</select>
-		<input class="submit" type="submit" value="Submit" />
-		</form>
+    <p><em>We'll be in contact with you soon. <br/>Thanks for your interest in Bellevue University's Flexxive&#8480; Learning BBA.</em></p>
+    <form action="/test_form.php" id="requestForm">
+    <p>
+      <label for="FirstName" class="infield">First Name</label>
+      <input type="text" name="n1" id="FirstName" class="required" />
+    </p>
+     <p>
+      <label for="LastName" class="infield">Last Name</label>
+      <input type="text" name="n2" id="LastName" class="required" />
+    </p>
+     <p>
+      <label for="Email" class="infield">Email</label>
+      <input type="text" name="n3" id="Email" class="required email" />
+    </p>
+     <p>
+      <label for="Phone" class="infield">Phone</label>
+      <input type="text" name="n4" id="Phone" class="required" />
+    </p>
+     <p>
+      <label for="Zip" class="infield">Zip Code</label>
+      <input type="text" name="n5" id="Zip" class="required" />
+    </p>
+    <select class="selectOptions" name="">
+      <option value="Select Degree">Select Degree</option>
+      <option value="Bachelor of Business Administration">Bachelor of Business Admin</option>
+    </select>
+    <input class="submit" type="submit" value="Submit" />
+    <p class="thanks">Thank you!! We have received your request and will be reaching out to you soon!</p>
+    </form>
         <div id="form-bot"></div>
       </div>
-  	<div id="contact">
+    <div id="contact">
         <div id="contact-top"></div>
         <p class="text1">You can speak to one of our Admissions Advisors:</p>
         <p class="text2"><span>MON - THUR</span>
@@ -109,10 +110,10 @@
         </div>
         <div id="contact-bot"></div>
       </div>
-  	</div>
+    </div>
   </div>
   <div id="share">
-  	<div class="center">
+    <div class="center">
       <ul class="socialcount" data-url="<?php echo main_root_url(); ?>">
         <li class="facebook">
           <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo main_root_url(); ?>" title="Share on Facebook">
@@ -126,7 +127,7 @@
           </a>
         </li>
       </ul>
-  	</div>
+    </div>
   </div>
   <?php if (is_dev_mode()): ?>
     <?php foreach(file("js_manifest.txt") as $js_src): ?>

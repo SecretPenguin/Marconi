@@ -163,6 +163,10 @@
 	padding:0;
 }
 
+#forms .thanks {
+	display: none;
+}
+
 #forms .submit {
 	width:94px;
 	height:33px;

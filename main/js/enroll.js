@@ -41,6 +41,16 @@
     this.startSlider();
 
     $(document).on("preface.switch", $.proxy(this.syncSlider, this));
+
+    $("#requestForm, #interestForm").submit(function(event) {
+      event.preventDefault();
+
+      var $form = $(this);
+
+      $.post($form.attr("action"), $form.serialize(), function(response) {
+        $form.find(".thanks").show();
+      });
+    });
   };
 
   enroll.onScroll = function(event) {

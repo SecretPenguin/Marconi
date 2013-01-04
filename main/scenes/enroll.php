@@ -17,7 +17,7 @@
           <p><em>We'll be in contact with you soon. <br/>Thanks for your interest in Bellevue University's Flexxive&#8480; Learning BBA.</em></p>
         </div>
         <div class="right">
-          <form name="" method="get" action="" id="requestForm">
+          <form name="" method="get" action="/test_form.php" id="requestForm">
             <p>
               <label for="FirstName" class="infield">First Name</label>
               <input type="text" name="n1" id="FirstName" class="required" />
@@ -44,6 +44,7 @@
                 <option value="Bachelor of Business Administration">Bachelor of Business Admin</option>
               </select>
             </p>
+            <p class="thanks">Thank you!! We have received your request and will be reaching out to you soon!</p>
             <input class="submit" type="submit" value="Submit" />
           </form>
         </div>
@@ -54,7 +55,7 @@
         <div class="left"></div>
         <div class="right">
           <p><em>More degrees may be added to this program over time. <br/>Tell us the degree you're seeking to receive info on these updates.</em></p>
-          <form name="" method="get" action="" id="interestForm">
+          <form action="/test_form.php" id="interestForm">
             <p>
               <label for="Email2" class="infield">Email</label>
               <input type="text" name="n6" id="Email2" class="required email" />
@@ -63,6 +64,7 @@
               <label for="Degree" class="infield">Degree or Major you're seeking</label>
               <input type="text" name="n7" id="Degree" class="required" />
             </p>
+            <p class="thanks">Thank you!! We have received your request and will be reaching out to you soon!</p>
             <input class="submit" type="submit" value="Submit" />
           </form>
         </div>
