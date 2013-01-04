@@ -9,31 +9,26 @@
 
     $("label").inFieldLabels();
 
-    /* Validation */
-    $("#requestForm").validate({
-      errorPlacement: function(error,element) {
-       return true;
-      },
-      rules: {
-        required: "required",
-        email: {
-          required: true,
-          email: true
-        }
-      }
-    });
+    $("#requestForm, #interestForm").each(function() {
+      $(this).validate({
+        errorPlacement: function(error,element) {
+         return true;
+        },
+        rules: {
+          required: "required",
+          email: {
+            required: true,
+            email: true
+          }
+        },
+        submitHandler: function(form) {
+          var $form = $(form);
 
-    $("#interestForm").validate({
-      errorPlacement: function(error,element) {
-        return true;
-      },
-      rules: {
-        required: "required",
-        email: {
-          required: true,
-          email: true
+          $.post($form.attr("action"), $form.serialize(), function(response) {
+            $form.find(".thanks").show();
+          });
         }
-      }
+      })
     });
 
     $(".selectOptions").selectbox();
@@ -41,16 +36,6 @@
     this.startSlider();
 
     $(document).on("preface.switch", $.proxy(this.syncSlider, this));
-
-    $("#requestForm, #interestForm").submit(function(event) {
-      event.preventDefault();
-
-      var $form = $(this);
-
-      $.post($form.attr("action"), $form.serialize(), function(response) {
-        $form.find(".thanks").show();
-      });
-    });
   };
 
   enroll.onScroll = function(event) {
