@@ -34,7 +34,7 @@
       };
 
       function callback(reponse) {
-        console.log(response);
+        // console.log(response);
       }
 
       FB.ui(fbParams, callback);
