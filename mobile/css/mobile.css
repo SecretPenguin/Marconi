@@ -379,6 +379,13 @@ form label {
 	text-align:left;
 }
 
+#request-info .thanks {
+	font-size:15px;
+	line-height:normal;
+	font-style:italic;
+	color:#8b5151;
+}
+
 #share, #share .center {
 	background:#fff;
 }

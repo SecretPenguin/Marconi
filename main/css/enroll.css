@@ -165,6 +165,10 @@
 
 #forms .thanks {
 	display: none;
+	color:#8b5151;
+	font-size:13px;
+	padding-left:12px;
+	width:250px;
 }
 
 #forms .submit {
